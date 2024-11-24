@@ -11,6 +11,7 @@
         "JAVA_DSA/02_LOOPS/02_BASICS",
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
-        "JAVA_DSA/01_BASICS"
+        "JAVA_DSA/01_BASICS",
+        "JAVA_DSA/05_SORTING/01_BUBBLE_SORT"
     ]
 }
