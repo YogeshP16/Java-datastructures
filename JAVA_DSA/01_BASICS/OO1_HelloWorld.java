@@ -1,12 +1,10 @@
-
-
 /*
 Declaring Variables in Java:
- 
+
+
 Basics:
 Syntax:
 Datatype variableName = value;
-
 
 Data Types:
 int → Integer values
@@ -16,13 +14,11 @@ boolean → true/false
 long → Larger integer
 short → Smaller integer
 
-
 Variable Rules:
 Cannot start with a number.
 No spaces or special characters except _.
 Cannot use keywords (e.g., int, class).
 Case-sensitive (var ≠ Var).
-
 
 How Data is Stored:
 Integers: Stored in binary. Negative values use 2’s complement.
