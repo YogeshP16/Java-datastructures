@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+
 public class OO1_ARRAYS {
 
     // ARRAYS --> Collection of same data types

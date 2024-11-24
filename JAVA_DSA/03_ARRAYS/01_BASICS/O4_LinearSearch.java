@@ -1,4 +1,5 @@
 
+
 public class O4_LinearSearch {
     public static void main(String[] args) {
         int target = 3;

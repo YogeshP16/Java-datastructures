@@ -1,5 +1,4 @@
 
-
 /*
  * Find the sum of all elements in an array
 Key Concept: Accumulate all elements of the array.

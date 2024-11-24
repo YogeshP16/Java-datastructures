@@ -4,7 +4,6 @@
 Loop through the matrix.
 For each row i, add the element at matrix[i][n-1-i] to the sum (where n is the size of the matrix). */
 
-//import java.util.Arrays;
 
 public class O4_Secondary_Diagonal {
 

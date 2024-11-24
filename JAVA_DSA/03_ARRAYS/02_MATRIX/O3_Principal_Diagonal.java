@@ -5,7 +5,6 @@
 Loop through the matrix.
 For each row i, add the element at matrix[i][i] to the sum */
 
-
 public class O3_Principal_Diagonal {
     public static void main(String[] args) {
         int[][] arr = {

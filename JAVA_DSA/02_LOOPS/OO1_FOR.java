@@ -1,5 +1,4 @@
 
-
 public class OO1_FOR {
     public static void main(String[] args) {
 

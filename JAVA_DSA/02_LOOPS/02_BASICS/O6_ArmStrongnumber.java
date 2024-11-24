@@ -1,5 +1,4 @@
 
-
 /*
 Check if a number is an Armstrong number
 An Armstrong number (or Narcissistic number) is a number that is equal to the sum of its digits each raised to the power of the number of digits.

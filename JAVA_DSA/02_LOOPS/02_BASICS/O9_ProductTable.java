@@ -1,5 +1,4 @@
 
-
 public class O9_ProductTable {
 
     public static void main(String[] args) {

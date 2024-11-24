@@ -1,5 +1,4 @@
 
-
 public class O8_SumOfTwoNos {
     public static void main(String[] args) {
 

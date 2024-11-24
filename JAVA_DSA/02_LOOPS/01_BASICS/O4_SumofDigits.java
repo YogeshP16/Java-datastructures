@@ -1,7 +1,7 @@
 
 
 /*
- * Find the sum of digits of a number
+Find the sum of digits of a number
 Key concept: Add all digits of a number.
 
 Approach:

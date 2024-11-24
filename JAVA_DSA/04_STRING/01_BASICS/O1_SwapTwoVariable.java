@@ -1,5 +1,4 @@
 
-
 public class O1_SwapTwoVariable {
     public static void main(String[] args) {
         int a=22, b=23;

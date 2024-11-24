@@ -1,4 +1,5 @@
 
+
 /*
  * Find the second largest number in an array
 Key Concept: Identify the largest, then find the next largest distinct number.

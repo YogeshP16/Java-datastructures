@@ -20,7 +20,6 @@ public class OO2_2D_ARRAYS {
         }
 
 
-
         // Print 2D array using Arrays.toString and for-each loop
         System.out.println("\nPrinting 2D array using Arrays.toString and for-each loop:");
         for (int[] row : arr) {                                 // Iterate through each row

@@ -1,7 +1,6 @@
 
-
 /* 
- * Convert decimal to binary
+Convert decimal to binary
 Key concept: Represent the decimal number in binary form.
 
 Approach:

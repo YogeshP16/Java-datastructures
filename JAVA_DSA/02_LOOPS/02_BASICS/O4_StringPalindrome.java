@@ -1,5 +1,4 @@
 
-
 /*Check if a string is a palindrome
 This is similar to checking a number for a palindrome but works on strings instead.
 

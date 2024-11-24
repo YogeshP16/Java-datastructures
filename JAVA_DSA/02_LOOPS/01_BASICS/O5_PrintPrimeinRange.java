@@ -1,7 +1,7 @@
 
 
 /*
- * Print all prime numbers in a range
+Print all prime numbers in a range
 Key concept: Check for prime numbers within a given range.
 
 Approach:

@@ -1,5 +1,4 @@
 
-
 /* prime number is a number greater than 1 that is divisible only by 1 and itself.
 
 Key concept: Iterate through all numbers from 2 to the square root of the number to check if it has any divisors.

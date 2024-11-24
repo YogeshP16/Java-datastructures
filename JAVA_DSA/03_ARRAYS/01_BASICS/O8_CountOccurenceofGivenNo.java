@@ -1,4 +1,5 @@
 
+
 /*
  * Count occurrences of a given element in an array
 Key Concept: Traverse the array and count matches with the given element.

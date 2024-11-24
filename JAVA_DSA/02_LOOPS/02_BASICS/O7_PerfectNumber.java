@@ -1,5 +1,4 @@
 
-
 /*Check if a number is a perfect number
 A perfect number is a positive integer that is equal to the sum of its proper divisors (divisors excluding the number itself).
 

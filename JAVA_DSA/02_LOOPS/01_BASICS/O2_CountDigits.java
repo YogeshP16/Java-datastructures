@@ -1,6 +1,6 @@
 
 /*
- * Count digits in a number
+Count digits in a number
 Key concept: Find the total number of digits in a number.
 
 Approach:

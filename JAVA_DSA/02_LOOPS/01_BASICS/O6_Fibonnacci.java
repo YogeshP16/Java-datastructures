@@ -1,7 +1,7 @@
 
 
 /*
- * Print Fibonacci series up to n terms
+Print Fibonacci series up to n terms
 Key concept: Generate a sequence where each number is the sum of the previous two numbers.
 
 Approach:

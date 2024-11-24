@@ -4,7 +4,8 @@ public class OO5_Operators {
 Operators in Java
 What are Operators? Operators are symbols used to perform operations on variables and values. They are fundamental in Java for manipulating data.
 
-Types of Operators
+Types of Operator
+
 Arithmetic Operators
 Used for basic math operations.
 

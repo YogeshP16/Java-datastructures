@@ -79,7 +79,6 @@ public class O3_CountVowelsConsonants {
         System.out.println("o: " + oCount);
         System.out.println("u: " + uCount);
     }
-
     public static void main(String[] args) {
         String str = "Educational";
 

@@ -18,7 +18,6 @@ Equality	               s.equals("Hello");	Checks content equality.
  */
 
 
-
 public class OO2_OPERATIONS {
     public static void main(String[] args) {
 

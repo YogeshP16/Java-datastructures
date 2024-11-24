@@ -1,6 +1,5 @@
 
 
-
 /*
  * Factorial of a number using loops
 Key concept: Multiply all integers from 1 to the given number.

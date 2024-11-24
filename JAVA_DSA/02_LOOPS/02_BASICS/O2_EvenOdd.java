@@ -1,5 +1,4 @@
 
-
 public class O2_EvenOdd {
     public static void main(String[] args) {
         int i = 2;

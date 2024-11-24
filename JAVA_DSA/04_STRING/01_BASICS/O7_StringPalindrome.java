@@ -19,7 +19,6 @@ public class O7_StringPalindrome {
 
 
 
-
     }
 
 }
