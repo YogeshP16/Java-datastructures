@@ -73,6 +73,10 @@ public class OO2_OPERATIONS {
         char[] chararray = {'h','e','l','l','o'};
         String str4 = new String(chararray);
         System.out.println(str4);                 // hello
+
+        System.out.println();
+
+    
         
         
 
