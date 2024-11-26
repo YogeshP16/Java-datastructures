@@ -1,18 +1,26 @@
 {
     "java.debug.settings.onBuildFailureProceed": true,
+  
+
+    
     "java.project.sourcePaths": [
+        "JAVA_DSA/06_SORTING",
         "JAVA_DSA/06_SEARCHING/02_BINARY_SEARCH",
         "JAVA_DSA/06_SEARCHING/01_LINEAR_SEARCH",
-        "JAVA_DSA/05_SORTING/01_BUBBLE_SORT",
+        "JAVA_DSA/05_SEARCHING/02_BINARY_SEARCH",
+        "JAVA_DSA/05_SEARCHING/01_LINEAR_SEARCH",
         "JAVA_DSA/04_STRING/01_BASICS",
         "JAVA_DSA/04_STRING",
         "JAVA_DSA/03_ARRAYS/02_MATRIX",
         "JAVA_DSA/03_ARRAYS/01_BASICS",
         "JAVA_DSA/03_ARRAYS",
+        "JAVA_DSA/02_LOOPS/03_PATTERNS",
         "JAVA_DSA/02_LOOPS/02_BASICS",
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "JAVA_DSA/05_SORTING"
+        "JAVA_DSA/05_SEARCHING/03_MODIFIED_BS"
+        
     ]
+    
 }
