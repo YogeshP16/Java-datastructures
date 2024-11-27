@@ -16,7 +16,7 @@ public class OO2_Linear_Search_2D {
 
         int target = 6;
         int[] res = two_D_linear(arr, target); // Store result in an int[] array
-        System.out.println("Target found at: [" + res[0] + ", " + res[1] + "]");
+        System.out.println("Target found at: ["+ "row: " + res[0] + ", " + "col: "+ res[1] + "]");
     }
 }
 

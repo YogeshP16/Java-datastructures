@@ -53,7 +53,7 @@ We don't need the entire array. By expanding the range dynamically, we only sear
 This approach is effective for scenarios where the array size is very large or theoretically infinite!
  */
 
- public class OO2_Infinite_Array_Search {
+ public class OO3_Infinite_Array_Search {
 
     public static int binarySearchInInfiniteArray(int[] arr, int target) {
         // Step 1: Find the range

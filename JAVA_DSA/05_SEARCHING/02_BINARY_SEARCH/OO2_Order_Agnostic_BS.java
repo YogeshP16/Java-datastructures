@@ -49,7 +49,7 @@ but sometimes we don’t know whether the array is sorted in **ascending** or **
 */
 
 
-public class OO1_Order_Agnostic_BS {
+public class OO2_Order_Agnostic_BS {
     static int order_Agnostic_BS(int[] arr, int  target){
 
         int start =0;
@@ -69,7 +69,7 @@ public class OO1_Order_Agnostic_BS {
                 }else if(target > arr[mid]){
                     start = mid+1;
                 }
-                
+
             } else {                              // sorted in descending
                 if(target > arr[mid]){
                     end = mid-1;

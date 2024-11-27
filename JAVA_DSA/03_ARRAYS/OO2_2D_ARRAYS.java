@@ -1,5 +1,23 @@
 import java.util.Arrays;
 
+
+/*
+Why Use **matrix[row].length** in Loops?
+
+Rectangular Matrix:
+If all rows have the same number of columns, 
+use -->  matrix[row].length will correctly handle the column iteration.
+
+Jagged Matrix:
+
+In a jagged matrix (non-rectangular), each row can have a different length. 
+Use --> matrix[row].length ensures that you don't go out of bounds for shorter rows.
+
+For 2D binary Search:
+
+--> use arr[0].length
+
+ */
 public class OO2_2D_ARRAYS {
     public static void main(String[] args) {
         
@@ -13,7 +31,7 @@ public class OO2_2D_ARRAYS {
         // Print 2D array elements using nested for loops
         System.out.println("Printing 2D array using nested for loops:");
         for (int i = 0; i < arr.length; i++) {                 // Iterate through rows
-            for (int j = 0; j < arr[i].length; j++) {          // Iterate through columns in each row
+            for (int j = 0; j < arr[i].length; j++) {          // Iterate through columns in each row --> jagged matrix
                 System.out.print(arr[i][j] + " ");             // Print element
             }
             System.out.println();                              // Line break after each row
