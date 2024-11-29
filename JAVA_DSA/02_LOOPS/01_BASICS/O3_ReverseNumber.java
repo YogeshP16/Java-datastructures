@@ -1,5 +1,3 @@
-
-
 /*
 Reverse a number
 Key concept: Reverse the digits of the number.
