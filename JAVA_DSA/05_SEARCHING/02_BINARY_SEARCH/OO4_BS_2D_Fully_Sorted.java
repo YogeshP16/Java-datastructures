@@ -71,7 +71,7 @@ public class OO4_BS_2D_Fully_Sorted {
                     end = mid-1;                       // left half
 
                 }else if (target > arr[row][col]){
-                start = mid+1;                         // right half
+                    start = mid+1;                         // right half
 
                 } else{
                     return true;                // if(target == arr[row][col])
