@@ -78,7 +78,7 @@
 
  import java.util.HashMap;
 
- public class OO1_HASHMAP {
+ public class OO3_HASHMAP {
      public static void main(String[] args) {
 
         // How numbers are converted into hash codes.
