@@ -2,7 +2,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class OO2_Set_Basics {
+public class OO2_Find_Duplicates {
     public static void main(String[] args) {
        int [] n1 = {1,22,3,44,5,6,6};
        
