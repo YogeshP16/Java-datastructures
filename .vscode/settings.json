@@ -4,8 +4,8 @@
 
     
     "java.project.sourcePaths": [
-        "JAVA_DSA/07_COLLECTIONS/02_HASHMAP",
         "JAVA_DSA/07_COLLECTIONS/01_BASICS",
+        "JAVA_DSA/07_COLLECTIONS",
         "JAVA_DSA/06_SORTING",
         "JAVA_DSA/05_SEARCHING/03_MODIFIED_BS",
         "JAVA_DSA/05_SEARCHING/02_BINARY_SEARCH",
@@ -20,7 +20,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "JAVA_DSA/07_COLLECTIONS"
+        "JAVA_DSA/08_RECURSION"
     ]
     
 }
