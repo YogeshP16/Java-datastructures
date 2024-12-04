@@ -1,4 +1,31 @@
 /*
+
+RECURSION
+--------
+Function calling itself, solve smaller subpart of same problem, useful to broke problems to sub problems
+
+two things to learn
+---------------------
+understand funcion calls
+base condition (stops infinite loop--> to avoid stack overflow  error)
+
+Internal working 
+----------------
+each function call added to stack
+when base condition met --> the stack rewind(it print output)
+
+Recursion tree
+----------------
+
+sum of n numbers --> n + sum(n-1)
+
+          sum(3)
+        /        \
+3 + sum(2)       return 0 (base condition)
+2 + sum(1)
+1 + sum(0)
+
+
 IBH Method: Hypothesis - Induction - Base Condition
 -----------------------------------------------------
 The IBH Method is a simple way to solve recursion problems step by step. 
@@ -42,12 +69,14 @@ It’s useful for problems like generating all subsets, combinations, or permuta
 
 
 When to Use Each Method
+-------------------------
 IBH Method:
 Use it when you don’t have explicit choices to make, but you can reduce the input size step by step. Examples:
 
 Printing numbers
 Calculating factorial
 Sum of digits
+
 Recursive Tree (IP/OP Method):
 Use it when you have clear decisions to make at each step. Examples:
 
