@@ -29,7 +29,7 @@ Thread-safe but slower due to synchronization overhead.
 
 Key Methods in the List Interface
 ----------------------------------
-Method	                        Description	Example
+Method	                        Description	                                           Example
 add(E e)	                    Appends an element to the list.	                       list.add("apple");
 add(int index, E element)	    Inserts an element at a specific index.	               list.add(1, "banana");
 get(int index)	                Retrieves the element at a specific index.	           String fruit = list.get(0);
