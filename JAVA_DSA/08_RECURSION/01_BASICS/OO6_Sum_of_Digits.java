@@ -4,7 +4,7 @@ public class OO6_Sum_of_Digits {
     }
     static int sumdigit(int n){
         if(n<=0) return 0;
-        return (n%10) + sumdigit(n/10);  // 10
+        return (n % 10) + sumdigit(n/10);  // 10
     }
 
     /* normal way from right to left extract
