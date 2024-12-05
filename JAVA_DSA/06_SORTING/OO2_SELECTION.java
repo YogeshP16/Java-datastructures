@@ -2,8 +2,10 @@
 ### Selection Sort Simplified  
 
 **What is Selection Sort?**  
-1. finds the minimum element in the unsorted part of the array
-2. moves it to the sorted portion (begining of the array).
+- take the smallest element (min in the array) and swap it with first element 
+- OR
+- take the largest  element (max in the array) and swap it with last element
+
 
 ---
 
@@ -51,9 +53,9 @@ public class OO2_SELECTION {
         for(int i=0;  i< n-1; i++){            // iterate 
 
             int min = i;                       // asumme first element as min
-            for(int j= i+1; j< n; j++){        // find small element
+            for(int j= i+1; j< n; j++){        // find smallest element in the array
 
-                if(arr[j] < arr[min]){
+                if(arr[j] < arr[min]){         // if found --> swap it with first element
                     min =j;
                 }
             }

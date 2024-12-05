@@ -1,0 +1,13 @@
+Cyclic sort --> if question --> array of integer contains range  of  {1, N} or {0,N} 
+                 ex : find missing numbers, 
+                 find duplicates, 
+                 find all duplicats, 
+                 find all numbers disappeared in the array, 
+                 set mismatch
+                 first missing postive 
+
+Binary search --> if array is sorted  then try for it 
+                ex : find target in sorted array
+
+Modified Binary Search --> 
+                ex : 
