@@ -1,11 +1,11 @@
 /*
  QUICK SORT
 -----------
-Partition the array around a pivot: 
+1. Partition the array around a pivot: 
     Rearrange elements such that all elements smaller than the pivot go to its left, 
     and all elements larger go to its right.
     
-Recursively apply the above steps to the subarrays on the left and right of the pivot.
+2. Recursively apply the above steps to the subarrays on the left and right of the pivot.
 
 Quick Sort Complexity:
 -------------------------

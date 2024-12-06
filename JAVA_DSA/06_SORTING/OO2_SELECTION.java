@@ -50,7 +50,7 @@ public class OO2_SELECTION {
     static void selection(int[] arr){
 
         int n = arr.length;
-        for(int i=0;  i< n-1; i++){            // iterate 
+        for(int i=0;  i< n; i++){            // iterate 
 
             int min = i;                       // asumme first element as min
             for(int j= i+1; j< n; j++){        // find smallest element in the array

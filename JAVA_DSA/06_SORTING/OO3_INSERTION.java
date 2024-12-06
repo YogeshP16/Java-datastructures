@@ -2,17 +2,15 @@
  ### Insertion Sort Simplified  
 
 **What is Insertion Sort?**  
-A sorting algorithm that builds the sorted array one element at a time by inserting each unsorted element into its correct position.
+---> always takes an element and place it in a correct position.
 
 ---
 
 **How It Works:**  
-1. Start with the first element (assume it's sorted).  
-2. Pick the next element.  
-3. Compare it with elements in the sorted portion (left side).  
-4. Shift larger elements to the right to make space.  
-5. Insert the current element into its correct position.  
-6. Repeat until the entire array is sorted.
+Loop through each element starting from index 1.
+Compare the current element with the previous one.
+Shift elements greater than the current element one position to the right.
+Insert the current element in its correct position
 
 ---
 
@@ -33,13 +31,31 @@ A sorting algorithm that builds the sorted array one element at a time by insert
 
 public class OO3_INSERTION {
     public static void main(String[] args) {
-        int [] arr = {11,45,67,3,8,90};
-        insertion(arr);
+        int [] arr = {5,4,3,2,1};
+        insertionSort(arr);
         for (int i : arr) {
             System.out.print(i + " ");
             
         }
         
+    }
+    static void insertionSort(int[] arr){
+        int n = arr.length;
+        for(int i=0; i< n; i++){
+            int j=i;
+            while (j>0 && arr[j-1] > arr[j]) {
+                int temp = arr[j-1];
+                arr[j-1] = arr[j];
+                arr[j] = temp;
+                j--;
+                
+            }
+
+
+        }
+
+
+
     }
     static void insertion(int[] arr){
         int n = arr.length;
