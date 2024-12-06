@@ -5,12 +5,33 @@ public class OO1_FOR {
         /*  
         for (int; condition; inc/dec){
         } */
-        
 
-        // Print 1 to 10
-        System.out.println("print 1 to 10");
+        int n = 5;
 
-        for (int i = 1; i<=10; i++){
+        // print 0 to 4
+        System.out.println("print 0 to 4");
+
+        for(int i=0; i < n; i++){
+            System.out.print(i + " ");
+
+        }
+        System.out.println();
+
+
+        // print 0 to 5
+        System.out.println("print 0 to 5");
+
+        for(int i=0; i <= n; i++){
+            System.out.print(i + " ");
+
+        }
+        System.out.println();
+
+
+        // Print 1 to 5
+        System.out.println("print 1 to 5");
+
+        for (int i = 1; i <= n; i++){
             System.out.print( i + " " );
         }
         System.out.println(" ");
@@ -67,8 +88,14 @@ public class OO1_FOR {
 }
 
 /* 
+print 0 to 4
+0 1 2 3 4
+
+print 0 to 5
+0 1 2 3 4 5
+
 print 1 to 10
-1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5
 
 print odd
 1 3 5 7 9
