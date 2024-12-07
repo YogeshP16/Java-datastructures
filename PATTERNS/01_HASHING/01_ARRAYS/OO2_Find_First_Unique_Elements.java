@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 
-public class OO1_Find_First_Unique_Elements {
+public class OO2_Find_First_Unique_Elements {
     public static void main(String[] args) {
         int[] arr = {23,23,23,5,23,6,6,6,6};
         System.err.println(findUnique(arr));
