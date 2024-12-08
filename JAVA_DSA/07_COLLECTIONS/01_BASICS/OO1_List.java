@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class OO1_List_basics {
+public class OO1_List {
     public static void main(String[] args) {
         List<Integer> l = Arrays.asList(1,1,12,2,2,3,3,3,5,5,6,67,7,8);
         int max = Collections.max(l);

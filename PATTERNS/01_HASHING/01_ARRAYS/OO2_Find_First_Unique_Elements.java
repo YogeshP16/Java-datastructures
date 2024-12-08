@@ -1,8 +1,11 @@
+/*
+ * find first unique element -->  23,23,23,5,23,6,6,6,6
+ * output ---> 5  --> value dont have any occurrence
+ */
+
+
 
 import java.util.HashMap;
-import java.util.Set;
-
-
 public class OO2_Find_First_Unique_Elements {
     public static void main(String[] args) {
         int[] arr = {23,23,23,5,23,6,6,6,6};
@@ -36,8 +39,8 @@ public class OO2_Find_First_Unique_Elements {
             count.put(i, count.getOrDefault(i, 0)+1);
         }
 
-        Set<Integer> keys =count.keySet();
-        for(Integer key : keys){
+
+        for(Integer key : count.keySet()){
             if(count.get(key)==1){
                 return key;
             }

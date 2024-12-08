@@ -94,6 +94,16 @@ public class OO1_STRING {
         System.out.println(sb);
 
 
+        // converting int to string
+        int num = 1233434;
+        String str = String.valueOf(num); // using valueOf() 
+        System.out.println(str);          // 1233434  --> string
+
+        // convert string to int
+        String ss = "123";
+        int i = Integer.valueOf(ss);
+        System.out.println(i);      // 123 --> Int
+
 
         // Both s1 and s2 pointing to same object in string literals
         

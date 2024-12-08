@@ -5,11 +5,15 @@ public class OO1_Count_Frequency {
     public static void main(String[] args) {
         int[] arr = {1,1,1,22,2,2,2,4,4,5,6,6,6,6,7};
 
-        String res = countDuplicates(arr);
-        System.out.println(res);
+        //String res = countDuplicates(arr);
+        //System.out.println(res);
         
-        Map<Integer, Integer> res1 =countFreq(arr);
-        System.out.println(res1);  
+        Map<Integer, Integer> result =countFreq(arr);
+        for (Integer key : result.keySet()) {
+            System.out.print(key + ":" + result.get(key) + " ");
+        }
+
+        
         
     }
 
@@ -53,10 +57,8 @@ public class OO1_Count_Frequency {
         for(Integer i : arr){
             count.put(i, count.getOrDefault(i, 0)+1);
         }
-       
         return count;
         
-
     }
 
 }

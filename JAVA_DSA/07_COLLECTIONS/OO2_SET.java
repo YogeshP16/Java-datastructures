@@ -83,8 +83,13 @@ public class OO2_SET {
         set1.add(67);
         set1.add(44);
 
-                                //  it print 34 one time only cuz it doesnt allow duplicates
+                                  //  it print 34 one time only cuz it doesnt allow duplicates
         System.out.println(set);  // [34, 35, 36, 37, 39, 12, 44] 
+
+        // traverse
+        for(int item : set){
+            System.out.print(item + " ");   // 34 35 36 37 39 12 44
+        }
 
         // remove element directly
         set.remove(44);
