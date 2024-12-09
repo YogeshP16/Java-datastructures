@@ -4,10 +4,10 @@ public class O1_SwapTwoVariable {
         int a=22, b=23;
 
         //using temp
-      /* int temp = a;
+        int temp = a;
         a=b;
         b=temp;
-        System.out.println("after swap : "+ a +" "+  b); */
+        System.out.println("after swap : "+ a +" "+  b); 
 
         //without temp
         a = a+b;

@@ -65,9 +65,9 @@ import java.util.Arrays;
 
 public class OO6_CYCLIC_SORT {
     public static void main(String[] args) {
-        int[] arr = {5,4,3,2,1};   // ------------> here range is {1 to N} --> arr[i]-1
+        int[] arr = {5,-4,3,2,-1,5,5,5};   // ------------> here range is {1 to N} --> arr[i]-1
         cyclic(arr);
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr));  // -> [-1, 2, 3, -4, 5, 5, 5, 5]
             
     }
     static void cyclic(int[] arr) {
@@ -79,7 +79,10 @@ public class OO6_CYCLIC_SORT {
             int correct_index = arr[i] - 1;
     
             // Check if the current element is not at its correct index
-            if (arr[i] != arr[correct_index]) {
+            // arr[i] > 0 --> check for valid positive numbers --> negatives are ignored
+            // arr[i] <= n --> Ensures that the current number is within the valid range [1, n].
+            // arr[i] != arr[correct_index]  --> skips duplicates
+            if (arr[i] > 0 && arr[i] <= n && arr[i] != arr[correct_index]) {
                 // If not, swap the current element with the element at its correct index
                 int temp = arr[i];
                 arr[i] = arr[correct_index];

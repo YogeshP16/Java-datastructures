@@ -6,11 +6,12 @@
 
 
 import java.util.HashMap;
-public class OO2_Find_First_Unique_Elements {
+public class OO2_FindFirstUniqueElements {
     public static void main(String[] args) {
         int[] arr = {23,23,23,5,23,6,6,6,6};
-        System.err.println(findUnique(arr));
-        System.out.println(find_Unique(arr,4));
+
+        System.out.println(findUnique(arr));        // 5
+        System.out.println(find_Unique(arr,4));   // 5
     }   
                 
     public static int find_Unique(int[]arr, int k){

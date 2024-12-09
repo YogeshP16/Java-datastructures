@@ -12,7 +12,7 @@ public class OO1_FOR {
         System.out.println("print 0 to 4");
 
         for(int i=0; i < n; i++){
-            System.out.print(i + " ");
+            System.out.print(i + " ");   // 0 1 2 3 4
 
         }
         System.out.println();
@@ -22,7 +22,7 @@ public class OO1_FOR {
         System.out.println("print 0 to 5");
 
         for(int i=0; i <= n; i++){
-            System.out.print(i + " ");
+            System.out.print(i + " ");   // 0 1 2 3 4 5
 
         }
         System.out.println();
@@ -32,7 +32,7 @@ public class OO1_FOR {
         System.out.println("print 1 to 5");
 
         for (int i = 1; i <= n; i++){
-            System.out.print( i + " " );
+            System.out.print( i + " " );  //  1 2 3 4 5
         }
         System.out.println(" ");
 

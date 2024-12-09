@@ -1,35 +1,42 @@
 /*
-Print all Distinct (Unique) Elements in given Array
-
+1. Print all Distinct (Unique) Elements in given Array
 Input: arr[] = [2, 2, 3, 3, 7, 5] 
 Output: [2, 3, 7, 5]
 Explanation: After removing the duplicates 2 and 3 we get 2 3 7 5.
+
+2. Print unique elements length in the array
+input: arr[] = [2, 2, 3, 2]
+Output: 2
+Explanation: Distinct elements size are {2, 3}
+
+3. Contains Duplicates or not
+input: arr[] = [2, 2, 3, 2]
+Output: true
+
  */
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-
-
-
-public class OO3_Remove_Duplicates {
+public class OO3_RemoveDuplicates {
     public static void main(String[] args) {
         int[] arr = {1,1,1,2,2,3,3,4,5,5,5,5};
 
+         // find unique elements length
+         int result = distinctLength(arr);    //  5   -> total five unique elements
+         System.out.println(result);
+
         // remove duplicates from the array
-        ArrayList<Integer> result = removeDuplicates(arr);    // [1, 2, 3, 4, 5]
-        ArrayList<Integer> result1 = removeDuplicates1(arr);  // [1, 2, 3, 4, 5]
+        ArrayList<Integer> res = removeDuplicates1(arr);  // [1, 2, 3, 4, 5]
+        System.out.println(res);
 
         // contains duplicates in the array
-        boolean res = containsDuplicates(arr);    // true
-        
-        // Print the result after the method call
-        System.out.println(result1);
-     
+        boolean res1 = containsDuplicates(arr);    // true
+        System.out.println(res1);
     }
 
     // brute force  --> tc , sc --> o(n), o(1)
-    static ArrayList<Integer> removeDuplicates(int[] arr){
+    static int distinctLength(int[] arr){
         ArrayList <Integer> list = new ArrayList<>();
         for(int i=0; i< arr.length; i++){
             int j;
@@ -39,10 +46,10 @@ public class OO3_Remove_Duplicates {
                 }
             }
             if(i==j){
-                list.add(arr[i]);
+                list.add(arr[i]);   // it will add to list --> [1, 2, 3, 4, 5]
             }
         }
-        return list;
+        return list.size();   // it will find the length of unique elements ---> 5 (total 5 unique elements)
 
     }
 
@@ -58,7 +65,7 @@ public class OO3_Remove_Duplicates {
                 list.add(arr[i]);
             }
         }
-        return list;
+        return list;  // it will return list --> [1, 2, 3, 4, 5]
 
     }
 

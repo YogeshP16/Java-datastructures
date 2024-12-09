@@ -1,6 +1,7 @@
 
 /*
- * Key concept: Count the frequency of each character in a given string by utilizing an array to map characters to their ASCII values.
+ * Key concept: Count the frequency of each character in a given string
+ *  by utilizing an array to map characters to their ASCII values.
 
 Approach:
 Initialize frequency array:
@@ -34,7 +35,7 @@ Output: h:1, e:2, l:2, o:4
 public class O2_FindFrequencyCharacter {
 
     public static void main(String[] args) {
-        String str = "heelloooo";
+        String str = "heelloooo////3333566***8";
         int[] freq = new int[256]; //ASCII --> COVERS A-Z, a-z, 1-0.....
 
         for(int i =0; i< str.length(); i++){

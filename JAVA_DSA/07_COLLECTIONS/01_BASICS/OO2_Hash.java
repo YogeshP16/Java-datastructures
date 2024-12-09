@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class OO2_Hash {
     public static void main(String[] args) {
@@ -33,8 +32,6 @@ public class OO2_Hash {
              */
         }
 
-    
-    
         map.remove(2);                         // remove B
         map.put(2, "newly updated");     // update
 
