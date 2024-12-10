@@ -87,8 +87,8 @@ public class OO1_LIST {
         l.add(77);
 
         // Adding elements at specific indices
-        l.add(0, 456);   // Adds 456 at the 0th index
-        l.add(4, 789);   // Adds 789 at the 4th index
+        l.add(0, 456);   
+        l.add(4, 789);  
 
         // Iterating through the list using a for-each loop
         System.out.print("List elements (for-each loop): ");
@@ -137,7 +137,6 @@ public class OO1_LIST {
         System.out.println();
 
 
-
         // Searching for elements in the list
         // Check if an element exists
         boolean exist = l.contains(45); // Checks if 45 exists in the list
@@ -146,5 +145,9 @@ public class OO1_LIST {
         // Find the index of an element
         int index = l.indexOf(4); // Finds the index of element 4 (returns -1 if not found)
         System.out.println("Index of element 4: " + index); // Output: -1
+
+
+       
+        
     }
 }
