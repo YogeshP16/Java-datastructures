@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class OO4_Check_Equal_or_Not {
+public class O04_Check_Equal_or_Not {
     public static void main(String[] args) {
         int[] arr1 = {5,5,5,3,2,1};
         int[] arr2 = {3,2,1,5,5,5};

@@ -52,7 +52,6 @@ public class O03_RemoveDuplicates {
         return list.size();   // it will find the length of unique elements ---> 5 (total 5 unique elements)
 
     }
-
     // optimized --> tc - O(n), sc --> o(n)
     static ArrayList<Integer> removeDuplicates1(int[] arr){
         HashSet<Integer> set  = new HashSet<>();
@@ -66,7 +65,6 @@ public class O03_RemoveDuplicates {
             }
         }
         return list;  // it will return list --> [1, 2, 3, 4, 5]
-
     }
 
     // contains duplicate

@@ -11,7 +11,19 @@ public class O01_CountFrequencyofEachCharacter {
         }
        
     }
+    // optimized tc --> O(n)
 
+    static HashMap<Character, Integer> countCharacterss(String s){
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for(char ch: s.toCharArray()){
+            map.put(ch, map.getOrDefault(ch, 0) +1);
+        }
+        return map;
+    }
+
+
+    // brute force
     static HashMap<Character, Integer> countCharacters(String s){
 
         HashMap <Character, Integer> map = new HashMap<>();
@@ -34,16 +46,4 @@ public class O01_CountFrequencyofEachCharacter {
         return map;
 
     }
-
-    // optimized tc --> O(n)
-
-    static HashMap<Character, Integer> countCharacterss(String s){
-        HashMap<Character, Integer> map = new HashMap<>();
-
-        for(char ch: s.toCharArray()){
-            map.put(ch, map.getOrDefault(ch, 0) +1);
-        }
-        return map;
-    }
-
 }
