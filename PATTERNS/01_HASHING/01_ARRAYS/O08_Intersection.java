@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class O08_Intersection {
+public class O08_Intersection {   // return matched elements from the both array
     public static void main(String[] args) {
         int [] a = {1,1,2,2,3,4,5,5,6};
         int[] b = {1,12,2,2,3};
         List<Integer> res  = intersectionn(a,b);
         for(int i: res){
-            System.out.print(i + " ");
+            System.out.print(i + " ");  // 1,2,3
         }
     }
 

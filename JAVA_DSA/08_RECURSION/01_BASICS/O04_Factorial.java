@@ -1,4 +1,4 @@
-public class OO4_Factorial {
+public class O04_Factorial {
 
     public static void main(String[] args) {
         //fact(3);

@@ -1,4 +1,4 @@
-public class OO6_Sum_of_Digits {
+public class O06_SumofDigits {
     public static void main(String[] args) {
         System.out.println(sumdigit(1234));
     }

@@ -1,6 +1,6 @@
 
 
-public class OO9_Count_Zeros_in_a_Number {
+public class O09_CountZeros {
     public static void main(String[] args) {
         System.out.println(countzeros(3020100, 0));
 

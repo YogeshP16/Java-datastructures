@@ -1,4 +1,4 @@
-public class OO3_Print_Both {
+public class O03_PrintBoth {
     public static void main(String[] args) {
         printboth(3);
     }

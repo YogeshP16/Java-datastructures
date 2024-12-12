@@ -1,4 +1,4 @@
-public class OO8_Reverse_Number {
+public class O08_ReverseNumber {
     public static void main(String[] args) {
         int n = 1234;
         int reversed = reverseNumber(n, 0); // Start with initial reversed number as 0

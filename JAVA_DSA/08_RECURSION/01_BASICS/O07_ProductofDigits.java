@@ -1,4 +1,4 @@
-public class OO7_Product_of_digits {
+public class O07_ProductofDigits {
     public static void main(String[] args) {
         System.out.println(prod(1234));
     }
