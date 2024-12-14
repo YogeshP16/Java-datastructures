@@ -59,7 +59,15 @@ Generate all subsets (Bitmasking):
 public class OO3_SUBARRAY_SUBSTRING {
     public static void main(String[] args) {
 
-        // Sub Array
+        /* Sub Array 
+        1 
+        1 2 
+        1 2 3 
+        2 
+        2 3
+        3
+        */
+
 
         int[] arr = {1, 2, 3};
         for (int i = 0; i < arr.length; i++) {        // i --> start index
@@ -74,7 +82,14 @@ public class OO3_SUBARRAY_SUBSTRING {
         System.out.println();
 
 
-        // SubString
+        /*  SubString 
+            a
+            ab
+            abc
+            b
+            bc
+            c
+        */
 
         String s = "abc";
 
@@ -85,7 +100,15 @@ public class OO3_SUBARRAY_SUBSTRING {
 
 
 
-        // Sub Set
+        /* Sub Set 
+        1
+        2
+        1 2
+        3
+        1 3
+        2 3
+        1 2 3
+        */
 
         int[] arr1 = {1, 2, 3};
         int n = arr1.length;
@@ -102,3 +125,8 @@ public class OO3_SUBARRAY_SUBSTRING {
     }
 
 }
+
+
+
+
+
