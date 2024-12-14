@@ -104,6 +104,7 @@ k = 1 (Third character = 'B'): CAB (Result: ["ABC", "ACB", "BAC", "BCA", "CAB"])
 j = 1 (Second character = 'B'):
 
 k = 0 (Third character = 'A'): CBA (Result: ["ABC", "ACB", "BAC", "BCA", "CAB", "CBA"])
+
  */
 
 
