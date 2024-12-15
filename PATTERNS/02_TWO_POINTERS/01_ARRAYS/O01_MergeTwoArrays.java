@@ -21,6 +21,8 @@ public class O01_MergeTwoArrays {
         int [] b = {2,5,6,7,8};
         int[] res = mergeTwoArr(a, b);
         System.out.println(Arrays.toString(res));
+
+ 
     }
     static int[] mergeTwoArr(int[] a, int[] b){
         int n= a.length; int m = b.length;
@@ -51,6 +53,6 @@ public class O01_MergeTwoArrays {
         }
 
         return result;
-    }   
+    }  
 
 }
