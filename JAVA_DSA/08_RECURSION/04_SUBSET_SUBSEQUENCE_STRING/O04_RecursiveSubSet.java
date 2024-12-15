@@ -19,7 +19,7 @@ Subsequences do maintain order (because they are derived from sequences).
 
 import java.util.ArrayList;
 
-public class O03_SubSets {
+public class O04_RecursiveSubSet {
     public static void main(String[] args) {
         // Start the process of generating subsets with an empty prefix and the input string "abc".
         generateSubsets("", "abc");   // p --> processed  up --> unprocessed
