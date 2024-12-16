@@ -19,7 +19,10 @@ OOPS:
 
 ### **Class & Object:**
 A class is a template that defines properties (attributes) and behaviors (methods) of an object.
-An object is an instance of a class, created using the new keyword in Java, superclass of all classes in Java..
+An object is an instance of a class, created using the new keyword in Java, superclass of all classes in Java.
+- A **class** is like a set of instructions to create an object.
+- It has **properties** (what the object has) and **methods** (what the object can do).
+- We use it to avoid repeating the same code, making it easier to manage and modify.
 
 #### **What It Does:**  
 - Defines a structure for your program (class).  
