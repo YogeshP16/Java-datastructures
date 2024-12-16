@@ -1,9 +1,9 @@
-package com.example.importStatment;
+package com.yogesh.importStatment;
 
 
 
-import com.example.importStatment.a.ClassA;  // Importing from package a
-import com.example.importStatment.b.ClassB;  // Importing from package b
+import com.yogesh.importStatment.a.ClassA;
+import com.yogesh.importStatment.b.ClassB;
 
 public class Main {
     public static void main(String[] args) {

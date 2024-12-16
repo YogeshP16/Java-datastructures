@@ -1,4 +1,4 @@
-package com.example.introToPackages;
+package com.yogesh.introToPackages;
 
 
 public class Calculator {
