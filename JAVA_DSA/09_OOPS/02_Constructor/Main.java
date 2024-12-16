@@ -3,7 +3,7 @@ class Person {
     int age;
 
     // No constructor defined, so default constructor is used
-    // why we use --> automatic  object creation, initialization of objects
+    // why we use --> automatic object creation, initialization of objects
     // default value for string is null, int--> 0, boolean --> false
 }
 
