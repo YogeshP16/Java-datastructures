@@ -1,4 +1,4 @@
-public class NSVISM {  // aCCESING NON STATIC VARIABLE INSIDE STATIC METHODS
+public class NSVISM {  // ACCESING NON STATIC VARIABLE INSIDE STATIC METHODS
 
     int instanceVar = 20;  // Non static variable 
 
