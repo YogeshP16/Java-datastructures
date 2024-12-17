@@ -28,7 +28,7 @@ public class StaticBlock {
         // Output: 10 53
 
         // Creating an object of the class 'StaticBlock'.
-        StaticBlock obj = new StaticBlock();
+       // StaticBlock obj = new StaticBlock();
         
         // Accessing static variables after object creation.
         // Static variables are shared among all instances, so the values remain unchanged.

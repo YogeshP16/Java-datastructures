@@ -32,6 +32,6 @@ public class Vehicle {
         myCar.year = 2020;
 
         // Action: Driving the car
-        myCar.drive();
+        myCar.drive();   // output ---> Driving the car: Toyota Corolla
     }
 }

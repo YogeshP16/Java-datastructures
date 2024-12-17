@@ -175,8 +175,8 @@ It allows the inner class to access the members (including private members) of t
 The Singleton pattern ensures that only one object of a class is created and provides a global way to access that object. It is useful when you need a single, shared instance to manage something across the entire application.
 
 #### **Why Use Singleton?**
-To control access to shared resources (e.g., database connections, configuration settings).
-To ensure consistent behavior with a single instance.
-To reduce memory usage by preventing multiple object creation
+- To control access to shared resources (e.g., database connections, configuration settings).
+- To ensure consistent behavior with a single instance.
+- To reduce memory usage by preventing multiple object creation
 ---
 
