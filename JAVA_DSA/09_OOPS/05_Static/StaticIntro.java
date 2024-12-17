@@ -1,4 +1,4 @@
-public class Static {
+public class StaticIntro {
 
         static int x = 10;     // static variable
 
@@ -21,14 +21,14 @@ public class Static {
     public static void main(String[] args) {
 
          // Accessing static method without creating an object
-         // Accessing via classname --> Static.y(); --> Static is the classname
+         // Accessing via classname --> StaticIntro.y(); --> Static is the classname
          // Static Belongs to the Class:
          // A static method is not tied to any object or instance of the class. 
          // It is loaded into memory when the class is loaded by the JVM, making it accessible at the class level.
-         Static.y();  
+         StaticIntro.y();  
 
          // Acessing non static methods--> need to create object
-         Static obj = new Static();
+         StaticIntro obj = new StaticIntro();
          obj.instanceMethod(); 
     }
 }

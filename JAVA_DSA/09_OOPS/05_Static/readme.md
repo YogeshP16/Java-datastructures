@@ -115,10 +115,15 @@ Since static methods are class-level methods, they cannot refer to the instance-
 
 ---
 
-### 8. **Initialization of Static Variables**
+### 8. **Initialization of Static Variables (Static block)**
 
 #### **What is it?**
+A static block is a block of code inside a class that is executed when the class is loaded into memory, even before the main method run
 Static variables are initialized when the class is loaded into memory.
+Execution Order:
+
+Static blocks are executed once when the class is loaded by the JVM.
+After the static block, the main method or other program logic is executed.
 
 #### **Why it's used?**
 To ensure that static variables are initialized only once for the entire class.
@@ -165,20 +170,13 @@ It allows the inner class to access the members (including private members) of t
 
 ---
 
-### 11. **Internal Working of Some Statements**
+### 11. **Singleton**
+#### **What is Singleton?**
+The Singleton pattern ensures that only one object of a class is created and provides a global way to access that object. It is useful when you need a single, shared instance to manage something across the entire application.
 
-#### **What is it?**
-The internal working refers to how the JVM interprets and executes Java statements.
-
-#### **Why it's used?**
-It helps understand how certain Java constructs behave when executed.
-
-#### **What it does?**
-- **`new` Keyword**: Creates an object of a class and allocates memory.
-- **Control Statements (if, while)**: Directs the flow of execution based on conditions.
-
-#### **How it works?**
-The JVM compiles the Java code into bytecode, which is executed on the JVM. Statements like `if`, loops, or object creation get processed during runtime.
-
+#### **Why Use Singleton?**
+To control access to shared resources (e.g., database connections, configuration settings).
+To ensure consistent behavior with a single instance.
+To reduce memory usage by preventing multiple object creation
 ---
 

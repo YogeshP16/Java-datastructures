@@ -11,7 +11,7 @@ class Car {
     }
 }
 
-public class Main {
+public class Vehicle {
     public static void main(String[] args) {
 
         // Car myCar;       ----> declare reference to object
