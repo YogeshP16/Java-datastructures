@@ -5,7 +5,7 @@ public class O02_ReverseString {
         System.out.println(res);    
     }
 
-    static String reverse(String s){
+    static String reversee(String s){
 
     char [] arr = s.toCharArray();  // store each characters in char array
 
@@ -22,6 +22,14 @@ public class O02_ReverseString {
     }
     return new String(arr);
 
+    }
+// brute
+    static String reverse(String s){
+        String res = "";
+        for(int i = s.length()-1; i>=0; i--){
+            res += s.charAt(i);
+        }
+        return res;
     }
 
 }
