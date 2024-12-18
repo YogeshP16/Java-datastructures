@@ -1,5 +1,4 @@
-package PaymentApp;
-
+package paymentapp;
 
 public class PaymentProcess {
 

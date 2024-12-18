@@ -1,4 +1,4 @@
-package Final;
+
 class Animal {
     final void sound() {
         System.out.println("Animal makes a sound");

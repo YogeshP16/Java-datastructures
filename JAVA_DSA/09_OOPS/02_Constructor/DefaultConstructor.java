@@ -1,6 +1,6 @@
 
 
-class Person {
+class Person1 {
     String name;
     int age;
 
@@ -11,7 +11,7 @@ class Person {
 
 public class DefaultConstructor {
     public static void main(String[] args) {
-        Person p = new Person();  // Using default constructor
+        Person1 p = new Person1();  // Using default constructor
         System.out.println("Name: " + p.name + ", Age: " + p.age); // Default values: null and 0
     }
 }

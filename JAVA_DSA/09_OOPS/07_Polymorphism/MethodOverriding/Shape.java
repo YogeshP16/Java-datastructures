@@ -1,4 +1,4 @@
-package MethodOverriding;
+
 
 public class Shape {  
     void draw (){ // superclass method

@@ -1,4 +1,4 @@
-public class Shape {
+public class Shape1 {
 
     
     // Compile-time Polymorphism (Static Polymorphism):
