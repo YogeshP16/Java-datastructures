@@ -151,4 +151,84 @@ System.out.println(c.childData);  // Accessing child-specific data
 ```
 10
 ```
+### Why Multiple Inheritance is Not Supported by Java
+
+#### **What is Multiple Inheritance?**
+Multiple inheritance refers to a scenario where a class can inherit properties and behaviors (methods) from more than one parent class.
+
+#### **What Does It Do?**
+It allows a child class to combine and utilize features from multiple parent classes.
+
+#### **How Does It Work?**  
+In languages that support multiple inheritance (e.g., C++), a child class can explicitly inherit from multiple parent classes using syntax like:
+
+```cpp
+class Child : public Parent1, public Parent2 {
+    // Combine methods and fields from Parent1 and Parent2
+};
+```
+
+#### **Why Is It Not Supported in Java?**
+
+1. **Diamond Problem:**
+   - If two parent classes have a method with the same name, it creates ambiguity for the compiler when the child class inherits these methods.
+   - Example:
+     ```java
+     class Parent1 {
+         void show() {
+             System.out.println("Parent1");
+         }
+     }
+
+     class Parent2 {
+         void show() {
+             System.out.println("Parent2");
+         }
+     }
+
+     class Child extends Parent1, Parent2 {
+         // Which show() to inherit? Ambiguity!
+     }
+     ```
+
+2. **Simplified Design:**
+   - Java designers intentionally avoided multiple inheritance to keep the language simpler, more maintainable, and less error-prone.
+
+3. **Alternative Solutions:**
+   - Java supports **multiple inheritance of types** through interfaces. This allows a class to implement multiple interfaces without ambiguity.
+
+#### **Why Interface Comes Into Play?**
+1. **No Method Implementation Conflict:**
+   - Interfaces only provide method declarations (until Java 8, when default methods were introduced). The child class must provide its own implementation, so there's no ambiguity like the diamond problem.
+
+2. **Flexibility with Contracts:**
+   - Interfaces allow classes to follow multiple contracts (behaviors) without inheriting state (fields), which ensures better modularity.
+
+3. **Example of Multiple Inheritance with Interfaces:**
+   ```java
+   interface A {
+       void show();
+   }
+
+   interface B {
+       void display();
+   }
+
+   class C implements A, B {
+       @Override
+       public void show() {
+           System.out.println("Show from A");
+       }
+
+       @Override
+       public void display() {
+           System.out.println("Display from B");
+       }
+   }
+   ```
+
+#### **Why Not Just Use Classes?**
+- With classes, the potential conflicts (like the diamond problem) could make code behavior unpredictable.
+- Interfaces focus only on defining behavior without carrying the burden of shared state or inheritance ambiguity.
+
 
