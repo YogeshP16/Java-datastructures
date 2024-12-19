@@ -58,3 +58,41 @@ public class Main {
 - **Packages** keep class names unique and control access.
 - Java packages reflect the file system directory structure.
 - Only **public** elements are accessible from outside their package.
+
+### In-built Java Packages
+
+1. **`lang` package**  
+   - **What**: Basic classes like `String`, `Object`, `Math`, `System`, `Thread`.  
+   - **Why**: Essential for core Java functionality.  
+   - **What it does**: Provides fundamental tools for data types, system operations, and multithreading.  
+   - **How**: Automatically imported, no need for explicit inclusion.
+
+2. **`io` package**  
+   - **What**: Classes for input/output operations.  
+   - **Why**: To handle file I/O and data streams.  
+   - **What it does**: Classes like `File`, `BufferedReader`, `InputStream`, `FileReader`.  
+   - **How**: Manages reading/writing data using streams.
+
+3. **`util` package**  
+   - **What**: Utility classes for collections, date/time, etc.  
+   - **Why**: To manage data structures and utilities.  
+   - **What it does**: Classes like `ArrayList`, `HashMap`, `Date`, `Random`.  
+   - **How**: Provides collection handling and data manipulation.
+
+4. **`applet` package**  
+   - **What**: Classes for applet development.  
+   - **Why**: For creating small applications in browsers.  
+   - **What it does**: Classes like `Applet`, `AudioClip`, `Graphics`.  
+   - **How**: Enables GUI and media handling in applets.
+
+5. **`awt` package**  
+   - **What**: Classes for GUI development.  
+   - **Why**: For creating windowed applications.  
+   - **What it does**: Classes like `Frame`, `Button`, `Label`, `TextField`.  
+   - **How**: Handles GUI components and events.
+
+6. **`net` package**  
+   - **What**: Classes for network communication.  
+   - **Why**: To enable internet and server communication.  
+   - **What it does**: Classes like `Socket`, `ServerSocket`, `URL`.  
+   - **How**: Manages network connections and data transfer.

@@ -9,10 +9,12 @@
         "PATTERNS/02_TWO_POINTERS/01_ARRAYS",
         "PATTERNS/01_HASHING/02_STRINGS",
         "PATTERNS/01_HASHING/01_ARRAYS",
+        "JAVA_DSA/09_OOPS/09_AccessControl",
         "JAVA_DSA/09_OOPS/08_Encapsulation_Abstraction/Encapsulation",
         "JAVA_DSA/09_OOPS/07_Polymorphism/MethodOverriding",
         "JAVA_DSA/09_OOPS/07_Polymorphism/MethodOverloading",
         "JAVA_DSA/09_OOPS/07_Polymorphism/Final Keyword",
+        "JAVA_DSA/09_OOPS/07_Polymorphism",
         "JAVA_DSA/09_OOPS/06_Inheritance",
         "JAVA_DSA/09_OOPS/05_Static",
         "JAVA_DSA/09_OOPS/04_Packages",
@@ -41,7 +43,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "JAVA_DSA/09_OOPS/07_Polymorphism"
+        "JAVA_DSA/09_OOPS/10_ObjectClass_Methods"
     ]
     
 }
