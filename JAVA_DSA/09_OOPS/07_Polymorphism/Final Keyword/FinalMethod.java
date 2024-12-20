@@ -1,25 +1,24 @@
-
-class Animal {
-    final void sound() {
-        System.out.println("Animal makes a sound");
+class Car0 {
+    final void start() {
+        System.out.println("Car is starting");
     }
 }
 
-class Dog extends Animal {
+class ElectricCar extends Car0 {
     // Trying to override the final method will result in a compile-time error
-    // void sound() {
-    //     System.out.println("Dog barks");
+    // void start() {
+    //     System.out.println("Electric Car is starting silently");
     // }
 }
 
-public class FinalMethod {
+public class FinalMethod{
     public static void main(String[] args) {
-        Animal obj = new Dog();
-        obj.sound();  // Outputs: Animal makes a sound
+        Car0 myCar = new ElectricCar();
+        myCar.start();  // Outputs: Car is starting
     }
 }
 
 /*
-The sound() method in the Animal class is declared as final, so it cannot be overridden by any subclass, including the Dog class.
-The sound() method retains its behavior across all subclasses.
+The start() method in the Car class is declared as final, so it cannot be overridden by any subclass, including ElectricCar.
+The start() method retains its behavior across all subclasses.
  */
