@@ -14,8 +14,8 @@ class Dog extends Animal {
 
 public class FinalMethod {
     public static void main(String[] args) {
-        Animal animal = new Dog();
-        animal.sound();  // Outputs: Animal makes a sound
+        Animal obj = new Dog();
+        obj.sound();  // Outputs: Animal makes a sound
     }
 }
 

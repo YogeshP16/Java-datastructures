@@ -1,6 +1,6 @@
 
 
-public class Main {
+public class Mainfun {
     public static void main(String[] args) {
 
         // Upcasting: Parent class reference, Child class object
@@ -14,6 +14,9 @@ public class Main {
         // No upcasting: Directly using the child class reference to call the overridden method
         Circle obj1 = new Circle();
         obj1.draw();   // Output: I drawn circle
+
+        Shape object = new Shape();
+        object.draw();  // Iam plan to Draw Shapes
         
     }
     // output
@@ -21,7 +24,6 @@ public class Main {
     // I drawn circle
 
 }
-
 
 /*
 
