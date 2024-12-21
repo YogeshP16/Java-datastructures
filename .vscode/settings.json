@@ -9,9 +9,10 @@
         "PATTERNS/02_TWO_POINTERS/01_ARRAYS",
         "PATTERNS/01_HASHING/02_STRINGS",
         "PATTERNS/01_HASHING/01_ARRAYS",
+        "JAVA_DSA/09_OOP/OOPS/12_Interface/InterfaceDemo",
+        "JAVA_DSA/09_OOP/OOPS/12_Interface/DefaultInterface",
         "JAVA_DSA/09_OOP/OOPS/11_AbstractClass/abstractDemo",
         "JAVA_DSA/09_OOP/OOPS/11_AbstractClass",
-        "JAVA_DSA/09_OOP/OOPS/10_ObjectClass_Methods",
         "JAVA_DSA/09_OOP/OOPS/09_AccessControl/packageB",
         "JAVA_DSA/09_OOP/OOPS/09_AccessControl/packageA",
         "JAVA_DSA/09_OOP/OOPS/08_Encapsulation_Abstraction/Encapsulation",
@@ -45,8 +46,7 @@
         "JAVA_DSA/02_LOOPS/02_BASICS",
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
-        "JAVA_DSA/01_BASICS",
-        "JAVA_DSA/09_OOP/OOPS/12_Interface/InterfaceDemo"
+        "JAVA_DSA/01_BASICS"
     ]
     
 }
