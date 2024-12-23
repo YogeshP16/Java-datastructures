@@ -1,5 +1,5 @@
 // Interface after Java 8 with default method
-interface Animal2 {
+interface AnimalInterface {
     void eat();
 
     // Default method (provides a default implementation)
@@ -8,7 +8,7 @@ interface Animal2 {
     }
 }
 
-class Dog implements Animal2 {
+class Dog implements AnimalInterface {
     @Override
     public void eat() {
         System.out.println("Dog is eating");
@@ -19,8 +19,13 @@ class Dog implements Animal2 {
 
 class Main {
     public static void main(String[] args) {
-        Animal2 dog = new Dog();
+        AnimalInterface dog = new Dog();
         dog.eat();
         dog.sleep();  // Calls the default implementation
     }
 }
+
+/* 
+Dog is eating
+Dog is sleeping
+*/
