@@ -1,5 +1,5 @@
 
-public class Maiin {
+public class Main {
     public static void main(String[] args) {
         Shape1 shape = new Shape1();
         shape.draw(5);  // Calls draw(int x)
