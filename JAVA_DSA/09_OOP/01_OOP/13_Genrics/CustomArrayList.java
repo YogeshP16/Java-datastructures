@@ -57,6 +57,7 @@ class CustomArrayList<T> {
         data[size++] = element;
     }
 
+    @SuppressWarnings("unchecked")
     public T get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -72,6 +73,16 @@ class CustomArrayList<T> {
         Object[] newData = new Object[data.length * 2];
         System.arraycopy(data, 0, newData, 0, data.length);
         data = newData;
+    }
+
+    // Wildcard <?> 
+    // wildcards in Java can work with multiple types. 
+    // The wildcard ? is used to represent an unknown type, 
+    // allowing methods or classes to work with different types without knowing the exact type at compile time.
+    public static void printList(CustomArrayList<?> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
     }
 }
 

@@ -26,9 +26,27 @@ public class Main {
         CustomArrayList<String> list = new CustomArrayList<>();
         list.add("Hello");
         list.add("World");
+        list.add("hey");
+        list.add("how");
+        list.add("r u");
        // list.add(12); --------> it throw compile time error
 
         System.out.println(list.get(0)); // Output: Hello
         System.out.println(list.size()); // Output: 2
+
+
+        // Using Wildcard Method to Print Lists
+        System.out.println("String List:");
+        CustomArrayList.printList(list);
     }
 }
+/*
+Hello
+5
+String List:
+Hello
+World
+hey
+how
+r u
+ */
