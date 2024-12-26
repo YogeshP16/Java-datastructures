@@ -59,7 +59,7 @@ In-place sorting: Sorting logic is embedded in the class, so the class itself de
   Integer.valueOf(20).compareTo(10); // Positive (20 is larger than 10)
   ```
 
-  ### **compareTo for Alphabetical Comparison (KISS)**
+  ### **compareTo for Alphabetical Comparison**
 
 - **What it is**:  
   `compareTo` compares strings lexicographically (like in a dictionary).
@@ -77,7 +77,7 @@ In-place sorting: Sorting logic is embedded in the class, so the class itself de
   "apple".compareTo("appl");   // Positive (apple is longer)
   ```
 
-  ### **1. Comparator - for custom sorting**
+  ### **Comparator - for custom sorting**
   - It's like a teacher outside the class tells the students how to line up (e.g., by roll number).
   - The students follow the teacher’s rule, but they don’t know how to sort themselves.
   - The sorting rule is defined externally (by the Comparator), not by the students.
