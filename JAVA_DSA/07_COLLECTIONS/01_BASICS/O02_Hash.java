@@ -32,6 +32,8 @@ public class O02_Hash {
              */
         }
 
+        
+
         map.remove(2);                         // remove B
         map.put(2, "newly updated");     // update
 
