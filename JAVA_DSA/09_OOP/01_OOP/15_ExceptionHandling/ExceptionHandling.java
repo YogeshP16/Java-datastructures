@@ -21,7 +21,8 @@ public class ExceptionHandling {
         } catch (ArithmeticException e) {
             System.out.println(e.getMessage());
         } finally {
-            System.out.println("If error occurs or not --> finally will always execute.");
+            System.out.println("If error occurs or not --> finally will always execute." );
+      
         }
 
 //--------------------------------------------------------------------------------------------------------

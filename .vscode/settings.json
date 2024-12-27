@@ -9,10 +9,13 @@
         "PATTERNS/02_TWO_POINTERS/01_ARRAYS",
         "PATTERNS/01_HASHING/02_STRINGS",
         "PATTERNS/01_HASHING/01_ARRAYS",
+        "PATTERNS/0",
+        "JAVA_DSA/09_OOP/03_DesignPatterns/01_Creational/02_Factory",
+        "JAVA_DSA/09_OOP/03_DesignPatterns/01_Creational/01_Singleton",
+        "JAVA_DSA/09_OOP/03_DesignPatterns/01_Creational",
         "JAVA_DSA/09_OOP/01_OOP/15_ExceptionHandling",
         "JAVA_DSA/09_OOP/01_OOP/14_ObjectComparsion_Cloning/ObjectCloning",
         "JAVA_DSA/09_OOP/01_OOP/14_ObjectComparsion_Cloning/Comparator",
-        "JAVA_DSA/09_OOP/01_OOP/13_Genrics",
         "JAVA_DSA/09_OOP/01_OOP/02_Constructor",
         "JAVA_DSA/08_RECURSION/06_BACKTRACKING",
         "JAVA_DSA/08_RECURSION/05_PERMUTATIONS_COMBINATIONS",
@@ -20,6 +23,8 @@
         "JAVA_DSA/08_RECURSION/03_SORTINGS_PATTERNS",
         "JAVA_DSA/08_RECURSION/02_ARRAYS",
         "JAVA_DSA/08_RECURSION/01_BASICS",
+        "JAVA_DSA/07_COLLECTIONS/03_HashMap",
+        "JAVA_DSA/07_COLLECTIONS/02_List_Set",
         "JAVA_DSA/06_SORTING",
         "JAVA_DSA/05_SEARCHING/03_MODIFIED_BS",
         "JAVA_DSA/05_SEARCHING/02_BINARY_SEARCH",
@@ -33,8 +38,7 @@
         "JAVA_DSA/02_LOOPS/02_BASICS",
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
-        "JAVA_DSA/01_BASICS",
-        "JAVA_DSA/07_COLLECTIONS/03_HashMap"
+        "JAVA_DSA/01_BASICS"
     ]
     
 }

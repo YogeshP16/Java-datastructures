@@ -12,40 +12,30 @@ It allows shared access to variables or methods across all instances of a class.
 - **Static Blocks**: Used to initialize static variables when the class is loaded.
 
 #### **How it works?**
-- **Static Variable**: When a variable is declared static, it's initialized only once, and all instances of the class share the same memory location for that variable.
-- **Static Method**: A method declared as static can be called directly using the class name, without creating an object.
+- **Static Variable**: When a variable is declared static, it's initialized only once, and all instances of the class share the same memory location for that variable.it cannot be ovverriden by another class.
+- **Static Method**: A method declared as static can be called directly using the class name, without creating an object, it cannot be ovverriden by another class.
 
 ---
 
 ### 2. **Static Variables**
 
-#### **What is it?**
-A static variable is a class-level variable that is shared by all instances of the class.
+A **static variable** is declared with the `static` keyword and belongs to the class, not instances of the class.
 
-#### **Why it's used?**
-It’s used when you want to store data that is common to all instances of the class, like a counter that tracks the number of objects created.
-
-#### **What it does?**
-Every instance of the class has access to the same static variable.
-
-#### **How it works?**
-It’s initialized once when the class is loaded and retains its value across all instances.
+- **Usage**: Static variables are used for data that is shared among all instances of the class.
+- **Behavior**: They are initialized only once and have the same value for all instances.
+- **Access**: Accessed using the class name or an instance of the class.
+- **Overriding**: Static variables **cannot be overridden**, but can be hidden in subclasses.
 
 ---
 
 ### 3. **Static Methods**
 
-#### **What is it?**
-A method defined as `static` that can be invoked without creating an object of the class.
+A **static method** is declared with the `static` keyword and can be called using the class name without creating an object.
 
-#### **Why it's used?**
-Static methods are used when the behavior is not dependent on instance-specific data but rather on class-level data.
-
-#### **What it does?**
-Allows calling the method directly using the class name.
-
-#### **How it works?**
-Since static methods do not operate on instance variables, they can be accessed directly by the class name, and they cannot access non-static members without an object.
+- **Usage**: Static methods are used for class-level operations that do not depend on instance data.
+- **Behavior**: They can access only static variables and methods.
+- **Access**: Called directly through the class name, without an instance.
+- **Overriding**: Static methods **cannot be overridden**. They can be hidden in subclasses, but the method call is determined by the reference type at compile time.
 
 ---
 
