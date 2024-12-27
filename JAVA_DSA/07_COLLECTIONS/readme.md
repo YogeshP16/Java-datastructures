@@ -100,3 +100,75 @@ enum Fruit {
 Fruit myFruit = Fruit.APPLE;
 System.out.println(myFruit);  // Output: APPLE
 ```
+
+
+### **ConcurrentHashMap**
+**What It Does**
+A thread-safe implementation of the Map interface that supports high-concurrency access.
+
+**Why We Use It**
+To avoid bottlenecks caused by synchronizing the entire map.
+Efficient for multithreaded environments where multiple threads read/write concurrently.
+
+**Behavior**
+Allows multiple threads to read and update different segments concurrently.
+Does not throw ConcurrentModificationException during iteration.
+Weak consistency: Iterators reflect changes made during iteration but may not show all updates.
+
+**Access**
+Reads: Very fast as they are not blocked.
+Writes: Only locks the segment being modified, allowing better concurrency..
+
+- **Example**:
+
+```java
+import java.util.concurrent.*;
+
+ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+map.put("Apple", 1);
+map.put("Banana", 2);
+
+System.out.println(map.get("Apple"));  // Output: 1
+```
+
+- **Key Features**:
+  - Thread-safe operations.
+  - Supports high concurrency with minimal contention.
+  - Allows `null` values and keys (unlike `Hashtable`).
+  - Lock-free reads and thread-safe writes.
+
+### **Fail-fast vs Fail-safe**
+
+#### **Fail-fast**
+- **What It Does**: Detects concurrent modification of a collection and throws an exception immediately.
+- **How It Works**: It works by checking if the collection is modified while iterating. If modified (like adding or removing elements), it throws a `ConcurrentModificationException`.
+- **What It Solves**: Prevents unexpected behavior during iteration due to structural changes.
+- **Example**:
+
+```java
+List<String> list = new ArrayList<>();
+list.add("A");
+list.add("B");
+Iterator<String> itr = list.iterator();
+list.add("C");  // Modifying the collection while iterating
+itr.next();  // Throws ConcurrentModificationException
+```
+
+#### **Fail-safe**
+- **What It Does**: Allows safe iteration over a collection even if it is modified during iteration.
+- **How It Works**: A copy of the collection is made for iteration, so changes made to the original collection don't affect the iteration process.
+- **What It Solves**: Allows iteration without throwing exceptions even if the collection is modified during iteration.
+- **Example**:
+
+```java
+List<String> list = new CopyOnWriteArrayList<>();
+list.add("A");
+list.add("B");
+Iterator<String> itr = list.iterator();
+list.add("C");  // Modifying the collection while iterating
+itr.next();  // No exception, safely continues iteration
+```
+
+### **Key Differences**
+- **Fail-fast**: Throws exceptions if collection is modified during iteration (e.g., `ArrayList`, `HashMap`).
+- **Fail-safe**: Can continue iteration even if collection is modified (e.g., `CopyOnWriteArrayList`, `ConcurrentHashMap`).

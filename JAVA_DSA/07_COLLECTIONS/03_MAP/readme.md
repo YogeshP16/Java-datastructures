@@ -46,6 +46,50 @@ System.out.println("HashCode of Integer 1232234: " + res);  // Output: 1232234
 - If the map exceeds the threshold (load factor * current capacity), the map will resize.
 - For example, with an initial capacity of 16 and load factor of 0.75, the map will resize when the number of entries exceeds 12 (16 * 0.75 = 12).
 
+### **HashMap Default Load Factor and Capacity**
+
+#### **What is it?**
+- **Default Load Factor**: `0.75`
+- **Default Initial Capacity**: `16`
+
+---
+
+#### **Why is the Default Load Factor 0.75?**
+- **Balance**: Optimizes memory usage and performance.
+- **Collision Reduction**: Reduces the chances of multiple entries in the same bucket.
+- **Efficient Resizing**: Resizes before too many collisions occur.
+
+---
+
+#### **Why is the Initial Capacity 16?**
+- **Power of Two**: Makes bucket index calculation faster (`hash & (n - 1)`).
+- **Trade-off**: Avoids frequent resizing for small maps and excessive memory usage for large maps.
+
+---
+
+#### **When Does Resizing Happen?**
+- **Threshold Formula**:  
+   
+   Threshold = Initial Capacity x  Load Factor
+   
+- **For default values**:
+   Threshold = 16  times 0.75 = 12
+   
+- **Action**: HashMap resizes when entries exceed the threshold.
+
+---
+
+### **Cheatsheet: Default Load Factor and Capacity**
+
+| **Property**        | **Value**                     | **Why?**                                                    |
+|----------------------|-------------------------------|-------------------------------------------------------------|
+| **Load Factor**      | `0.75`                       | Balances speed and memory usage, reduces collisions.         |
+| **Initial Capacity** | `16`                         | Efficient indexing with power of two, avoids frequent resizing. |
+| **Resize Threshold** | `Initial Capacity * 0.75`    | Triggers resizing when map is ~75% full.                    |
+| **Resizing Action**  | Capacity doubles (e.g., 16 → 32). | Ensures enough space to reduce collisions.                  |
+
+---
+
 ### **Rehashing**
 - When the number of entries exceeds the threshold, the map's array size is doubled, and all existing entries are rehashed to the new array.
 
@@ -100,60 +144,3 @@ To convert a large number (hash code) into an index in the hash table:
 - **Worst Case**: O(n) if there are many collisions (e.g., when all keys hash to the same bucket).
 
 
-### **ConcurrentHashMap**
-- **What It Does**: A thread-safe implementation of the `Map` interface that allows concurrent access to multiple threads without locking the entire map.
-- **How It Works**: Divides the map into segments, allowing multiple threads to update different segments simultaneously, improving performance over synchronized maps.
-- **What It Solves**: Provides better concurrency in multithreaded environments, avoiding the bottleneck of synchronizing the entire map.
-- **Example**:
-
-```java
-import java.util.concurrent.*;
-
-ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
-map.put("Apple", 1);
-map.put("Banana", 2);
-
-System.out.println(map.get("Apple"));  // Output: 1
-```
-
-- **Key Features**:
-  - Thread-safe operations.
-  - Supports high concurrency with minimal contention.
-  - Allows `null` values and keys (unlike `Hashtable`).
-  - Lock-free reads and thread-safe writes.
-
-### **Fail-fast vs Fail-safe**
-
-#### **Fail-fast**
-- **What It Does**: Detects concurrent modification of a collection and throws an exception immediately.
-- **How It Works**: It works by checking if the collection is modified while iterating. If modified (like adding or removing elements), it throws a `ConcurrentModificationException`.
-- **What It Solves**: Prevents unexpected behavior during iteration due to structural changes.
-- **Example**:
-
-```java
-List<String> list = new ArrayList<>();
-list.add("A");
-list.add("B");
-Iterator<String> itr = list.iterator();
-list.add("C");  // Modifying the collection while iterating
-itr.next();  // Throws ConcurrentModificationException
-```
-
-#### **Fail-safe**
-- **What It Does**: Allows safe iteration over a collection even if it is modified during iteration.
-- **How It Works**: A copy of the collection is made for iteration, so changes made to the original collection don't affect the iteration process.
-- **What It Solves**: Allows iteration without throwing exceptions even if the collection is modified during iteration.
-- **Example**:
-
-```java
-List<String> list = new CopyOnWriteArrayList<>();
-list.add("A");
-list.add("B");
-Iterator<String> itr = list.iterator();
-list.add("C");  // Modifying the collection while iterating
-itr.next();  // No exception, safely continues iteration
-```
-
-### **Key Differences**
-- **Fail-fast**: Throws exceptions if collection is modified during iteration (e.g., `ArrayList`, `HashMap`).
-- **Fail-safe**: Can continue iteration even if collection is modified (e.g., `CopyOnWriteArrayList`, `ConcurrentHashMap`).
