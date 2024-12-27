@@ -10,6 +10,7 @@
         "PATTERNS/01_HASHING/02_STRINGS",
         "PATTERNS/01_HASHING/01_ARRAYS",
         "PATTERNS/0",
+        "OOP/03_DesignPatterns/01_Creational/01_Singleton",
         "JAVA_DSA/09_OOP/03_DesignPatterns/01_Creational/02_Factory",
         "JAVA_DSA/09_OOP/03_DesignPatterns/01_Creational/01_Singleton",
         "JAVA_DSA/09_OOP/03_DesignPatterns/01_Creational",
@@ -40,7 +41,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "OOP/03_DesignPatterns/01_Creational/01_Singleton"
+        "OOP/03_DesignPatterns/01_Creational/02_Factory"
     ]
     
 }
