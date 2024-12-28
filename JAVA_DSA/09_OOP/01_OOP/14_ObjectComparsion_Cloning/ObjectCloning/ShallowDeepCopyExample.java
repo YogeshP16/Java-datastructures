@@ -6,7 +6,7 @@ class Book implements Cloneable {
     ArrayList<String> authors;
 
     // Constructor to initialize title and authors
-    Book(String title) {
+    Book(String title, String string) {
         this.title = title;
         this.authors = new ArrayList<>();
     }
@@ -39,6 +39,11 @@ class Book implements Cloneable {
     @Override
     public String toString() {
         return "Book(title=" + title + ", authors=" + authors + ")";
+    }
+
+    public char[] getDetails() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getDetails'");
     }
 }
 

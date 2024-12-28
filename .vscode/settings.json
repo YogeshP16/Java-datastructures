@@ -10,14 +10,9 @@
         "PATTERNS/01_HASHING/02_STRINGS",
         "PATTERNS/01_HASHING/01_ARRAYS",
         "PATTERNS/0",
+        "OOP/03_DesignPatterns/01_Creational/02_Factory",
         "OOP/03_DesignPatterns/01_Creational/01_Singleton",
-        "JAVA_DSA/09_OOP/03_DesignPatterns/01_Creational/02_Factory",
-        "JAVA_DSA/09_OOP/03_DesignPatterns/01_Creational/01_Singleton",
-        "JAVA_DSA/09_OOP/03_DesignPatterns/01_Creational",
-        "JAVA_DSA/09_OOP/01_OOP/15_ExceptionHandling",
-        "JAVA_DSA/09_OOP/01_OOP/14_ObjectComparsion_Cloning/ObjectCloning",
-        "JAVA_DSA/09_OOP/01_OOP/14_ObjectComparsion_Cloning/Comparator",
-        "JAVA_DSA/09_OOP/01_OOP/02_Constructor",
+        "OOP/01_OOP/01_ClassesObjects",
         "JAVA_DSA/08_RECURSION/06_BACKTRACKING",
         "JAVA_DSA/08_RECURSION/05_PERMUTATIONS_COMBINATIONS",
         "JAVA_DSA/08_RECURSION/04_SUBSET_SUBSEQUENCE_STRING",
@@ -41,7 +36,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "OOP/03_DesignPatterns/01_Creational/02_Factory"
+     
     ]
     
 }
