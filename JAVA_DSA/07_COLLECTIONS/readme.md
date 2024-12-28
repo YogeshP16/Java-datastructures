@@ -1,5 +1,4 @@
 
-![Example Image](Downloads/hierarchy-of-collection-framework.jpg)
 
 ### **Collections Framework in Java**
 
