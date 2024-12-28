@@ -19,10 +19,7 @@
 5. **DIP (Dependency Inversion Principle)**  
    - High-level modules depend on abstractions, not concrete classes.  
    - Reduces tight coupling and improves flexibility.
-
-
-```markdown
-# SOLID Principles 
+ 
 
 ## 1. Single Responsibility Principle (SRP)
 - **What**: A class should only have one job or responsibility.
