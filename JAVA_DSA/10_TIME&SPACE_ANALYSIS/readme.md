@@ -106,13 +106,14 @@
 - **Common Orders:**  
   - (O(1) - Constant)
   - (O( log n) - Logarithmic)
-  - (O(n) - Linear) <  (O(n  log n))
+  - (O(n) - Linear)
+  - (O(n log n) -  linear logarithmic)
   - (O(n^2) - Quadratic)
   - (O(n^3) - Cubic)
   - (O(2^n) - Exponential)
   - (O(n!) - Factorial)
   - (O(n^n))
-  
+
 - **Key:** Lower complexity is better for larger inputs.
  
 ---
