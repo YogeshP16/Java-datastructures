@@ -78,7 +78,8 @@
     print(i);  // Logarithmic time --> O(log n)
   }
   ```
-
+  
+---
 ### **1. What is Time and Space Complexity?**
 - **What:** Measures the efficiency of an algorithm in terms of:
   - **Time Complexity (TC):** How execution time grows with input size grows.
