@@ -1,3 +1,86 @@
+## **Algorithms**
+- Sequence of finite steps to perform some specific task.
+- **Sum of 2 numbers**
+  1. Take two numbers a & b.
+  2. Compute c = a + b.
+  3. Return c.
+
+### **Properties of Algo**
+- Terminates after a finite amount of time.
+- Returns at least one output.
+- Independent of any programming languages.
+- Output should be unambiguous — deterministic (you should get the same output even after rerunning it after a few days).
+
+### **Steps to construct an algorithm**
+1. Understand the problem definition.
+2. Design the algorithm (using techniques like Divide & Conquer, Greedy, Dynamic Programming, Backtracking, etc.).
+3. Draw the flowchart.
+4. Perform testing (test cases/edge cases).
+5. Implementation.
+6. Analyze (Time & Space complexity).
+
+### **Asymptotic Notations**
+- Big O — Worst case.
+- Omega — Best case.
+- Theta — Average case.
+
+### **Analysis**
+#### **Types**
+1. **Aposteriori Analysis** — Completely dependent on the language, compiler, and types of hardware.
+2. **Apriori Analysis** — Independent (depends on the logic of the code, not on languages, compilers, or hardware). With the help of Big O, we can produce useful results.
+
+### **Apriori Analysis**
+- **Example 1:**
+  ```
+  x = y + z  // Constant time --> O(1)
+  ```
+
+- **Example 2:**
+  ```
+  for (i = 0; i < n; i++) {
+    x = y + z;  // Linear time --> O(n)
+  }
+  ```
+
+- **Example 3:**
+  ```
+  for (i = 0; i < n; i++) {
+    for (j = 0; j < n; j++) {
+      x = x + y;  // Quadratic time --> O(n^2)
+    }
+  }
+  ```
+
+- **Example 4:**
+  ```
+  i = n;
+  while (i > 1) {
+    i = i - 1;
+    print("hello");  // Linear time --> O(n)
+  }
+  ```
+
+- **Example 5:**
+  ```
+  i = n;
+  while (i > 1) {
+    i = i - 3;
+    print("loki");  // Linear time --> O(n)
+  }
+  ```
+
+- **Example 6:**
+  ```
+  i = 1;
+  n = 64;
+  while (i < n) {
+    i = 2 * i;
+    print(i);  // Logarithmic time --> O(log n)
+  }
+  ```
+
+
+
 
 
 ### **1. What is Time and Space Complexity?**
@@ -108,8 +191,11 @@ for (int k = 0; k < n; k++) {            // Loop 3
 - After dropping the non-dominant term: The final time complexity is **O(n^2)**.
 
 ---
+### Upper lower Bound
+- Upper Bound --> example 10/3 = 3.33 ==> add 1 --->  4
+- Lower Bound --> 10/3 = 3.33 ==> get before decimal value ---> 3
 
-### **5. Big-Oh Notation ( ( O  )) --> Upper Bound**
+### **5. Big-Oh Notation ( ( O  )) --> Upper Bound  **
 - **What:** Worst-case growth rate.
 - **Example:**  ( O(n^2)  ) for nested loops over `n`, it cannot exceeds the O(N^2).
 - f(n) / g(n) > 0;
@@ -166,13 +252,13 @@ for (int k = 0; k < n; k++) {            // Loop 3
 
 
 ```
-                        f(4)                     // Initial call to f(4)
-                       /    \
-          f(3)                 f(2)            // f(4) calls f(3) and f(2)
-          /   \                   /   \
- f(2)       f(1)            f(1)      f(0)   // f(3) calls f(2) and f(1), f(2) calls f(1) and f(0)
-      /   \        /  \      /    \
- f(1)    f(0)  f(0)  f(0) f(0)  (base case reached)
+                    f(4)                     // Initial call to f(4)
+               /             \
+           f(3)               f(2)            // f(4) calls f(3) and f(2)
+          /    \             /   \
+       f(2)     f(1)      f(1)   f(0)    // f(3) calls f(2) and f(1), f(2) calls f(1) and f(0)
+      /  \      /  \      /  \
+    f(1) f(0) f(0)  f(0) f(0)  (base case reached)
 ```
 
 ### **Step-by-Step Breakdown:**
@@ -207,7 +293,6 @@ for (int k = 0; k < n; k++) {            // Loop 3
 **Space Complexity**:  
 - The maximum depth of the recursion stack here is 5 (`f(4)` → `f(3)` → `f(2)` → `f(1)` → `f(0)`).
 - Hence, the space complexity is proportional to the maximum recursion depth, which is `O(n)` in this example (where `n = 4`).
-
 
 
 ### **13. Recurrence Relations**

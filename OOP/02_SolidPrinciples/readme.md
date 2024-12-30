@@ -19,7 +19,7 @@
 5. **DIP (Dependency Inversion Principle)**  
    - High-level modules depend on abstractions, not concrete classes.  
    - Reduces tight coupling and improves flexibility.
- 
+
 
 ## 1. Single Responsibility Principle (SRP)
 - **What**: A class should only have one job or responsibility.
@@ -255,4 +255,14 @@ class UserService {
 - `UserService` depends on the `Storage` abstraction, not a specific implementation.
 
 ---
+#### **When to apply**
 
+When to apply SRP: Developers think about separating concerns. If a class is doing too much (e.g., handling both business logic and external services), it’s time to split it into smaller classes, each with a single responsibility.
+
+When to apply OCP: If a class might need to be extended in the future (e.g., adding new functionality), consider designing it to be open for extension (through interfaces or abstract classes) and closed for modification.
+
+When to apply LSP: When subclassing, ensure that the subclass can be used interchangeably with the parent class without altering the expected behavior of the system.
+
+When to apply ISP: If a class or interface has methods that won’t be used by all implementations, break it into smaller, more specific interfaces.
+
+When to apply DIP: Always prefer abstractions over concrete implementations. This helps in making the code more flexible and testable.
