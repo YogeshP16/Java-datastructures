@@ -9,7 +9,9 @@
         "PATTERNS/01_HASHING/02_STRINGS",
         "PATTERNS/01_HASHING/01_ARRAYS",
         "PATTERNS/0",
+        "OOP/03_DesignPatterns/03_Observer",
         "OOP/03_DesignPatterns/01_Singleton",
+   
         "JAVA_DSA/08_RECURSION/06_BACKTRACKING",
         "JAVA_DSA/08_RECURSION/05_PERMUTATIONS_COMBINATIONS",
         "JAVA_DSA/08_RECURSION/04_SUBSET_SUBSEQUENCE_STRING",
@@ -33,7 +35,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "OOP/03_DesignPatterns/03_Observer"
+       
     ]
     
 }
