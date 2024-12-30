@@ -79,10 +79,6 @@
   }
   ```
 
-
-
-
-
 ### **1. What is Time and Space Complexity?**
 - **What:** Measures the efficiency of an algorithm in terms of:
   - **Time Complexity (TC):** How execution time grows with input size grows.
@@ -108,9 +104,17 @@
 
 ### **3. Comparing Complexities**
 - **Common Orders:**  
-  -  ( O(1)  ) <  ( O( log n)  ) <  ( O(n)  ) <  ( O(n  log n)  ) <  ( O(n^2)  ) <  ( O(2^n)  ) <  ( O(n!)  )  
+  - (O(1) - Constant)
+  - (O( log n) - Logarithmic)
+  - (O(n) - Linear) <  (O(n  log n))
+  - (O(n^2) - Quadratic)
+  - (O(n^3) - Cubic)
+  - (O(2^n) - Exponential)
+  - (O(n!) - Factorial)
+  - (O(n^n))
+  
 - **Key:** Lower complexity is better for larger inputs.
-
+ 
 ---
 
 ### **4. Procedure for Analyzing Complexity with Example**
