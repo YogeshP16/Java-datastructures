@@ -3,7 +3,6 @@
 
     
     "java.project.sourcePaths": [
-        "PATTERNS/03_SLOW_FAST-POINTERS/01_ARRAYS_LL",
         "PATTERNS/02_TWO_POINTERS/02_STRINGS",
         "PATTERNS/02_TWO_POINTERS/01_ARRAYS",
         "PATTERNS/01_HASHING/02_STRINGS",
@@ -11,7 +10,7 @@
         "PATTERNS/0",
         "OOP/03_DesignPatterns/03_Observer",
         "OOP/03_DesignPatterns/01_Singleton",
-   
+        "JAVA_DSA/10_TIME&SPACE_ANALYSIS",
         "JAVA_DSA/08_RECURSION/06_BACKTRACKING",
         "JAVA_DSA/08_RECURSION/05_PERMUTATIONS_COMBINATIONS",
         "JAVA_DSA/08_RECURSION/04_SUBSET_SUBSEQUENCE_STRING",
@@ -35,7 +34,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-       
+        "Practice/01_Traversal"
     ]
     
 }

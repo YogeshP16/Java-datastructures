@@ -78,7 +78,7 @@
     print(i);  // Logarithmic time --> O(log n)
   }
   ```
-  
+
 ---
 ### **1. What is Time and Space Complexity?**
 - **What:** Measures the efficiency of an algorithm in terms of:
@@ -313,7 +313,8 @@ for (int k = 0; k < n; k++) {            // Loop 3
 ---
 
 ### **14. Fibonacci with Golden Ratio**
-- **Formula:**  ( F(n) =  frac{ phi^n - (1- phi)^n}{ sqrt{5}}  ), where  (  phi =  frac{1+ sqrt{5}}{2}  ).
+- **Formula:**  ( F(n) = { phi^n - (1- phi)^n} / { sqrt{5}} )
+- where  ( phi = 1+ sqrt(5) / 2 ).
 
 ---
 
