@@ -2,7 +2,7 @@ import java.util.HashSet;
 
 public class O12_FindDifference {
     public static void main(String[] args) {
-        int[] a = {1, 2, 3, 4, 5, 6};
+        int[] a = {1, 2, 3, 4, 5, 6, 11};
         int[] b = {4, 5, 6, 7, 8, 9, 1, 2, 3};
         HashSet<Integer> res = difference(a, b);
         System.out.println(res);

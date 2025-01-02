@@ -1,4 +1,4 @@
-public class O01_StringPalindrome {
+public class O05_StringPalindrome {
 
     public static void main(String[] args) {
         String s = "A man, a plan, a canal: Panama";
