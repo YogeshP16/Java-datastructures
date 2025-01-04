@@ -1,6 +1,6 @@
 public class O03_ReverseWords {
     public static void main(String[] args) {
-        String str = "hello hi this is yogesh";
+        String str = "hello hi This is Yogesh";
         System.out.println(reverseWords(str));  // Output: "olleh ih siht si hsegoy"
     }
 

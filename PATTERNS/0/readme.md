@@ -69,9 +69,7 @@
    
 6. **Maximum Occurring Character**
    - [GFG Link](https://www.geeksforgeeks.org/problems/maximum-occuring-character-1587115620/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
-   
-7. **Word Frequency**
-   - [Leetcode Link](https://leetcode.com/problems/word-frequency/description/)
+  
 
 
 
@@ -83,7 +81,7 @@ https://leetcode.com/problems/product-of-array-except-self/description/?utm_sour
 
 
 
-HashMAP
+### HashMAP
 
 https://www.geeksforgeeks.org/problems/find-the-frequency/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card 
 
@@ -132,11 +130,27 @@ https://leetcode.com/problems/group-anagrams/
 
 https://www.geeksforgeeks.org/problems/maximum-occuring-character-1587115620/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card 
 
-https://leetcode.com/problems/word-frequency/description/
+https://www.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1 
+
+https://leetcode.com/problems/count-common-words-with-one-occurrence/description/ 
+
+https://leetcode.com/problems/check-if-all-characters-have-equal-number-of-occurrences/description/ 
 
 
 
-CYCLIC SORT
+
+### Two pointer
+Arrays 
+
+
+
+
+String
+
+
+
+
+### CYCLIC SORT
 
 https://leetcode.com/problems/find-the-duplicate-number/description/?utm_source=chatgpt.com
 
