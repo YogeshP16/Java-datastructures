@@ -1,81 +1,15 @@
-
-
-### HashMAP:
-1. **Find the frequency**
-   - [GFG Link](https://www.geeksforgeeks.org/problems/find-the-frequency/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
-   
-2. **Number of Occurrence**
-   - [GFG Link](https://www.geeksforgeeks.org/problems/number-of-occurrence2259/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
-   
-3. **Non-repeating Element**
-   - [GFG Link](https://www.geeksforgeeks.org/problems/non-repeating-element3958/1?utm_source=chatgpt.com)
-   
-4. **Remove Duplicate Elements from Sorted Array**
-   - [GFG Link](https://www.geeksforgeeks.org/problems/remove-duplicate-elements-from-sorted-array/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
-   
-5. **Check if Two Arrays are Equal or Not**
-   - [GFG Link](https://www.geeksforgeeks.org/problems/check-if-two-arrays-are-equal-or-not3847/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
-   
-6. **Find All Duplicates in an Array**
-   - [Leetcode Link](https://leetcode.com/problems/find-all-duplicates-in-an-array/description/?utm_source=chatgpt.com)
-   
-7. **Contains Duplicate**
-   - [Leetcode Link](https://leetcode.com/problems/contains-duplicate/description/?utm_source=chatgpt.com)
-   
-8. **Duplicate Elements**
-   - [GFG Link](https://www.geeksforgeeks.org/problems/duplicate-elements/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
-   
-9. **Element Appearing Once**
-   - [GFG Link](https://www.geeksforgeeks.org/problems/element-appearing-once2552/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
-   
-10. **Majority Element**
-    - [GFG Link](https://www.geeksforgeeks.org/problems/majority-element-1587115620/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
-   
-11. **Majority Element II**
-    - [Leetcode Link](https://leetcode.com/problems/majority-element-ii/description/?utm_source=chatgpt.com)
-   
-12. **Two Sum**
-    - [Leetcode Link](https://leetcode.com/problems/two-sum/description/?utm_source=chatgpt.com)
-   
-13. **Intersection of Two Arrays**
-    - [Leetcode Link](https://leetcode.com/problems/intersection-of-two-arrays/?utm_source=chatgpt.com)
-   
-14. **Intersection of Two Arrays II**
-    - [Leetcode Link](https://leetcode.com/problems/intersection-of-two-arrays-ii/?utm_source=chatgpt.com)
-   
-15. **Find Common Elements Between Two Arrays**
-    - [Leetcode Link](https://leetcode.com/problems/find-common-elements-between-two-arrays/?utm_source=chatgpt.com)
-   
-16. **Check if an Array is a Permutation of Numbers from 1 to N**
-    - [GFG Link](https://www.geeksforgeeks.org/check-if-an-array-is-a-permutation-of-numbers-from-1-to-n/?utm_source=chatgpt.com)
-
----
-
-### Strings:
-1. **Count the Characters**
-   - [GFG Link](https://www.geeksforgeeks.org/problems/count-the-characters1821/1)
-   
-2. **First Unique Character in a String**
-   - [Leetcode Link](https://leetcode.com/problems/first-unique-character-in-a-string/description/?utm_source=chatgpt.com)
-   
-3. **Remove All Duplicates from a Given String**
-   - [GFG Link](https://www.geeksforgeeks.org/problems/remove-all-duplicates-from-a-given-string4321/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
-   
-4. **Valid Anagram**
-   - [Leetcode Link](https://leetcode.com/problems/valid-anagram/?utm_source=chatgpt.com)
-   
-5. **Group Anagrams**
-   - [Leetcode Link](https://leetcode.com/problems/group-anagrams/)
-   
-6. **Maximum Occurring Character**
-   - [GFG Link](https://www.geeksforgeeks.org/problems/maximum-occuring-character-1587115620/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
-  
-
-
-
-
-
 Array
+https://bit.ly/3Pld280
+
+https://bit.ly/3pFvBcN 
+
+https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/#:~:text=Input%3A%20nums%20%3D%20%5B2%2C,no%20rotation)%20to%20make%20nums. 
+
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/#:~:text=Input%3A%20nums%20%3D%20%5B0%2C,%2C%203%2C%20and%204%20respectively. 
+
+
+
+
 
 https://leetcode.com/problems/product-of-array-except-self/description/?utm_source=chatgpt.com
 
@@ -115,6 +49,11 @@ https://leetcode.com/problems/find-common-elements-between-two-arrays/?utm_sourc
 
 https://www.geeksforgeeks.org/check-if-an-array-is-a-permutation-of-numbers-from-1-to-n/?utm_source=chatgpt.com 
 
+https://leetcode.com/problems/top-k-frequent-elements/ 
+
+https://leetcode.com/problems/most-frequent-even-element/description/
+
+
 
 Strings
 
@@ -136,22 +75,51 @@ https://leetcode.com/problems/count-common-words-with-one-occurrence/description
 
 https://leetcode.com/problems/check-if-all-characters-have-equal-number-of-occurrences/description/ 
 
-
+https://leetcode.com/problems/top-k-frequent-words/description/ 
 
 
 ### Two pointer
 Arrays 
+https://leetcode.com/problems/merge-sorted-array/?utm_source=chatgpt.com 
 
+https://leetcode.com/problems/intersection-of-two-arrays/?utm_source=chatgpt.com
 
+https://leetcode.com/problems/intersection-of-two-arrays-ii/?utm_source=chatgpt.com 
 
+https://www.geeksforgeeks.org/problems/reverse-an-array/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card&selectedLang=java 
+
+https://leetcode.com/problems/move-zeroes/ 
+
+https://www.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1 
+
+https://leetcode.com/problems/rotate-array/description/ 
+
+https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
+https://leetcode.com/problems/3sum/ 
+
+https://leetcode.com/problems/container-with-most-water/
 
 String
 
+https://www.geeksforgeeks.org/problems/reverse-a-string/1
 
+https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/description/ 
+
+https://leetcode.com/problems/reverse-string/ 
+
+https://leetcode.com/problems/reverse-words-in-a-string/description/
+
+https://leetcode.com/problems/reverse-words-in-a-string-iii/description/
+
+https://leetcode.com/problems/valid-palindrome/ 
+
+https://leetcode.com/problems/valid-palindrome-ii/
 
 
 ### CYCLIC SORT
 
 https://leetcode.com/problems/find-the-duplicate-number/description/?utm_source=chatgpt.com
 
+https://leetcode.com/problems/missing-number/description/ 
 

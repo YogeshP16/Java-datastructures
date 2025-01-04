@@ -3,6 +3,7 @@
 
     
     "java.project.sourcePaths": [
+        "PATTERNS/04_TWO_POINTERS/01_ARRAYS",
         "PATTERNS/02_TWO_POINTERS/02_STRINGS",
         "PATTERNS/02_TWO_POINTERS/01_ARRAYS",
         "PATTERNS/01_HASHING/02_STRINGS",
@@ -34,7 +35,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "Practice/01_Traversal"
+        "PATTERNS/03_HASHING/01_ARRAYS"
     ]
     
 }
