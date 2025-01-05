@@ -7,6 +7,20 @@ https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/#:~:text=Inpu
 
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/#:~:text=Input%3A%20nums%20%3D%20%5B0%2C,%2C%203%2C%20and%204%20respectively. 
 
+https://leetcode.com/problems/move-zeroes/
+
+https://leetcode.com/problems/sort-colors/description/ 
+
+https://bit.ly/3KcpHcB
+
+https://leetcode.com/problems/maximum-subarray/ 
+
+https://bit.ly/3SLFFhs 
+
+https://leetcode.com/problems/rearrange-array-elements-by-sign/ 
+
+https://leetcode.com/problems/max-consecutive-ones/ 
+
 
 
 
@@ -40,6 +54,8 @@ https://www.geeksforgeeks.org/problems/majority-element-1587115620/1?itm_source=
 https://leetcode.com/problems/majority-element-ii/description/?utm_source=chatgpt.com 
 
 https://leetcode.com/problems/two-sum/description/?utm_source=chatgpt.com
+
+https://bit.ly/3Ap7Onp 
 
 https://leetcode.com/problems/intersection-of-two-arrays/?utm_source=chatgpt.com 
 
@@ -122,4 +138,5 @@ https://leetcode.com/problems/valid-palindrome-ii/
 https://leetcode.com/problems/find-the-duplicate-number/description/?utm_source=chatgpt.com
 
 https://leetcode.com/problems/missing-number/description/ 
+
 

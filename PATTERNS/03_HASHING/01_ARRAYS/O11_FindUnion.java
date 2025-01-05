@@ -2,7 +2,7 @@ import java.util.HashSet;
 
 public class O11_FindUnion {
     public static void main(String[] args) { // return records from both arr
-        int [] a= {1,2,3};
+        int [] a= {1,2,3,5};
         int[] b = {4,5,6};
         HashSet<Integer> res  =  union(a,b);
         System.out.println(res);   // [1,2,3,4,5,6]
