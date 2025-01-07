@@ -16,6 +16,5 @@ public class O02_RemoveCharacter {
         System.out.println(str.substring(0,n)+ str.substring(n+1));  // Ktten
 
         System.out.println(str.substring(0,n) + str.substring(n+1));
-        
     }
 }
