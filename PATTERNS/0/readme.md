@@ -3,6 +3,10 @@ https://bit.ly/3Pld280
 
 https://bit.ly/3pFvBcN 
 
+https://www.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1 
+
+https://leetcode.com/problems/rotate-array/description/
+
 https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/#:~:text=Input%3A%20nums%20%3D%20%5B2%2C,no%20rotation)%20to%20make%20nums. 
 
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/#:~:text=Input%3A%20nums%20%3D%20%5B0%2C,%2C%203%2C%20and%204%20respectively. 
