@@ -6,9 +6,6 @@ Access control in Java determines how members (fields, methods) of a class can b
 **Why it's used**:  
 It is used to restrict or allow access to class members, ensuring encapsulation, security, and proper class design.
 
-**What it does**:  
-It controls the visibility of class members, allowing access only under specific conditions defined by access modifiers.
-
 **How it works**:  
 Java provides different access modifiers—`public`, `private`, `protected`, and default—each with varying levels of access.
 

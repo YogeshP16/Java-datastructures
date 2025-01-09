@@ -12,6 +12,12 @@
         "PATTERNS/0",
         "OOP/03_DesignPatterns/03_Observer",
         "OOP/03_DesignPatterns/01_Singleton",
+        "OOP/02_SolidPrinciples/05_DependencyInversion/Good",
+        "OOP/02_SolidPrinciples/04_InterfaceSegregation/Good",
+        "OOP/02_SolidPrinciples/03_LiskovSubstitution/Good",
+        "OOP/02_SolidPrinciples/02_OpenClosed/Good",
+        "OOP/02_SolidPrinciples/01_SingleResponsibility/Good",
+        "OOP/02_SolidPrinciples/01_SingleResponsibility/Bad",
         "JAVA_DSA/10_TIME&SPACE_ANALYSIS",
         "JAVA_DSA/08_RECURSION/06_BACKTRACKING",
         "JAVA_DSA/08_RECURSION/05_PERMUTATIONS_COMBINATIONS",
@@ -30,12 +36,13 @@
         "JAVA_DSA/04_STRING/01_StringCode",
         "JAVA_DSA/03_ARRAYS/02_MATRIX",
         "JAVA_DSA/03_ARRAYS/01_BASICS",
+        "JAVA_DSA/03_ARRAYS/00_CODINGBAT",
         "JAVA_DSA/02_LOOPS/03_PATTERNS",
         "JAVA_DSA/02_LOOPS/02_BASICS",
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "JAVA_DSA/03_ARRAYS/00_CODINGBAT"
+        "OOP/02_SolidPrinciples/05_DependencyInversion/Bad"
     ]
     
 }

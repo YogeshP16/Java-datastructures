@@ -1,5 +1,14 @@
-### **Introduction**  
-- An **abstract class** is a class that cannot be instantiated. It is declared using the `abstract` keyword and may contain abstract methods (without implementation) and concrete methods (with implementation).
+### **Introduction** 
+this concept is known as Abstraction. The abstract class provides a blueprint or contract (through abstract methods) without defining the exact implementation details. Subclasses are then responsible for providing concrete implementations of the abstract methods.
+
+So, in this analogy:
+
+The abstract class is like the leader who sets the goals (abstract methods).
+The subclasses are like the employees who perform the actual work (implementing the abstract methods).
+
+- An **abstract class** is a class that cannot be instantiated (Cannot create object for superclass). 
+- It is declared using the `abstract` keyword and may contain abstract methods (without implementation) and concrete methods (with implementation).
+- subclass can create object if subclass implements all methods from superclass
 
 ---
 
@@ -23,6 +32,7 @@ Or, itself be declared abstract (if it chooses not to implement all the methods)
 ```java
 abstract class Shape {  // super class
     abstract void draw(); // Abstract method -->Must be implemented by subclass
+    
     void display() {
         System.out.println("This is a shape");
     }

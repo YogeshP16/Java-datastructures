@@ -9,7 +9,7 @@
    - Allows adding features without changing existing code.
 
 3. **LSP (Liskov Substitution Principle)**  
-   - Subclasses should replace parent classes without errors.  
+   - Subclasses should replace parent classes without errors, breaking functionality or logic.  
    - Ensures subclasses behave as expected.
 
 4. **ISP (Interface Segregation Principle)**  

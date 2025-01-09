@@ -1,30 +1,33 @@
-### **Encapsulation - focus on internal working**
-- **What it is**: 
-Encapsulation is the concept of bundling data (variables) and methods (functions) that operate on the data within a single unit or class.
-wrap up the implementation of data members and methods in a class.
+### Encapsulation vs Abstraction
 
-- **Why it's used**: It helps restrict access to certain details and protects the integrity of the data.
+#### **Encapsulation**  
+- **What?**  
+  - Bundles data (variables) and methods within a class.
+  - **Data Hiding**: Restricts access to internal data using private fields and public methods.
+  
+- **Why?**  
+  - Protects data integrity and controls access to it.
+  
+- **How?**  
+  - Private fields + public getter/setter methods.
+  
+#### **Abstraction**  
+- **What?**  
+  - Hides implementation details and exposes essential features.
+  
+- **Why?**  
+  - Simplifies interaction with objects by hiding complexities.
+  
+- **How?**  
+  - Achieved via interfaces or abstract classes that define methods without implementation.
 
-- **What it does**: It hides the internal state of an object and only exposes necessary methods to interact with that state.
+#### **Encapsulation vs Abstraction**  
+- **Encapsulation**: Focuses on **how** data is hidden and controlled.
+- **Abstraction**: Focuses on **what** details are hidden and simplifies interactions.
 
-- **How it works**: By using **private** fields and providing **public** getter and setter methods to access and modify them, encapsulation hides the internal implementation and controls how data is accessed or modified.
-
-### **Abstraction - focus on external stuff**
-- **What it is**: 
-Abstraction is the concept of hiding complex implementation details and exposing only the essential features of an object.
-Hiding unnecessary details & showing valuable information. it is design level
-we acheive abstraction via interfaces, abstract class.
-
-- **Why it's used**: It simplifies interaction with objects by exposing only necessary functionality and hiding unnecessary complexities.
-
-- **What it does**: It provides a simplified interface to interact with objects, while the detailed implementation is hidden from the user.
-
-- **How it works**: By using **abstract classes** or **interfaces**, abstraction defines a contract (methods) without specifying the implementation. Classes that implement or extend these can provide specific implementations.
-
-### **Encapsulation vs Abstraction**
-- **Encapsulation** focuses on hiding the internal state of an object and restricting access to it using access modifiers (private/protected/public). It is about **how the data is hidden** and controlled.
-
-- **Abstraction** focuses on hiding the complexity of the implementation and providing a simplified interface for interaction. It is about **what details are hidden**.
+#### **Example**  
+- **Encapsulation**: Private field with getter/setter.
+- **Abstraction**: Interface with method implementations in classes.
 
 ### **Example**
 - **Encapsulation**: 
@@ -63,21 +66,29 @@ we acheive abstraction via interfaces, abstract class.
   }
   ```
 
-### **Data Hiding**
-- **What it is**: Data hiding is a feature of encapsulation where the internal data of an object is hidden from outside access. example private access modifer is known as data hiding
+### Data Hiding vs Encapsulation
 
-- **Why it's used**: It ensures that the data is protected and can only be modified in controlled ways, preventing unauthorized or incorrect modifications.
+#### **Data Hiding**  
+- **What?**  
+  - Hides internal data using private access modifiers.
+  
+- **Why?**  
+  - Protects data and ensures controlled modifications.
 
-- **What it does**: By making class fields private and providing controlled access through methods, data hiding prevents direct access to the fields.
+- **How?**  
+  - Private fields + public methods (getters/setters) for controlled access.
 
-- **How it works**: Data hiding is achieved using access modifiers like `private` to prevent direct access to fields. Only public methods are used to interact with the fields, allowing validation and control over the data.
+#### **Encapsulation**  
+- **What?**  
+  - Wraps data and methods into a single unit, exposing necessary functionality.
 
-### **Data hiding vs encapsulation**
-#### **1. Definition and Focus**  
-- **Data Hiding**: Hides internal data by using `private` access modifiers to restrict direct access.  
-- **Encapsulation**: Wraps data and methods into a single unit and provides controlled access via public methods.  
+- **Why?**  
+  - Promotes modularity by bundling data with its associated methods.
 
-#### **2. Relationship and Purpose**  
-- **Data Hiding**: Ensures sensitive data is secure and not directly accessible. It is a **part of encapsulation**.  
-- **Encapsulation**: Uses data hiding and promotes modularity by bundling fields with methods (getters/setters).  
+- **How?**  
+  - Combines data hiding with public methods for data interaction.
 
+#### **Data Hiding vs Encapsulation**  
+- **Data Hiding**: Focuses on **hiding** internal data.  
+- **Encapsulation**: Combines data and methods, providing **controlled access** to the data.  
+- **Relationship**: Data hiding is a **part of encapsulation**.
