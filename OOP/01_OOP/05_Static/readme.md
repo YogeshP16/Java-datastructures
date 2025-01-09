@@ -1,140 +1,115 @@
 ### 1. **Static in Java**
 
 #### **What is it?**
-The keyword `static` in Java is used to define class-level members (variables, methods, or blocks), meaning they belong to the class rather than instances of the class.
-
-#### **Why it's used?**
-It allows shared access to variables or methods across all instances of a class. You don’t need to create an object to access them.
-
-#### **What it does?**
+Class-level keyword for variables, methods, or blocks.Means they belong to the class rather than instances of the class.
 - **Static Variables**: Shared by all instances of the class.
 - **Static Methods**: Can be called without creating an instance of the class.
 - **Static Blocks**: Used to initialize static variables when the class is loaded.
 
-#### **How it works?**
-- **Static Variable**: When a variable is declared static, it's initialized only once, and all instances of the class share the same memory location for that variable.it cannot be ovverriden by another class.
-- **Static Method**: A method declared as static can be called directly using the class name, without creating an object, it cannot be ovverriden by another class.
-
----
-
-### 2. **Static Variables**
-
-A **static variable** is declared with the `static` keyword and belongs to the class, not instances of the class.
-
-- **Usage**: Static variables are used for data that is shared among all instances of the class.
-- **Behavior**: They are initialized only once and have the same value for all instances.
-- **Access**: Accessed using the class name or an instance of the class.
-- **Overriding**: Static variables **cannot be overridden**, but can be hidden in subclasses.
-
----
-
-### 3. **Static Methods**
-
-A **static method** is declared with the `static` keyword and can be called using the class name without creating an object.
-
-- **Usage**: Static methods are used for class-level operations that do not depend on instance data.
-- **Behavior**: They can access only static variables and methods.
-- **Access**: Called directly through the class name, without an instance.
-- **Overriding**: Static methods **cannot be overridden**. They can be hidden in subclasses, but the method call is determined by the reference type at compile time.
-
----
-
-### 4. **Why `psvm` (main method) is static?**
-
-#### **What is it?**
-`psvm` stands for `public static void main(String[] args)` which is the entry point of any Java application.
-
 #### **Why it's used?**
-The `main` method needs to be static because it is called by the JVM before any objects are created. The JVM does not create an object to invoke the main method, so it must be static.
-
-#### **What it does?**
-It allows the JVM to call the method without creating an instance of the class.
-
-#### **How it works?**
-Since the `main` method is static, the JVM can invoke it directly when the program starts.
+It allows shared access to variables or methods across all instances of a class. 
+You don’t need to create an object to access them.
 
 ---
 
-### 5. **Non-static Member Inside a Static Method**
+### Static Variables
 
-#### **What is it?**
-You cannot directly access non-static members (variables or methods) inside a static method because static methods don’t have access to instance data.
+**What?**  
+- Static variables are declared with `static` and belong to the class, not instances.
 
-You can access by creating an instance of the class (Example obj = new Example();), the static method can access the non-static members using the object reference (obj.instanceVariable).
+**Why?**  
+- Used for shared data across all instances of the class.
 
-#### **Why it's used?**
-Non-static members are tied to instances, so they require an object to be accessed.
-
-#### **What it does?**
-To access a non-static member inside a static method, you need to create an instance of the class.
-
-#### **How it works?**
-You can create an object in the static method and use it to access non-static members.
+**How?**  
+- Accessed using the class name or an instance of the class.  
+- **Cannot be overridden** but can be hidden in subclasses.
 
 ---
 
-### 6. **Static Member Inside a Non-static Method**
+### Static Methods
 
-#### **What is it?**
-Static members (variables or methods) can be accessed directly in non-static methods because static members belong to the class.
+**What?**  
+- Static methods are declared with `static` and can be called using the class name without creating an object.
 
-#### **Why it's used?**
-It allows access to class-level data inside instance methods.
+**Why?**  
+- Used for class-level operations that do not depend on instance data.
 
-#### **What it does?**
-You can directly refer to static members in non-static methods without creating an instance of the class.
-
-#### **How it works?**
-Since static members are shared by all instances, they are directly available inside non-static methods.
-
----
-
-### 7. **`this` Keyword Inside Static Methods**
-
-#### **What is it?**
-The `this` keyword refers to the current object.
-
-#### **Why it's used?**
-It is used to refer to the current instance of the class.
-
-#### **What it does?**
-Inside a static method, `this` cannot be used because static methods don’t belong to any specific instance.
-
-#### **How it works?**
-Since static methods are class-level methods, they cannot refer to the instance-specific context, which is what `this` represents.
+**How?**  
+- Access static variables and methods only.  
+- Called directly through the class name.  
+- **Cannot be overridden**, but can be hidden in subclasses.
 
 ---
 
-### 8. **Initialization of Static Variables (Static block)**
+### Why `psvm` is Static
 
-#### **What is it?**
-A static block is a block of code inside a class that is executed when the class is loaded into memory, even before the main method run
-Static variables are initialized when the class is loaded into memory.
-Execution Order:
+**What?**  
+- `psvm` stands for `public static void main(String[] args)` and is the entry point of any Java application.
 
-Static blocks are executed once when the class is loaded by the JVM.
-After the static block, the main method or other program logic is executed.
+**Why?**  
+- Static because the JVM calls it before creating any objects. 
+- The JVM invokes it directly when the program starts without creating an instance of the class.
 
-#### **Why it's used?**
-To ensure that static variables are initialized only once for the entire class.
+---
 
-#### **What it does?**
-Static variables are initialized when the class is loaded by the JVM and remain the same across all instances.
+### Non-static Member Inside a Static Method
 
-#### **How it works?**
-You can initialize static variables in a static block or directly at the point of declaration.
+**What?**  
+- Non-static members cannot be accessed directly in a static method.  
 
+**Why?**  
+- Static methods lack access to instance-specific data.  
+
+**How?**  
+- Create an object to access non-static members (e.g., `obj.instanceVariable`).  
+
+---
+
+### Static Member Inside a Non-static Method
+
+**What?**  
+- Static members can be accessed directly in non-static methods.  
+
+**Why?**  
+- Static members are class-level and shared across all instances.  
+
+**How?**  
+- Access directly without an instance (e.g., `ClassName.staticVariable`).  
+---
+
+### `this` Keyword in Static Methods
+
+**What?**  
+- `this` refers to the current object.  
+
+**Why Not in Static Methods?**  
+- Static methods belong to the class, not any instance.  
+
+**How?**  
+- Static methods cannot use `this` since no specific instance is associated.
+
+---
+### Static Block
+
+**What?**  
+- Code executed when the class is loaded, even before `main`.  
+- Used to initialize static variables.  
+
+**Why?**  
+- Ensures static variables are initialized only once for all instances.  
+
+**How?**  
+```java
+static {
+    variable = value;
+}
+```
 ---
 
 ### 9. **Instance vs Static**
 
 #### **What is it?**
 Instance members are tied to an object, whereas static members are tied to the class itself.
-
-#### **Why it's used?**
-Use instance members when data is unique to an object, and static members when the data should be shared across all objects of the class.
-
-#### **What it does?**
 Instance members can only be accessed through an object, while static members can be accessed without creating an object.
 
 #### **How it works?**
@@ -147,11 +122,6 @@ Instance members can only be accessed through an object, while static members ca
 
 #### **What is it?**
 An inner class is a class defined within another class.
-
-#### **Why it's used?**
-Used for logically grouping classes that are only used in one place, improving encapsulation.
-
-#### **What it does?**
 It allows the inner class to access the members (including private members) of the outer class.
 
 #### **How it works?**
@@ -161,12 +131,22 @@ It allows the inner class to access the members (including private members) of t
 ---
 
 ### 11. **Singleton**
-#### **What is Singleton?**
-The Singleton pattern ensures that only one object of a class is created and provides a global way to access that object. It is useful when you need a single, shared instance to manage something across the entire application.
 
-#### **Why Use Singleton?**
-- To control access to shared resources (e.g., database connections, configuration settings).
-- To ensure consistent behavior with a single instance.
-- To reduce memory usage by preventing multiple object creation
+#### **What is Singleton?**
+Ensures that only one object of a class is created and provides a global way to access that object. 
+It is useful when you need a single, shared instance to manage something across the entire application.
+To control access to shared resources (e.g., database connections, configuration settings).
+To reduce memory usage by preventing multiple object creation
+
+```java
+public class Singleton {
+    private static Singleton instance = new Singleton();
+    private Singleton() {}
+    public static Singleton getInstance() {
+        return instance;
+    }
+}
+``` 
+
 ---
 
