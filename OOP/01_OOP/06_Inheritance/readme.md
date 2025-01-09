@@ -131,12 +131,6 @@ This is the Parent class.
 
 ---
 
-### **Why is this Important?**  
-- Java follows **strict type checking** to ensure code safety.  
-- It avoids ambiguity and enforces the **IS-A relationship** where the child class *is a* parent class but **not vice versa**.  
-
----
-
 ### **Workaround:**  
 If you need to access child-specific data, you must **typecast** the parent reference back to the child class.  
 
@@ -191,20 +185,15 @@ class Child : public Parent1, public Parent2 {
      }
      ```
 
-2. **Simplified Design:**
-   - Java designers intentionally avoided multiple inheritance to keep the language simpler, more maintainable, and less error-prone.
-
-3. **Alternative Solutions:**
+2. **Alternative Solutions:**
    - Java supports **multiple inheritance of types** through interfaces. This allows a class to implement multiple interfaces without ambiguity.
 
 #### **Why Interface Comes Into Play?**
 1. **No Method Implementation Conflict:**
    - Interfaces only provide method declarations (until Java 8, when default methods were introduced). The child class must provide its own implementation, so there's no ambiguity like the diamond problem.
 
-2. **Flexibility with Contracts:**
-   - Interfaces allow classes to follow multiple contracts (behaviors) without inheriting state (fields), which ensures better modularity.
 
-3. **Example of Multiple Inheritance with Interfaces:**
+2. **Example of Multiple Inheritance with Interfaces:**
    ```java
    interface A {
        void show();
@@ -226,9 +215,5 @@ class Child : public Parent1, public Parent2 {
        }
    }
    ```
-
-#### **Why Not Just Use Classes?**
-- With classes, the potential conflicts (like the diamond problem) could make code behavior unpredictable.
-- Interfaces focus only on defining behavior without carrying the burden of shared state or inheritance ambiguity.
 
 

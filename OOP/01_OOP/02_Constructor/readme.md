@@ -8,10 +8,6 @@
    - To set initial values for object properties.  
    - To execute any setup logic required when an object is instantiated.  
 
-3. **What Does it Do?**  
-   - Initializes an object’s fields.  
-   - Provides flexibility to set values during object creation.  
-
 4. **How it Works?**  
    - **Default Constructor**: If no constructor is defined, Java provides a default constructor with no arguments.  
      ```java
@@ -22,6 +18,7 @@
      }
      Example obj = new Example();
      ```
+     
    - **Creating Constructors**: Define constructors manually if specific initialization is needed.
      ```java
      public class Example {

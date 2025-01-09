@@ -1,7 +1,9 @@
 ### **Wrapper Classes in Java** 
 
 #### **What it is:**
-A **Wrapper Class** allows primitive data types (like `int`, `char`, `double`) to be used as objects. Each primitive type has a corresponding wrapper class:
+A **Wrapper Class** allows primitive data types (like `int`, `char`, `double`) to be used as objects. 
+Each primitive type has a corresponding wrapper class:
+
 - `int` → `Integer`
 - `char` → `Character`
 - `double` → `Double`
@@ -19,9 +21,6 @@ Wrapper classes are used to treat primitive values as objects, which is necessar
 - Provides utility methods (e.g., converting strings to numbers).
 - Allows primitives in collections that require objects.
 
-#### **How it works:**
-Wrapper classes store primitive values and offer methods for conversion and manipulation. For instance, `Integer` stores an `int` and allows operations like converting to `String` or comparing values.
-
 ---
 
 ### **`final` Keyword in Java**
@@ -36,13 +35,8 @@ The `final` keyword is used to declare constants, prevent method overriding, and
 
 #### **What it does:**
 - **For variables**: The value cannot be changed once initialized.
-- **For methods**: The method cannot be overridden in subclasses.
-- **For classes**: The class cannot be subclassed.
-
-#### **How it works:**
-- When applied to a variable, the value is set once and cannot be modified.
-- When applied to a method, no subclass can change the method's implementation.
-- When applied to a class, no other class can extend the class.
+- **For methods**: The method cannot be overridden in subclasses,  no subclass can change the method's implementation.
+- **For classes**: The class cannot be subclassed, no other class can extend the class.
 
 ---
 
