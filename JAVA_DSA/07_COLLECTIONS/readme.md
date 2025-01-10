@@ -1,9 +1,9 @@
 
-### s for **Collections Framework in Java**
+### **Collections Framework in Java**
 
 ---
 
-#### ** 1: Collections in Java**
+#### **Collections in Java**
 - **Definition**: A framework for storing and manipulating **groups of objects**.
 - **Key Components**:
 ##### **Interfaces**
