@@ -47,15 +47,11 @@
 
 ---
 
-
-
----
-
 ### Java List Implementations
 
 ---
 
-#### **  1: ArrayList in Java**
+#### **1: ArrayList in Java**
 - **Definition**: A resizable array implementation of `List`.
 - **Advantages**:
   - Fast **random access** via index.
@@ -67,7 +63,7 @@
 
 ---
 
-#### **  2: Vector Class in Java**
+#### **2: Vector Class in Java**
 - **Definition**: A synchronized, resizable array implementation of `List`. Legacy class from Java 1.0.
 - **Advantages**: 
   - Thread-safe out of the box.
@@ -78,7 +74,7 @@
 
 ---
 
-#### **  3: LinkedList in Java**
+#### **3: LinkedList in Java**
 - **Definition**: A doubly-linked list implementation of `List` and `Deque`.
 - **Advantages**:
   - Efficient **insertions/deletions**: No need to shift elements.
@@ -90,7 +86,7 @@
 
 ---
 
-#### **  4: CopyOnWriteArrayList**
+#### **4: CopyOnWriteArrayList**
 - **Definition**: A thread-safe implementation of `List`, which creates a copy of the array for updates.
 - **Advantages**:
   - **Thread-safe** without external synchronization.
@@ -102,7 +98,7 @@
 
 ---
 
-#### **  5: Stack Class in Java**
+#### **5: Stack Class in Java**
 - **Definition**: A LIFO (Last In, First Out) data structure extending `Vector`.
 - **Key Methods**:
   - `push(E e)`: Adds an element to the top of the stack.
@@ -121,7 +117,7 @@
 
 ---
 
-#### **  1: Set in Java**
+#### **1: Set in Java**
 - **Definition**: An unordered collection that does not allow duplicate elements.
 - **Key Characteristics**:
   - No duplicate values are allowed.
@@ -132,7 +128,7 @@
 
 ---
 
-#### **  2: HashSet in Java**
+#### **2: HashSet in Java**
 - **Definition**: A `Set` implementation backed by a `HashMap`.
 - **Key Characteristics**:
   - **Unordered**: Does not guarantee any specific iteration order.
@@ -146,7 +142,7 @@
 
 ---
 
-#### **  3: TreeSet in Java**
+#### **3: TreeSet in Java**
 - **Definition**: A `Set` implementation that maintains **sorted order** using a `TreeMap`.
 - **Key Characteristics**:
   - Implements `NavigableSet` for range operations like `subSet()`, `headSet()`, `tailSet()`.
@@ -159,7 +155,7 @@
 
 ---
 
-#### **  4: LinkedHashSet in Java**
+#### **4: LinkedHashSet in Java**
 - **Definition**: An **ordered version** of `HashSet`, which maintains **insertion order** of elements.
 - **Key Characteristics**:
   - Backed by a `LinkedHashMap`.
@@ -173,11 +169,11 @@
 
 ---
 
-### s for **Queue and Deque in Java**
+### **Queue and Deque in Java**
 
 ---
 
-#### ** 1: Queue Interface in Java**
+#### **1: Queue Interface in Java**
 - **Definition**: A **First-In-First-Out (FIFO)** data structure for processing elements in order of insertion.
 - **Key Methods**:
   - `offer(E e)`: Inserts an element into the queue, returns `true` if successful.
@@ -190,7 +186,7 @@
 
 ---
 
-#### ** 2: PriorityQueue in Java**
+#### **2: PriorityQueue in Java**
 - **Definition**: A queue where elements are ordered based on their **natural order** or a **custom comparator**.
 - **Key Characteristics**:
   - Backed by a binary heap.
@@ -204,7 +200,7 @@
 
 ---
 
-#### ** 3: Deque Interface in Java**
+#### **3: Deque Interface in Java**
 - **Definition**: A **Double-Ended Queue (Deque)** that allows elements to be added or removed from both ends. Supports both **FIFO** and **LIFO** operations.
 - **Key Methods**:
   - `addFirst(E e)`, `addLast(E e)`: Inserts elements at the front or rear.
@@ -217,11 +213,11 @@
 - **Use Case**: Suitable for use cases requiring both queue and stack-like operations.
 
 ---
-### s **Map Implementations**
+### **Map Implementations**
 
 ---
 
-#### ** 1: Map Interface in Java**
+#### **1: Map Interface in Java**
 - **Definition**: Represents a collection of key-value pairs, where keys are unique and values can be duplicated.
 - **Key Characteristics**:
   - No duplicate keys allowed, but values can be duplicated.
@@ -231,7 +227,7 @@
 
 ---
 
-#### ** 2: HashMap in Java**
+#### **2: HashMap in Java**
 - **Definition**: An **unordered** `Map` implementation backed by a **hash table**.
 - **Key Characteristics**:
   - Allows one **null key** and multiple **null values**.
@@ -244,7 +240,7 @@
 
 ---
 
-#### ** 3: LinkedHashMap in Java**
+#### **3: LinkedHashMap in Java**
 - **Definition**: A `Map` implementation that maintains the **insertion order** of keys.
 - **Key Characteristics**:
   - Backed by a **doubly linked list** in addition to the hash table.
@@ -256,7 +252,7 @@
 
 ---
 
-#### ** 4: TreeMap in Java**
+#### **4: TreeMap in Java**
 - **Definition**: A `Map` implementation that maintains **sorted order** of keys.
 - **Key Characteristics**:
   - Implements `NavigableMap` for range operations (`subMap()`, `headMap()`, `tailMap()`).
@@ -269,7 +265,7 @@
 
 ---
 
-#### ** 6: ConcurrentHashMap in Java**
+#### **6: ConcurrentHashMap in Java**
 - **Definition**: A **thread-safe** version of `HashMap` with segment-level locking.
 - **Key Characteristics**:
   - Allows concurrent read/write operations without blocking the entire map.
@@ -281,7 +277,7 @@
 
 ---
 
-#### ** 7: Hashtable in Java**
+#### **7: Hashtable in Java**
 - **Definition**: A legacy, **synchronized** `Map` implementation.
 - **Key Characteristics**:
   - **Synchronized** for thread safety, but less efficient than `ConcurrentHashMap`.
@@ -294,7 +290,7 @@
 
 ---
 
-#### ** 8: Fail-Fast and Fail-Safe**
+#### **8: Fail-Fast and Fail-Safe**
 - **Fail-Fast**:
   - Modifications during iteration throw a `ConcurrentModificationException`.
   - Examples: `ArrayList`, `HashMap`.
@@ -307,11 +303,11 @@
 
 ---
 
-### s **Internal Workings of HashMap in Java**
+### **Internal Workings of HashMap in Java**
 
 ---
 
-#### ** 1: Internal Working of HashMap**
+#### **1: Internal Working of HashMap**
 - **HashMap Storage**: Internally, HashMap stores key-value pairs in **buckets** (slots) of an array. Each bucket corresponds to an index determined by the key’s **hashCode()**.
 - **Handling Collisions**:
   1. **Chaining**: A linked list of entries is stored at the same index for colliding keys.
@@ -320,16 +316,15 @@
 
 ---
 
-#### ** 2: Load Factor in HashMap**
+#### **2: Load Factor in HashMap**
 - **Definition**: The **load factor** determines when HashMap should resize the internal array (rehashing) to accommodate more entries.
 - **Default Load Factor**: `0.75`
 - **Threshold**: `Threshold = Load Factor * Current Capacity`
 - **Example**: With an initial capacity of 16 and a load factor of 0.75, resizing occurs when the map exceeds 12 entries (`16 * 0.75 = 12`).
-- **Purpose**: Balances memory usage and performance, reducing the likelihood of collisions and unnecessary resizing.
 
 ---
 
-#### ** 3: Default Load Factor and Capacity**
+#### **3: Default Load Factor and Capacity**
 - **Default Load Factor**: `0.75`
   - **Why?**: Optimizes both memory usage and performance by reducing the chance of collisions and ensuring resizing happens before too many collisions occur.
 - **Default Initial Capacity**: `16`
@@ -338,7 +333,7 @@
 
 ---
 
-#### ** 4: When Does Resizing Happen?**
+#### **4: When Does Resizing Happen?**
 - **Threshold Calculation**:  
    `Threshold = Initial Capacity x Load Factor`  
    - With the default values: `Threshold = 16 * 0.75 = 12`
@@ -346,13 +341,13 @@
 
 ---
 
-#### ** 5: Rehashing**
+#### **5: Rehashing**
 - **Definition**: When the number of entries exceeds the threshold, the size of the array is doubled, and all existing entries are **rehashed** into the new array.
 - **Effect**: Rehashing helps maintain the efficiency of `put()` and `get()` operations, ensuring the number of collisions remains low.
 
 ---
 
-#### ** 6: Collision Handling Methods**
+#### **6: Collision Handling Methods**
 - **Chaining**:
   - Each bucket holds a **linked list** of entries.
   - **Example**: `bucket[4] --> [Entry1] --> [Entry2] --> [Entry3]`
@@ -364,7 +359,7 @@
 
 ---
 
-#### ** 7: Hash Function**
+#### **7: Hash Function**
 - **Purpose**: Converts a large number (hash code) into an index in the hash table.
 - **Common Methods**:
   1. **Division Method**: `h(k) = k % m`
@@ -372,18 +367,11 @@
 
 ---
 
-#### ** 8: Table Size and Load Factor**
-- **Table Size**: The size of the underlying array where key-value pairs are stored.
-- **Load Factor**: The ratio of the number of entries (`n`) to the table size (`m`), i.e., `Load Factor = n / m`.
-  - A higher load factor increases the likelihood of collisions, which may degrade performance.
+### **SortedSet, Comparator, and Iterator in Java**
 
 ---
 
-### s for **SortedSet, Comparator, and Iterator in Java**
-
----
-
-#### ** 1: SortedSet Interface in Java**
+#### **1: SortedSet Interface in Java**
 - **Definition**: The `SortedSet` interface extends `Set` and maintains elements in **ascending order**.
 - **Key Features**:
   - Prevents duplicates (like all `Set` implementations).
@@ -393,7 +381,7 @@
 
 ---
 
-#### ** 2: Comparator Interface in Java**
+#### **2: Comparator Interface in Java**
 - **Purpose**: The `Comparator` interface allows for **custom comparison logic**.
 - **Method**: `compare(T o1, T o2)`
   - Returns:
@@ -404,7 +392,7 @@
 
 ---
 
-#### ** 3: Java Comparable Interface**
+#### **3: Java Comparable Interface**
 - **Purpose**: The `Comparable` interface defines the **default sorting logic** for objects.
 - **Method**: `compareTo(T o)`
   - Returns:
@@ -415,7 +403,7 @@
 
 ---
 
-#### ** 4: Java Comparable vs Comparator**
+#### **4: Java Comparable vs Comparator**
 - **Comparable**:
   - **Natural Ordering**: Defines the natural order of objects (usually based on one field).
   - **Method**: `compareTo()`.
@@ -428,7 +416,7 @@
 
 ---
 
-#### ** 5: Java Iterator**
+#### **5: Java Iterator**
 - **Purpose**: The `Iterator` interface provides a way to **traverse** through a collection of elements one at a time.
 - **Key Methods**:
   1. **hasNext()**: Returns `true` if there are more elements to iterate over.
