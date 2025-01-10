@@ -32,6 +32,16 @@
 - **TreeMap** --> maintains the Sorted order of keys, not thread safe, slower, o(logn)
 - **Concurrent HashMap** --> Thread Safe, Allows concurrent read/write operations without blocking the entire map.
 
+#### **Hashtable vs HashMap**
+
+- **Hashtable** --> Thread-safe, No null keys or values, Slower due to synchronization.
+- **Legacy**: Older, pre-Java 1.2.
+
+- **HashMap** --> Not thread-safe by default, Allows one null key and multiple null values, Faster due to no synchronization.
+- **Modern**: Part of Java 1.2+ Collections Framework.
+
+---
+
 #### Comparator vs comparable
 - **Comparable** --> for natural sorting of objects, compareTo(T o).
 - **Comparator** --> for custom sorting of objects, compare(T o1, T o2).
