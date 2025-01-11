@@ -81,6 +81,17 @@ public class OO1_FOR {
             System.out.print(num + " ");
         }
 
+        // array print frm 1 to n;
+
+        int num =4;
+        int[] arr = new int[num];
+        for(int i=0; i<num; i++){
+            arr[i] = i;
+        }
+        for(int i =0; i< arr.length; i++){
+            System.out.println(i);
+        }
+
 
 
     }

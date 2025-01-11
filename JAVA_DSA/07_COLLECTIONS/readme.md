@@ -33,7 +33,6 @@
 - **Concurrent HashMap** --> Thread Safe, Allows concurrent read/write operations without blocking the entire map.
 
 #### **Hashtable vs HashMap**
-
 - **Hashtable** --> Thread-safe, No null keys or values, Slower due to synchronization.
 - **Legacy**: Older, pre-Java 1.2.
 
