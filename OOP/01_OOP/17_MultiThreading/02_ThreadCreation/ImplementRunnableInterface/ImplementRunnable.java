@@ -19,6 +19,16 @@ public class ImplementRunnable {
 }
 
 /*
+How to implement;
+- create obj
+    - create a class that implements Runnable interface
+    - implement run() method 
+- start the thread
+    - create object(instance of class) that implements Runnable
+    - pass the runnable obj to thread constructor
+
+output;
+
 Going inside Main method: main
 Finish Main me: main
 Code executed: Thread-0
