@@ -18,9 +18,10 @@
         "OOP/02_SolidPrinciples/02_OpenClosed/Good",
         "OOP/02_SolidPrinciples/01_SingleResponsibility/Good",
         "OOP/02_SolidPrinciples/01_SingleResponsibility/Bad",
+        "OOP/01_OOP/17_MultiThreading/04_Join_Volatile_Daemon_ThreadPriority",
+        "OOP/01_OOP/17_MultiThreading/03_SynchronizedKeyword/02_InterThreadCommunication",
         "OOP/01_OOP/17_MultiThreading/03_SynchronizedKeyword/01_MonitorLock",
         "OOP/01_OOP/17_MultiThreading/02_ThreadCreation/ImplementRunnableInterface",
-        "OOP/01_OOP/17_MultiThreading/02_ThreadCreation/ExtendThreadClass",
         "OOP/01_OOP/17_MultiThreading/01_Process_Thread/ThreadExample",
         "OOP/01_OOP/17_MultiThreading/01_Process_Thread/ProcessExample",
         "JAVA_DSA/08_RECURSION/06_BACKTRACKING",
@@ -45,8 +46,7 @@
         "JAVA_DSA/02_LOOPS/02_BASICS",
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
-        "JAVA_DSA/01_BASICS",
-        "OOP/01_OOP/17_MultiThreading/03_SynchronizedKeyword/02_InterThreadCommunication"
+        "JAVA_DSA/01_BASICS"
     ]
     
 }
