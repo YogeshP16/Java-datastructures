@@ -1,113 +1,140 @@
-# Spring IoC (Inversion of Control) 
-
-## **1. What is IoC?**
-- **Definition**: IoC is a design principle where the control of object creation and dependency management is transferred from the application code to a container (Spring IoC container).
-- **Purpose**:
-  - To achieve **loose coupling**.
-  - Simplifies object lifecycle management.
-  - Enables flexible and maintainable applications.
-
-## **2. How Does IoC Work in Spring?**
-- The Spring IoC container (either `BeanFactory` or `ApplicationContext`) manages the lifecycle and configuration of beans.
-- Dependencies are injected into beans using **Dependency Injection (DI)**.
-
-
-### **Before IoC:**
-    - Manual object creation and lifecycle management. 
-    - Tight coupling between classes (e.g., changing Sim sim = new Jio() to Sim sim = new Airtel() required modifying source code).
-    - Difficult to switch implementations or manage dependencies.
-    - Manual object lifecycle management.
-
-### **After IoC:**
-    - Loose Coupling:  Objects (beans) are configured externally (e.g., beans.xml) instead of hardcoded in the source code.
-    - Centralized Management: Dependencies and beans are managed in one place.
-    - Improved Flexibility: Change implementation by updating XML/Java configuration without modifying code.
 
 ---
 
-## **3. Core Concepts**
+### **What is IoC?**
+
+- **Definition**: 
+  - **IoC** is a design principle where the control of object creation and dependency management is handed over to a container (Spring IoC container).
+  - 
+  
+- **Purpose**:
+  - Achieve **loose coupling**.
+  - Simplify **object lifecycle management**.
+  - Enable **flexible** and **maintainable applications**.
+
+---
+
+### **How Does IoC Work in Spring?**
+
+- The **Spring IoC container** (either `BeanFactory` or `ApplicationContext`) manages the lifecycle and configuration of **beans**.
+- **Dependency Injection (DI)** is used to inject dependencies into beans.
+
+---
+
+#### **Before IoC:**
+
+- Manual object creation and lifecycle management.
+- **Tight coupling** between classes (e.g., changing `Sim sim = new Jio()` to `Sim sim = new Airtel()` would require modifying the source code).
+- Difficult to switch implementations or manage dependencies.
+- Manual management of the object lifecycle.
+
+---
+
+#### **After IoC:**
+
+- **Loose Coupling**: Beans (objects) are configured externally (e.g., in `beans.xml`) instead of hardcoded in the source code.
+- **Centralized Management**: Dependencies and beans are managed in a single place.
+- **Improved Flexibility**: You can change implementations by updating the configuration (XML or Java) without modifying the code itself.
+
+---
+
 ### **Spring Bean**
-- **Definition**: A bean is an object managed by the IoC container.
-- **Purpose**: Represent application components defined in Spring configuration.
-- **Configuration Options**: XML, Java-based, or annotations.
+- **Definition**: A **bean** is an object that is managed by the **IoC container** in the Spring framework.
+- **Purpose**: Beans represent the components of your application that are defined in Spring's configuration.
+- **Configuration Options**: Beans can be configured in XML, using Java code, or with annotations.
+
+---
 
 ### **IoC Container**
+
 #### **1. BeanFactory**
-- Basic container, an interface in spring framework, it does not support annotation based configuration, bean configuration to be done in XML.
-- **Lazy initialization** (beans are created only when requested).
-- Suitable for simple applications.
+- **Basic container** and an interface in Spring framework.
+- Does **not support annotation-based configuration**; configuration must be done via XML.
+- Supports **lazy initialization**, meaning beans are only created when requested.
+- Suitable for **simple applications**.
 
 #### **2. ApplicationContext**
-- Advanced container with additional features:
-- Sub-interface of beanfactory
-  - **Eager initialization** (beans are created at startup).
-  - Support for AOP, event propagation, and internationalization.
-  - Recommended for enterprise applications.
+- **Advanced container** that is a sub-interface of `BeanFactory`.
+  - Provides **eager initialization**, meaning beans are created at startup.
+  - Supports additional features like **AOP**, **event propagation**, and **internationalization**.
+  - Recommended for **enterprise applications**.
 
 ---
 
-## **4. Dependency Injection (DI)**
-- DI is a technique where the IoC container provides the required dependencies (objects) to a class during runtime.
-- From XML/Java Config to Class Object: The objects (beans) defined in the XML file are injected into the class object via its constructor/setter (this is Dependency Injection).
+### **Dependency Injection (DI)**  
+- **Definition**: **DI** is a technique where the **IoC container** provides the required dependencies (objects) to a class at runtime.  
+- **From XML/Java Config to Class Object**: The objects (beans) defined in the configuration file (XML or Java) are injected into the class object via its constructor or setter methods (this is Dependency Injection).  
+
+---
 
 ### **Types of Dependency Injection**
+
 #### **1. Constructor Injection**
-- Inject dependencies through the class constructor.
-- Ensures mandatory dependencies are provided at object creation.
-- example: The constructor of the class is used to receive the required objects (dependencies). These objects are provided by the Spring IoC container (via XML configuration or Java annotations) when the bean is created.
+- Dependencies are injected through the class constructor.
+- Ensures **mandatory dependencies** are provided when the object is created.
+- Example: The required objects (dependencies) are passed through the constructor and provided by the Spring IoC container (via XML configuration or Java annotations) when the bean is created.
 
 #### **2. Setter Injection**
-- A method of injecting dependencies into a Spring-managed bean via setter methods after the object is constructed.
-- Suitable for optional dependencies.
-- Allows setting dependencies after object creation.
+- Dependencies are injected into the bean via setter methods after the object is constructed.
+- Suitable for **optional dependencies**.
+- Dependencies can be set after the object is created.
 
 #### **3. Field Injection** *(Less Recommended)*
-- Dependencies are directly injected into fields using annotations (e.g., `@Autowired`).
-- Not ideal for unit testing due to lack of constructor-based initialization.
+- Dependencies are directly injected into fields using annotations like `@Autowired`.
+- This method is **not ideal for unit testing** because there is no constructor-based initialization.
 
 ---
 
-## **5. Bean Lifecycle**
-- managed by spring container
-
-### **Lifecycle Steps**
+### **Bean Lifecycle**
+- The lifecycle of a bean is **managed by the Spring container**.
 - when we run the program first spring container will started then container creates instances of bean as per the request then the dependencies are inject and finally the bean is destroyed when the spring container is closed.
 
-1. **Bean instantiation** : Bean is created by the container.
-2. **Dependency injection** : Dependencies are injected.
-3. **Custom initialization** : Custom initialization logic using(`@PostConstruct` or `init-method`).
-4. **Bean usage** : Bean is used in the application
-5. **Custom destruction** : Clean-up logic using (`@PreDestroy` or `destroy-method`).
+---
 
-### **Lifecycle Methods:**
-1. **@PostConstruct**: Executes custom logic after dependency injection.
-2. **@PreDestroy**: Executes custom logic before bean destruction.
+#### **Lifecycle Steps**  
+1. **Bean Instantiation**: The bean is created by the container.  
+2. **Dependency Injection**: The required dependencies are injected into the bean.  
+3. **Custom Initialization**: Custom initialization logic is executed using `@PostConstruct` or `init-method`.  
+4. **Bean Usage**: The bean is used in the application.  
+5. **Custom Destruction**: Cleanup logic is executed using `@PreDestroy` or `destroy-method`.
 
 ---
 
-## **6. Bean Scope**
-### **Types of Scopes**
+#### **Lifecycle Methods**
+1. **@PostConstruct**: Executes custom logic after dependencies are injected.
+2. **@PreDestroy**: Executes custom logic before the bean is destroyed.
+
+---
+
+### **Bean Scope**  
+- **Types of Scopes**:
 
 1. **Singleton** *(Default)*:
-- A single instance is created per container.
+   - A **single instance** is created per container.
+
 2. **Prototype**:
-- A new instance is created for every request.
+   - A **new instance** is created for each request.
+
 3. **Request** *(Web applications)*:
-- A new instance is created for each HTTP request.
+   - A **new instance** is created for each **HTTP request**.
+
 4. **Session** *(Web applications)*:
-- A new instance is created for each HTTP session.
+   - A **new instance** is created for each **HTTP session**.
+
 5. **GlobalSession** *(Portlets)*:
-- A new instance is created for each global HTTP session.
+   - A **new instance** is created for each **global HTTP session**.
 
 ---
 
-## **Ways to create spring beans**
-- **XML Configuration**: Define the bean in the `beans.xml` file.
-- **@Component Annotation**: Use `@Component` to automatically detect and register the bean.
-- **@Bean Annotation**: Use `@Bean` within a `@Configuration` class to define beans.
+### **Ways to Create Spring Beans**  
+- **XML Configuration**: Define beans in the `beans.xml` file.
+- **@Component Annotation**: Automatically detect and register beans using `@Component`.
+- **@Bean Annotation**: Define beans within a `@Configuration` class using `@Bean`.
 
-**Method 1: Creating Bean Inside an XML Configuration File**
-- Define a bean in `beans.xml` with `<bean>` tag, specifying the class and its properties.
+---
+
+#### **Method 1: Creating Beans Inside an XML Configuration File**  
+- Define the bean in the `beans.xml` file with the `<bean>` tag, specifying the class and its properties.
 
 **Example (XML)**:
 ```xml
@@ -116,8 +143,8 @@
 
 ---
 
-**Method 2: Using @Component Annotation**
-- Annotate the class with `@Component` to register the bean.
+#### **Method 2: Using `@Component` Annotation**  
+- Annotate the class with `@Component` to automatically register the bean.
 - Optionally, specify a name for the bean using `@Component("beanName")`.
 
 **Example (Java)**:
@@ -132,9 +159,9 @@ public class College {
 
 ---
 
-**Method 3: Using @Bean Annotation**
+#### **Method 3: Using `@Bean` Annotation**  
 - Define a `@Configuration` class with methods annotated with `@Bean` to create the bean.
-- The method name becomes the bean id.
+- The method name will become the **bean ID**.
 
 **Example (Java)**:
 ```java
@@ -145,11 +172,14 @@ public class CollegeConfig {
         return new College();
     }
 }
+```
 
 ---
-## **7. Example: Spring IoC with Constructor Injection**
-### **Step 1: Interface and Implementation**
-#### **Sim Interface**
+
+### **Spring IoC with Constructor Injection**
+
+#### **Step 1: Interface and Implementation**
+##### **Sim Interface**  
 ```java
 public interface Sim {
     void calling();
@@ -157,7 +187,7 @@ public interface Sim {
 }
 ```
 
-#### **Jio Implementation**
+##### **Jio Implementation**
 ```java
 public class Jio implements Sim {
     @Override
@@ -172,8 +202,10 @@ public class Jio implements Sim {
 }
 ```
 
-### **Step 2: Dependent Class**
-#### **Mobile Class**
+---
+
+#### **Step 2: Dependent Class**
+##### **Mobile Class**
 ```java
 public class Mobile {
     private Sim sim; // Dependency
@@ -190,8 +222,10 @@ public class Mobile {
 }
 ```
 
-### **Step 3: XML Configuration**
-#### **beans.xml**
+---
+
+#### **Step 3: XML Configuration**
+##### **beans.xml**
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -209,8 +243,10 @@ public class Mobile {
 </beans>
 ```
 
-### **Step 4: Main Class**
-#### **Main.java**
+---
+
+#### **Step 4: Main Class**
+##### **Main.java**
 ```java
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -231,11 +267,11 @@ public class Main {
 
 ---
 
-## **Spring Setter Dependency Injection (SDI)**:
+### **Spring Setter Dependency Injection (SDI)**
 
-**Example Code for Setter Injection:**
+#### **Example Code for Setter Injection:**
 
-1. **Student Class (Needs MathCheat Dependency via Setter):**
+##### **1. Student Class (Needs MathCheat Dependency via Setter)**
 ```java
 public class Student {
     private int id;
@@ -258,7 +294,7 @@ public class Student {
 }
 ```
 
-2. **MathCheat Class (Provides Dependency):**
+##### **2. MathCheat Class (Provides Dependency)**
 ```java
 public class MathCheat {
     public void mathCheating() {
@@ -267,7 +303,9 @@ public class MathCheat {
 }
 ```
 
-3. **XML Configuration (`beans.xml`) for Setter Injection:**
+---
+
+##### **3. XML Configuration (`beans.xml`) for Setter Injection:**
 ```xml
 <bean id="student" class="Student">
     <property name="id" value="101"/>
@@ -277,7 +315,9 @@ public class MathCheat {
 </bean>
 ```
 
-4. **Main Class to Run the Program:**
+---
+
+##### **4. Main Class to Run the Program**
 ```java
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -292,9 +332,4 @@ public class Main {
 ```
 
 ---
-
-
-
-
-
 
