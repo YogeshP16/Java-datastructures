@@ -1,0 +1,86 @@
+
+---
+
+### **1. Understand the Question**
+**Key Points:**
+- **What is being asked?**  
+  Example: "Find distinct cities" → You need `DISTINCT`.
+- **What table(s) are involved?**  
+  Example: "Data spans two tables" → You might need `JOIN`.
+- **What is the expected output?**  
+  Example: "Count of items" → You need `COUNT()`.
+
+---
+
+### **2. Break Down the Query Needs**
+#### **a. Data Selection**
+- **Use `SELECT`**: For retrieving columns.
+- **Use `WHERE`**: For filtering specific rows based on conditions.
+
+#### **b. Combining Data**
+- **Use `JOIN`**: When data spans multiple tables and needs combining.
+  - **Inner Join**: Only matching rows.
+  - **Left Join**: All rows from the left table and matching rows from the right.
+  - **Cross Join**: All combinations of rows.
+
+#### **c. Aggregating Data**
+- **Use `COUNT`**: To count rows or values.
+- **Use `SUM` / `AVG`**: To calculate totals or averages.
+- **Use `GROUP BY`**: To group data for aggregation.
+- **Use `HAVING`**: To filter aggregated data.
+
+#### **d. Handling Uniqueness**
+- **Use `DISTINCT`**: To eliminate duplicates.
+- **Use `UNION`**: To combine results from multiple queries while eliminating duplicates.
+
+#### **e. Aliases**
+- **Use `AS`**: To create meaningful names for columns or tables.
+  - Example: `SELECT Name AS StudentName`.
+
+#### **f. Sorting and Limiting**
+- **Use `ORDER BY`**: To sort results.
+- **Use `LIMIT`**: To restrict the number of rows returned.
+
+---
+
+### **3. Match Patterns in the Question**
+#### **a. Single Table**
+- If all data is in one table, focus on:
+  - **`SELECT`**, **`WHERE`**, **`GROUP BY`**, **`ORDER BY`**.
+  - Example: "Find the count of unique names" → Use `COUNT(DISTINCT Name)`.
+
+#### **b. Multiple Tables**
+- When combining tables, think:
+  - **JOIN**: "Combine data based on common keys."
+  - Example: "Find students and their classes" → Use `INNER JOIN`.
+
+#### **c. Aggregations**
+- Look for phrases like:
+  - "Count," "Total," "Sum," or "Average" → Use aggregate functions like `COUNT`, `SUM`, `AVG`.
+  - Example: "Count the number of cities" → Use `COUNT(CITY)`.
+
+#### **d. Filters**
+- Look for keywords like:
+  - "Greater than," "Contains," or "Starts with" → Use `WHERE` or `LIKE`.
+  - Example: "Find names starting with 'A'" → Use `WHERE Name LIKE 'A%'`.
+
+---
+
+### **4. Write Step-by-Step**
+1. **Start with `SELECT`**: Identify the columns or aggregates needed.
+2. **Identify Filters (`WHERE`)**: Apply conditions to restrict data.
+3. **Check for Aggregations (`GROUP BY`)**: Are you summarizing data?
+4. **Join Tables if Needed (`JOIN`)**: Is data across multiple tables?
+5. **Sort or Limit Results (`ORDER BY`, `LIMIT`)**: Apply final touches.
+
+---
+
+### **5. Build Intuition**
+- **Practice**: Solve as many SQL problems as you can to recognize patterns.
+- **Simplify**: Break complex problems into smaller parts.
+- **Ask Yourself**:
+  - Do I need unique results? → Use `DISTINCT`.
+  - Am I counting or summing data? → Use `COUNT` or `SUM`.
+  - Is data spread across tables? → Use `JOIN`.
+  - Am I grouping data? → Use `GROUP BY`.
+
