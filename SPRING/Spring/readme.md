@@ -126,10 +126,11 @@
 
 ---
 
-### **Ways to Create Spring Beans**  
+### **Ways to Create Spring Beans or Bean Configuration**  
 - **XML Configuration**: Define beans in the `beans.xml` file.
 - **@Component Annotation**: Automatically detect and register beans using `@Component`.
 - **@Bean Annotation**: Define beans within a `@Configuration` class using `@Bean`.
+
 
 ---
 
