@@ -61,20 +61,6 @@
   - **Concurrent Mark & Sweep (CMS)**: Tries to minimize pauses by running the garbage collection process concurrently with the application threads.
   - **G1 GC**: The **Garbage First** collector that divides the heap into regions to provide a balance between high throughput and low pause times.
 
-### **Summary**:
-
-- **Stack Memory**:
-  - Stores **local variables** and **method call frames**.
-  - Each thread has its own stack.
-  - Primitives and object references are stored.
-  - **Scope-based** (LIFO order) with automatic memory management.
-  
-- **Heap Memory**:
-  - Stores **objects**.
-  - Shared among all threads.
-  - Managed via **garbage collection** (Mark & Sweep).
-  - Divided into **Young Generation**, **Old Generation**, and **Metaspace**.
-
 
 ### Key Concepts:
 1. **Stack Memory**: Stores method variables and references to objects. It follows the LIFO (Last In, First Out) principle. When the method's scope ends, all its variables are removed from the stack.
@@ -145,7 +131,17 @@ public class MemoryManagementTest {
   
 - The garbage collector will eventually free the memory by removing unreferenced objects from the Heap, though this is managed automatically by the JVM. 
 
-### Conclusion:
-- The **Stack** holds method variables and follows the LIFO order for memory cleanup.
-- The **Heap** stores objects and literals (e.g., strings). 
-- The **Garbage Collector** automatically manages memory in the Heap, cleaning up unreferenced objects.
+
+### **Summary**:
+
+- **Stack Memory**:
+  - Stores **local variables** and **method call frames**.
+  - Each thread has its own stack.
+  - Primitives and object references are stored.
+  - **Scope-based** (LIFO order) with automatic memory management.
+  
+- **Heap Memory**:
+  - Stores **objects**.
+  - Shared among all threads.
+  - Managed via **garbage collection** (Mark & Sweep).
+  - Divided into **Young Generation**, **Old Generation**, and **Metaspace**.
