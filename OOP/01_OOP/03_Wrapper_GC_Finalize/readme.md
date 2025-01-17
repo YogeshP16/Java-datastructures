@@ -1,25 +1,30 @@
 ### **Wrapper Classes in Java** 
 
-#### **What it is:**
-A **Wrapper Class** allows primitive data types (like `int`, `char`, `double`) to be used as objects. 
-Each primitive type has a corresponding wrapper class:
+#### **Wrapper Classes**
+-  A wrapper class is a class that encapsulates a primitive type into an object. Examples:
+    - `int` → `Integer`
+    - `char` → `Character`
+    - `boolean` → `Boolean`
+    - `short` → `Short`
+    - `byte` → `Byte`
+    - `long`→ `Long`
+    - `float` → `Float`
+    - `double` → `Double`
 
-- `int` → `Integer`
-- `char` → `Character`
-- `double` → `Double`
-- `boolean` → `Boolean`
-- `float` → `Float`
-- `long` → `Long`
-- `byte` → `Byte`
-- `short` → `Short`
 
-#### **Why it's used:**
-Wrapper classes are used to treat primitive values as objects, which is necessary for collections (like `ArrayList`) and other object-based APIs.
+#### **Autoboxing**
+- Autoboxing is the automatic conversion of a primitive type to its corresponding wrapper class. 
+  - **Example**: `int a = 10; Integer b = a;`
 
-#### **What it does:**
-- Converts primitive types into objects.
-- Provides utility methods (e.g., converting strings to numbers).
-- Allows primitives in collections that require objects.
+
+#### **Unboxing**
+- Unboxing is the automatic conversion of a wrapper class to its corresponding primitive type.
+  - **Example**: `Integer v = 20; int x = v;`
+
+
+#### **Why Use Wrapper Classes?**
+- Wrapper classes are used to treat primitive types as objects, allowing them to be stored in collections and passed by reference.
+
 
 ---
 
@@ -37,6 +42,11 @@ The `final` keyword is used to declare constants, prevent method overriding, and
 - **For variables**: The value cannot be changed once initialized.
 - **For methods**: The method cannot be overridden in subclasses,  no subclass can change the method's implementation.
 - **For classes**: The class cannot be subclassed, no other class can extend the class.
+
+#### **Constant Variables**
+- **Q**: How do you create a constant variable in Java?
+- **A**: Use the `final` keyword to declare a constant variable, making its value immutable after initialization.
+  - **Example**: `final int VAR = 10;`
 
 ---
 
