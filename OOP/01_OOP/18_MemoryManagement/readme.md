@@ -2,48 +2,50 @@
 - Heap
 - Stack
 
-### **1) Stack Memory**
+### **Stack Memory in Java**
 
-- **Purpose**: Stack memory stores temporary variables, method calls, and the execution context of threads.
+- **Purpose**: Stores method variables and execution context for each thread.
 
-- **How it works**:
-  - Each thread has its own stack memory.
-  - It stores **primitive data types** (like `int`, `char`, etc.) and **references to objects** in the heap.
-  - When a method is called, a new **stack frame** is created to store local variables and the method's execution context.
-  - Once a method call completes, its stack frame is removed (LIFO order — Last In, First Out).
+- **How it Works**:
+  - Each thread has its own stack.
+  - Stores **primitive types** (like `int`) and **object references** (pointers to objects in heap).
+  - New stack frames are created for each method call. Once the method completes, the frame is removed (LIFO).
+
+- **Key Points**:
+  - **Scope-based**: Variables exist only within the method's scope.
+  - **Automatic cleanup**: Stack memory is automatically managed. When a method ends, its stack frame is cleared.
+  - **Fixed size**: Too deep a recursion can cause **StackOverflowError**.
+
+- **References**:
+  - **Strong**: Prevents garbage collection.
+  - **Weak**: Allows garbage collection if no strong reference exists.
+  - **Soft**: Retained as long as there’s enough heap space.
+
+In short: **Stack = thread-specific, temporary, scope-based memory** for method variables and references, cleaned up automatically.
   
+### **Heap Memory in Java**
+
+- **Purpose**: Stores **objects** (instances of classes) during program execution.
+
+- **How it Works**:
+  - Shared by all threads, meaning objects are not tied to any specific thread's stack.
+  - **Dynamic memory management**: Objects are allocated and deallocated at runtime.
+  - **Garbage Collection (GC)**: The JVM reclaims memory from objects that are no longer referenced by any active thread (via weak or strong references).
+
 - **Key Characteristics**:
-  - **Scope-based**: Variables inside a method are only visible within that method's scope.
-  - **Automatic memory management**: As soon as the method scope ends, the stack frame and all variables inside it are removed.
-  - **Fixed size**: Each thread has a fixed-size stack, and if the stack grows too large (e.g., due to deep recursion), it may cause a **StackOverflowError**.
-  
-- **References in Stack**:
-  - Stack memory stores **references** (pointers) to objects in the heap, not the objects themselves.
-  - **Strong Reference**: A strong reference means that an object will not be garbage collected as long as there is a reference to it.
-  - **Weak Reference**: A weak reference allows the object to be garbage collected when no strong references are holding it.
-  - **Soft Reference**: A soft reference is similar to weak references, but objects are retained as long as the JVM has enough heap space.
-  
-### **2) Heap Memory**
+  - Managed by **Garbage Collector (GC)** to clean up unreferenced objects.
+  - **Mark and Sweep**: Algorithm used by GC to marks referenced objects and sweeps (remove) away unreferenced ones.
+  - Divided into:
+    - **Young Generation**: Where new objects are created (includes Eden and Survivor spaces).
+    - **Old Generation**:  Where older objects that have survived garbage collection in the Young Generation are moved.
+    - **Metaspace(non heap)- java 8+**: Stores class metadata (non-heap memory).
 
-- **Purpose**: Heap memory is where all **objects** (instances of classes) are stored during the execution of a program.
+- **Memory Allocation**:
+  - New objects start in the **Young Generation**.
+  - Surviving objects are promoted to the **Old Generation**.
+  - **GC** runs periodically to clean unreferenced objects.
 
-- **How it works**:
-  - The heap is shared by all threads, meaning objects are not tied to a specific thread's stack.
-  - The memory management in the heap is dynamic, meaning objects can be allocated and deallocated at runtime.
-  - **Garbage Collection**: When objects in the heap are no longer referenced by any active thread (via weak or strong references), the JVM will reclaim that memory through **garbage collection**.
-  
-- **Key Characteristics**:
-  - The **garbage collector** (GC) is responsible for cleaning up unused objects and reclaiming their memory.
-  - **Mark and Sweep Algorithm**: This is the basic algorithm used by the GC to mark objects that are still referenced and then sweep (remove) the unreferenced objects.
-  - Heap is divided into two main regions:
-    - **Young Generation**: Where new objects are allocated. It includes Eden space and Survivor spaces.
-    - **Old Generation**: Where older objects that have survived garbage collection in the Young Generation are moved. These objects are less likely to be garbage collected frequently.
-    - **Metaspace (Non-Heap)**: Stores class metadata, method definitions, and related information.
-    
-- **Memory Allocation Process**:
-  - When a new object is created, it is initially placed in the **Young Generation**.
-  - Objects that survive multiple garbage collection cycles in the Young Generation are promoted to the **Old Generation**.
-  - The **Garbage Collector** runs periodically to clean up unreferenced objects.
+In short: **Heap = shared memory for objects**, with **automatic cleanup via garbage collection**, using **Mark and Sweep** to manage memory allocation across generations.
 
 ### **Garbage Collection** in Detail:
 
