@@ -4,8 +4,8 @@
 ### **What is IoC?**
 
 - **Definition**: 
-  - **IoC** is a design principle where the control of object creation and dependency management is handed over to a container (Spring IoC container).
-  - 
+  - **IoC** is a design principle where the control of object creation and 
+            dependency management is handed over to a container (Spring IoC container).
   
 - **Purpose**:
   - Achieve **loose coupling**.
@@ -15,8 +15,9 @@
 ---
 
 ### **How Does IoC Work in Spring?**
+- The **Spring IoC container** (either `BeanFactory` or `ApplicationContext`) manages the lifecycle 
+        and configuration of **beans**.
 
-- The **Spring IoC container** (either `BeanFactory` or `ApplicationContext`) manages the lifecycle and configuration of **beans**.
 - **Dependency Injection (DI)** is used to inject dependencies into beans.
 
 ---
@@ -24,7 +25,8 @@
 #### **Before IoC:**
 
 - Manual object creation and lifecycle management.
-- **Tight coupling** between classes (e.g., changing `Sim sim = new Jio()` to `Sim sim = new Airtel()` would require modifying the source code).
+- **Tight coupling** between classes (e.g., changing `Sim sim = new Jio()` to `Sim sim = new Airtel()` 
+                        would require modifying the source code).
 - Difficult to switch implementations or manage dependencies.
 - Manual management of the object lifecycle.
 
@@ -32,9 +34,11 @@
 
 #### **After IoC:**
 
-- **Loose Coupling**: Beans (objects) are configured externally (e.g., in `beans.xml`) instead of hardcoded in the source code.
+- **Loose Coupling**: Beans (objects) are configured externally (e.g., in `beans.xml`) instead 
+                        of hardcoded in the source code.
 - **Centralized Management**: Dependencies and beans are managed in a single place.
-- **Improved Flexibility**: You can change implementations by updating the configuration (XML or Java) without modifying the code itself.
+- **Improved Flexibility**: You can change implementations by updating the configuration (XML or Java) 
+                                without modifying the code itself.
 
 ---
 
@@ -62,8 +66,10 @@
 ---
 
 ### **Dependency Injection (DI)**  
-- **Definition**: **DI** is a technique where the **IoC container** provides the required dependencies (objects) to a class at runtime.  
-- **From XML/Java Config to Class Object**: The objects (beans) defined in the configuration file (XML or Java) are injected into the class object via its constructor or setter methods (this is Dependency Injection).  
+- **Definition**: **DI** is a technique where the **IoC container** provides the required 
+    dependencies (objects) to a class at runtime.  
+- **From XML/Java Config to Class Object**: The objects (beans) defined in the configuration file (XML or Java) 
+    are injected into the class object via its constructor or setter methods (this is Dependency Injection).  
 
 ---
 
@@ -72,7 +78,8 @@
 #### **1. Constructor Injection**
 - Dependencies are injected through the class constructor.
 - Ensures **mandatory dependencies** are provided when the object is created.
-- Example: The required objects (dependencies) are passed through the constructor and provided by the Spring IoC container (via XML configuration or Java annotations) when the bean is created.
+- Example: The required objects (dependencies) are passed through the constructor 
+    and provided by the Spring IoC container (via XML configuration or Java annotations) when the bean is created.
 
 #### **2. Setter Injection**
 - Dependencies are injected into the bean via setter methods after the object is constructed.
@@ -87,7 +94,9 @@
 
 ### **Bean Lifecycle**
 - The lifecycle of a bean is **managed by the Spring container**.
-- when we run the program first spring container will started then container creates instances of bean as per the request then the dependencies are inject and finally the bean is destroyed when the spring container is closed.
+- when we run the program first spring container will started then container creates instances of bean 
+    as per the request then the dependencies are inject 
+    and finally the bean is destroyed when the spring container is closed.
 
 ---
 
