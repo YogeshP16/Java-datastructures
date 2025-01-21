@@ -16,13 +16,15 @@ You don’t need to create an object to access them.
 
 **What?**  
 - Static variables are declared with `static` and belong to the class, not instances.
-
-**Why?**  
-- Used for shared data across all instances of the class.
+- Class-level variable → Common value shared by all objects.
 
 **How?**  
 - Accessed using the class name or an instance of the class.  
 - **Cannot be overridden** but can be hidden in subclasses.
+
+**Instance vs static**
+- **Insance**: Object-level variable → Separate value for each object.
+- **Static**: Class-level variable → Common value shared by all objects.
 
 ---
 
