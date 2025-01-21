@@ -1,4 +1,4 @@
-### Flashcard: **Java Class & Object**
+###  **Java Class & Object**
 
 #### **What is a Class?**
 - **Definition**: A class is a blueprint or template for creating objects.
@@ -87,21 +87,19 @@ class Car {
 - **Class**: Defines properties and methods; serves as a blueprint.
 - **Object**: A specific instance of a class, holding data and behavior.
 
-### Flashcard: **Java Constructor**
+###  **Java Constructor**
 
 #### **What is a Constructor?**
-- A special method used to initialize objects during creation. It shares the class name and has no return type.
+- A special method used to initialize objects during creation. 
+- Same name as class name and has no return type.
 - **Private Constructor**: Used for singleton patterns or restricting object creation from other classes.
+- **Parameterized Constructor**: Constructor with arguments to initialize objects with custom values.
 
-#### **Why is it Used?**
-- To set initial values for object properties and execute setup logic when an object is instantiated.
-
-#### **What Does it Do?**
-- Initializes an object's fields and provides flexibility to set values during object creation.
 
 #### **How it Works?**
 1. **Default Constructor**:  
-   If no constructor is defined, Java provides a default constructor.
+   - If no constructor is defined, Java provides a default constructor.
+   - default constructor String -> null, primitive -> 0;
    ```java
    public class Example {
        Example() { 
@@ -130,7 +128,7 @@ class Car {
    ```
 
 #### **Constructor Overloading**
-- Multiple constructors with different parameter lists allow flexibility in object initialization.
+- Constructor Overloading means having multiple constructors in a class with different parameter lists.
    ```java
    public class Example {
        Example() { }
@@ -140,7 +138,7 @@ class Car {
    ```
 
 #### **Calling a Constructor from Another Constructor**
-- Use `this()` to call another constructor in the same class.
+- Use `this()` to call another constructor in the same class. known as constructor chaining.
    ```java
    public class Example {
        Example() { 
@@ -163,7 +161,7 @@ class Car {
 - Objects created with `new` are allocated in the **heap**.
 - Primitives are stored in the **stack** or within objects/arrays.
 
-### Flashcard: **Wrapper Classes, `final` Keyword, Garbage Collection, and `finalize` Keyword in Java**
+###  **Wrapper Classes, `final` Keyword, Garbage Collection, and `finalize` Keyword in Java**
 
 ---
 
@@ -209,13 +207,7 @@ class Car {
 
 --- 
 
-### **Summary**  
-- **Wrapper classes** enable using primitives as objects for collections.  
-- **`final`** ensures constants, prevents method overriding, and restricts inheritance.  
-- **Garbage Collection** frees memory by removing unreachable objects.  
-- **`finalize`** cleans up resources before an object is garbage-collected (discouraged for newer resource management).
-
-### Flashcard: **Java Packages**  
+###  **Java Packages**  
 
 #### **Definition**  
 - **Package**: A container that organizes classes, preventing naming conflicts and controlling visibility.
@@ -271,45 +263,37 @@ public class Main {
 
 ---
 
-### **Summary**  
-- Packages keep class names unique and control access.
-- Java packages follow the directory structure.
-- Only **public** elements are accessible outside their package.
-
-### Flashcard: **Static in Java**
+###  **Static in Java**
 
 #### **What is it?**
-- **Static**: A keyword used to define class-level members (variables, methods, blocks). These belong to the class, not instances.
-
-#### **Key Points**
-1. **Static Variables**: Shared across all instances of the class.
-2. **Static Methods**: Can be called without creating an instance of the class.
-3. **Static Blocks**: Used to initialize static variables when the class is loaded.
-
-#### **Why it's Used?**
-- Shared access to variables/methods across all instances.
-- No need to create an object to access them.
-
-#### **How it Works?**
-1. **Static Variable**: Initialized once and shared across instances.
-2. **Static Method**: Called using the class name, not through an instance.
-3. **Static Block**: Runs once when the class is loaded, initializing static variables.
+- **Static**: A keyword used to define class-level members (variables, methods, blocks). These belong to the class, not instances. No need to create an object to access them.
 
 ---
 
 ### **Static Variables**
-- **Usage**: Shared data among all instances.
-- **Behavior**: Initialized once; same value across instances.
+- Class-level variable → Common value shared by all objects.
+- Initialized once; same value across instances.
 - **Access**: Via class name or instance.
 - **Overriding**: Cannot be overridden but can be hidden in subclasses.
+
+### **Instance vs static**
+- **Insance**: Object-level variable → Separate value for each object. Tied to an object.
+- **Static**: Class-level variable → Common value shared by all objects. Tied to the class.
+- **How it Works**: Instance members require objects; static members are accessed via class name.
 
 ---
 
 ### **Static Methods**
-- **Usage**: Class-level operations not dependent on instance data.
-- **Behavior**: Can access only static variables/methods.
+- Can be called without creating an instance of the class. Class-level operations not dependent on instance data.
+- Can access only static variables/methods.
 - **Access**: Via class name.
 - **Overriding**: Cannot be overridden; can be hidden in subclasses.
+
+---
+
+### **Static Block**
+- Used to initialize static variables when the class is loaded.
+- Runs once when the class is loaded, initializing static variables.
 
 ---
 
@@ -335,19 +319,6 @@ public class Main {
 
 ---
 
-### **Static Variable Initialization (Static Block)**
-- **Reason**: Static variables initialized once when the class is loaded.
-- **How it Works**: Static block executes once when the class is loaded.
-
----
-
-### **Instance vs Static**
-- **Instance**: Tied to an object.
-- **Static**: Tied to the class.
-- **How it Works**: Instance members require objects; static members are accessed via class name.
-
----
-
 ### **Inner Classes**
 - **Reason**: Group classes logically; improve encapsulation.
 - **How it Works**:
@@ -359,8 +330,13 @@ public class Main {
 ### **Singleton Pattern**
 - **What is it?**: Ensures a class has only one instance and provides a global point of access.
 - **Why Use?**: Controls access to shared resources, ensures consistent behavior, reduces memory usage.
+- **How It Works?**
+    - **Private Constructor**: To prevent the class from creating multiple instances
+    - **Static Instance**: A static instance variable holds the single object, and it’s initialized when required.
+    - **Public Method**: A public static method (usually named getInstance()) is used to access the instance. 
+                        It checks whether the instance already exists or not. If not, it creates one.
 
-### Flashcard: **Inheritance in Java**
+###  **Inheritance in Java**
 
 #### **What is it?**
 - **Inheritance**: A mechanism where a subclass acquires properties and behavior (fields and methods) of a parent class.
@@ -458,10 +434,7 @@ public class Test {
 
 #### **Why Not in Java?**
 1. **Diamond Problem**: Ambiguity arises when two parent classes have the same method signature, causing confusion for the compiler on which method to inherit.
-  
-2. **Simplified Design**: Java avoids complexity and ensures maintainability by limiting inheritance to one class per child.
-
-3. **Alternative Solutions**:
+2. **Alternative Solutions**:
    - **Interfaces** provide multiple inheritance of **types** without method conflict.
 
 #### **Using Interfaces for Multiple Inheritance**:
@@ -499,8 +472,6 @@ class C implements A, B {
 ### **Polymorphism **
 
 - **Definition**: "Many forms" — allows objects to take different forms depending on context.
-- **Purpose**: Flexibility & reusability — methods behave differently based on the object calling them.
-
 ---
 
 ### Types of Polymorphism:
@@ -603,7 +574,7 @@ class C implements A, B {
 
 ---
 
-### Flashcard: **Access Control in Java**
+###  **Access Control in Java**
 
 ---
 
@@ -619,12 +590,12 @@ To enforce encapsulation, security, and proper design by restricting or allowing
 
 **Access Modifiers & Visibility**:
 
-| Modifier    | Class | Package | Subclass (same pkg) | Subclass (diff pkg) | World |
-|-------------|-------|---------|---------------------|---------------------|-------|
-| **public**  |   +   |    +    |          +          |          +          |   +   |
+| Modifier     | Class | Package | Subclass (same pkg) | Subclass (diff pkg) | World |
+|--------------|-------|---------|---------------------|---------------------|-------|
+| **public**   |   +   |    +    |          +          |          +          |   +   |
 | **protected**|   +   |    +    |          +          |          +          |       |
-| **default** |   +   |    +    |          +          |                     |       |
-| **private** |   +   |         |                     |                     |       |
+| **default**  |   +   |    +    |          +          |                     |       |
+| **private**  |   +   |         |                     |                     |       |
 
 - **public**: Accessible everywhere.
 - **protected**: Accessible in same package & subclasses.
@@ -669,15 +640,15 @@ public class Derived extends packageOne.Base {
 **Simplified Rule**:  
 - **`protected`** members can be accessed from subclasses or within the same package, but not from other classes in different packages unless it's via a subclass.
 
-Here's a flashcard for the topic on **Abstract Classes in Java**, focusing on the key points:
-
 ---
 
 ### **Abstract Classes in Java**
 
 **1. What is an Abstract Class?**
+- Blueprint tells what class to do via abstract method but not how (in subclass we implement abastract method part)
 - Cannot be instantiated directly.
 - Declared with `abstract` keyword.
+- can have constructor called by using super keyword, can have final and static methods
 - Can contain both **abstract methods** (no implementation) and **concrete methods** (with implementation).
 
 **2. Multiple Inheritance Issue:**
@@ -715,24 +686,6 @@ class Circle extends Shape {
 **9. `final` Keyword:**
 - **Cannot** be used with abstract classes (prevents inheritance).
 
-**10. Multiple Inheritance via Abstract Classes:**
-- Achieved by combining abstract classes and interfaces.
-- Example:
-```java
-abstract class Animal {
-    abstract void sound();
-}
-
-interface Pet {
-    void play();
-}
-
-class Dog extends Animal implements Pet {
-    void sound() { System.out.println("Barks"); }
-    public void play() { System.out.println("Plays fetch"); }
-}
-```
-
 **11. Key Concept:**
 - **Abstract class = Leader:** Defines tasks (abstract methods) but doesn't implement them.
 - **Subclass = Employee:** Implements tasks (abstract methods).
@@ -752,13 +705,17 @@ class Employee extends Leader {
 
 ---
 
-### **Flashcard: Interfaces in Java**
+### ** Interfaces in Java**
 
 ---
 
 #### **What are Interfaces?**
 - A contract defining what a class must do, but not how it’s done.  
 - Methods are **public** and **abstract** by default. Variables are **static**, **final**, and **public**.
+- cannot be instantiated, class can have n no of interface
+- contains method without body
+- we use **Implements** keyword
+- in java 8 we have default method 
 
 ---
 
@@ -845,7 +802,7 @@ A user-defined dynamic list implementation that stores elements of any type usin
 
 ---
 
-### Flashcard: **Comparison Objects & Cloning in Java**
+###  **Comparison Objects & Cloning in Java**
 
 #### **Comparison Objects**
 - **What It Is**: Used to compare two objects for sorting or ordering. Implemented via `Comparable` or `Comparator`.
@@ -893,7 +850,7 @@ A user-defined dynamic list implementation that stores elements of any type usin
 
 ---
 
-### **Flashcard: Exception Handling in Java**
+### ** Exception Handling in Java**
 
 ---
 
@@ -957,3 +914,59 @@ A user-defined dynamic list implementation that stores elements of any type usin
 - **ArrayIndexOutOfBoundsException**: Invalid array index access.
 
 --- 
+### **JVM Memory Types**
+#### **Two Types of Memory JVM Manages**
+
+- **Heap**
+- **Stack**
+
+---
+
+#### **Stack Memory in Java**
+
+- **Purpose**: Stores method variables and execution context for each thread.
+- **How it Works**: 
+  - Each thread has its own stack.
+  - Stores **primitive types** and **object references** (pointers to objects in heap).
+  - New stack frames are created for each method call, removed when the method completes (LIFO).
+- **Key Points**:
+  - **Scope-based**: Exists only within the method's scope.
+  - **Automatic cleanup**: Automatically cleared when method ends.
+  - **Fixed size**: Too deep recursion causes **StackOverflowError**.
+
+---
+
+#### **Heap Memory in Java**
+
+- **Purpose**: Stores **objects** (instances of classes).
+- **How it Works**:
+  - Shared by all threads, objects are not tied to specific thread’s stack.
+  - **Dynamic memory management** at runtime.
+  - **Garbage Collection (GC)**: Reclaims memory from unreferenced objects.
+- **Key Characteristics**:
+  - Managed by **Garbage Collector**.
+  - **Mark & Sweep** algorithm marks referenced objects and removes unreferenced ones.
+  - Divided into:
+    - **Young Generation**: New objects.
+    - **Old Generation**: Surviving objects.
+    - **Metaspace** (Java 8+): Stores class metadata.
+  
+---
+
+### **Garbage Collection** in Detail
+- automatic memory management-> process of deallocating memory from unused objects duing program execution
+- jvm controls the garbage collections
+- it looking at heap memory and identify which objects are used andd unused by using mark and sweep algorithm.
+ 
+- **Mark & Sweep**: 
+  - **Mark**: Identifies referenced objects.
+  - **Sweep**: Removes unreferenced objects.
+  
+- **GC Types**:
+  - **Serial GC**: Single-threaded, slow.
+  - **Parallel GC**: Multi-threaded, faster.
+  - **CMS**: Minimizes pause times by running GC concurrently with app threads.
+  - **G1 GC**: Balances high throughput and low pause times by dividing the heap into regions.
+
+---
+

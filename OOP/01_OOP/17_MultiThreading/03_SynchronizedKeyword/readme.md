@@ -7,7 +7,6 @@
 2. **Synchronized Method**:
    - Locks the **entire method**.
    - Automatically locks the object.
-   - Simpler to use but less flexible.
    - Example: 
      ```java
      public synchronized void display1(String threadName) {
