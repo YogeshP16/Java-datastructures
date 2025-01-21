@@ -16,9 +16,9 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 emplyee (emp id 1 to 10000) return employee 3000 to 6000
 select emp id from eployee 
 
+*/
 
 
- */
 public class Main{
     public static void main(String[] args) {
         int [] nums  = {2,7,11,15};

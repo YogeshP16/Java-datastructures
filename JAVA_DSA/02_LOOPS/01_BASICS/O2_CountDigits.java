@@ -39,3 +39,4 @@ public class O2_CountDigits {
         System.out.println("Total number of digits: " + count);
     }
 }
+
