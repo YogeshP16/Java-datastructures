@@ -3,6 +3,7 @@
 
     
     "java.project.sourcePaths": [
+        "PATTERNS/06_CYCLIC_SORT",
         "PATTERNS/04_TWO_POINTERS/02_STRINGS",
         "PATTERNS/04_TWO_POINTERS/01_ARRAYS",
         "PATTERNS/03_HASHING/01_ARRAYS",
@@ -43,8 +44,7 @@
         "JAVA_DSA/02_LOOPS/02_BASICS",
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
-        "JAVA_DSA/01_BASICS",
-        "PATTERNS/06_CYCLIC_SORT"
+        "JAVA_DSA/01_BASICS"
     ]
     
 }
