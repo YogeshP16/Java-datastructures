@@ -10,21 +10,8 @@
         "PATTERNS/01_HASHING/02_STRINGS",
         "PATTERNS/01_HASHING/01_ARRAYS",
         "PATTERNS/0",
-        "OOP/03_DesignPatterns/03_Observer",
-        "OOP/03_DesignPatterns/01_Singleton",
-        "OOP/02_SolidPrinciples/05_DependencyInversion/Good",
-        "OOP/02_SolidPrinciples/04_InterfaceSegregation/Good",
-        "OOP/02_SolidPrinciples/03_LiskovSubstitution/Good",
-        "OOP/02_SolidPrinciples/02_OpenClosed/Good",
-        "OOP/02_SolidPrinciples/01_SingleResponsibility/Good",
-        "OOP/02_SolidPrinciples/01_SingleResponsibility/Bad",
+        "OOP/01_OOP/19_Java 8/01_Lamdas/02_After",
         "OOP/01_OOP/19_Java 8/01_Lamdas/01_Before",
-        "OOP/01_OOP/17_MultiThreading/04_Join_Volatile_Daemon_ThreadPriority",
-        "OOP/01_OOP/17_MultiThreading/03_SynchronizedKeyword/02_InterThreadCommunication",
-        "OOP/01_OOP/17_MultiThreading/03_SynchronizedKeyword/01_MonitorLock",
-        "OOP/01_OOP/17_MultiThreading/02_ThreadCreation/ImplementRunnableInterface",
-        "OOP/01_OOP/17_MultiThreading/01_Process_Thread/ThreadExample",
-        "OOP/01_OOP/17_MultiThreading/01_Process_Thread/ProcessExample",
         "JAVA_DSA/08_RECURSION/06_BACKTRACKING",
         "JAVA_DSA/08_RECURSION/05_PERMUTATIONS_COMBINATIONS",
         "JAVA_DSA/08_RECURSION/04_SUBSET_SUBSEQUENCE_STRING",
@@ -46,7 +33,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "OOP/01_OOP/19_Java 8/01_Lamdas/02_After"
+        "OOP/01_OOP/19_Java 8/01_Lamdas/LambdaParameter"
     ]
     
 }
