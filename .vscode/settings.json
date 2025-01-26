@@ -10,8 +10,12 @@
         "PATTERNS/01_HASHING/02_STRINGS",
         "PATTERNS/01_HASHING/01_ARRAYS",
         "PATTERNS/0",
+        "OOP/01_OOP/19_Java 8/02_Functional_Interface/02_PreDefinedMethods/Supplier",
+        "OOP/01_OOP/19_Java 8/02_Functional_Interface/02_PreDefinedMethods/Function",
+        "OOP/01_OOP/19_Java 8/02_Functional_Interface/02_PreDefinedMethods/Consumer",
+        "OOP/01_OOP/19_Java 8/01_Lamdas/RunnableInterface",
+        "OOP/01_OOP/19_Java 8/01_Lamdas/LambdaParameter",
         "OOP/01_OOP/19_Java 8/01_Lamdas/02_After",
-        "OOP/01_OOP/19_Java 8/01_Lamdas/01_Before",
         "JAVA_DSA/08_RECURSION/06_BACKTRACKING",
         "JAVA_DSA/08_RECURSION/05_PERMUTATIONS_COMBINATIONS",
         "JAVA_DSA/08_RECURSION/04_SUBSET_SUBSEQUENCE_STRING",
@@ -33,7 +37,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "OOP/01_OOP/19_Java 8/01_Lamdas/LambdaParameter"
+        "OOP/01_OOP/19_Java 8/03_MethodReferences"
     ]
     
 }

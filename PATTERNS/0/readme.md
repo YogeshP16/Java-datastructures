@@ -27,4 +27,67 @@ https://leetcode.com/problems/find-the-duplicate-number/description/
 two pointer
 https://leetcode.com/problems/sort-colors/
 
-https://leetcode.com/problems/intersection-of-two-arrays/
+https://leetcode.com/problems/intersection-of-two-arrays/ArrayList
+
+
+
+
+
+
+Write a program to sort an ArrayList of Strings alphabetically.
+Write a program to find the maximum element from an ArrayList of Integers.
+Write a program to remove all duplicate elements from an ArrayList.
+Create a LinkedList and perform various operations like add, remove, and iterate over it.
+Write a program to find the intersection of two ArrayLists.
+Write a program to shuffle the elements of an ArrayList.
+Write a program to find the second-largest element in an ArrayList of Integers.
+Write a program to find the frequency of each element in an ArrayList.
+Write a program to find the kth smallest element in an ArrayList.
+Write a program to merge two ArrayLists into a single ArrayList.
+Write a program to find the intersection of multiple Sets.
+Write a program to check if two LinkedLists are equal.
+Write a program to check if a HashSet is a subset of another HashSet.
+HashSet
+Create a HashSet and add some elements to it. Then, print the elements of the HashSet.
+Write a program to check if a particular element exists in a HashSet.
+Create a HashMap to store the mappings of country names to their capitals.
+Write a program to find the common elements between two ArrayLists.
+Create a TreeMap to store the mappings of words to their frequencies in a given text.
+Write a program to check if a HashSet is a subset of another HashSet.
+PriorityQueue
+Implement a PriorityQueue and add elements to it. Then, print the elements in sorted order.
+Implement a priority queue using the PriorityQueue class.
+Implement a priority queue using a custom comparator.
+Implement a PriorityQueue using a custom comparator.
+Implement a Queue using the PriorityQueue class with a custom comparator.
+Implement a Stack using the PriorityQueue class with a custom comparator.
+Stack
+Implement a Stack using the Stack class in Java.
+Implement a Stack using the LinkedList class.
+Implement a Stack using the ArrayDeque class.
+Implement a Stack using the PriorityQueue class with a custom comparator.
+TreeMap
+Create a TreeMap and add elements to it. Then, print the elements in sorted order of keys.
+Create a TreeMap to store the mappings of book titles to their authors.
+Create a TreeMap to store the mappings of words to their frequencies in a given text.
+Create a TreeMap to store the mappings of student IDs to their details.
+LinkedList
+Create a LinkedList and perform various operations like add, remove, and iterate over it.
+Implement a Queue using the LinkedList class.
+Implement a Stack using the LinkedList class.
+Write a program to check if two LinkedLists are equal.
+Queue
+Implement a Queue using the LinkedList class.
+Implement a priority queue using a custom comparator.
+Implement a Queue using the PriorityQueue class.
+Implement a Queue using the ArrayDeque class.
+Implement a Queue using the PriorityQueue class with a custom comparator.
+TreeSet
+Create a TreeSet and add elements to it. Then, print the elements in sorted order.
+Create a TreeSet of custom objects and implement the Comparable interface for sorting.
+HashMap
+Create a HashMap to store the mappings of country names to their capitals.
+Create a HashMap to store the mappings of employee IDs to their names.
+Create a HashMap to store the mappings of city names to their populations.
+Create a HashMap to store the mappings of product names to their prices.
+Create a HashMap to store the mappings of employee IDs to their departments.
