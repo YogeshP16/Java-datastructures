@@ -1,7 +1,8 @@
 // Interface before Java 8
 interface Animal {
     void eat();
-    // Suppose you want add sleep() in interface or parent class ---> you must need to implement this method to all subclasses else you get error
+    // Suppose you want add sleep() in interface or parent class 
+    // you must need to implement this method to all subclasses else you get error
     // New method (will cause a compilation error in classes that implement Animal)
     void sleep();  // All implementing classes need to implement this method
 }
