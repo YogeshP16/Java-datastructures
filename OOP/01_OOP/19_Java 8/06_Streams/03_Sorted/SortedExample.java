@@ -9,6 +9,7 @@ public class SortedExample {
 
         // Sorting in ascending order (3 ways)
         List<String> sortFruits = fruits.stream().sorted().collect(Collectors.toList());
+        
         System.out.println(sortFruits);  // [Apple, Banana, Grape, Orange]
 
         List<String> sortFruits2 = fruits.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
@@ -25,7 +26,6 @@ public class SortedExample {
 
         List<String> sortFruits5 = fruits.stream().sorted((o1,o2) -> o2.compareTo(o1)).collect(Collectors.toList());
         System.out.println(sortFruits5);  // [Orange, Grape, Banana, Apple]
-
         
         
 

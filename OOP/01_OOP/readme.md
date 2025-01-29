@@ -970,3 +970,141 @@ A user-defined dynamic list implementation that stores elements of any type usin
 
 ---
 
+### **🚀 Java Developer Best Practices, Coding Standards & Common Mistakes to Avoid**  
+
+---
+
+## **✅ 1. What to Follow (Java Coding Standards & Best Practices)**  
+
+### **A. Code Readability & Maintainability**  
+✔ Follow **naming conventions**:  
+   - Use **camelCase** for variables & methods (`calculateTotalPrice()`).  
+   - Use **PascalCase** for classes (`UserService`).  
+   - Use **UPPER_SNAKE_CASE** for constants (`MAX_RETRY_COUNT`).  
+
+✔ **Write meaningful variable & method names**:  
+   - ❌ `int x = 5;`  
+   - ✅ `int retryCount = 5;`  
+
+✔ Follow **SOLID principles** (Single Responsibility, Open-Closed, etc.).  
+
+✔ Use **DRY (Don't Repeat Yourself)** to avoid redundant code.  
+
+✔ Write **small, single-purpose methods** (<= 20 lines).  
+
+---
+
+### **B. Performance Best Practices**  
+✔ Use **StringBuilder** instead of `+` for string concatenation inside loops.  
+✔ Use **Streams & Lambda Expressions** for concise, readable code.  
+✔ Prefer **Collections over Arrays** for flexibility (`List<Employee> employees` instead of `Employee[] employees`).  
+✔ Use **parallel streams** only when necessary (avoid for small datasets).  
+
+---
+
+### **C. Exception Handling Best Practices**  
+✔ Catch **specific exceptions** instead of generic `Exception`.  
+✔ Use **try-with-resources** for handling I/O resources (`BufferedReader`, `FileInputStream`).  
+✔ Never use empty catch blocks. **Log exceptions properly.**  
+```java
+try {
+    // Code
+} catch (IOException e) {
+    log.error("Error while processing file", e);
+}
+```
+
+---
+
+### **D. Collections & Concurrency**  
+✔ Use **HashMap** when order is not important, **LinkedHashMap** if order matters.  
+✔ Use **thread-safe collections** (`ConcurrentHashMap`, `CopyOnWriteArrayList`) in multi-threaded apps.  
+✔ Avoid `synchronized` keyword unless absolutely necessary—prefer `Lock` API.  
+
+---
+
+## **❌ 2. Common Mistakes to Avoid**  
+
+### **A. Memory Leaks & Performance Issues**  
+❌ **Not closing resources (DB connections, files, streams, etc.)**  
+   ✅ Use **try-with-resources** for auto-closing.  
+```java
+try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+    // Read file
+}  // Auto-close happens here
+```
+
+❌ **Using `new String("text")` instead of `"text"` (Creates unnecessary objects)**  
+   ✅ Always prefer `"text"` (String literals are cached in the String pool).  
+
+❌ **Ignoring potential `NullPointerException` (NPE)**  
+   ✅ Use `Optional<T>` to handle possible null values.  
+```java
+Optional<String> name = Optional.ofNullable(user.getName());
+```
+
+---
+
+### **B. Bad Exception Handling**  
+❌ **Catching generic exceptions (`catch (Exception e)`)**  
+   ✅ Catch specific ones (`catch (IOException e)`, `catch (NullPointerException e)`).  
+
+❌ **Ignoring exceptions (`catch (Exception e) { }`)**  
+   ✅ Always log exceptions to help debugging.  
+
+---
+
+### **C. Multi-threading Mistakes**  
+❌ **Using non-thread-safe collections in concurrent environments**  
+   ✅ Use `ConcurrentHashMap` instead of `HashMap` in multi-threaded applications.  
+
+❌ **Not synchronizing shared mutable state**  
+   ✅ Use **synchronization** or **Atomic variables** (`AtomicInteger`, `AtomicLong`).  
+
+---
+
+## **🛡️ 3. Security Best Practices Java Developers Must Know**  
+
+### **A. Avoid Hardcoding Sensitive Information**  
+❌ **Hardcoding passwords/API keys in code**  
+   ✅ Store them in **environment variables** or **configuration files** (e.g., `.env`).  
+
+---
+
+### **B. Prevent SQL Injection**  
+❌ **Using string concatenation in SQL queries**  
+   ✅ Always use **PreparedStatement** instead of concatenation.  
+```java
+PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
+stmt.setString(1, username);
+```
+
+---
+
+### **C. Use Secure Hashing for Passwords**  
+❌ **Storing plain text passwords in DB**  
+   ✅ Use **BCrypt/Argon2** to hash passwords.  
+```java
+String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+```
+
+---
+
+### **D. Prevent Cross-Site Scripting (XSS) & CSRF Attacks**  
+✔ Escape user input (`<`, `>` should be encoded as `&lt;`, `&gt;`).  
+✔ Use **CSRF tokens** for form submissions in web apps.  
+
+---
+
+### **E. Secure REST APIs**  
+✔ Use **JWT (JSON Web Token)** for authentication.  
+✔ Restrict API access using **Spring Security**.  
+✔ Validate & sanitize input to prevent **injection attacks**.  
+
+---
+
+## **📌 Summary:**
+✅ **Follow**: Naming conventions, SOLID principles, DRY, exception handling, collections & concurrency best practices.  
+❌ **Avoid**: Memory leaks, hardcoded passwords, bad exception handling, SQL injection, storing passwords in plain text.  
+🛡️ **Security**: Use PreparedStatements, Hash passwords, Secure APIs, Avoid sensitive data exposure.  
+

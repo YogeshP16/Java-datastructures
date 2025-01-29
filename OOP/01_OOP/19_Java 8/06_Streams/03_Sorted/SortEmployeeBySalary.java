@@ -23,15 +23,39 @@ public class SortEmployeeBySalary {
             .collect(Collectors.toList());
 
         System.out.println(maxList);
+
+        // sort employees salary using lambda
+        List<Employee> maxList2 = employees.stream()
+        .sorted((o1, o2) -> Double.compare(o1.getSalary(), o2.getSalary()))
+        .collect(Collectors.toList());
+    
+        System.out.println(maxList2);
+    
+    
+        //  Sort employees by salary in ASCENDING order by converting lambda to method ref
+        List<Employee> maxList3 = employees.stream()
+        .sorted(Comparator.comparingLong(Employee :: getSalary)) 
+        .collect(Collectors.toList());
+
+        System.out.println(maxList3);
 //-----------------------------------------------------------------------------------------------------            
 
         //  Sort employees by salary in descending order using lambda
 
-        List<Employee> maxList1 = employees.stream()
+        List<Employee> maxList4 = employees.stream()
         .sorted((o1, o2) -> o2.getSalary() - o1.getSalary()) // Lambda for descending order
         .collect(Collectors.toList());
 
-        System.out.println(maxList1);
+        System.out.println(maxList4);
+
+
+         //  Sort employees by salary in descending order by converting lambda to method ref
+
+         List<Employee> maxList5 = employees.stream()
+         .sorted(Comparator.comparingLong(Employee :: getSalary).reversed()) //  descending order
+         .collect(Collectors.toList());
+ 
+         System.out.println(maxList5);
          
        
     }
