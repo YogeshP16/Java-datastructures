@@ -10,13 +10,14 @@ public class MapDemo {
         users.add(new User(2, "Zen", "xxx", "zen@gmail.com"));
         users.add(new User(3, "Zeke", "xxx", "zeke@gmail.com"));
 
-        // Corrected: Use .collect() to store mapped values
+        // Use .collect() to store mapped values
         List<UserDTO> usersDTO = users.stream()
                 .map(user -> new UserDTO(user.getId(), user.getUserName(), user.getEmail()))
                 .collect(Collectors.toList());
 
         // Print the DTO list
         usersDTO.forEach(System.out::println);
+
     }
 }
 
@@ -70,3 +71,10 @@ class User {
         return "User [id=" + id + ", userName=" + userName + ", email=" + email + "]";
     }
 }
+
+
+/*
+UserDTO [id=1, userName=Yogesh, email=yogi@gmail.com]
+UserDTO [id=2, userName=Zen, email=zen@gmail.com]
+UserDTO [id=3, userName=Zeke, email=zeke@gmail.com]
+ */
