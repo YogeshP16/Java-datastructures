@@ -12,13 +12,24 @@ public class O01_CountFrequency {
             System.out.print(key + ":" + result.get(key) + " ");    // 1:3 2:3 4:2 5:1 22:1 6:4 7:1
         }
 
-        // to print result where count > 1 in hashmap
+        /*  to print result where count > 1 in hashmap
         Map<Integer, Integer> result1 =countFreq(arr);
         for (Integer key : result1.keySet()) {
             if(result1.get(key) > 1){
                 System.out.print(key + ":" + result1.get(key) + " ");   // 1:3 2:3 4:2 6:4 
             } 
+        }*/
+
+        
+        // to print result where count > 1 in hashmap
+        Map<Integer, Integer> result1 = countFreq(arr);
+
+        result1.forEach((key, value) -> {
+        if (value > 1) {
+            System.out.print(key + ":" + value + " ");  // 1:3 2:3 4:2 6:4
         }
+        });
+
         
     }
 

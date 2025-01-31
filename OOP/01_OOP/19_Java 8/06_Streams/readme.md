@@ -121,3 +121,45 @@ System.out.println(sum); // Output: 30
 
 ---
 
+### **`collect()` Methods in Java Streams**  
+
+🔥 **1. Convert Stream to List, Set, or Map**  
+```java
+List<Integer> list = stream.collect(Collectors.toList());
+Set<Integer> set = stream.collect(Collectors.toSet());
+Map<Integer, String> map = stream.collect(Collectors.toMap(k -> k, v -> "Value" + v));
+```
+
+✅ **2. Joining Strings**  
+```java
+String result = stream.collect(Collectors.joining(", "));  // "A, B, C"
+```
+
+✅ **3. Counting Elements**  
+```java
+long count = stream.collect(Collectors.counting());  // Number of elements
+```
+
+✅ **4. Finding Min/Max**  
+```java
+Optional<Integer> max = stream.collect(Collectors.maxBy(Comparator.naturalOrder()));
+Optional<Integer> min = stream.collect(Collectors.minBy(Comparator.naturalOrder()));
+```
+
+✅ **5. Summing and Averaging**  
+```java
+int sum = stream.collect(Collectors.summingInt(n -> n));
+double avg = stream.collect(Collectors.averagingInt(n -> n));
+```
+
+✅ **6. Grouping Elements (`groupingBy`)**  
+```java
+Map<String, List<Person>> grouped = people.stream()
+    .collect(Collectors.groupingBy(Person::getDepartment));
+```
+
+✅ **7. Partitioning by Predicate (`partitioningBy`)**  
+```java
+Map<Boolean, List<Integer>> partitioned = list.stream()
+    .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+```

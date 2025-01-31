@@ -37,3 +37,33 @@
 
 ---
 
+### **Predefined Functional Interfaces in Java**  
+
+**1. `Predicate<T>`** → Takes `T`, returns `boolean` (Used for filtering)  
+```java
+Predicate<Integer> isEven = x -> x % 2 == 0;
+```
+
+**2. `Function<T, R>`** → Takes `T`, returns `R` (Used for transformations)  
+```java
+Function<String, Integer> length = s -> s.length();
+```
+
+**3. `Consumer<T>`** → Takes `T`, returns `void` (Used for actions)  
+```java
+Consumer<String> print = s -> System.out.println(s);
+```
+
+**4. `Supplier<T>`** → Takes nothing, returns `T` (Used for lazy initialization)  
+```java
+Supplier<Double> random = Math::random;
+```
+
+**5. `BiFunction<T, U, R>`** → Takes `(T, U)`, returns `R` (Used for combining two inputs)  
+```java
+BiFunction<Integer, Integer, Integer> sum = (a, b) -> a + b;
+```
+
+
+---
+

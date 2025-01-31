@@ -12,12 +12,12 @@ public class O11_FindLengthOfString {
     //  str.stream().map(s -> s + " = " + s.length()).forEach(System.out::println);
 
 
-    // group string by length
+    //group string by length
     //=======================
-    // Map<Integer, List<String>> groupbyLength = str.stream()
-    // .collect(Collectors.groupingBy(String::length));
+    Map<Integer, List<String>> groupbyLength = str.stream()
+    .collect(Collectors.groupingBy(String::length));
 
-    // groupbyLength.forEach((length, stringList) -> System.out.println(length + " = " + stringList));
+    groupbyLength.forEach((length, stringList) -> System.out.println(length + " = " + stringList));
 
 
 
