@@ -6,7 +6,7 @@ public class O07CountCharacters {
         String str = "hello world";
 
         Map<Character, Long> charCount = str.chars()  // Convert to IntStream
-                .mapToObj(c -> (char) c)  // Convert to Character using method reference
+                .mapToObj(c -> (char) c)  
                 .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
 
         System.out.println(charCount);
