@@ -7,12 +7,10 @@
         "PATTERNS/04_TWO_POINTERS/02_STRINGS",
         "PATTERNS/04_TWO_POINTERS/01_ARRAYS",
         "PATTERNS/03_HASHING/01_ARRAYS",
-        "PATTERNS/01_HASHING/02_STRINGS",
-        "PATTERNS/01_HASHING/01_ARRAYS",
         "PATTERNS/0",
+        "OOP/01_OOP/19_Java 8/06_Streams/08_Collect()",
         "OOP/01_OOP/19_Java 8/06_Streams/07_Reduce()",
         "OOP/01_OOP/19_Java 8/06_Streams/06_ForEach()",
-        "OOP/01_OOP/19_Java 8/06_Streams/00_StreamCode",
         "OOP/01_OOP/19_Java 8/02_FunctionalInterface/02_PreDefinedMethods/Predicate",
         "OOP/01_OOP/19_Java 8/02_FunctionalInterface/02_PreDefinedMethods/Function",
         "OOP/01_OOP/19_Java 8/02_FunctionalInterface/02_PreDefinedMethods/Consumer",
@@ -38,7 +36,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "OOP/01_OOP/19_Java 8/06_Streams/08_Collect()"
+        "OOP/01_OOP/19_Java 8/06_Streams/09_ParallelStream"
     ]
     
 }

@@ -123,43 +123,129 @@ System.out.println(sum); // Output: 30
 
 ### **`collect()` Methods in Java Streams**  
 
-🔥 **1. Convert Stream to List, Set, or Map**  
+**1. Convert Stream to List, Set, or Map**  
 ```java
 List<Integer> list = stream.collect(Collectors.toList());
 Set<Integer> set = stream.collect(Collectors.toSet());
 Map<Integer, String> map = stream.collect(Collectors.toMap(k -> k, v -> "Value" + v));
 ```
 
-✅ **2. Joining Strings**  
+**2. Joining Strings**  
 ```java
 String result = stream.collect(Collectors.joining(", "));  // "A, B, C"
 ```
 
-✅ **3. Counting Elements**  
+**3. Counting Elements**  
 ```java
 long count = stream.collect(Collectors.counting());  // Number of elements
 ```
 
-✅ **4. Finding Min/Max**  
+**4. Finding Min/Max**  
 ```java
 Optional<Integer> max = stream.collect(Collectors.maxBy(Comparator.naturalOrder()));
 Optional<Integer> min = stream.collect(Collectors.minBy(Comparator.naturalOrder()));
 ```
 
-✅ **5. Summing and Averaging**  
+**5. Summing and Averaging**  
 ```java
 int sum = stream.collect(Collectors.summingInt(n -> n));
 double avg = stream.collect(Collectors.averagingInt(n -> n));
 ```
 
-✅ **6. Grouping Elements (`groupingBy`)**  
+**6. Grouping Elements (`groupingBy`)**  
 ```java
 Map<String, List<Person>> grouped = people.stream()
     .collect(Collectors.groupingBy(Person::getDepartment));
 ```
 
-✅ **7. Partitioning by Predicate (`partitioningBy`)**  
+**7. Partitioning by Predicate (`partitioningBy`)**  
 ```java
 Map<Boolean, List<Integer>> partitioned = list.stream()
     .collect(Collectors.partitioningBy(n -> n % 2 == 0));
 ```
+
+## **Parallel Streams in Java**  
+
+#### **1️⃣ What is a Parallel Stream?**  
+A **parallel stream** is a type of Java Stream that splits tasks into multiple threads to process elements **concurrently**, improving performance on large datasets.  
+
+#### **2️⃣ How to Create a Parallel Stream?**  
+```java
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+list.parallelStream().forEach(System.out::println);
+```
+Use `.parallelStream()` on collections or `.parallel()` on an existing stream.  
+
+#### **3️⃣ Key Differences: Sequential vs. Parallel Stream**  
+| Feature           | Sequential Stream        | Parallel Stream          |
+|------------------|------------------------|--------------------------|
+| Execution       | Single-threaded         | Multi-threaded           |
+| Order           | Maintains order         | May not maintain order   |
+| Performance     | Slower for large data   | Faster for large data    |
+| Threading       | Uses main thread        | Uses ForkJoinPool threads |
+
+#### **4️⃣ When to Use?**  
+✅ Large datasets (e.g., millions of records)  
+✅ CPU-intensive operations  
+✅ Independent operations (no shared state)  
+
+#### **5️⃣ When NOT to Use?**  
+❌ Small datasets (overhead is costly)  
+❌ When order matters  
+❌ When dealing with **shared mutable state** (risk of race conditions)  
+
+#### **6️⃣ Customizing Parallelism**  
+```java
+System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "4");
+```
+
+### ** `map()` vs `flatMap()` in Java** 🚀  
+
+#### **1️⃣ `map()` – Element-to-Element Transformation**  
+✅ Converts **one element** into **another element**.  
+✅ Maintains **one-to-one** mapping.  
+✅ Used when transformation is needed **without flattening**.  
+
+**Example:** Convert a list of names to uppercase:  
+```java
+List<String> names = Arrays.asList("Yogesh", "Prabha");
+List<String> upperCaseNames = names.stream()
+    .map(String::toUpperCase)
+    .collect(Collectors.toList());
+System.out.println(upperCaseNames); // [YOGESH, PRABHA]
+```
+
+---
+
+#### **2️⃣ `flatMap()` – Flatten & Transform Nested Data**  
+✅ Converts **one element** into **multiple elements**.  
+✅ Used for **flattening nested collections** or **splitting data**.  
+✅ One-to-Many transformation.  
+
+**Example:** Flatten a list of lists:  
+```java
+List<List<String>> nestedList = Arrays.asList(
+    Arrays.asList("Java", "Spring"),
+    Arrays.asList("Python", "Django")
+);
+
+List<String> flatList = nestedList.stream()
+    .flatMap(List::stream)
+    .collect(Collectors.toList());
+System.out.println(flatList); // [Java, Spring, Python, Django]
+```
+
+---
+
+### **3️⃣ `map()` vs `flatMap()` – Key Differences**  
+| Feature       | `map()`   | `flatMap()`   |
+|--------------|----------|--------------|
+| **Purpose**  | Transforms elements | Transforms + Flattens |
+| **Output**   | One-to-One | One-to-Many |
+| **Example**  | `"Java"` → `"JAVA"` | `["Java", "Spring"]` → `"Java", "Spring"` |
+| **Use Case** | Simple transformations | Flattening nested data |
+
+---
+
+
+
