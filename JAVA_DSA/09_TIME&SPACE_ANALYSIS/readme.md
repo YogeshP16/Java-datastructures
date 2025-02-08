@@ -185,7 +185,7 @@ for (int k = 0; k < n; k++) {            // Loop 3
 }
 ```
 
-**Analysis:**
+## **Analysis:**
 
 - **First two nested loops**: The outer loop runs `n` times. For each iteration of the outer loop, the inner loop also runs `n` times, so the total operations are `n * n = O(n^2)`.
 
@@ -201,7 +201,7 @@ for (int k = 0; k < n; k++) {            // Loop 3
 - Upper Bound --> example 10/3 = 3.33 ==> add 1 --->  4
 - Lower Bound --> 10/3 = 3.33 ==> get before decimal value ---> 3
 
-### **5. Big-Oh Notation ( ( O  )) --> Upper Bound  **
+### **5. Big-Oh Notation ( ( O  )) --> Upper Bound**
 - **What:** Worst-case growth rate.
 - **Example:**  ( O(n^2)  ) for nested loops over `n`, it cannot exceeds the O(N^2).
 - f(n) / g(n) > 0;
@@ -324,8 +324,4 @@ for (int k = 0; k < n; k++) {            // Loop 3
 
 ---
 
-### **Question: Solve Recurrence Relation with Repeated Roots**
-- Example:  ( T(n) = 2T(n/2) + O(n)  )  
-  - Solution:  ( T(n) = O(n  log n)  ).
 
----
