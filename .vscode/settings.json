@@ -8,6 +8,7 @@
         "PATTERNS/04_TWO_POINTERS/01_ARRAYS",
         "PATTERNS/03_HASHING/01_ARRAYS",
         "PATTERNS/0",
+        "OOP/01_OOP/19_Java 8/06_Streams/09_ParallelStream",
         "OOP/01_OOP/19_Java 8/06_Streams/08_Collect()",
         "OOP/01_OOP/19_Java 8/06_Streams/07_Reduce()",
         "OOP/01_OOP/19_Java 8/06_Streams/06_ForEach()",
@@ -36,7 +37,7 @@
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
         "JAVA_DSA/01_BASICS",
-        "OOP/01_OOP/19_Java 8/06_Streams/09_ParallelStream"
+        "JAVA_DSA/10_LINKEDLIST/01_SINGLY"
     ]
     
 }
