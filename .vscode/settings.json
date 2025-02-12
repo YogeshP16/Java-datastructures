@@ -16,6 +16,8 @@
         "OOP/01_OOP/19_Java 8/02_FunctionalInterface/02_PreDefinedMethods/Function",
         "OOP/01_OOP/19_Java 8/02_FunctionalInterface/02_PreDefinedMethods/Consumer",
         "OOP/01_OOP/19_Java 8/00_StreamCode",
+        "JAVA_DSA/10_LINKEDLIST/CODE",
+        "JAVA_DSA/10_LINKEDLIST/02_DOUBLY",
         "JAVA_DSA/08_RECURSION/06_BACKTRACKING",
         "JAVA_DSA/08_RECURSION/05_PERMUTATIONS_COMBINATIONS",
         "JAVA_DSA/08_RECURSION/04_SUBSET_SUBSEQUENCE_STRING",
@@ -36,8 +38,7 @@
         "JAVA_DSA/02_LOOPS/02_BASICS",
         "JAVA_DSA/02_LOOPS/01_BASICS",
         "JAVA_DSA/02_LOOPS",
-        "JAVA_DSA/01_BASICS",
-        "JAVA_DSA/10_LINKEDLIST/01_SINGLY"
+        "JAVA_DSA/01_BASICS"
     ]
     
 }

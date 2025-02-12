@@ -31,6 +31,42 @@ https://leetcode.com/problems/intersection-of-two-arrays/ArrayList
 
 
 
+Linked List
+https://leetcode.com/problems/remove-duplicates-from-sorted-list/submissions/1539231324/
+
+https://leetcode.com/problems/merge-two-sorted-lists/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
