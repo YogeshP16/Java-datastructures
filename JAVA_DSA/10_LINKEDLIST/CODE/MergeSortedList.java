@@ -33,7 +33,7 @@ class LinkedList {
         System.out.println("END");
     }
 
-    // Merge two sorted linked lists
+    /* Merge two sorted linked lists
     public static Node mergeSorted(Node l1, Node l2) {
         Node dummy = new Node(-1); // Dummy node to simplify logic
         Node current = dummy;
@@ -54,7 +54,7 @@ class LinkedList {
         if (l2 != null) current.next = l2;
 
         return dummy.next; // Return merged list (skip dummy node)
-    }
+    }*/
 }
 
 public class MergeSortedList {

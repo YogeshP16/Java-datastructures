@@ -22,7 +22,7 @@ https://leetcode.com/problems/rearrange-array-elements-by-sign/
 
 https://leetcode.com/problems/find-the-duplicate-number/description/
 
-
+https://leetcode.com/problems/happy-number/
 
 two pointer
 https://leetcode.com/problems/sort-colors/
@@ -36,9 +36,19 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-list/submissions/153
 
 https://leetcode.com/problems/merge-two-sorted-lists/description/
 
+https://leetcode.com/problems/linked-list-cycle/description/
 
+https://leetcode.com/problems/linked-list-cycle-ii/description/
 
+https://leetcode.com/problems/happy-number/description/
 
+https://leetcode.com/problems/middle-of-the-linked-list/
+
+https://leetcode.com/problems/sort-list/
+
+https://leetcode.com/problems/reverse-linked-list/submissions/1540346405/
+
+https://leetcode.com/problems/reverse-linked-list-ii/description/
 
 
 

@@ -25,9 +25,8 @@ class DLL {
 
     // Insert at the beginning (head)
     public void insertFirst(int data) {
-        Node node = new Node(data); // next = head, prev = null
-        node.next = head;
-        node.prev = null;
+        Node node = new Node(data, head, null); // next = head, prev = null
+        
 
         if (head != null) {
             head.prev = node;
