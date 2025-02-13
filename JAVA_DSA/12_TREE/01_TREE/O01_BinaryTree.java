@@ -1,4 +1,4 @@
-public class BinaryTree {
+public class O01_BinaryTree {
     class Node{
         int data;
         Node left, right;
@@ -30,7 +30,7 @@ public class BinaryTree {
     }
 
     public static void main(String[] args) {
-        BinaryTree tree = new BinaryTree();
+        O01_BinaryTree tree = new O01_BinaryTree();
         tree.root = tree.createTree();
         System.out.println("Pre order: ");
         tree.preorder(tree.root);

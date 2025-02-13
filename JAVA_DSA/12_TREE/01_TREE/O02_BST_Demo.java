@@ -1,4 +1,4 @@
-public class BST_Demo {
+public class O02_BST_Demo {
     public class Node {
         int data;
         Node left;
@@ -17,7 +17,7 @@ public class BST_Demo {
 
     private Node root;
 
-    public BST_Demo() {
+    public O02_BST_Demo() {
         root = null;
     }
 
@@ -81,7 +81,7 @@ public class BST_Demo {
     }
 
     public static void main(String[] args) {
-        BST_Demo tree = new BST_Demo();
+        O02_BST_Demo tree = new O02_BST_Demo();
 
         int[] values = {8, 3, 10, 1, 6, 14, 4, 7, 13};
         for (int val : values) {

@@ -1,3 +1,4 @@
+
 # **Tree Data Structure**
 
 ## **What is a Tree?**
@@ -48,8 +49,7 @@
 2. **Binary Tree** – Each node has at most **two children**.
 3. **N-ary Tree** – Each node can have at most **N children**.
 
-
-## **Binary Tree**
+### **Binary Tree**
 ```
 Binary Tree Example: 
        1
@@ -58,7 +58,7 @@ Binary Tree Example:
     / \   \
    4   5   6
 ```
-#### In linked list we have:
+**In linked list we have:**
 
 ```java
 class Node{
@@ -66,7 +66,7 @@ class Node{
     Node next;
 }
 ```
-#### In Binary Tree we have;
+**In Binary Tree we have;**
 ```java
 class Node{
     int data;
@@ -75,7 +75,8 @@ class Node{
 
 }
 ```
-### **Types of Binary Trees**
+
+## **Types of Binary Trees**
 - A **binary tree** is a tree where each node has at most **two children**. 
 - There are different types based on structure and properties.  
 
@@ -180,7 +181,7 @@ Used for **fast search, insert, delete** operations.
 
 ---
 
-🔹 **Summary Table:**
+### **Summary Table:**
 
 | Type                     | Definition                                                                  |
 |--------------------------|-----------------------------------------------------------------------------|
@@ -193,7 +194,7 @@ Used for **fast search, insert, delete** operations.
 
 ---
 
-### **Binary Tree Properties**
+## **Binary Tree Properties**
 These properties help solve **tree-related problems efficiently**.
 
 ---
@@ -271,14 +272,14 @@ For **3 internal nodes**,
 
 ---
 
-### **Binary Tree Implementation in Java**  
+## **Binary Tree Implementation in Java**  
 
 - Linked representation
 - Sequential -> using arrays 
 
 ---
 
-#### ** Linked representation -> Node Structure (TreeNode Class)**
+### **Linked representation -> Node Structure (TreeNode Class)**
 Each node contains:  
 - `data` → Stores the value.  
 - `left` → Points to the left child.  
@@ -298,7 +299,7 @@ class TreeNode {
 ```
 ---
 
-### **Binary Search Tree (BST)**  
+## **Binary Search Tree (BST)**  
 
 A **Binary Search Tree (BST)** is a **sorted binary tree** where:  
 - Left subtree contains **smaller** values.  
@@ -333,16 +334,16 @@ class TreeNode {
 
 ---
 
-### **🌳 Tree Traversal Method**  
+## **Tree Traversal Method**  
 Tree traversal refers to visiting all **nodes** in a tree in a specific order.
 
 ---
 
-## **1️⃣ Depth-First Search (DFS) Traversals**  
+### **1️⃣ Depth-First Search (DFS) Traversals**  
 - **Uses recursion or a stack** to explore **as deep as possible** before backtracking.
 - **Three types of DFS traversals:**  
 
-### **📌 1.1 Preorder (Root → Left → Right)**  
+#### **📌 1.1 Preorder (Root → Left → Right)**  
 **Process:**  
 1. Visit **Root**  
 2. Visit **Left subtree**  
@@ -359,7 +360,7 @@ Tree traversal refers to visiting all **nodes** in a tree in a specific order.
      / \   \
     D   E   F
 ```
-🔹 **Preorder (A → B → D → E → C → F)**  
+#### **Preorder (A → B → D → E → C → F)**  
 
 **Code (Recursive):**
 ```java
@@ -373,7 +374,7 @@ void preOrder(Node node) {
 
 ---
 
-### **📌 1.2 Inorder (Left → Root → Right)**
+#### **📌 1.2 Inorder (Left → Root → Right)**
 **Process:**  
 1. Visit **Left subtree**  
 2. Visit **Root**  
@@ -404,7 +405,7 @@ void inOrder(Node node) {
 
 ---
 
-### **📌 1.3 Postorder (Left → Right → Root)**
+#### **📌 1.3 Postorder (Left → Right → Root)**
 **Process:**  
 1. Visit **Left subtree**  
 2. Visit **Right subtree**  
@@ -436,7 +437,7 @@ void postOrder(Node node) {
 
 ---
 
-## **2️⃣ Breadth-First Search (BFS) – Level Order Traversal**
+### **2️⃣ Breadth-First Search (BFS) – Level Order Traversal**
 - **Uses a queue** (FIFO) to visit nodes **level by level**.  
 
 **Process:**  
@@ -472,7 +473,7 @@ void levelOrder(Node root) {
 
 ---
 
-## **🚀 Summary (Quick Table)**
+### **🚀 Summary (Quick Table)**
 | Traversal             | Order               |         Use Case               |
 |-----------------------|---------------------|--------------------------------|
 | **Preorder (DFS)**    | Root → Left → Right | Copying tree, Expression trees |
@@ -482,5 +483,79 @@ void levelOrder(Node root) {
 
 ---
 
+
+## **AVL Tree - Adelson-Velsky and Landis**
+  
+### **1️⃣ What Problem Did We Have Before AVL?**  
+    - Unbalanced BSTs become skewed → O(N) time complexity
+    - Insertions in sorted order create a linked list-like structure 
+    - Search, Insert, Delete operations slow down to O(N) instead o(log N)  
+
+``` skewed right tree 
+    1
+     \
+      2
+       \
+        3
+         \
+          4
+```
+
+---
+
+### **2️⃣ What Does AVL Solve?**  
+✅ **Self-balancing BST**  
+✅ **Ensures O(log N) operations**  
+✅ **Prevents skewed trees by keeping height minimal**  
+
+---
+
+### **3️⃣ How Does AVL Work?**  
+📏 **Balance Factor** = `Height(Left subtree) - Height(Right subtree)`  
+🔄 **A node is unbalanced if |Balance Factor| > 1** 
+
+#### **Rotations to restore balance**
+- When a node becomes unbalanced after insertion/deletion, we perform rotations:
+
+1️⃣ **LL (Left-Left) → Right Rotation**   
+2️⃣ **RR (Right-Right) → Left Rotation**   
+3️⃣ **LR (Left-Right) → Left + Right Rotation**  
+4️⃣ **RL (Right-Left) → Right + Left Rotation**   
+
+---
+
+### **4️⃣ Example of RR (Right-Right) Rotation**  
+Before:  
+```
+   10
+     \
+      20
+        \
+         30
+```
+**Balance Factor = -2 (Unbalanced)**  
+🔄 **Fix:** Left Rotate(10)  
+
+After:  
+```
+      20
+     /  \
+   10    30
+```
+✅ **Now Balanced!**
+
+---
+
+### **5️⃣ Complexity**  
+ **Time Complexity:** O(log N)  
+ **Space Complexity:** O(N) (Same as BST)  
+
+---
+
+### **Summary**
+🔹 **BSTs can become unbalanced → O(N) operations**  
+🔹 **AVL keeps BSTs balanced → O(log N) operations**  
+🔹 **Balance Factor ≤ 1 → Ensures efficient search, insert, delete**  
+🔹 **Rotations fix imbalance → Keeps operations fast** 🚀  
 
 

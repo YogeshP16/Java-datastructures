@@ -1,4 +1,4 @@
-public class BST_Impl {
+public class O03_BST_Impl {
     class Node{
         int data;
         Node left, right;
@@ -59,7 +59,7 @@ public class BST_Impl {
     }
 
     public static void main(String[] args) {
-        BST_Impl tree = new BST_Impl();
+        O03_BST_Impl tree = new O03_BST_Impl();
 
         // Insert elements
         tree.insert(10);
