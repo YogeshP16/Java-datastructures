@@ -52,6 +52,14 @@ https://leetcode.com/problems/reverse-linked-list-ii/description/
 
 
 
+Tree
+https://www.geeksforgeeks.org/problems/insert-a-node-in-a-bst/1
+
+https://www.geeksforgeeks.org/problems/search-a-node-in-bst/1
+
+
+
+
 
 
 

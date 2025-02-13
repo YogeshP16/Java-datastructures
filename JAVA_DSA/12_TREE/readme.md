@@ -75,13 +75,13 @@ class Node{
 
 }
 ```
-### **🌳 Types of Binary Trees**
+### **Types of Binary Trees**
 - A **binary tree** is a tree where each node has at most **two children**. 
 - There are different types based on structure and properties.  
 
 ---
 
-### **1️⃣ Full Binary Tree or Strict Binary Tree**  
+### **1️. Full Binary Tree or Strict Binary Tree**  
 ➡ **Every node has either 0 or 2 children.**  
 ✅ No node has only one child.  
 
@@ -95,7 +95,7 @@ class Node{
 
 ---
 
-### **2️⃣ Complete Binary Tree**  
+### **2️. Complete Binary Tree**  
 ➡ **All levels are completely filled except possibly the last level, which is filled from left to right.**  
 
 ```
@@ -108,7 +108,7 @@ class Node{
 
 ---
 
-### **3️⃣ Perfect Binary Tree**  
+### **3️. Perfect Binary Tree**  
 ➡ **All internal nodes have two children, and all leaf nodes are at the same level.**  
 
 ```
@@ -121,7 +121,7 @@ class Node{
 
 ---
 
-### **4️⃣ Balanced Binary Tree**  
+### **4️. Balanced Binary Tree**  
 ➡ **The height difference between left and right subtrees is at most 1.**  
 ✅ **Example:** **AVL Tree, Red-Black Tree**  
 
@@ -136,7 +136,7 @@ class Node{
 
 ---
 
-### **5️⃣ Degenerate (Skewed) Binary Tree**  
+### **5️. Degenerate (Skewed) Binary Tree**  
 ➡ **Each parent has only one child (like a linked list).**  
 ✅ Can be **left-skewed** or **right-skewed**.  
 
@@ -164,7 +164,7 @@ class Node{
 
 ---
 
-### **6️⃣ Orderd BT --> Binary Search Tree (BST)**  
+### **6️. Orderd BT --> Binary Search Tree (BST)**  
 ➡ **For every node:**  
    - Left subtree **≤** Node  
    - Right subtree **>** Node  
@@ -176,7 +176,7 @@ class Node{
     / \  / \  
    2   4 6   8  
 ```
-✅ Used for **fast search, insert, delete** operations.
+Used for **fast search, insert, delete** operations.
 
 ---
 
@@ -193,27 +193,83 @@ class Node{
 
 ---
 
-## Properties that will help in some questions
+### **Binary Tree Properties**
+These properties help solve **tree-related problems efficiently**.
 
-- 1.  For perfect binary tree, Height = h
-    - total nodes = 2^(n+1) - 1
-    - at every level it doubling like level 1 have 1 node, then level 2 have 2 node , then level 3 have 4 nodes
-    - if level = i, then no of nodes = 2^i 
+---
 
-- 2. leaf node in perfect BT = 2^h , h - height
-    - 2^(n+1) - 1 - 2^h ==> 2^h -1
+### **1️. Perfect Binary Tree (PBT)**
+- A **Perfect Binary Tree** has **all levels completely filled**.
+- If height **h**, then:
+  - **Total Nodes** = (2^{h+1} - 1)
+  - **Leaf Nodes** = (2^h)
+  - **Nodes at Level (i)** = (2^i) (0-based index)
 
-- 3. if you have N = no.of.leafs
-        - log (N+1) levels
-    if you have N = no.of.nodes
-        - log (N+1)
+ **Example:**  
+For **h = 3**, the tree looks like:
+```
+        1
+       / \
+      2   3
+     / \  / \
+    4  5 6  7
+```
+- **Total Nodes** = (2^{3+1} - 1 = 15)  
+- **Leaf Nodes** = (2^3 = 8)   
+- **Nodes at Level 2** = (2^2 = 4)   
 
-4. if Strict BT, N -> leaf nodes
-        - N-1 -> internal nodes
-        - no of leaf nodes = no of internal nodes + 1
+---
 
-5. the no of leaf node = 1 + no of internal with 2 child (not including root node)
+### **2️. Leaf Nodes in a Perfect Binary Tree**
+- **Leaf Nodes** = (2^h)  
+- **Internal Nodes** = (2^{h} - 1)  
 
+ **Example:**  
+For **h = 3**:
+- **Leaf Nodes** = (2^3 = 8)   
+- **Internal Nodes** = (2^3 - 1 = 7)   
+
+---
+
+### **3️. Levels in a Tree**
+- If there are **N leaf nodes**, then **levels** = (log_2 (N+1)).  
+- If there are **N total nodes**, then **levels** = (log_2 (N+1)).  
+
+ **Example:**  
+For **N = 15 nodes**,  
+- **Levels** = (log_2 (15+1) = log_2 (16) = 4)   
+
+---
+
+### **4️. Strict Binary Tree (Full Binary Tree)**
+- A **Strict (Full) Binary Tree** is a tree where **every node has 0 or 2 children**.
+- If **N = No. of Leaf Nodes**, then:
+  - **Internal Nodes** = (N - 1)  
+  - **Total Nodes** = (2N - 1)  
+
+ **Example:**  
+For **N = 4 leaf nodes**,  
+- **Internal Nodes** = (4 - 1 = 3)   
+- **Total Nodes** = (2 \times 4 - 1 = 7)   
+
+```
+        1
+       / \
+      2   3
+     / \  / \
+    4   5 6  7
+```
+
+---
+
+### **5️. Number of Leaf Nodes and Internal Nodes**
+- **Leaf Nodes** = **Internal Nodes + 1** (excluding root).  
+
+ **Example:**  
+For **3 internal nodes**,  
+- **Leaf Nodes** = (3 + 1 = 4)  
+
+---
 
 ### **Binary Tree Implementation in Java**  
 
@@ -242,7 +298,7 @@ class TreeNode {
 ```
 ---
 
-### **🌳 Binary Search Tree (BST)**  
+### **Binary Search Tree (BST)**  
 
 A **Binary Search Tree (BST)** is a **sorted binary tree** where:  
 - Left subtree contains **smaller** values.  
@@ -261,7 +317,7 @@ A **Binary Search Tree (BST)** is a **sorted binary tree** where:
 
 ---
 
-### **1️⃣ BST Node Definition**
+### **BST Node Definition**
 Each node has `data`, `left`, and `right` pointers.
 ```java
 class TreeNode {
@@ -274,6 +330,155 @@ class TreeNode {
     }
 }
 ```
+
+---
+
+### **🌳 Tree Traversal Method**  
+Tree traversal refers to visiting all **nodes** in a tree in a specific order.
+
+---
+
+## **1️⃣ Depth-First Search (DFS) Traversals**  
+- **Uses recursion or a stack** to explore **as deep as possible** before backtracking.
+- **Three types of DFS traversals:**  
+
+### **📌 1.1 Preorder (Root → Left → Right)**  
+**Process:**  
+1. Visit **Root**  
+2. Visit **Left subtree**  
+3. Visit **Right subtree**  
+
+**When to use**
+- DFS-Based Root-to-Leaf Path Problems.
+
+✅ **Example:**  
+```
+        A
+       / \
+      B   C
+     / \   \
+    D   E   F
+```
+🔹 **Preorder (A → B → D → E → C → F)**  
+
+**Code (Recursive):**
+```java
+void preOrder(Node node) {
+    if (node == null) return;
+    System.out.print(node.data + " "); // Visit root
+    preOrder(node.left);  // Left subtree
+    preOrder(node.right); // Right subtree
+}
+```
+
+---
+
+### **📌 1.2 Inorder (Left → Root → Right)**
+**Process:**  
+1. Visit **Left subtree**  
+2. Visit **Root**  
+3. Visit **Right subtree**  
+
+**When to use**
+- for sorted order
+
+✅ **Example:**  
+```
+        A
+       / \
+      B   C
+     / \   \
+    D   E   F
+```
+🔹 **Inorder (D → B → E → A → C → F)**  
+
+**Code (Recursive):**
+```java
+void inOrder(Node node) {
+    if (node == null) return;
+    inOrder(node.left);   // Left subtree
+    System.out.print(node.data + " "); // Visit root
+    inOrder(node.right);  // Right subtree
+}
+```
+
+---
+
+### **📌 1.3 Postorder (Left → Right → Root)**
+**Process:**  
+1. Visit **Left subtree**  
+2. Visit **Right subtree**  
+3. Visit **Root**  
+
+**When to use**
+- for deleting the Binary tree
+- for bottom up calculation
+
+✅ **Example:**  
+```
+        A
+       / \
+      B   C
+     / \   \
+    D   E   F
+```
+🔹 **Postorder (D → E → B → F → C → A)**  
+
+**Code (Recursive):**
+```java
+void postOrder(Node node) {
+    if (node == null) return;
+    postOrder(node.left);   // Left subtree
+    postOrder(node.right);  // Right subtree
+    System.out.print(node.data + " "); // Visit root
+}
+```
+
+---
+
+## **2️⃣ Breadth-First Search (BFS) – Level Order Traversal**
+- **Uses a queue** (FIFO) to visit nodes **level by level**.  
+
+**Process:**  
+1. Start with **Root**.  
+2. Visit nodes **level by level** (Left → Right).  
+
+✅ **Example:**  
+```
+        A
+       / \
+      B   C
+     / \   \
+    D   E   F
+```
+🔹 **Level Order (A → B → C → D → E → F)**  
+
+**Code (Iterative using Queue):**
+```java
+void levelOrder(Node root) {
+    if (root == null) return;
+    Queue<Node> queue = new LinkedList<>();
+    queue.add(root);
+    
+    while (!queue.isEmpty()) {
+        Node temp = queue.poll();
+        System.out.print(temp.data + " ");
+        
+        if (temp.left != null) queue.add(temp.left);
+        if (temp.right != null) queue.add(temp.right);
+    }
+}
+```
+
+---
+
+## **🚀 Summary (Quick Table)**
+| Traversal             | Order               |         Use Case               |
+|-----------------------|---------------------|--------------------------------|
+| **Preorder (DFS)**    | Root → Left → Right | Copying tree, Expression trees |
+| **Inorder (DFS)**     | Left → Root → Right | Sorted order in BST            |
+| **Postorder (DFS)**   | Left → Right → Root | Deleting tree, Expression trees|
+| **Level Order (BFS)** | Level-by-Level      | Shortest path, Networking      |
 
 ---
 
