@@ -515,7 +515,51 @@ void levelOrder(Node root) {
 ### **3️⃣ How Does AVL Work?**  
 - **Balance Factor** = `Height(Left subtree) - Height(Right subtree)`  
 - **A node is unbalanced if |Balance Factor| > 1** 
-- **For any node in AVL tree | BF(T) = -1 or 0 or +1 |**
+- **For any node in AVL tree, if the **Balance Factor (BF) is -1, 0, or +1** -> No Rotation needed**
+
+### **AVL Tree Balance Factor Rules:**
+- **BF = -1, 0, +1** → ✅ Balanced (No Rotation Needed)
+- **BF ≤ -2 or BF ≥ +2** → ❌ Unbalanced (Rotation Required)
+
+### **Example Cases:**
+1. **BF = 0 (Balanced)**
+   ```
+       A (0)
+      /   \
+    B(0)   C(0)
+   ```
+   - **BF(A) = Height(B) - Height(C) = 1 - 1 = 0** ✅  
+   - **No rotation needed.**
+
+2. **BF = +1 (Balanced)**
+   ```
+       A (+1)
+      /
+    B(0)
+   ```
+   - **BF(A) = Height(B) - Height(NULL) = 1 - 0 = +1** ✅  
+   - **No rotation needed.**
+
+3. **BF = -1 (Balanced)**
+   ```
+       A (-1)
+          \
+           B(0)
+   ```
+   - **BF(A) = Height(NULL) - Height(B) = 0 - 1 = -1** ✅  
+   - **No rotation needed.**
+
+4. **BF = +2 (Unbalanced, Rotation Needed)**
+   ```
+         A (+2) ❌
+        /
+       B (+1)
+      /
+     C (0)
+   ```
+   - **BF(A) = Height(B) - Height(NULL) = 2 - 0 = +2** ❌  
+   - **Rotation needed (LL case → Right Rotation).**
+
 
 #### **Rotations to restore balance**
 - When a node becomes unbalanced after insertion/deletion, we perform rotations:
@@ -527,7 +571,7 @@ void levelOrder(Node root) {
 
 ---
 
-### **Here are diagrams for all four AVL Tree rotations:**
+## **Here are diagrams for all four AVL Tree rotations:**
 
 ---
 
@@ -588,106 +632,169 @@ void levelOrder(Node root) {
    - BF(A) = **3 - 1 = +2** ❌ (Unbalanced).
 3. **After Right Rotation on A**, the tree is **balanced**, and all nodes have BF within the valid range (-1, 0, +1).
 
+---
 
-✅ **Now AVL tree is fully balanced**
+### **2️⃣ RR (Right-Right) Rotation → Left Rotation**  
+**Insertion in the right subtree of the right child → Left Rotation**  
 
 ---
 
-### **2️⃣ RR (Right-Right) Rotation → Left Rotation**
-- **Insertion in the right subtree of the right child → Left Rotation**
-
 #### **Before Rotation (Unbalanced)**
 ```
-   10 
-     \
-      20
-        \
-         30
+        A (BF = -2 ❌)
+       /     \
+      1 (0)   B (-1)
+            /    \
+          2 (0)   C (0)
+                    \
+                     3 (0)
 ```
-- Balance Factor of `10` = **-2** (Unbalanced)
-- **Fix:** Left Rotate `10`
+#### **Balance Factor Calculation (Before Rotation):**  
+- **BF(A) = Height(B) - Height(1) = 3 - 1 = -2** ❌ (Unbalanced)  
+- **BF(B) = Height(C) - Height(2) = 2 - 1 = -1** ✅  
+- **BF(C) = Height(NULL) - Height(3) = 0 - 1 = -1** ✅  
+- **BF(1), BF(2), BF(3) = 0** (Leaf nodes)  
 
-#### **After Left Rotation**
-```
-      20
-     /  \
-   10    30
-```
-✅ **Now Balanced!**
+📌 **Fix:** Perform **Left Rotation on A**  
 
 ---
 
-### **3️⃣ LR (Left-Right) Rotation → Left Rotate + Right Rotate**
-- **Insertion in the right subtree of the left child → Double Rotation (Left Rotate child → Right Rotate root)**
+#### **After Left Rotation (Balanced)**
+```
+        B (BF = 0 ✅)
+       /   \
+      A (0)  C (0)
+     /  \      \
+    1 (0) 2 (0) 3 (0)
+```
+
+#### **Balance Factor Calculation (After Rotation):**
+- **BF(B) = Height(A) - Height(C) = 2 - 2 = 0** ✅  
+- **BF(A) = Height(1) - Height(2) = 1 - 1 = 0** ✅  
+- **BF(C) = Height(NULL) - Height(3) = 0 - 1 = 0** ✅  
+- **All leaf nodes (1, 2, 3) have BF = 0** ✅  
+
+---
+
+### **3️⃣ LR (Left-Right) Rotation → Left Rotation on B, then Right Rotation on A**  
+**Insertion in the right subtree of the left child → LR Rotation (Left Rotation + Right Rotation)**  
+
+---
 
 #### **Before Rotation (Unbalanced)**
 ```
-       30
-      /
-    10
-      \
-       20
+        A (BF = +2 ❌)
+       /     \
+      B (+1)   4 (0)
+     /   \
+    1 (0)  C (-1)
+             \
+              2 (0)
 ```
-- Balance Factor of `30` = **2** (Unbalanced)
-- **Fix:** Left Rotate `10`, then Right Rotate `30`
+#### **Balance Factor Calculation (Before Rotation):**  
+- **BF(A) = Height(B) - Height(4) = 3 - 1 = +2** ❌ (Unbalanced)  
+- **BF(B) = Height(1) - Height(C) = 1 - 2 = -1** ❌ (Indicates LR Case)  
+- **BF(C) = Height(NULL) - Height(2) = 0 - 1 = -1** ✅  
+- **BF(1), BF(2), BF(4) = 0** (Leaf nodes)  
 
-#### **Step 1: Left Rotate (10)**
+📌 **Fix:** Perform **Left Rotation on B (to convert LL case), then Right Rotation on A**  
+
+---
+
+#### **After Left Rotation on B**
 ```
-       30
-      /
-    20
+        A (BF = +2 ❌)
+       /     \
+      C (0)   4 (0)
+     /   \
+    B (0)  2 (0)
    /
-  10
+  1 (0)
 ```
-#### **Step 2: Right Rotate (30)**
-```
-      20
-     /  \
-   10    30
-```
-✅ **Now Balanced!**
+📌 **Now it becomes an LL Case → Perform Right Rotation on A**  
 
 ---
 
-### **4️⃣ RL (Right-Left) Rotation → Right Rotate + Left Rotate**
-- **Insertion in the left subtree of the right child → Double Rotation (Right Rotate child → Left Rotate root)**
+#### **After Right Rotation on A (Balanced)**
+```
+        C (BF = 0 ✅)
+       /   \
+      B (0)  A (0)
+     /      /  \
+    1 (0)  2 (0) 4 (0)
+```
+
+#### **Balance Factor Calculation (After Rotation):**
+- **BF(C) = Height(B) - Height(A) = 2 - 2 = 0** ✅  
+- **BF(B) = Height(1) - Height(NULL) = 1 - 0 = 0** ✅  
+- **BF(A) = Height(2) - Height(4) = 1 - 1 = 0** ✅  
+- **All leaf nodes (1, 2, 4) have BF = 0** ✅  
+
+---
+
+### **4️⃣ RL (Right-Left) Rotation → Right Rotation on B, then Left Rotation on A**  
+**Insertion in the left subtree of the right child → RL Rotation (Right Rotation + Left Rotation)**  
+
+---
 
 #### **Before Rotation (Unbalanced)**
 ```
-   10
-     \
-      30
-     /
-    20
+        A (BF = -2 ❌)
+       /     \
+      1 (0)   B (-1)
+            /   \
+          C (+1)  4 (0)
+         /
+        2 (0)
 ```
-- Balance Factor of `10` = **-2** (Unbalanced)
-- **Fix:** Right Rotate `30`, then Left Rotate `10`
+#### **Balance Factor Calculation (Before Rotation):**  
+- **BF(A) = Height(B) - Height(1) = 3 - 1 = -2** ❌ (Unbalanced)  
+- **BF(B) = Height(C) - Height(4) = 2 - 1 = +1** ❌ (Indicates RL Case)  
+- **BF(C) = Height(2) - Height(NULL) = 1 - 0 = +1** ✅  
+- **BF(1), BF(2), BF(4) = 0** (Leaf nodes)  
 
-#### **Step 1: Right Rotate (30)**
-```
-   10
-     \
-      20
-        \
-         30
-```
-#### **Step 2: Left Rotate (10)**
-```
-      20
-     /  \
-   10    30
-```
-✅ **Now Balanced!**
+📌 **Fix:** Perform **Right Rotation on B (to convert RR case), then Left Rotation on A**  
 
 ---
 
-### **Summary**
-| Case   | Inserted At                  | Fix                                       |
-|--------|------------------------------|-------------------------------------------|
-| **LL** | Left subtree of left child   | Right Rotate                              |
-| **RR** | Right subtree of right child | Left Rotate                               |
-| **LR** | Right subtree of left child  | Left Rotate (child) → Right Rotate (root) |
-| **RL** | Left subtree of right child  | Right Rotate (child) → Left Rotate (root) |
+#### **After Right Rotation on B**
+```
+        A (BF = -2 ❌)
+       /     \
+      1 (0)   C (0)
+             /   \
+            2 (0)  B (0)
+                    \
+                     4 (0)
+```
+📌 **Now it becomes an RR Case → Perform Left Rotation on A**  
+
+---
+
+#### **After Left Rotation on A (Balanced)**
+```
+        C (BF = 0 ✅)
+       /   \
+      A (0)  B (0)
+     /  \      \
+    1 (0) 2 (0) 4 (0)
+```
+
+#### **Balance Factor Calculation (After Rotation):**
+- **BF(C) = Height(A) - Height(B) = 2 - 2 = 0** ✅  
+- **BF(A) = Height(1) - Height(2) = 1 - 1 = 0** ✅  
+- **BF(B) = Height(NULL) - Height(4) = 0 - 1 = 0** ✅  
+- **All leaf nodes (1, 2, 4) have BF = 0** ✅  
+
+---
+
+### **Summary of Rotations:**
+| **Case**  | **Unbalanced BF Condition** | **Fix** |
+|-----------|----------------------------|---------|
+| **LL**    | **BF(A) = +2, BF(B) = +1** | **Right Rotation on A** |
+| **RR**    | **BF(A) = -2, BF(B) = -1** | **Left Rotation on A** |
+| **LR**    | **BF(A) = +2, BF(B) = -1** | **Left Rotation on B, then Right Rotation on A** |
+| **RL**    | **BF(A) = -2, BF(B) = +1** | **Right Rotation on B, then Left Rotation on A** |
 
 ---
 
