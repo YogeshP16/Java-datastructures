@@ -484,14 +484,16 @@ void levelOrder(Node root) {
 ---
 
 
-## **AVL Tree - Adelson-Velsky and Landis**
+## **AVL Tree - Adelson-Velsky and Landis (Self balancing BT)**
+- A self balancing BST to maintain balance structure by ensuring the height 
+    difference (balance factor = h(left child) - h(right child))
   
 ### **1️⃣ What Problem Did We Have Before AVL?**  
     - Unbalanced BSTs become skewed → O(N) time complexity
     - Insertions in sorted order create a linked list-like structure 
     - Search, Insert, Delete operations slow down to O(N) instead o(log N)  
 
-``` skewed right tree 
+``` skewed right tree (Unbalanced tree)
     1
      \
       2
@@ -511,8 +513,9 @@ void levelOrder(Node root) {
 ---
 
 ### **3️⃣ How Does AVL Work?**  
-📏 **Balance Factor** = `Height(Left subtree) - Height(Right subtree)`  
-🔄 **A node is unbalanced if |Balance Factor| > 1** 
+- **Balance Factor** = `Height(Left subtree) - Height(Right subtree)`  
+- **A node is unbalanced if |Balance Factor| > 1** 
+- **For any node in AVL tree | BF(T) = -1 or 0 or +1 |**
 
 #### **Rotations to restore balance**
 - When a node becomes unbalanced after insertion/deletion, we perform rotations:
@@ -524,19 +527,87 @@ void levelOrder(Node root) {
 
 ---
 
-### **4️⃣ Example of RR (Right-Right) Rotation**  
-Before:  
+### **Here are diagrams for all four AVL Tree rotations:**
+
+---
+
+### **1️⃣ LL (Left-Left) Rotation → Right Rotation**  
+**Insertion in the left subtree of the left child → Right Rotation** 
+
+---
+
+#### **Before Rotation (Unbalanced)**
 ```
-   10
+              A (BF = +2 ❌)
+           /     \
+         B(+1)   4 (0)
+        / \
+       C   3(0)
+       / \
+     1(0)  2(0)
+```
+#### **Balance Factor Calculation (Before Rotation):**  
+- **BF(A) = Height(B) - Height(4) = 3 - 1 = +2** ❌ (Unbalanced)
+- **BF(B) = Height(C) - Height(3) = 2 - 1 = +1** ✅
+- **BF(C) = Height(1) - Height(2) = 1 - 1 = 0** ✅  
+- **BF(1), BF(2), BF(3), BF(4) = 0** (Leaf nodes)
+
+#### **Clarification on Height Calculation for A:**
+- The left subtree of A (rooted at B) has a maximum height of **3**, calculated as:
+  - **Path:** A → B → C → 1 (Height = 3)
+  - **Path:** A → B → C → 2 (Height = 3)
+- The right subtree of A (rooted at 4) has a height of **1** (since 4 is a leaf node).
+- Thus, **BF(A) = 3 - 1 = +2** (Unbalanced).
+
+#### 📌 **Fix:** Perform **Right Rotation on A**  
+
+---
+
+#### **After Right Rotation (Balanced)**
+```
+        B (BF = 0 ✅)
+       /   \
+      C (0)  A (0)
+     / \    /  \
+    1 (0) 2 (0) 3 (0)  4 (0)
+```
+
+#### **Balance Factor Calculation (After Rotation):**
+- **BF(B) = Height(C) - Height(A) = 2 - 2 = 0** ✅  
+- **BF(A) = Height(3) - Height(4) = 1 - 1 = 0** ✅  
+- **BF(C) = Height(1) - Height(2) = 1 - 1 = 0** ✅  
+- **All leaf nodes (1, 2, 3, 4) have BF = 0** ✅  
+
+---
+
+#### **Key Takeaways:**
+1. **Balance Factor (BF)** = Height(Left Subtree) - Height(Right Subtree).
+2. **For A (Before Rotation)**:
+   - Left subtree height = **3** (B → C → 1 or 2).
+   - Right subtree height = **1** (only node 4).
+   - BF(A) = **3 - 1 = +2** ❌ (Unbalanced).
+3. **After Right Rotation on A**, the tree is **balanced**, and all nodes have BF within the valid range (-1, 0, +1).
+
+
+✅ **Now AVL tree is fully balanced**
+
+---
+
+### **2️⃣ RR (Right-Right) Rotation → Left Rotation**
+- **Insertion in the right subtree of the right child → Left Rotation**
+
+#### **Before Rotation (Unbalanced)**
+```
+   10 
      \
       20
         \
          30
 ```
-**Balance Factor = -2 (Unbalanced)**  
-🔄 **Fix:** Left Rotate(10)  
+- Balance Factor of `10` = **-2** (Unbalanced)
+- **Fix:** Left Rotate `10`
 
-After:  
+#### **After Left Rotation**
 ```
       20
      /  \
@@ -546,16 +617,85 @@ After:
 
 ---
 
+### **3️⃣ LR (Left-Right) Rotation → Left Rotate + Right Rotate**
+- **Insertion in the right subtree of the left child → Double Rotation (Left Rotate child → Right Rotate root)**
+
+#### **Before Rotation (Unbalanced)**
+```
+       30
+      /
+    10
+      \
+       20
+```
+- Balance Factor of `30` = **2** (Unbalanced)
+- **Fix:** Left Rotate `10`, then Right Rotate `30`
+
+#### **Step 1: Left Rotate (10)**
+```
+       30
+      /
+    20
+   /
+  10
+```
+#### **Step 2: Right Rotate (30)**
+```
+      20
+     /  \
+   10    30
+```
+✅ **Now Balanced!**
+
+---
+
+### **4️⃣ RL (Right-Left) Rotation → Right Rotate + Left Rotate**
+- **Insertion in the left subtree of the right child → Double Rotation (Right Rotate child → Left Rotate root)**
+
+#### **Before Rotation (Unbalanced)**
+```
+   10
+     \
+      30
+     /
+    20
+```
+- Balance Factor of `10` = **-2** (Unbalanced)
+- **Fix:** Right Rotate `30`, then Left Rotate `10`
+
+#### **Step 1: Right Rotate (30)**
+```
+   10
+     \
+      20
+        \
+         30
+```
+#### **Step 2: Left Rotate (10)**
+```
+      20
+     /  \
+   10    30
+```
+✅ **Now Balanced!**
+
+---
+
+### **Summary**
+| Case   | Inserted At                  | Fix                                       |
+|--------|------------------------------|-------------------------------------------|
+| **LL** | Left subtree of left child   | Right Rotate                              |
+| **RR** | Right subtree of right child | Left Rotate                               |
+| **LR** | Right subtree of left child  | Left Rotate (child) → Right Rotate (root) |
+| **RL** | Left subtree of right child  | Right Rotate (child) → Left Rotate (root) |
+
+---
+
 ### **5️⃣ Complexity**  
  **Time Complexity:** O(log N)  
  **Space Complexity:** O(N) (Same as BST)  
 
 ---
 
-### **Summary**
-🔹 **BSTs can become unbalanced → O(N) operations**  
-🔹 **AVL keeps BSTs balanced → O(log N) operations**  
-🔹 **Balance Factor ≤ 1 → Ensures efficient search, insert, delete**  
-🔹 **Rotations fix imbalance → Keeps operations fast** 🚀  
 
 
