@@ -76,3 +76,47 @@
    - When `new` is used, memory for the object is allocated on the **heap**.  
    - Primitive values, however, are stored in the **stack** for local variables or directly within objects/arrays.  
 
+
+### **Constructor Overloading vs Method Overloading: Key Differences**  
+
+| Feature                     | Constructor Overloading | Method Overloading |
+|-------------------|----------------------|-------------------|
+| **Definition**    | Multiple constructors with different parameters in the same class. | Multiple methods with the same name but different parameters in the same class. |
+| **Purpose**       | Used to initialize objects with different sets of data. | Used to perform different tasks based on different parameter lists. |
+| **Return Type**   | No return type (not even `void`). | Must have a return type. |
+| **Invocation**    | Called implicitly when an object is created using `new`. | Called explicitly by an object or class (if static). |
+| **Name**          | Must have the same name as the class. | Can have any name. |
+
+### **Example:**
+#### **Constructor Overloading**
+```java
+class Car {
+    String model;
+    int year;
+    
+    // Constructor 1
+    Car() { 
+        this.model = "Default Model";
+        this.year = 2020;
+    }
+
+    // Constructor 2
+    Car(String model, int year) {
+        this.model = model;
+        this.year = year;
+    }
+}
+```
+
+#### **Method Overloading**
+```java
+class Calculator {
+    int add(int a, int b) { return a + b; }
+    double add(double a, double b) { return a + b; }
+    int add(int a, int b, int c) { return a + b + c; }
+}
+```
+
+### **Key Takeaway**  
+- **Constructor overloading** is used to initialize objects differently.  
+- **Method overloading** is used to define multiple versions of a method for different parameter types.

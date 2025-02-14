@@ -804,5 +804,85 @@ void levelOrder(Node root) {
 
 ---
 
+## **Segment Trees**  
 
+### **What**
+- it is a Binary tree which has interval info like indecies &  Operations like (sum, max...)
+
+### **Problems Before Segment Trees?**  
+1. **Brute Force**: Querying a range (sum, max, etc.) takes **O(N)** time.  
+2. **Prefix Sum**: Works for sum queries but **fails for updates** (needs O(N) time). 
+3. **updating arrays** also takes O(N) times
+
+### **What Problem It Solves?**  
+- Allows **fast range queries** (sum, max, etc.) in **O(log N)**.  
+- Supports **efficient updates** in **O(log N)** instead of O(N).  
+- To make tree O(N);
+
+### **When to Use It?**  
+Use when you need **fast range queries** (sum, max, min, product, etc.) **with updates**.  
+Finding Range Sum Queries
+Searching index with given prefix sum
+Finding Range Maximum/Minimum
+Counting frequency of Range Maximum/Minimum
+Finding number of zeros in the given range or finding index of Kth zero
+
+### Example (Sum Segment Tree for [1,3,5,7,9,11])
+``` sum 
+                  [sum(0,5)=36]
+                 /             \
+          [sum(0,2)=9]       [sum(3,5)=27]
+          /       \          /        \
+      [1,3]=4   [5]=5    [7,9]=16    [11]=11  
+```
+---
+
+### Segment tree queries `range sum`, `range max`, etc., efficiently by **overcoming overlap issues**. Let's see how:
+
+#### 🔴 **Types of Overlap**
+1. **Total Overlap** → Query range (`L-R`) fully covers node range.  
+   ✅ **Return** node value directly.
+   
+2. **No Overlap** → Query range (`L-R`) is outside node range.  
+   ❌ **Ignore** (return 0 for sum, -∞ for max).
+
+3. **Partial Overlap** → Query range partially covers node range.  
+   🔄 **Divide & Recur**: Get results from **left & right** child nodes and merge.
+
+#### ⚡ **Example**
+_Array_: [1, 2, 3, 4, 5, 6, 7, 8]  
+_Query_: Sum from index **2 to 6**  
+_Segment Tree Nodes_:  
+- **Root (0-7)** = Left (0-3) + Right (4-7)  
+- Query `(2-6)` falls in **both** → Call **left (0-3) & right (4-7)**
+
+💡 **Solution**:  
+1. Take sum from left child `(2-3)` ✅  
+2. Take sum from right child `(4-6)` ✅  
+3. Merge results 🔗 (final sum).
+
+---
+
+## BFS
+
+### Breadth-First Search (BFS) – Level Order Traversal**
+- **Uses a queue** (FIFO) to visit nodes **level by level**.  
+
+**Process:**  
+1. Start with **Root**.  
+2. Visit nodes **level by level** (Left → Right).  
+
+✅ **Example:**  
+```
+        A
+       / \
+      B   C
+     / \   \
+    D   E   F
+```
+🔹 **Level Order (A → B → C → D → E → F)**  
+
+### When to use
+- when answer lies near the root node
+- whenn you are asked  search by level -->  example : calculate sum of all levels in tree (level by level)
 

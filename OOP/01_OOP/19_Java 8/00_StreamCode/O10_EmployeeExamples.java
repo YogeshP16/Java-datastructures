@@ -10,7 +10,7 @@ public class O10_EmployeeExamples {
 
     List<Employee> employees = new ArrayList<>();
 
-     // Adding Employee objects with all details
+    // Adding Employee objects with all details
      employees.add(new Employee(1, "John Doe", "Male", 30, "IT", 70000));
      employees.add(new Employee(2, "Jane Smith", "Female", 28, "HR", 65000));
      employees.add(new Employee(3, "Alice Brown", "Female", 35, "Finance", 80000));
