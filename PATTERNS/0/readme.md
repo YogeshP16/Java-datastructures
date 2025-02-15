@@ -60,6 +60,8 @@ https://www.geeksforgeeks.org/problems/parenthesis-checker2744/1?itm_source=geek
 
 https://leetcode.com/problems/implement-stack-using-queues/submissions/1543653365/
 
+https://leetcode.com/problems/lru-cache/description/ 
+
 
 
 

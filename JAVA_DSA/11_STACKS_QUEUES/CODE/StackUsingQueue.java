@@ -2,6 +2,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 class StackUsingQueue {
+
+    /*
+     **Approach (KISS Rule)**  
+    1. **Push (O(1))** → Directly add the element to the queue.  
+    2. **Pop (O(N))** → Rotate all elements except the last one to the back, then remove the last element.  
+    3. **Top (O(N))** → Similar to `pop()`, but return the last element without removing it.  
+    4. **Empty (O(1))** → Check if the queue is empty.
+     */
     Queue<Integer> q;
 
     public StackUsingQueue() {
