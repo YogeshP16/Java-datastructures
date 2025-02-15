@@ -3,7 +3,9 @@
 
     
     "java.project.sourcePaths": [
-        "JAVA_DSA/11_STACKS_QUEUES/01_STACK"
+        "JAVA_DSA/11_STACKS_QUEUES/02_QUEUE",
+        "JAVA_DSA/11_STACKS_QUEUES/01_STACK",
+        "JAVA_DSA/11_STACKS_QUEUES/CODE"
     ]
     
 }

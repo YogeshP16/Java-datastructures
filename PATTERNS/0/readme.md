@@ -24,6 +24,8 @@ https://leetcode.com/problems/find-the-duplicate-number/description/
 
 https://leetcode.com/problems/happy-number/
 
+
+
 two pointer
 https://leetcode.com/problems/sort-colors/
 
@@ -49,6 +51,16 @@ https://leetcode.com/problems/sort-list/
 https://leetcode.com/problems/reverse-linked-list/submissions/1540346405/
 
 https://leetcode.com/problems/reverse-linked-list-ii/description/
+
+
+Stack
+https://www.geeksforgeeks.org/problems/reverse-a-string-using-stack/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+
+https://www.geeksforgeeks.org/problems/parenthesis-checker2744/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+
+https://leetcode.com/problems/implement-stack-using-queues/submissions/1543653365/
+
+
 
 
 
