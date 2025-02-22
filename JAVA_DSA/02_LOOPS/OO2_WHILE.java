@@ -1,69 +1,52 @@
-
 public class OO2_WHILE {
     public static void main(String[] args) {
         
+        // Print numbers from 1 to 10
+        System.out.println("print 1 to 10");
+        int i = 1;
+        while (i <= 10) {
+            System.out.print(i + " ");
+            i++;
+        }
+        System.out.println(" ");
 
-    // print 1 to 10
-    System.out.println("print 1 to 10");
-    int i =1;
-    while (i<=10){
-        System.out.print(i+" ");
-        i++;
+        // Print odd numbers from 1 to 10
+        System.out.println("print odd number");
+        int j = 1;
+        while (j <= 10) {
+            System.out.print(j + " ");
+            j += 2;
+        }
+        System.out.println(" ");
+
+        // Print even numbers from 1 to 10
+        System.out.println("print even");
+        int k = 2;
+        while (k <= 10) {
+            System.out.print(k + " ");
+            k += 2;
+        }
+        System.out.println(" ");
+
+        // Print numbers from 10 to 1 in reverse order
+        System.out.println("print reverse");
+        int l = 10;
+        while (l >= 1) {
+            System.out.print(l + " ");
+            l--;
+        }
+        System.out.println(" ");
+
+        // Print numbers from 1 to 10 using a do-while loop
+        System.out.println("Do-While LOOP");
+        int in = 1;
+        do {
+            System.out.print(in + " ");
+            in++;
+        } while (in <= 10);
+
+        System.out.println(" ");
     }
-    System.out.println(" ");
-
-
-
-
-    // print odd number
-    System.out.println("print odd number");
-    int j =1;
-    while (j<=10){
-        System.out.print(j +" ");
-        j+=2;
-    }
-    System.out.println(" ");
-
-
-
-
-    // print even number
-    System.out.println("print even");
-    int k = 2;
-    while (k <= 10){
-        System.out.print(k+" ");
-        k+=2;
-    }
-    System.out.println(" ");
-
-
-
-
-    //print reverse
-    System.out.println("print reverse");
-    int l = 10;
-    while (l >= 1){
-        System.out.print(l + " ");
-        l--;
-    }
-    System.out.println(" ");
-
-
-
-    // Do- while loop
-
-    System.out.println("Do-While LOOP");
-    int in = 1;
-    do {
-        System.out.print(in + " ");
-        in++;
-    } while (in <= 10);
-
-
-    //System.out.println(" ");
-
-    }
-
 }
 
 /*

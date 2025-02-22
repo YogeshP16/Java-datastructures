@@ -4,7 +4,9 @@ import java.util.Arrays;
 
 public class O2_Transpose {
     public static void main(String[] args) {
-        int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] arr = { {1, 2, 3}, 
+                        {4, 5, 6}, 
+                        {7, 8, 9}};
         
         // Transpose the matrix in-place (only above the diagonal)
         for (int i = 0; i < arr.length; i++) {

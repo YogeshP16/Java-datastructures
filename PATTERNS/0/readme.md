@@ -1,5 +1,7 @@
 https://leetcode.com/problems/rearrange-array-elements-by-sign/description/
 
+https://www.geeksforgeeks.org/problems/first-and-last-occurrences-of-x3116/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+
 https://leetcode.com/problems/reverse-string/
 
 https://leetcode.com/problems/rotate-array/description/
@@ -31,6 +33,9 @@ https://leetcode.com/problems/sort-colors/
 
 https://leetcode.com/problems/intersection-of-two-arrays/ArrayList
 
+
+HashMap
+https://leetcode.com/problems/most-common-word/
 
 
 Linked List

@@ -1,8 +1,4 @@
 
-
-
-
-
 public class OO3_Conditional {
     public static void main(String[] args) {
 
