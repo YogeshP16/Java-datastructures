@@ -1,27 +1,49 @@
+/**
+ * This class demonstrates a simple Binary Search Tree (BST) implementation.
+ */
 public class O02_BST_Demo {
-    public class Node {
-        int data;
-        Node left;
-        Node right;
-        int height;
 
+    /**
+     * Represents a node in the BST.
+     */
+    public class Node {
+        int data; // Value of the node
+        Node left; // Left child
+        Node right; // Right child
+        int height; // Height of the node
+
+        /**
+         * Constructor to create a new node with given data.
+         * @param data Value to be stored in the node.
+         */
         public Node(int data) {
             this.data = data;
             this.height = 0; // Default height for a new node
         }
 
+        /**
+         * Get the data of the node.
+         * @return Data of the node.
+         */
         public int getData() {
             return data;
         }
     }
 
-    private Node root;
+    private Node root; // Root of the BST
 
+    /**
+     * Constructor to initialize an empty BST.
+     */
     public O02_BST_Demo() {
         root = null;
     }
 
-    // Get the height of a node
+    /**
+     * Get the height of a node.
+     * @param node Node whose height is to be determined.
+     * @return Height of the node, -1 if node is null.
+     */
     public int height(Node node) {
         if (node == null) {
             return -1;
@@ -29,57 +51,43 @@ public class O02_BST_Demo {
         return node.height;
     }
 
-    // Check if the tree is empty
+    /**
+     * Check if the tree is empty.
+     * @return True if the tree is empty, false otherwise.
+     */
     public boolean isEmpty() {
         return root == null;
     }
 
-    // Insert a value recursively
-    private Node insert(int data, Node node) {
-        if (node == null) {
-            return new Node(data); // Create new node if null
-        }
-        if (data < node.data) {
-            node.left = insert(data, node.left);
-        } else if (data > node.data) {
-            node.right = insert(data, node.right);
-        }
-
-        // Update height after insertion
-        node.height = Math.max(height(node.left), height(node.right)) + 1;
-        return node;
-    }
-
-    // Public insert method
+    /**
+     * Insert a value into the BST.
+     * @param data Value to be inserted.
+     */
     public void insert(int data) {
         root = insert(data, root);
     }
 
-    // Inorder Traversal (Left -> Root -> Right)
-    private void inorder(Node node) {
-        if (node == null) return;
-        inorder(node.left);
-        System.out.print(node.data + " ");
-        inorder(node.right);
-    }
-
-    // Display tree (Inorder)
+    /**
+     * Display the BST in inorder traversal.
+     */
     public void display() {
         inorder(root);
         System.out.println();
     }
 
-    // Search a value in BST
+    /**
+     * Search for a value in the BST.
+     * @param key Value to be searched.
+     * @return True if the value is found, false otherwise.
+     */
     public boolean search(int key) {
         return search(root, key);
     }
 
-    private boolean search(Node node, int key) {
-        if (node == null) return false;
-        if (node.data == key) return true;
-        return key < node.data ? search(node.left, key) : search(node.right, key);
-    }
-
+    /**
+     * Main method to demonstrate BST operations.
+     * @param args Command line arguments.
+     */
     public static void main(String[] args) {
         O02_BST_Demo tree = new O02_BST_Demo();
 

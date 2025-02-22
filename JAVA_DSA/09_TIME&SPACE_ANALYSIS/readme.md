@@ -5,13 +5,13 @@
   2. Compute c = a + b.
   3. Return c.
 
-### **Properties of Algo**
+### **Properties of Algorithms**
 - Terminates after a finite amount of time.
 - Returns at least one output.
 - Independent of any programming languages.
 - Output should be unambiguous — deterministic (you should get the same output even after rerunning it after a few days).
 
-### **Steps to construct an algorithm**
+### **Steps to Construct an Algorithm**
 1. Understand the problem definition.
 2. Design the algorithm (using techniques like Divide & Conquer, Greedy, Dynamic Programming, Backtracking, etc.).
 3. Draw the flowchart.
@@ -31,19 +31,19 @@
 
 ### **Apriori Analysis**
 - **Example 1:**
-  ```
-  x = y + z  // Constant time --> O(1)
+  ```java
+  x = y + z;  // Constant time --> O(1)
   ```
 
 - **Example 2:**
-  ```
+  ```java
   for (i = 0; i < n; i++) {
     x = y + z;  // Linear time --> O(n)
   }
   ```
 
 - **Example 3:**
-  ```
+  ```java
   for (i = 0; i < n; i++) {
     for (j = 0; j < n; j++) {
       x = x + y;  // Quadratic time --> O(n^2)
@@ -52,7 +52,7 @@
   ```
 
 - **Example 4:**
-  ```
+  ```java
   i = n;
   while (i > 1) {
     i = i - 1;
@@ -61,7 +61,7 @@
   ```
 
 - **Example 5:**
-  ```
+  ```java
   i = n;
   while (i > 1) {
     i = i - 3;
@@ -70,7 +70,7 @@
   ```
 
 - **Example 6:**
-  ```
+  ```java
   i = 1;
   n = 64;
   while (i < n) {
@@ -80,9 +80,10 @@
   ```
 
 ---
+
 ### **1. What is Time and Space Complexity?**
 - **What:** Measures the efficiency of an algorithm in terms of:
-  - **Time Complexity (TC):** How execution time grows with input size grows.
+  - **Time Complexity (TC):** How execution time grows with input size.
   - **Space Complexity (SC):** How memory usage grows with input size.
 - **Usage:** Helps evaluate and compare algorithms to choose the most efficient one.
 - **Behavior:** 
@@ -98,25 +99,25 @@
       System.out.println(i);
   }
   ```
-  **TC:**  ( O(n)  ), as the loop runs `n` times.  
-  **SC:**  ( O(1)  ), as it uses a fixed amount of memory.
+  **TC:** O(n), as the loop runs `n` times.  
+  **SC:** O(1), as it uses a fixed amount of memory.
 
 ---
 
 ### **3. Comparing Complexities**
 - **Common Orders:**  
-  - (O(1) - Constant)
-  - (O( log n) - Logarithmic)
-  - (O(n) - Linear)
-  - (O(n log n) -  linear logarithmic)
-  - (O(n^2) - Quadratic)
-  - (O(n^3) - Cubic)
-  - (O(2^n) - Exponential)
-  - (O(n!) - Factorial)
-  - (O(n^n))
+  - O(1) - Constant
+  - O(log n) - Logarithmic
+  - O(n) - Linear
+  - O(n log n) - Linear Logarithmic
+  - O(n^2) - Quadratic
+  - O(n^3) - Cubic
+  - O(2^n) - Exponential
+  - O(n!) - Factorial
+  - O(n^n)
 
 - **Key:** Lower complexity is better for larger inputs.
- 
+
 ---
 
 ### **4. Procedure for Analyzing Complexity with Example**
@@ -143,7 +144,7 @@ When analyzing algorithms, we care more about how the time grows relative to the
 - `y = x` and `y = 2x` or `y = 3x` all grow linearly with `x`. We don't care about the constant multipliers like `2` or `3`; they do not significantly affect the overall complexity.
 
 This means, if we have:
-- `O(N)`, `O(2N)`, `O(3N)`, all of these are still considered **O(N)**.
+- O(N), O(2N), O(3N), all of these are still considered **O(N)**.
 
 ---
 
@@ -197,54 +198,54 @@ for (int k = 0; k < n; k++) {            // Loop 3
 - After dropping the non-dominant term: The final time complexity is **O(n^2)**.
 
 ---
-### Upper lower Bound
-- Upper Bound --> example 10/3 = 3.33 ==> add 1 --->  4
-- Lower Bound --> 10/3 = 3.33 ==> get before decimal value ---> 3
 
-### **5. Big-Oh Notation ( ( O  )) --> Upper Bound**
+### **Upper and Lower Bound**
+- Upper Bound: Example 10/3 = 3.33 ==> add 1 ---> 4
+- Lower Bound: 10/3 = 3.33 ==> get before decimal value ---> 3
+
+### **5. Big-Oh Notation (O) --> Upper Bound**
 - **What:** Worst-case growth rate.
-- **Example:**  ( O(n^2)  ) for nested loops over `n`, it cannot exceeds the O(N^2).
+- **Example:** O(n^2) for nested loops over `n`, it cannot exceed O(n^2).
 - f(n) / g(n) > 0;
-- O(n3 + n2 + 2n + 3) ==> o(n3)
+- O(n^3 + n^2 + 2n + 3) ==> O(n^3)
 
-### **6. Big-Omega Notation ( (  Omega  )) --> Lower Bound**
+### **6. Big-Omega Notation (Ω) --> Lower Bound**
 - **What:** Best-case growth rate.
-- **Example:**  (  Omega(n)  ) for linear search when the first element matches. it cannot be less than Omega(n);
+- **Example:** Ω(n) for linear search when the first element matches. It cannot be less than Ω(n).
 - f(n) / g(n) < 0;
-- O(n3 + n2 + 2n + 3) ==> o(n3)
+- O(n^3 + n^2 + 2n + 3) ==> O(n^3)
 
-### **7. Big-Theta Notation ( (  Theta  ))  --> Combining both upper and lower bound**
+### **7. Big-Theta Notation (Θ) --> Combining Both Upper and Lower Bound**
 - **What:** Average-case growth rate (tight bound).
-- **Example:**  (  Theta(n  log n)  ) for Merge Sort.
+- **Example:** Θ(n log n) for Merge Sort.
 
-### **8. Little-Oh Notation ( ( o  ))**
+### **8. Little-Oh Notation (o)**
 - **What:** Strict upper bound.
-- **Example:**  ( o(n^2)  ) means growth is less than  ( n^2  ).
+- **Example:** o(n^2) means growth is less than n^2.
 
-### **9. Little-Omega Notation ( (  omega  ))**
+### **9. Little-Omega Notation (ω)**
 - **What:** Strict lower bound.
-- **Example:**  (  omega(n)  ) means growth is faster than  ( n  ).
+- **Example:** ω(n) means growth is faster than n.
 
 ---
 
 ### **10. Space Complexity**
 - **What:** Memory usage of an algorithm.
 - **Components:**
-  1. Input Space  --> Refers to the memory required for storing the input data, which is provided as part of the problem
-  (ex: array is sorted)
-  2. Auxiliary Space  --> Refers to the extra memory used by the algorithm during execution to store temporary variables, recursion stack, etc.
-  3. Recursion Stack --> The stack of function calls created during recursion.
+  1. Input Space: Refers to the memory required for storing the input data, which is provided as part of the problem (e.g., array is sorted).
+  2. Auxiliary Space: Refers to the extra memory used by the algorithm during execution to store temporary variables, recursion stack, etc.
+  3. Recursion Stack: The stack of function calls created during recursion.
 - **Example:**  
-  Fibonacci with recursion uses  ( O(n)  ) stack space; iterative uses  ( O(1)  ).
+  Fibonacci with recursion uses O(n) stack space; iterative uses O(1).
 
 ---
 
 ### **11. Sorting Algorithms Complexity**
 | Algorithm       | Time Complexity   | Space Complexity |
-|------------------|-------------------|------------------|
-| Bubble Sort      |  ( O(n^2)  )      |  ( O(1)  )       |
-| Merge Sort       |  ( O(n  log n)  ) |  ( O(n)  )       |
-| Quick Sort       |  ( O(n  log n)  ) (avg) |  ( O( log n)  ) |
+|-----------------|-------------------|------------------|
+| Bubble Sort     | O(n^2)            | O(1)             |
+| Merge Sort      | O(n log n)        | O(n)             |
+| Quick Sort      | O(n log n) (avg)  | O(log n)         |
 
 ---
 
@@ -252,10 +253,9 @@ for (int k = 0; k < n; k++) {            // Loop 3
 - Use recurrence relations to derive TC.
 - Example:  
   Fibonacci recursion:
-   ( T(n) = T(n-1) + T(n-2) + O(1)  )
+  T(n) = T(n-1) + T(n-2) + O(1)
 
 ---
-
 
 ```
                     f(4)                     // Initial call to f(4)
@@ -300,12 +300,11 @@ for (int k = 0; k < n; k++) {            // Loop 3
 - The maximum depth of the recursion stack here is 5 (`f(4)` → `f(3)` → `f(2)` → `f(1)` → `f(0)`).
 - Hence, the space complexity is proportional to the maximum recursion depth, which is `O(n)` in this example (where `n = 4`).
 
-
 ### **13. Recurrence Relations**
 - **Types:**
-  1. **Divide-and-Conquer:**  ( T(n) = 2T(n/2) + O(n)  )
-  2. **Linear:**  ( T(n) = T(n-1) + O(1)  )
-  3. **Non-Homogeneous:**  ( T(n) = T(n-1) + f(n)  )
+  1. **Divide-and-Conquer:** T(n) = 2T(n/2) + O(n)
+  2. **Linear:** T(n) = T(n-1) + O(1)
+  3. **Non-Homogeneous:** T(n) = T(n-1) + f(n)
 
 - **Akra-Bazzi Theorem:** Solves divide-and-conquer relations.  
 - **Homogeneous Linear Relations:** Use characteristic equations.
@@ -313,8 +312,8 @@ for (int k = 0; k < n; k++) {            // Loop 3
 ---
 
 ### **14. Fibonacci with Golden Ratio**
-- **Formula:**  ( F(n) = { phi^n - (1- phi)^n} / { sqrt{5}} )
-- where  ( phi = 1+ sqrt(5) / 2 ).
+- **Formula:** F(n) = { (phi^n - (1-phi)^n) / sqrt(5) }
+- where phi = (1 + sqrt(5)) / 2.
 
 ---
 
@@ -323,5 +322,3 @@ for (int k = 0; k < n; k++) {            // Loop 3
 - **Example:** Traveling Salesman Problem (TSP).
 
 ---
-
-
