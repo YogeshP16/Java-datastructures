@@ -522,6 +522,99 @@ spring.jpa.hibernate.ddl-auto=update
 
 ---
 
+## **Spring Boot Auto-Configuration - T.R.I.M. Template**  
+
+### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+- Spring Boot **auto-configures beans** based on the **classpath dependencies and environment**.  
+- It checks for required **JAR files** (like `spring-boot-starter-data-jpa`) and **auto-registers beans** (e.g., `DataSource`).  
+- Uses **@EnableAutoConfiguration** (via `@SpringBootApplication`) to load necessary configurations.  
+
+---
+
+### **2️⃣ R - Reverse (How Does Spring Boot Decide Which Beans to Auto-Configure?)**  
+
+✅ **Spring Boot Uses These Steps to Auto-Configure Beans**:  
+1. **Scans the classpath** – Checks which dependencies are available.  
+2. **Finds matching `@Configuration` classes** in `spring-boot-autoconfigure` JAR.  
+3. **Checks `@Conditional` annotations** to decide if a bean should be created.  
+4. **Registers the bean** if all conditions are met.  
+
+**Example:** If **HikariCP (JDBC connection pool) is present**, Spring Boot automatically configures it as a `DataSource`.  
+
+---
+
+### **3️⃣ I - Inspect (How to Disable Specific Auto-Configuration?)**  
+
+#### **1️⃣ Disable Specific Auto-Configuration Using `exclude`**  
+- If you **don’t want Spring Boot to configure a specific component**, use:  
+
+```java
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+public class MyApp {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApp.class, args);
+    }
+}
+```
+✅ **Disables automatic database configuration** if you don’t need a database.  
+
+#### **2️⃣ Disable via `application.properties`**  
+```properties
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+```
+✅ **Alternative way to disable without changing Java code.**  
+
+---
+
+### **4️⃣ M - Modify (Advanced: What is `@Conditional` and How Does Spring Detect Databases?)**  
+
+#### **1️⃣ What is `@Conditional`?**  
+- **Controls bean creation dynamically based on conditions.**  
+- **Spring uses it for auto-configuration.**  
+- Examples:  
+  - `@ConditionalOnClass(X.class)`: Only configure bean if `X` is present.  
+  - `@ConditionalOnMissingBean(Y.class)`: Configure bean **only if `Y` is NOT already defined**.  
+
+✅ **Example: Auto-configure an in-memory database only if no DataSource exists**  
+```java
+@Configuration
+@ConditionalOnMissingBean(DataSource.class)
+public class InMemoryDBConfig {
+    @Bean
+    public DataSource dataSource() {
+        return new HikariDataSource();
+    }
+}
+```
+---
+
+#### **2️⃣ How Does Spring Boot Detect and Configure a Database?**  
+
+1️⃣ **Checks if JDBC is on the classpath** (`spring-boot-starter-data-jpa`).  
+2️⃣ **Detects the Database Driver** (`H2`, `MySQL`, `PostgreSQL`, etc.).  
+3️⃣ **Configures a `DataSource` bean** using properties from `application.properties`:  
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+spring.datasource.username=root
+spring.datasource.password=secret
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
+4️⃣ **If No Database is Found, Uses H2 by Default** (for development).  
+
+✅ **Example: Manually Defining a `DataSource` Bean** (Overrides Auto-Config)  
+```java
+@Bean
+public DataSource dataSource() {
+    HikariDataSource dataSource = new HikariDataSource();
+    dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/mydb");
+    dataSource.setUsername("root");
+    dataSource.setPassword("secret");
+    return dataSource;
+}
+```
+---
+
 
 ## **`@SpringBootApplication` Annotation**  
 
@@ -774,17 +867,17 @@ public class UserService {
 
 ### **1️⃣ Commonly Used Starters & Their Purpose**  
 
-| Starter | Purpose |
-|---------|---------|
-| `spring-boot-starter-web` | For building **REST APIs** and web applications (includes Spring MVC, embedded Tomcat). |
-| `spring-boot-starter-data-jpa` | For database access using **Spring Data JPA and Hibernate**. |
-| `spring-boot-starter-security` | For adding **Spring Security** (authentication & authorization). |
-| `spring-boot-starter-test` | For **unit and integration testing** (JUnit, Mockito). |
-| `spring-boot-starter-thymeleaf` | For using **Thymeleaf template engine** in web applications. |
-| `spring-boot-starter-actuator` | For **monitoring and management** of Spring Boot applications. |
-| `spring-boot-starter-mail` | For sending emails using **JavaMailSender**. |
-| `spring-boot-starter-cache` | For adding **caching support** in Spring Boot. |
-| `spring-boot-starter-aop` | For **Aspect-Oriented Programming (AOP)** with Spring. |
+| Starter                           | Purpose                                                                                 |
+|-----------------------------------|-----------------------------------------------------------------------------------------|
+| `spring-boot-starter-web`         | For building **REST APIs** and web applications (includes Spring MVC, embedded Tomcat). |
+| `spring-boot-starter-data-jpa`    | For database access using **Spring Data JPA and Hibernate**.                            |
+| `spring-boot-starter-security`    | For adding **Spring Security** (authentication & authorization).                        |
+| `spring-boot-starter-test`        | For **unit and integration testing** (JUnit, Mockito).                                  |
+| `spring-boot-starter-thymeleaf`   | For using **Thymeleaf template engine** in web applications.                            |
+| `spring-boot-starter-actuator`    | For **monitoring and management** of Spring Boot applications.                          |
+| `spring-boot-starter-mail`        | For sending emails using **JavaMailSender**.                                            |
+| `spring-boot-starter-cache`       | For adding **caching support** in Spring Boot.                                          |
+| `spring-boot-starter-aop`         | For **Aspect-Oriented Programming (AOP)** with Spring.                                  |
 
 ---
 
@@ -942,4 +1035,373 @@ java -jar myapp.jar --server.port=9090 --custom.message="Overridden via CLI"
 
 ---
 
+
+## **`@Component` vs `@Service` vs `@Repository` - T.R.I.M. Template**  
+
+### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+- All three annotations **`@Component`**, **`@Service`**, and **`@Repository`** are **stereotypes** in Spring, meaning they tell Spring to **automatically detect and register the class as a bean**.  
+- The key difference is **semantic usage** (i.e., where they should be used in a Spring application).  
+
+---
+
+### **2️⃣ R - Reverse (Why Do We Need Different Annotations?)**  
+
+#### **Problem Without These Annotations**  
+❌ Without these annotations, **Spring wouldn’t know which classes to manage** as beans.  
+❌ Code **loses readability** when all components are marked just as `@Component`.  
+❌ No **specific behaviors** like transaction handling for repositories.  
+
+#### **How These Annotations Solve It?**  
+✅ **`@Component`** - Generic component for any Spring-managed bean.  
+✅ **`@Service`** - Specifically used for business logic/service layer.  
+✅ **`@Repository`** - Specifically used for data access layer, providing exception translation.  
+
+---
+
+### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+
+### **1️⃣ `@Component` (Generic Spring Bean)**
+- Used for **generic components** that don’t fit in `@Service` or `@Repository`.  
+- Example: A helper utility class.  
+
+```java
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyHelper {
+    public String formatMessage(String msg) {
+        return "Formatted: " + msg;
+    }
+}
+```
+✅ **Any Spring-managed bean** that doesn’t belong to a specific layer.  
+
+---
+
+### **2️⃣ `@Service` (Business Logic Layer)**
+- Used in **service classes** that contain business logic.  
+- Improves **readability** and indicates the class's role.  
+
+```java
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+    public String getUserGreeting(String name) {
+        return "Hello, " + name;
+    }
+}
+```
+✅ **Clarifies intent** → This class contains business logic.  
+
+---
+
+### **3️⃣ `@Repository` (Data Access Layer)**
+- Used for **DAO (Data Access Object) classes** interacting with the database.  
+- **Spring applies exception translation** automatically for persistence exceptions.  
+
+```java
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByUsername(String username);
+}
+```
+✅ **Auto-translates database exceptions** into **Spring DataAccessException**.  
+
+---
+
+### **4️⃣ M - Modify (Advanced Usage & Examples)**  
+
+#### **1️⃣ What Happens Internally?**  
+All three annotations are **meta-annotated with `@Component`**, meaning they function the same internally but serve **different semantic roles**.  
+
+#### **2️⃣ When to Use Which?**
+| Annotation | Purpose | Layer |
+|------------|---------|-------|
+| `@Component` | Generic Spring-managed bean | Any layer |
+| `@Service` | Business logic layer | Service layer |
+| `@Repository` | Data access layer | DAO/Repository layer |
+
+---
+
+## **Spring Boot Dependency Injection - T.R.I.M. Template**  
+
+### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+- **Dependency Injection (DI)** is a design pattern where Spring **automatically injects dependencies (objects) into a class** rather than creating them manually.  
+- Spring Boot manages dependencies using **IoC (Inversion of Control) Container**, allowing automatic wiring of beans.  
+- DI helps in **loosely coupled, maintainable, and testable code**.  
+
+---
+
+### **2️⃣ R - Reverse (Why Do We Need Dependency Injection?)**  
+
+#### **Problem Without DI**  
+❌ **Manual object creation** using `new` causes **tight coupling**.  
+❌ **Difficult to replace/mock dependencies** for testing.  
+❌ **Hard to maintain** as the number of dependencies grows.  
+
+#### **How Spring Boot DI Solves It?**  
+✅ Spring **automatically injects dependencies**, avoiding `new ClassName()`.  
+✅ Supports **different injection types** (`Constructor`, `Field`, `Setter`).  
+✅ **Decouples components**, making the system **more flexible and scalable**.  
+
+---
+
+### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+
+### **1️⃣ Constructor Injection (Recommended)**
+- Best practice in **Spring Boot** for immutability and testability.  
+- Constructor Injection ensures dependencies are final, meaning they cannot be modified after the object is created.
+- Prevents accidental changes to dependencies, Support FINAL fields.
+- Avoids NullPointerException, which can happen in field injection.
+- Constructor Injection makes it easy to use dependency injection in unit tests.
+
+```java
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) { // Spring injects UserRepository
+        this.userRepository = userRepository;
+    }
+}
+```
+✅ **Spring automatically injects `UserRepository` into `UserService`**.  
+✅ **Ensures immutability** (no setter method).  
+
+---
+
+### **2️⃣ Field Injection (Less Recommended)**
+- Directly injects dependencies into a field using `@Autowired`.  
+- Allow modificaation
+- can cause Null pointer exception
+
+```java
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Service
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+}
+```
+❌ **Not recommended** due to lack of testability (can't mock via constructor).  
+
+---
+
+### **3️⃣ Setter Injection (Used for Optional Dependencies)**
+- Useful when a dependency is **optional** or needs **runtime configuration**.  
+
+```java
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Service
+public class UserService {
+    private UserRepository userRepository;
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+}
+```
+✅ Allows **replacing dependencies at runtime**.  
+
+---
+
+### **4️⃣ M - Modify (Advanced Usage & Examples)**  
+
+#### **1️⃣ Multiple Implementations (Using `@Qualifier`)**  
+If there are multiple beans of the same type, use `@Qualifier` to specify which one to inject.  
+
+```java
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MySQLUserRepository implements UserRepository { }
+```
+
+```java
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class PostgresUserRepository implements UserRepository { }
+```
+
+```java
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+    private final UserRepository userRepository;
+
+    public UserService(@Qualifier("mySQLUserRepository") UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+}
+```
+✅ **Prevents ambiguity when multiple beans exist**.  
+
+---
+
+#### **2️⃣ Injecting Configuration Properties (Using `@Value`)**  
+Spring Boot allows injecting values from **`application.properties`**.  
+
+```properties
+app.defaultRole=USER
+```
+
+```java
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AppConfig {
+    @Value("${app.defaultRole}")
+    private String defaultRole;
+}
+```
+✅ **Externalizes configuration**, avoiding hardcoded values.  
+
+---
+
+## **Spring Boot Actuator - T.R.I.M. Template**  
+
+### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+- **Spring Boot Actuator** provides built-in **monitoring and management endpoints** to check application health, metrics, and logs.  
+- It exposes RESTful **endpoints like `/actuator/health`, `/actuator/metrics`** to monitor and manage a running Spring Boot application.  
+- Useful for **production monitoring, debugging, and performance analysis**.  
+
+---
+
+### **2️⃣ R - Reverse (Why Do We Need Spring Boot Actuator?)**  
+
+#### **Problem Without Actuator**  
+❌ No built-in way to **check app health, memory, or active threads**.  
+❌ Requires **custom logging & monitoring** setup.  
+❌ Hard to **debug and track performance issues**.  
+
+#### **How Actuator Solves It?**  
+✅ **Provides ready-made monitoring endpoints** (`/actuator/health`, `/actuator/metrics`).  
+✅ Works with **Prometheus, Grafana, and other monitoring tools**.  
+✅ Helps **track performance, memory usage, and logs** in real-time.  
+
+---
+
+### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+
+### **1️⃣ Add Actuator Dependency**  
+Spring Boot **2.x and 3.x** already include Actuator in `spring-boot-starter-parent`. Just add:  
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+---
+
+### **2️⃣ Enable Actuator Endpoints**  
+By default, only **`/actuator/health` and `/actuator/info`** are enabled. To enable all endpoints, modify `application.properties`:  
+
+```properties
+management.endpoints.web.exposure.include=*
+```
+
+Or, expose specific ones:  
+
+```properties
+management.endpoints.web.exposure.include=health,metrics,info
+```
+
+---
+
+### **3️⃣ Useful Actuator Endpoints**  
+
+| Endpoint | Description |
+|----------|-------------|
+| `/actuator/health` | Checks if the app is running |
+| `/actuator/info` | Displays custom application info |
+| `/actuator/metrics` | Shows performance metrics (CPU, memory) |
+| `/actuator/loggers` | Manages log levels dynamically |
+| `/actuator/mappings` | Shows all available endpoints & mappings |
+| `/actuator/env` | Displays environment properties |
+
+---
+
+### **4️⃣ M - Modify (Advanced Usage & Customization)**  
+
+#### **1️⃣ Custom Health Checks**  
+You can **extend Actuator** by adding custom health indicators.  
+
+```java
+import org.springframework.boot.actuate.health.*;
+
+@Component
+public class CustomHealthCheck implements HealthIndicator {
+    @Override
+    public Health health() {
+        boolean serviceUp = checkService(); // Your logic here
+        return serviceUp ? Health.up().build() : Health.down().build();
+    }
+    private boolean checkService() { return true; } // Replace with real logic
+}
+```
+✅ Now, `/actuator/health` will **include custom service status**.  
+
+---
+
+#### **2️⃣ Custom App Info**  
+Define **custom metadata** in `application.properties`:  
+
+```properties
+info.app.name=My Spring Boot App
+info.app.version=1.0.0
+info.app.owner=Yogesh
+```
+Now, `/actuator/info` will return:  
+```json
+{
+  "app": {
+    "name": "My Spring Boot App",
+    "version": "1.0.0",
+    "owner": "Yogesh"
+  }
+}
+```
+
+---
+
+#### **3️⃣ Securing Actuator Endpoints**  
+By default, **all Actuator endpoints are public**. Secure them using **Spring Security**:  
+
+```properties
+management.endpoints.web.exposure.include=*
+management.endpoint.health.show-details=always
+```
+```java
+@Configuration
+public class SecurityConfig {
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(auth -> 
+            auth.requestMatchers("/actuator/**").hasRole("ADMIN")
+                .anyRequest().authenticated())
+            .httpBasic();
+        return http.build();
+    }
+}
+```
+✅ Only **admins can access** `/actuator/**` endpoints.  
+
+---
 
