@@ -1,6 +1,6 @@
-// it ensure only one instance of the class is created
+// Ensures only one instance of the class is created
 
-// early --  created when the class is loaded, which guarantees thread safety, 
+// Early initialization - created when the class is loaded, which guarantees thread safety, 
 // as the class loading process is inherently thread-safe.
 
 public class Singleton {
@@ -26,14 +26,18 @@ public class Singleton {
 
 
 
-// lazy --  delay the creation of the singleton instance until it is needed
+// Lazy initialization - delays the creation of the singleton instance until it is needed
 
 class Singleton1{
     private static Singleton1 instance;
     private Singleton1(){}
-    public static synchronized Singleton1 getInstance(){
+    public static Singleton1 getInstance(){
         if (instance == null){
-            instance =  new Singleton1();
+            synchronized (Singleton1.class) {
+                if (instance == null) {
+                    instance = new Singleton1();
+                }
+            }
         }
         return instance;
     }

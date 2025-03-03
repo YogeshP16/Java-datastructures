@@ -1,5 +1,9 @@
 import java.util.HashSet;
 
+/**
+ * The O00_FindSum class provides a method to check if there exists any element in the array
+ * such that its double is also present in the array.
+ */
 public class O00_FindSum {
     static boolean isPresent(int[] arr) {
         HashSet<Integer> set = new HashSet<>();

@@ -1,46 +1,43 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The O01_CountFrequency class provides methods to count the frequency of each element in an array.
+ * It includes both a brute force approach and an optimized approach to solve the problem.
+ * </pre>
+ * 
+ * <p>Methods:
+ * <ul>
+ * <li>{@link #countNumbers(int[])} - Brute force approach to count frequency of elements.
+ * <li>{@link #countFreq(int[])} - Optimized approach to count frequency of elements.
+ * <li>{@link #printFrequency(Map)} - Prints the frequency of elements.
+ * </ul>
+ */
 public class O01_CountFrequency {
     public static void main(String[] args) {
         int[] arr = {1,1,1,22,2,2,2,4,4,5,6,6,6,6,7};
         
-        // Question: How to count the frequency of each element in the array?
-        
         // Brute force approach
-        // Time Complexity: O(n^2)
-        // Space Complexity: O(n)
         Map<Integer, Integer> result = countNumbers(arr);
-        for (Integer key : result.keySet()) {
-            System.out.print(key + ":" + result.get(key) + " ");    // 1:3 2:3 4:2 5:1 22:1 6:4 7:1
-        }
+        printFrequency(result);
 
         System.out.println();
 
         // Optimized approach
-        // Time Complexity: O(n)
-        // Space Complexity: O(n)
         Map<Integer, Integer> result1 = countFreq(arr);
-        result1.forEach((key, value) -> {
-            if (value > 1) {
-                System.out.print(key + ":" + value + " ");  // 1:3 2:3 4:2 6:4
-            }
-        });
+        printFrequency(result1);
     }
 
     // Brute force --> tc- O(n^2) sc- O(n)
     static HashMap<Integer, Integer> countNumbers(int[] arr) {
         HashMap<Integer, Integer> map = new HashMap<>();
-        // Loop over each number in the array
         for (int i = 0; i < arr.length; i++) {
             int count = 0;
-            // Compare the number at index i with every other index in the array
             for (int j = 0; j < arr.length; j++) {
                 if (arr[j] == arr[i]) {
                     count++;
                 }
             }
-            // Add the number and its count into the HashMap
             map.put(arr[i], count);
         }
         return map;
@@ -49,11 +46,14 @@ public class O01_CountFrequency {
     // Optimized tc - O(n), sc- O(n)
     static Map<Integer, Integer> countFreq(int[] arr){
         Map<Integer, Integer> count = new HashMap<>();
-        // getOrDefault---> get the current count, defaulting to 0, and increment by 1
-        // iterating arr and add it to count (Hashmap)
         for(Integer i : arr){
             count.put(i, count.getOrDefault(i, 0)+1);
         }
         return count;
+    }
+
+    // Print frequency of elements
+    static void printFrequency(Map<Integer, Integer> frequencyMap) {
+        frequencyMap.forEach((key, value) -> System.out.print(key + ":" + value + " "));
     }
 }

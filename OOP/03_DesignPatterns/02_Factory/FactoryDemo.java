@@ -12,8 +12,7 @@ of the different classes based on the input or condition.
 
 Client Code: The client uses the factory to get the object and interact with it, 
 without worrying about how the object is created or which specific class is being used.
-
- */
+*/
 
 
 interface Notification {
@@ -42,6 +41,9 @@ class OTPNotify  implements Notification{
     
     // factory design pattern
     // handles the object creation logic. Based on the input type, it returns the appropriate Notification object.
+/**
+ * Factory class to create instances of different types of notifications.
+ */
 class NotificationFactory{
     public static Notification getNotification(String type){
         return switch (type.toUpperCase()) {
