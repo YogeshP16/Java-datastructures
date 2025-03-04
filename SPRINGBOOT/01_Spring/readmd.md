@@ -2,16 +2,10 @@
 
 ## **Spring IoC**  
 
-#### **What is Spring IoC?**  
+### **What is Spring IoC?**  
 📝 **Definition**:  
 - Spring IoC (Inversion of Control) is a design principle where the Spring container manages object 
-creation and dependency injection instead of the programmer.  
-
-#### **Why is Spring IoC needed?**  
-❓ **Problem it solves**:  
-- Avoids **tight coupling** between objects.  
-- Improves **maintainability** and **scalability**.  
-- Simplifies **unit testing** by injecting dependencies instead of hardcoding them.  
+creation and dependency injection instead of the programmer.   
 
 #### **How does Spring IoC work?**  
 ⚙️ **Implementation**:  
@@ -37,40 +31,72 @@ class Car {
 ```
 📢 **Spring automatically injects `Engine` into `Car`.**  
 
-#### **Where is Spring IoC used?**  
-✅ **Real-World Applications**:  
-- **Spring Boot applications** – Automates dependency management.  
-- **Enterprise apps** – Manages service dependencies.  
-- **Microservices** – Handles service communication.  
-- **Testing** – Allows mocking dependencies easily.  
+---
+
+### **Spring IoC Container**
+
+#### **What is the Spring IoC Container?**
+📝 **Definition**:  
+- The Spring IoC (Inversion of Control) Container is responsible for managing the lifecycle of beans (objects) and their dependencies. 
+- It creates, configures, and manages the objects based on metadata provided (usually via annotations or XML configuration).
+
+#### **How Does the Spring IoC Container Work?**
+⚙️ **Implementation**:  
+- The container loads beans based on configuration (XML or annotations).
+- It manages object creation and lifecycle.
+- Handles **Dependency Injection (DI)**, ensuring that beans are provided with the required dependencies.
+
+#### **Types of IoC Containers**  
+1. **BeanFactory**:  
+   - The simplest container.  
+   - Uses **lazy initialization** (objects are created only when requested).
+   - Suitable for small applications with minimal overhead.
+   
+2. **ApplicationContext**:  
+   - A more advanced container.  
+   - Supports **eager initialization** (beans are created at startup).
+   - Provides additional features like event propagation, AOP support, and message resource handling.
+
+#### **Spring IoC Container Example**  
+📌 **Using ApplicationContext**:  
+```java
+AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+Car car = context.getBean(Car.class);  // Retrieves the Car bean
+```
+
+📢 **Spring automatically manages beans as per configuration and handles dependency injection.**
+
+#### **Key Benefits of Spring IoC Container**  
+✅ **Loose Coupling**:  
+   - Beans are loosely coupled, making code more modular and maintainable.  
+✅ **Automatic Dependency Injection**:  
+   - Automatic handling of dependencies simplifies configuration.  
+✅ **Lifecycle Management**:  
+   - The container manages the entire lifecycle of beans.
 
 ---
 
-## **Dependency Injection (DI) - Flashcards**  
+### **Dependency Injection (DI)**  
 
-#### **Flashcard 1: What is Dependency Injection (DI)?**  
+#### **What is Dependency Injection (DI)?**  
 📝 **Definition**:  
 Dependency Injection (DI) is a design pattern in which an object's dependencies are provided by an external source (like the **Spring IoC container**) instead of the object creating them itself.  
 
----
-
-#### **Flashcard 2: Why is Dependency Injection needed?**  
+#### **Why is Dependency Injection needed?**  
 ❓ **Problem it solves**:  
-- Eliminates **tight coupling** between objects.  
-- Enhances **code reusability** and **scalability**.  
+- Eliminates **tight coupling** between objects.    
 - Makes **unit testing easier** by allowing dependency mocking.  
 
----
-
-#### **Flashcard 3: Types of Dependency Injection**  
+#### **Types of Dependency Injection**  
 📌 **Three main types of DI in Spring**:  
-1️⃣ **Constructor Injection** – Dependencies are passed via constructor.  
-2️⃣ **Setter Injection** – Dependencies are set using setter methods.  
-3️⃣ **Field Injection** – Dependencies are injected directly into fields (least recommended).  
+1️⃣ **Constructor Injection** 
+        - Dependencies are passed via constructor.  
+2️⃣ **Setter Injection** 
+        - Dependencies are set using setter methods.  
+3️⃣ **Field Injection** 
+        - Dependencies are injected directly into fields (least recommended).  
 
----
-
-#### **Flashcard 4: Constructor Injection Example**  
+#### **4: Constructor Injection Example**  
 ```java
 @Component
 class Engine {}
@@ -87,9 +113,7 @@ class Car {
 ```
 📢 **Spring automatically injects `Engine` into `Car` via the constructor.**  
 
----
-
-#### **Flashcard 5: Setter Injection Example**  
+#### **5: Setter Injection Example**  
 ```java
 @Component
 class Car {
@@ -101,35 +125,23 @@ class Car {
     }
 }
 ```
-📢 **Spring injects the dependency using a setter method.**  
+📢 **Spring injects the dependency using a setter method.**    
 
 ---
 
-#### **Flashcard 6: Where is Dependency Injection used?**  
-✅ **Real-World Applications**:  
-- **Spring Boot** – Automates DI for service layers.  
-- **Microservices** – Injects dependencies dynamically.  
-- **Testing (JUnit, Mockito)** – Easily replaces dependencies with mocks.  
+### **Spring Beans**  
 
----
-
-## **Spring Beans - Flashcards**  
-
-#### **Flashcard 1: What is a Spring Bean?**  
+#### **1: What is a Spring Bean?**  
 📝 **Definition**:  
 A **Spring Bean** is an object that is managed by the **Spring IoC container**. It is created, configured, and controlled by Spring throughout its lifecycle.  
 
----
-
-#### **Flashcard 2: Why are Spring Beans needed?**  
+#### **2: Why are Spring Beans needed?**  
 ❓ **Problem they solve**:  
 - Centralized **object management** by the Spring container.  
 - Enables **loose coupling** by injecting dependencies.  
 - Optimizes **resource usage** with singleton beans by default.  
 
----
-
-#### **Flashcard 3: How to define a Spring Bean?**  
+#### **3: How to define a Spring Bean?**  
 📌 **Ways to create a bean**:  
 1️⃣ **Using `@Component` (Auto-detection)**  
 ```java
@@ -148,9 +160,7 @@ class AppConfig {
 ```
 📢 **Both methods register `Engine` as a Spring Bean.**  
 
----
-
-#### **Flashcard 4: Spring Bean Scopes**  
+#### **4: Spring Bean Scopes**  
 📌 **Bean scopes define how beans are created and shared.**  
 - **Singleton** (default) – One instance per container.  
 - **Prototype** – New instance for each request.  
@@ -162,35 +172,23 @@ Example:
 @Component
 @Scope("prototype")  // Creates a new instance every time
 class Car {}
-```
+``` 
 
 ---
 
-#### **Flashcard 5: Where are Spring Beans used?**  
-✅ **Real-World Applications**:  
-- **Service Layer Beans** (`@Service`) – Business logic components.  
-- **DAO/Repository Beans** (`@Repository`) – Database access objects.  
-- **Controller Beans** (`@Controller`) – Handles HTTP requests in Spring MVC.  
+### **Spring Bean Life Cycle**  
 
----
-
-## **Spring Bean Life Cycle - Flashcards**  
-
-#### **Flashcard 1: What is the Spring Bean Life Cycle?**  
+#### **1: What is the Spring Bean Life Cycle?**  
 📝 **Definition**:  
 The **Spring Bean Life Cycle** refers to the stages a bean goes through from **creation** to **destruction**, managed by the **Spring IoC container**.  
 
----
-
-#### **Flashcard 2: Why is the Bean Life Cycle important?**  
+#### **2: Why is the Bean Life Cycle important?**  
 ❓ **Problem it solves**:  
 - Ensures **proper initialization and cleanup** of resources.  
 - Allows **custom behavior** before and after a bean is ready to use.  
 - Prevents **memory leaks** by handling cleanup automatically.  
 
----
-
-#### **Flashcard 3: Stages of the Spring Bean Life Cycle**  
+#### **3: Stages of the Spring Bean Life Cycle**  
 📌 **Key stages**:  
 1️⃣ **Instantiation** – The container creates the bean.  
 2️⃣ **Dependency Injection** – Dependencies are injected.  
@@ -199,9 +197,7 @@ The **Spring Bean Life Cycle** refers to the stages a bean goes through from **c
 5️⃣ **Pre-destruction (`@PreDestroy`)** – Cleanup logic before bean is removed.  
 6️⃣ **Destruction** – The bean is destroyed.  
 
----
-
-#### **Flashcard 4: Custom Initialization and Destruction Methods**  
+#### **4: Custom Initialization and Destruction Methods**  
 📌 **Using `@PostConstruct` and `@PreDestroy` (Recommended)**  
 ```java
 @Component
@@ -240,9 +236,7 @@ class Engine implements InitializingBean, DisposableBean {
 }
 ```
 
----
-
-#### **Flashcard 5: Where is the Bean Life Cycle used?**  
+#### **5: Where is the Bean Life Cycle used?**  
 ✅ **Real-World Applications**:  
 - **Database connections** – Open during initialization, close before destruction.  
 - **Caching services** – Load cache on startup, clear cache on shutdown.  
@@ -250,17 +244,15 @@ class Engine implements InitializingBean, DisposableBean {
 
 ---
 
-💡 **Key Takeaway**: The Spring Bean Life Cycle ensures proper **initialization, usage, and cleanup** of beans, improving application efficiency and stability. 🚀
-
 
 
 # **Basics of Spring Boot**
 
-## **Spring vs Spring Boot - Flashcards**  
+## **Spring vs Spring Boot**  
 
 ---
 
-#### **Flashcard 1: What is Spring?**  
+#### **1: What is Spring?**  
 📝 **Definition**:  
 Spring is a **lightweight framework** that provides **dependency injection (DI), transaction management, AOP, and MVC** for Java applications.  
 
@@ -273,7 +265,7 @@ Spring is a **lightweight framework** that provides **dependency injection (DI),
 
 ---
 
-#### **Flashcard 2: What is Spring Boot?**  
+#### **2: What is Spring Boot?**  
 📝 **Definition**:  
 Spring Boot is a **framework built on top of Spring** that simplifies application development by providing **auto-configuration, embedded servers, and opinionated defaults**.  
 
@@ -285,7 +277,7 @@ Spring Boot is a **framework built on top of Spring** that simplifies applicatio
 
 ---
 
-#### **Flashcard 3: Key Differences**  
+#### **3: Key Differences**  
 | Feature          | Spring Framework | Spring Boot |
 |-----------------|-----------------|------------|
 | **Setup** | Manual XML/Java config | Auto-configured |
@@ -297,7 +289,7 @@ Spring Boot is a **framework built on top of Spring** that simplifies applicatio
 
 ---
 
-#### **Flashcard 4: Example - Spring vs Spring Boot**  
+#### **4: Example - Spring vs Spring Boot**  
 📌 **Spring (Traditional setup)**  
 ```xml
 <!-- Need to manually configure dependencies -->
@@ -339,18 +331,18 @@ public class MyApp {
 
 ---
 
-#### **Flashcard 5: Where are Spring and Spring Boot used?**  
+#### **5: Where are Spring and Spring Boot used?**  
 ✅ **Real-World Applications**  
 - **Spring** → Used in **large-scale enterprise applications** where customization is needed.  
 - **Spring Boot** → Used for **microservices, REST APIs, and rapid application development**.  
 
 ---
 
-## **Main Features of Spring Boot - Flashcards**  
+## **Main Features of Spring Boot**  
 
 ---
 
-#### **Flashcard 1: What is Spring Boot?**  
+#### **1: What is Spring Boot?**  
 📝 **Definition**:  
 Spring Boot is a **framework built on top of Spring** that simplifies application development by providing **auto-configuration, embedded servers, and opinionated defaults**.  
 
@@ -364,7 +356,7 @@ Spring Boot is a **framework built on top of Spring** that simplifies applicatio
 
 ---
 
-#### **Flashcard 2: Auto-Configuration**  
+#### **2: Auto-Configuration**  
 ⚡ **What it does?**  
 - Automatically configures beans based on classpath dependencies.  
 - No need for **manual XML or Java-based configuration**.  
@@ -382,7 +374,7 @@ public class MyApp {
 
 ---
 
-#### **Flashcard 3: Spring Boot Starters**  
+#### **3: Spring Boot Starters**  
 📦 **What are they?**  
 - **Pre-configured dependencies** for common tasks.  
 - Reduces dependency conflicts and setup effort.  
@@ -404,7 +396,7 @@ public class MyApp {
 
 ---
 
-#### **Flashcard 4: Embedded Servers**  
+#### **4: Embedded Servers**  
 🖥️ **What it does?**  
 - Built-in support for **Tomcat, Jetty, and Undertow**.  
 - No need to deploy WAR files to an external server.  
@@ -422,7 +414,7 @@ public class MyApp {
 
 ---
 
-#### **Flashcard 5: Spring Boot Actuator**  
+#### **5: Spring Boot Actuator**  
 📊 **What it does?**  
 - Provides **monitoring and management** endpoints for applications.  
 - Helps in tracking application health, metrics, and logs.  
@@ -439,7 +431,7 @@ http://localhost:8080/actuator/health
 
 ---
 
-#### **Flashcard 6: Spring Boot DevTools**  
+#### **6: Spring Boot DevTools**  
 ⚡ **What it does?**  
 - **Auto-restart** on code changes.  
 - Enables **LiveReload** for real-time UI updates.  
@@ -456,7 +448,7 @@ http://localhost:8080/actuator/health
 
 ---
 
-#### **Flashcard 7: Microservices Support**  
+#### **7: Microservices Support**  
 ☁️ **Why important?**  
 - Makes **developing and deploying microservices easier**.  
 - Works seamlessly with **Spring Cloud** for distributed systems.  
@@ -480,7 +472,7 @@ public class MyController {
 
 ---
 
-#### **Flashcard 1: What is @SpringBootApplication?**  
+#### **1: What is @SpringBootApplication?**  
 📝 **Definition**:  
 `@SpringBootApplication` is a **meta-annotation** in Spring Boot that combines three key annotations:  
 ✅ `@Configuration` – Marks the class as a Spring **configuration** class.  
@@ -491,7 +483,7 @@ public class MyController {
 
 ---
 
-#### **Flashcard 2: Why is @SpringBootApplication needed?**  
+#### **2: Why is @SpringBootApplication needed?**  
 🔥 **Problem it solves**:  
 - Reduces **boilerplate code** by combining multiple annotations into one.  
 - Simplifies **Spring Boot application setup**.  
@@ -518,7 +510,7 @@ public class MyApp {
 
 ---
 
-#### **Flashcard 3: How does @SpringBootApplication work internally?**  
+#### **3: How does @SpringBootApplication work internally?**  
 ⚙️ **Internal Breakdown**:  
 - `@Configuration` → Allows **bean definitions** using `@Bean`.  
 - `@EnableAutoConfiguration` → Automatically configures **Spring components** based on dependencies.  
@@ -540,7 +532,7 @@ public class MyApp {
 
 ---
 
-#### **Flashcard 4: Where is @SpringBootApplication used?**  
+#### **4: Where is @SpringBootApplication used?**  
 ✅ **Microservices** – Rapid development of REST APIs.  
 ✅ **Web Applications** – Auto-configures MVC, security, and databases.  
 ✅ **Enterprise Applications** – Reduces configuration overhead.  
@@ -551,7 +543,7 @@ public class MyApp {
 
 ---
 
-#### **Flashcard 1: Steps to Create a Spring Boot Application**  
+#### **1: Steps to Create a Spring Boot Application**  
 📝 **Follow these simple steps**:  
 1️⃣ **Set up a project** using Spring Initializr or manually.  
 2️⃣ **Add dependencies** (like Spring Web, JPA, etc.).  
@@ -563,7 +555,7 @@ public class MyApp {
 
 ---
 
-#### **Flashcard 2: Creating a Spring Boot Project (Using Spring Initializr)**  
+#### **2: Creating a Spring Boot Project (Using Spring Initializr)**  
 🌐 **Go to**: [https://start.spring.io/](https://start.spring.io/)  
 📌 **Steps**:  
 1️⃣ Choose **Project Type** → **Maven** / **Gradle**.  
@@ -576,7 +568,7 @@ public class MyApp {
 
 ---
 
-#### **Flashcard 3: Manually Creating a Spring Boot Application**  
+#### **3: Manually Creating a Spring Boot Application**  
 📌 **1. Add Spring Boot Dependency (Maven Project - `pom.xml`)**  
 ```xml
 <dependencies>
@@ -614,7 +606,7 @@ public class MyController {
 
 ---
 
-#### **Flashcard 4: Running the Application**  
+#### **4: Running the Application**  
 📌 **Option 1: Using IDE (IntelliJ, Eclipse)**  
 ✔ Right-click `MyApp.java` → **Run MyApp**  
 
@@ -630,7 +622,7 @@ java -jar target/myapp-0.0.1-SNAPSHOT.jar
 
 ---
 
-#### **Flashcard 5: Testing the Application**  
+#### **5: Testing the Application**  
 ✅ Open a browser or Postman → **Visit the endpoint**  
 ```
 http://localhost:8080/api/hello
@@ -647,7 +639,7 @@ Hello, Spring Boot!
 
 ---
 
-#### **Flashcard 1: What is `pom.xml`?**  
+#### **1: What is `pom.xml`?**  
 📝 **Definition**:  
 `pom.xml` (**Project Object Model**) is the **configuration file for Maven** in a Spring Boot project. It:  
 ✅ **Manages dependencies** 📦  
@@ -658,7 +650,7 @@ Hello, Spring Boot!
 
 ---
 
-#### **Flashcard 2: Basic Structure of `pom.xml`**  
+#### **2: Basic Structure of `pom.xml`**  
 📌 **Essential Tags:**  
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -709,7 +701,7 @@ Hello, Spring Boot!
 
 ---
 
-#### **Flashcard 3: Why is `pom.xml` needed?**  
+#### **3: Why is `pom.xml` needed?**  
 🔥 **Problem it solves**:  
 - Eliminates **manual dependency management**.  
 - Ensures **consistent project builds**.  
@@ -719,7 +711,7 @@ Hello, Spring Boot!
 
 ---
 
-#### **Flashcard 4: Key Elements in `pom.xml`**  
+#### **4: Key Elements in `pom.xml`**  
 🔹 **`<parent>`** – Inherits properties from **Spring Boot starter parent**.  
 🔹 **`<dependencies>`** – Defines required **Spring Boot modules** (Web, JPA, Security, etc.).  
 🔹 **`<build>`** – Specifies the **Spring Boot Maven plugin** for packaging & execution.  
@@ -743,7 +735,7 @@ Hello, Spring Boot!
 
 ---
 
-#### **Flashcard 1: What is `application.properties`?**  
+#### **1: What is `application.properties`?**  
 📝 **Definition**:  
 `application.properties` is a **configuration file** used in Spring Boot to **externalize settings** like:  
 ✅ **Server Port**  
@@ -755,7 +747,7 @@ Hello, Spring Boot!
 
 ---
 
-#### **Flashcard 2: Where is `application.properties` located?**  
+#### **2: Where is `application.properties` located?**  
 📌 Default Location:  
 ```
 src/main/resources/application.properties
@@ -764,7 +756,7 @@ src/main/resources/application.properties
 
 ---
 
-#### **Flashcard 3: How to Configure Spring Boot Properties?**  
+#### **3: How to Configure Spring Boot Properties?**  
 📌 **1️⃣ Change Default Server Port**  
 ```properties
 server.port=8081
@@ -801,7 +793,7 @@ spring.profiles.active=dev
 
 ---
 
-#### **Flashcard 1: What are `application.properties` and `application.yml`?**  
+#### **1: What are `application.properties` and `application.yml`?**  
 📝 **Definition**:  
 Both `application.properties` and `application.yml` are **Spring Boot configuration files** used for setting various properties like server configurations, database settings, and logging levels.  
 - **`application.properties`** uses **key-value pairs** (`key=value` format).  
@@ -809,7 +801,7 @@ Both `application.properties` and `application.yml` are **Spring Boot configurat
 
 ---
 
-#### **Flashcard 2: Key Differences Between `application.properties` and `application.yml`**  
+#### **2: Key Differences Between `application.properties` and `application.yml`**  
 
 | **Feature**                     | **`application.properties`**       | **`application.yml`**           |
 |----------------------------------|-------------------------------------|---------------------------------|
@@ -822,7 +814,7 @@ Both `application.properties` and `application.yml` are **Spring Boot configurat
 
 ---
 
-#### **Flashcard 3: Example of Key-Value Configuration**  
+#### **3: Example of Key-Value Configuration**  
 - **`application.properties`**:  
 ```properties
 server.port=8081
@@ -841,17 +833,17 @@ spring:
 
 ---
 
-## **Externalizing Configuration in Spring Boot - Flashcards**  
+## **Externalizing Configuration in Spring Boot**  
 
 ---
 
-#### **Flashcard 1: What is Externalizing Configuration in Spring Boot?**  
+#### **1: What is Externalizing Configuration in Spring Boot?**  
 📝 **Definition**:  
 Externalizing configuration allows you to **keep application settings outside the code**, making it more flexible and environment-specific (e.g., different settings for development, production).  
 
 ---
 
-#### **Flashcard 2: Why Externalize Configuration?**  
+#### **2: Why Externalize Configuration?**  
 ❓ **Problem it solves**:  
 - **Environment-specific configurations** (e.g., dev, prod).  
 - **Separation of code and configuration**, allowing easier maintenance.  
@@ -860,7 +852,7 @@ Externalizing configuration allows you to **keep application settings outside th
 
 ---
 
-#### **Flashcard 3: How to Externalize Configuration?**  
+#### **3: How to Externalize Configuration?**  
 📌 **Common methods to externalize configurations**:  
 1️⃣ **Using `application.properties` or `application.yml`**  
    - Store key-value pairs in these files for application-wide settings.  
@@ -897,7 +889,7 @@ Externalizing configuration allows you to **keep application settings outside th
 
 ---
 
-#### **Flashcard 4: Example - Using `application.properties`**  
+#### **4: Example - Using `application.properties`**  
 📌 **Define properties in `application.properties`**:  
 ```properties
 # application.properties
@@ -918,7 +910,7 @@ private String appName;
 
 ---
 
-#### **Flashcard 5: Profile-Specific Configurations**  
+#### **5: Profile-Specific Configurations**  
 📌 **Using Profiles for different environments**:  
 - **application-dev.properties**  
 - **application-prod.properties**
@@ -941,7 +933,7 @@ server.port=8080
 
 ---
 
-#### **Flashcard 6: Where is Externalized Configuration used?**  
+#### **6: Where is Externalized Configuration used?**  
 ✅ **Real-World Applications**:  
 - **Multi-environment applications** (e.g., different configurations for dev, prod).  
 - **Cloud-based applications** using environment variables for configuration.  
@@ -949,24 +941,24 @@ server.port=8080
 
 ---
 
-## **Using `@Profile` in Spring Boot - Flashcards (KISS)**
+## **Using `@Profile` in Spring Boot (KISS)**
 
 ---
 
-#### **Flashcard 1: What is `@Profile`?**  
+#### **1: What is `@Profile`?**  
 📝 **Definition**:  
 `@Profile` is an annotation used to specify that a bean is available only in certain **Spring profiles** (environments).
 
 ---
 
-#### **Flashcard 2: Why is `@Profile` Needed?**  
+#### **2: Why is `@Profile` Needed?**  
 ❓ **Problem it solves**:  
 - **Environment-specific beans**: Define different beans for different environments (e.g., dev, prod).  
 - **Reduce conditional code**: Avoid using conditional statements in code to manage different configurations.
 
 ---
 
-#### **Flashcard 3: How Does `@Profile` Work?**  
+#### **3: How Does `@Profile` Work?**  
 📌 **Usage of `@Profile`**:  
 1. **Assign profiles to beans**: Use `@Profile("dev")` to only enable a bean for the `dev` profile.
 2. **Set active profile**: Specify the active profile in `application.properties`.
@@ -990,7 +982,7 @@ public DataSource prodDataSource() {
 
 ---
 
-#### **Flashcard 4: Setting Active Profiles**  
+#### **4: Setting Active Profiles**  
 📌 **Set active profile in `application.properties`**:  
 ```properties
 # application.properties
@@ -1006,7 +998,7 @@ java -jar app.jar --spring.profiles.active=prod
 
 ---
 
-#### **Flashcard 5: Where is `@Profile` Used?**  
+#### **5: Where is `@Profile` Used?**  
 ✅ **Real-World Applications**:  
 - **Microservices**: Different beans for different service environments.  
 - **Cloud deployments**: Switch between dev, staging, and production environments.  
@@ -1014,17 +1006,17 @@ java -jar app.jar --spring.profiles.active=prod
 
 ---
 
-## **Using `@Value` in Spring Boot - Flashcards (KISS)**
+## **Using `@Value` in Spring Boot (KISS)**
 
 ---
 
-#### **Flashcard 1: What is `@Value`?**  
+#### **1: What is `@Value`?**  
 📝 **Definition**:  
 `@Value` is a Spring annotation used to **inject values** from property files or environment variables directly into fields of a Spring bean.  
 
 ---
 
-#### **Flashcard 2: Why is `@Value` Needed?**  
+#### **2: Why is `@Value` Needed?**  
 ❓ **Problem it solves**:  
 - **Injects external configuration values** (e.g., from `application.properties`) into Java beans.  
 - **Simplifies access to application properties** without manual configuration.  
@@ -1032,7 +1024,7 @@ java -jar app.jar --spring.profiles.active=prod
 
 ---
 
-#### **Flashcard 3: How Does `@Value` Work?**  
+#### **3: How Does `@Value` Work?**  
 📌 **Usage of `@Value`**:  
 1. **Inject simple values** from properties files:  
    - Inject values like strings, integers, etc.  
@@ -1051,7 +1043,7 @@ private int serverPort;
 
 ---
 
-#### **Flashcard 4: Example with `application.properties`**  
+#### **4: Example with `application.properties`**  
 📌 **Define properties in `application.properties`**:  
 ```properties
 app.name=My Spring Boot App
@@ -1077,7 +1069,7 @@ public class MyApp {
 
 ---
 
-#### **Flashcard 5: Using SpEL (Spring Expression Language)**  
+#### **5: Using SpEL (Spring Expression Language)**  
 📌 **Example of SpEL in `@Value`**:  
 ```java
 @Value("#{2 * 10}")
@@ -1095,13 +1087,13 @@ private double randomValue; // Injects a random number
 
 ## **@RestController in Spring Boot - Flashcard**
 
-#### **Flashcard 1: What is @RestController?**  
+#### **1: What is @RestController?**  
 📝 **Definition**:  
 `@RestController` is a specialized version of `@Controller` in Spring that combines `@ResponseBody` and `@Controller`. It is used to handle HTTP requests and automatically converts the returned objects into JSON or XML responses.  
 
 ---
 
-#### **Flashcard 2: Why is @RestController needed?**  
+#### **2: Why is @RestController needed?**  
 ❓ **Problem it solves**:  
 - Simplifies RESTful API creation.  
 - Automatically converts Java objects to JSON or XML.  
@@ -1109,14 +1101,14 @@ private double randomValue; // Injects a random number
 
 ---
 
-#### **Flashcard 3: How does @RestController work?**  
+#### **3: How does @RestController work?**  
 ⚙️ **Functionality**:  
 - When a method is marked with `@RestController`, Spring converts its return type into a response body directly.  
 - It can be used with HTTP methods like **GET**, **POST**, **PUT**, **DELETE**.
 
 ---
 
-#### **Flashcard 4: @RestController Example**  
+#### **4: @RestController Example**  
 ```java
 @RestController
 @RequestMapping("/api")
@@ -1132,7 +1124,7 @@ public class MyController {
 
 ---
 
-#### **Flashcard 5: Where is @RestController used?**  
+#### **5: Where is @RestController used?**  
 ✅ **Real-World Applications**:  
 - **REST APIs** – Exposes endpoints that return JSON responses.  
 - **Microservices** – For service-to-service communication.  
