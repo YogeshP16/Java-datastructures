@@ -1,30 +1,25 @@
 # **Spring core**
 
-## **Spring IoC Flashcards**  
+## **Spring IoC**  
 
-#### **Flashcard 1: What is Spring IoC?**  
+#### **What is Spring IoC?**  
 📝 **Definition**:  
-Spring IoC (Inversion of Control) is a design principle where the Spring container manages object creation and dependency injection instead of the programmer.  
+- Spring IoC (Inversion of Control) is a design principle where the Spring container manages object 
+creation and dependency injection instead of the programmer.  
 
----
-
-#### **Flashcard 2: Why is Spring IoC needed?**  
+#### **Why is Spring IoC needed?**  
 ❓ **Problem it solves**:  
 - Avoids **tight coupling** between objects.  
 - Improves **maintainability** and **scalability**.  
 - Simplifies **unit testing** by injecting dependencies instead of hardcoding them.  
 
----
-
-#### **Flashcard 3: How does Spring IoC work?**  
+#### **How does Spring IoC work?**  
 ⚙️ **Implementation**:  
 - Uses **Dependency Injection (DI)** to inject required dependencies.  
 - Managed by the **Spring IoC container**.  
 - Supports **Constructor Injection, Setter Injection, and Field Injection**.  
 
----
-
-#### **Flashcard 4: Example of Spring IoC**  
+#### **Example of Spring IoC**  
 📌 **Constructor Injection Example**:  
 ```java
 @Component
@@ -42,9 +37,7 @@ class Car {
 ```
 📢 **Spring automatically injects `Engine` into `Car`.**  
 
----
-
-#### **Flashcard 5: Where is Spring IoC used?**  
+#### **Where is Spring IoC used?**  
 ✅ **Real-World Applications**:  
 - **Spring Boot applications** – Automates dependency management.  
 - **Enterprise apps** – Manages service dependencies.  
