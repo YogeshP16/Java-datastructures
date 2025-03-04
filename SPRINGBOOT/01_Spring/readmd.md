@@ -91,18 +91,19 @@ external source (like the **Spring IoC container**) instead of the object creati
 #### **Types of Dependency Injection**  
 📌 **Three main types of DI in Spring**:  
 1️⃣ **Constructor Injection** 
-    - Dependencies are passed through the constructor when the object is created.
-    - object is fully initialized with its dependencies and cannot be changed afterward.
-    - Easy to mock dependencies in unit tests
-    - Cannot change dependencies once the object is created.
+- Dependencies are passed through the constructor when the object is created.
+- object is fully initialized with its dependencies and cannot be changed afterward.
+- Easy to mock dependencies in unit tests
+- Cannot change dependencies once the object is created.
+
 2️⃣ **Setter Injection** 
-    - Dependencies are set using setter methods after the object is created.
-    - It allows optional dependencies that can be set at a later time.
-    - The object can be modified after creation
+- Dependencies are set using setter methods after the object is created.
+- It allows optional dependencies that can be set at a later time.
+- The object can be modified after creation
     
 3️⃣ **Field Injection** 
-    - Dependencies are injected directly into the fields using annotations like @Autowired.
-    - It hides dependencies, making the class harder to understand and maintain.
+- Dependencies are injected directly into the fields using annotations like @Autowired.
+- It hides dependencies, making the class harder to understand and maintain.
 
 #### **4: Constructor Injection Example**  
 ```java
