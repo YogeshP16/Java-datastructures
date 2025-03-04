@@ -1,6 +1,6 @@
-## **`@Component` in Spring Boot - T.R.I.M. Template**  
+## **`@Component` in Spring Boot**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - `@Component` is a **generic Spring annotation** used to define a **bean** (a managed object in Spring’s IoC container).  
 - It **tells Spring** to automatically detect and instantiate this class as a **Spring bean** during component scanning.  
 
@@ -16,7 +16,7 @@ public class MyComponent {
 
 ---
 
-### **2️⃣ R - Reverse (How `@Component` Works Internally?)**  
+### **2️⃣ (How `@Component` Works Internally?)**  
 - Spring scans the package where `@Component` is declared.  
 - It registers the class as a bean in the **ApplicationContext**.  
 - We can use `@Autowired` to inject it into other components.  
@@ -40,7 +40,7 @@ public class MyService {
 
 ---
 
-### **3️⃣ I - Inspect (Difference Between `@Component`, `@Service`, `@Repository`)**  
+### **3️⃣ (Difference Between `@Component`, `@Service`, `@Repository`)**  
 
 | Annotation     | Purpose |
 |---------------|---------|
@@ -61,7 +61,7 @@ public class UserRepository {} // Data access logic
 ```
 ---
 
-### **4️⃣ M - Modify (Customization & Best Practices)**  
+### **4️⃣ (Customization & Best Practices)**  
 
 #### **1️⃣ Custom Bean Naming (`@Component("customName")`)**  
 - Default bean name = class name in **camelCase** (`myComponent`).  
@@ -91,9 +91,9 @@ public class AppConfig {
 
 ---
 
-## **`@Service` & `@Repository` in Spring Boot - T.R.I.M. Template**  
+## **`@Service` & `@Repository` in Spring Boot**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - Both `@Service` and `@Repository` are **specialized versions of `@Component`**, meaning they **register classes as Spring beans**.  
 - **`@Service`** → Used in the **service layer** for **business logic**.  
 - **`@Repository`** → Used in the **data access layer (DAO)** for **database operations**.  
@@ -116,7 +116,7 @@ public class UserRepository {
 ```
 ---
 
-### **2️⃣ R - Reverse (How Do `@Service` and `@Repository` Work Internally?)**  
+### **2️⃣ (How Do `@Service` and `@Repository` Work Internally?)**  
 - Both **inherit `@Component`**, so they are detected during **component scanning**.  
 - **Service layer (`@Service`) handles business logic**, while  
 - **Repository layer (`@Repository`) interacts with the database**.  
@@ -141,7 +141,7 @@ public class UserService {
 
 ---
 
-### **3️⃣ I - Inspect (Why Use `@Service` and `@Repository` Instead of `@Component`?)**  
+### **3️⃣ (Why Use `@Service` and `@Repository` Instead of `@Component`?)**  
 
 | Annotation     | Purpose |
 |---------------|---------|
@@ -169,7 +169,7 @@ public class UserRepository {
 ```
 ---
 
-### **4️⃣ M - Modify (Customization & Best Practices)**  
+### **4️⃣ (Customization & Best Practices)**  
 
 #### **1️⃣ Custom Bean Naming (`@Service("customService")`)**  
 ```java
@@ -197,9 +197,9 @@ public class AppConfig {
 
 ---
 
-## **`@Configuration` in Spring Boot - T.R.I.M. Template**  
+## **`@Configuration` in Spring Boot**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - `@Configuration` is an **annotation in Spring** that **marks a class as a source of bean definitions**.  
 - It is used to **define beans manually** in a **Java-based configuration** instead of XML.  
 
@@ -218,7 +218,7 @@ public class AppConfig {
 
 ---
 
-### **2️⃣ R - Reverse (How `@Configuration` Works Internally?)**  
+### **2️⃣ (How `@Configuration` Works Internally?)**  
 - **Spring scans the class annotated with `@Configuration`** during startup.  
 - The methods annotated with `@Bean` **return Spring-managed objects**.  
 - It ensures **only one instance of each bean is created (Singleton by default).**  
@@ -239,7 +239,7 @@ public class MyAppService {
 
 ---
 
-### **3️⃣ I - Inspect (Why Use `@Configuration` Instead of `@Component`?)**  
+### **3️⃣ (Why Use `@Configuration` Instead of `@Component`?)**  
 
 | Annotation     | Purpose |
 |---------------|---------|
@@ -265,7 +265,7 @@ public class DatabaseConfig {
 
 ---
 
-### **4️⃣ M - Modify (Customization & Best Practices)**  
+### **4️⃣ (Customization & Best Practices)**  
 
 #### **1️⃣ Combining `@Configuration` with `@ComponentScan`**  
 ```java
@@ -292,9 +292,9 @@ public class SingletonConfig {
 
 ---
 
-## **`@Bean` in Spring Boot - T.R.I.M. Template**  
+## **`@Bean` in Spring Boot**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - `@Bean` is an annotation in Spring used **inside a `@Configuration` class** to **define and manage Spring beans manually**.  
 - It is an alternative to `@Component` when you need **more control** over bean creation.  
 
@@ -312,7 +312,7 @@ public class AppConfig {
 
 ---
 
-### **2️⃣ R - Reverse (How `@Bean` Works Internally?)**  
+### **2️⃣ (How `@Bean` Works Internally?)**  
 - When the application starts, Spring **calls methods annotated with `@Bean`** and **registers their return objects as beans**.  
 - Unlike `@Component`, it allows **fine-grained control** over how beans are created.  
 
@@ -332,7 +332,7 @@ public class MyAppService {
 
 ---
 
-### **3️⃣ I - Inspect (Why Use `@Bean` Instead of `@Component`?)**  
+### **3️⃣ (Why Use `@Bean` Instead of `@Component`?)**  
 
 | Annotation     | Purpose |
 |---------------|---------|
@@ -358,7 +358,7 @@ public class DatabaseConfig {
 
 ---
 
-### **4️⃣ M - Modify (Customization & Best Practices)**  
+### **4️⃣ (Customization & Best Practices)**  
 
 #### **1️⃣ Custom Bean Naming (`@Bean("customBean")`)**  
 ```java
@@ -388,9 +388,9 @@ public class AppConfig {
 
 ---
 
-## **`@Autowired` in Spring Boot - T.R.I.M. Template**  
+## **`@Autowired` in Spring Boot**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - `@Autowired` is a **Spring dependency injection (DI) annotation** that **automatically injects beans** into a class.  
 - It eliminates the need for **manual object creation** (`new MyService()`), letting Spring handle dependencies.  
 
@@ -410,7 +410,7 @@ public class MyAppService {
 
 ---
 
-### **2️⃣ R - Reverse (How `@Autowired` Works Internally?)**  
+### **2️⃣ (How `@Autowired` Works Internally?)**  
 1. **Spring scans the application context** for a matching bean.  
 2. **If exactly one match is found**, it injects the bean.  
 3. **If multiple matches are found**, it throws an error unless a specific bean is chosen using `@Qualifier`.  
@@ -431,7 +431,7 @@ public class MyAppService {
 
 ---
 
-### **3️⃣ I - Inspect (Ways to Use `@Autowired`)**  
+### **3️⃣ (Ways to Use `@Autowired`)**  
 
 #### **1️⃣ Constructor Injection (Recommended ✅)**  
 ```java
@@ -479,7 +479,7 @@ public class MyAppService {
 
 ---
 
-### **4️⃣ M - Modify (Customization & Best Practices)**  
+### **4️⃣ (Customization & Best Practices)**  
 
 #### **1️⃣ Using `@Primary` to Avoid Multiple Bean Conflicts**  
 ```java
@@ -499,9 +499,9 @@ private MyService myService;
 
 ---
 
-## **`@Qualifier` vs. `@Primary` in Spring Boot - T.R.I.M. Template**  
+## **`@Qualifier` vs. `@Primary` in Spring Boot**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - **`@Primary`**: Used when multiple beans of the same type exist, **marking one as the default**.  
 - **`@Qualifier`**: Used to **explicitly specify** which bean should be injected when multiple beans exist.  
 
@@ -528,7 +528,7 @@ public class MyAppService {
 
 ---
 
-### **2️⃣ R - Reverse (How They Work Internally?)**  
+### **2️⃣ (How They Work Internally?)**  
 - If multiple beans match a type, Spring:  
   1. **First checks for `@Primary`** and selects it.  
   2. **If no `@Primary` is found, an error occurs** unless `@Qualifier` is used.  
@@ -549,7 +549,7 @@ public class MyAppService {
 
 ---
 
-### **3️⃣ I - Inspect (Key Differences & Best Practices)**  
+### **3️⃣ (Key Differences & Best Practices)**  
 
 | Feature       | `@Primary`  | `@Qualifier`  |
 |--------------|------------|--------------|
@@ -564,7 +564,7 @@ public class MyAppService {
 
 ---
 
-### **4️⃣ M - Modify (Customization & Advanced Usage)**  
+### **4️⃣ (Customization & Advanced Usage)**  
 
 #### **1️⃣ `@Primary` with Multiple Beans**  
 ```java
@@ -594,9 +594,9 @@ public class MyAppService {
 
 ---
 
-## **Spring Boot Profiles - T.R.I.M. Template**  
+## **Spring Boot Profiles**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - Spring Boot **Profiles** allow switching between different configurations based on the environment (e.g., `dev`, `test`, `prod`).  
 - Profiles help manage **different database settings, logging levels, and application behaviors** without changing the code.  
 - Defined using **`application-{profile}.properties`** or **`@Profile` annotation**.
@@ -631,7 +631,7 @@ spring.datasource.url=jdbc:mysql://prod-db-server:3306/proddb
 
 ---
 
-### **2️⃣ R - Reverse (How It Works Internally?)**  
+### **2️⃣ (How It Works Internally?)**  
 1. **Spring Boot detects the active profile** from properties, environment variables, or command-line arguments.  
 2. It **loads the corresponding `application-{profile}.properties` file**.  
 3. If no profile is specified, it uses `application.properties`.  
@@ -656,7 +656,7 @@ public class ProdDataSourceConfig implements DataSourceConfig {
 
 ---
 
-### **3️⃣ I - Inspect (Use Cases & Best Practices)**  
+### **3️⃣ (Use Cases & Best Practices)**  
 
 ✅ **Best Practices for Using Profiles**  
 | Use Case        | Recommended Approach |
@@ -689,7 +689,7 @@ public class ProdEmailService implements EmailService {
 
 ---
 
-### **4️⃣ M - Modify (Customization & Advanced Usage)**  
+### **4️⃣ (Customization & Advanced Usage)**  
 
 #### **1️⃣ Default Profile (`@Profile("default")`)**  
 If no profile is active, Spring uses `@Profile("default")`.  
@@ -716,9 +716,9 @@ public class MyAppTest { }
 
 ---
 
-## **`@ComponentScan` & `@EnableAutoConfiguration` in Spring Boot - T.R.I.M. Template**  
+## **`@ComponentScan` & `@EnableAutoConfiguration` in Spring Boot**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 #### ✅ `@ComponentScan`  
 - Tells Spring **where to look for components (`@Component`, `@Service`, `@Repository`, `@Controller`)**.  
 - Default **scans the package where the main class is located and its sub-packages**.  
@@ -743,7 +743,7 @@ public class MyApp { }
 
 ---
 
-### **2️⃣ R - Reverse (How It Works Internally?)**  
+### **2️⃣ (How It Works Internally?)**  
 
 #### 🔹 **How `@ComponentScan` Works?**  
 1. Scans the specified package (or the default `@SpringBootApplication` package).  
@@ -767,7 +767,7 @@ public class MyBean { }
 
 ---
 
-### **3️⃣ I - Inspect (Use Cases & Best Practices)**  
+### **3️⃣ (Use Cases & Best Practices)**  
 
 #### ✅ `@ComponentScan` Use Cases  
 | Use Case        | Example |
@@ -785,7 +785,7 @@ public class MyBean { }
 
 ---
 
-### **4️⃣ M - Modify (Customization & Advanced Usage)**  
+### **4️⃣ (Customization & Advanced Usage)**  
 
 #### **1️⃣ Disabling Auto-Configuration for Specific Beans**  
 ✅ **Example: Disabling Hibernate Auto-Configuration**  
@@ -807,9 +807,9 @@ spring.main.allow-bean-definition-overriding=true
 
 ---
 
-## **`@RequestMapping` in Spring Boot - T.R.I.M. Template**  
+## **`@RequestMapping` in Spring Boot**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - `@RequestMapping` **maps HTTP requests to specific handler methods** in a Spring Boot controller.  
 - It can map to **URLs, HTTP methods (GET, POST, etc.), headers, and params**.  
 - **Shortcut annotations** exist:  
@@ -831,7 +831,7 @@ public class MyController {
 
 ---
 
-### **2️⃣ R - Reverse (How It Works Internally?)**  
+### **2️⃣ (How It Works Internally?)**  
 - **Spring scans controllers**, detects `@RequestMapping`, and registers them as handlers.  
 - **Spring MVC DispatcherServlet** processes incoming requests and matches the right method.  
 - Uses an **internal RequestMappingHandlerMapping** to find the appropriate controller method.
@@ -845,7 +845,7 @@ public String getHello() { return "Hello"; }
 
 ---
 
-### **3️⃣ I - Inspect (Use Cases & Best Practices)**  
+### **3️⃣ (Use Cases & Best Practices)**  
 
 | **Use Case**         | **Example** |
 |----------------------|------------|
@@ -866,7 +866,7 @@ public String getUser(@PathVariable("id") int id) {
 
 ---
 
-### **4️⃣ M - Modify (Customization & Advanced Usage)**  
+### **4️⃣ (Customization & Advanced Usage)**  
 
 #### ✅ **Using Query Parameters (`@RequestParam`)**  
 ```java
@@ -901,9 +901,9 @@ public List<User> getUsers() {
 
 ---
 
-## **`@PathVariable` vs. `@RequestParam` in Spring Boot - T.R.I.M. Template**  
+## **`@PathVariable` vs. `@RequestParam` in Spring Boot**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 
 | Annotation      | Purpose                                    | Example Usage                         | URL Example   |
 |-----------------|--------------------------------------------|---------------------------------------|---------------|
@@ -912,7 +912,7 @@ public List<User> getUsers() {
 
 ---
 
-### **2️⃣ R - Reverse (How It Works Internally?)**  
+### **2️⃣ (How It Works Internally?)**  
 #### ✅ **`@PathVariable` - Extracts a part of the URL path**  
 - Used when the value is **mandatory and part of the URL**.
 ```java
@@ -936,7 +936,7 @@ public String getUserByRequestParam(@RequestParam(name = "id", required = false)
 
 ---
 
-### **3️⃣ I - Inspect (Use Cases & Best Practices)**  
+### **3️⃣ (Use Cases & Best Practices)**  
 
 | **Use Case**       | **@PathVariable** | **@RequestParam** |
 |--------------------|------------------|------------------|
@@ -959,7 +959,7 @@ public String getOrderDetails(
 
 ---
 
-### **4️⃣ M - Modify (Customization & Advanced Usage)**  
+### **4️⃣ (Customization & Advanced Usage)**  
 
 #### ✅ **Multiple Path Variables**  
 ```java
@@ -982,9 +982,9 @@ public String getProducts(@RequestParam(defaultValue = "all") String category) {
 
 ---
 
-## **Exception Handling in Spring Boot using `@ControllerAdvice` and `@ExceptionHandler` - T.R.I.M. Template**  
+## **Exception Handling in Spring Boot using `@ControllerAdvice` and `@ExceptionHandler`**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 | Annotation | Purpose | Example |
 |------------|---------|---------|
 | `@ExceptionHandler` | Handles specific exceptions inside a controller | Catches and processes an exception at the method level |
@@ -993,7 +993,7 @@ public String getProducts(@RequestParam(defaultValue = "all") String category) {
 
 ---
 
-### **2️⃣ R - Reverse (How It Works Internally?)**  
+### **2️⃣ (How It Works Internally?)**  
 #### ✅ **`@ExceptionHandler` - Handle Exception at Controller Level**  
 - Used inside a specific controller to catch exceptions raised in that controller.
 ```java
@@ -1039,7 +1039,7 @@ public class GlobalExceptionHandler {
 
 ---
 
-### **3️⃣ I - Inspect (Use Cases & Best Practices)**  
+### **3️⃣ (Use Cases & Best Practices)**  
 | **Use Case** | **@ExceptionHandler** | **@ControllerAdvice** |
 |-------------|------------------------|------------------------|
 | **Handling specific exception per controller** | ✅ Yes | ❌ No |
@@ -1053,7 +1053,7 @@ public class GlobalExceptionHandler {
 
 ---
 
-### **4️⃣ M - Modify (Customization & Advanced Usage)**  
+### **4️⃣ (Customization & Advanced Usage)**  
 
 #### ✅ **Custom Exception with `@ResponseStatus`**  
 - Simplifies response handling by setting HTTP status in exception class.

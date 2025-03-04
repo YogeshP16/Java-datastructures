@@ -1,11 +1,11 @@
 ## **Spring IoC (Inversion of Control)**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - **Inversion of Control (IoC)** is a core principle of Spring that shifts object creation and dependency management from the developer to the **Spring Container**.  
 - Instead of manually creating objects (`new` keyword), Spring **injects dependencies automatically** using **Dependency Injection (DI)**.  
 - This makes the application more **loosely coupled**, testable, and maintainable.  
 
-### **2️⃣ R - Reverse (Why Do We Need It?)**  
+### **2️⃣ (Why Do We Need It?)**  
 - **Without IoC (Tightly Coupled Code)**:  
   ```java
   public class Car {
@@ -24,7 +24,7 @@
   ```  
   ✅ Now `Car` doesn’t create `Engine`; it gets it externally (via Spring IoC).  
 
-### **3️⃣ I - Inspect (How It Works + Code Example)**  
+### **3️⃣ (How It Works + Code Example)**  
 
 - **Define a Spring Bean (Component Managed by IoC Container):**  
   ```java
@@ -58,7 +58,7 @@
   ```  
 ✅ **Spring IoC manages dependencies and provides `Engine` to `Car` automatically!**  
 
-### **4️⃣ M - Modify (Advanced Customization & Optimization)**  
+### **4️⃣ (Advanced Customization & Optimization)**  
 - **Use XML-Based Configuration (Legacy Approach)**:  
   ```xml
   <bean id="engine" class="com.example.Engine"/>
@@ -86,12 +86,12 @@
 
 ## **Spring Bean**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - A **Spring Bean** is an object managed by the **Spring IoC (Inversion of Control) Container**.  
 - It is automatically created, configured, and injected where needed.  
 - Beans help in **loose coupling** and **dependency injection**.  
 
-### **2️⃣ R - Reverse (Why Do We Need It?)**  
+### **2️⃣ (Why Do We Need It?)**  
 **Without Beans (Manual Object Creation - Tightly Coupled Code):**  
 ```java
 public class Car {
@@ -120,7 +120,7 @@ public class Car {
 
 ---
 
-### **3️⃣ I - Inspect (How It Works + Code Example)**  
+### **3️⃣ (How It Works + Code Example)**  
 
 #### **1. Defining a Bean Using `@Component` (Annotation-Based Approach - Recommended)**  
 ```java
@@ -171,7 +171,7 @@ public class App {
 
 ---
 
-### **4️⃣ M - Modify (Advanced Customization & Optimization)**  
+### **4️⃣ (Advanced Customization & Optimization)**  
 
 #### **1. Controlling Bean Scope (`@Scope`)**  
 By default, Spring beans are **singleton** (one instance per Spring container).  
@@ -217,7 +217,7 @@ public class Engine {
 
 ## **Spring Bean Scopes & Lifecycle - T.R.I.M. Template**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 
 ### **Bean Scope**  
 - Defines **how and when** a Spring bean is created and shared within the application.  
@@ -236,7 +236,7 @@ public class Engine {
 
 ---
 
-### **2️⃣ R - Reverse (Why Do We Need It?)**  
+### **2️⃣ (Why Do We Need It?)**  
 
 #### **Problem Without Proper Scoping & Lifecycle**  
 ❌ **Memory issues** if beans are unnecessarily re-created.  
@@ -249,7 +249,7 @@ public class Engine {
 
 ---
 
-### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+### **3️⃣ (How It Works + Code Examples)**  
 
 ### **1️⃣ Bean Scopes in Spring Boot**  
 
@@ -316,7 +316,7 @@ public class MyBean {
 
 ---
 
-### **3️⃣ M - Modify (Advanced Usage)**  
+### **3️⃣ (Advanced Usage)**  
 
 #### **1️⃣ Using `InitializingBean` and `DisposableBean` Interfaces**  
 ```java
@@ -355,13 +355,13 @@ public class AppConfig {
 
 ## **Spring Boot vs Spring Framework**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - **Spring Framework** is a broad framework for Java-based applications, requiring **manual configuration**.  
 - **Spring Boot** is a specialized version of Spring that **automates configuration** and provides an embedded server for rapid application development.  
 
 ---
 
-### **2️⃣ R - Reverse (Why Do We Need Spring Boot?)**  
+### **2️⃣ (Why Do We Need Spring Boot?)**  
 
 #### **Problem with Traditional Spring Framework**  
 ❌ **Boilerplate Code**: Requires extensive XML/Java-based configuration.  
@@ -375,7 +375,7 @@ public class AppConfig {
 
 ---
 
-### **3️⃣ I - Inspect (Key Differences + Code Examples)**  
+### **3️⃣ (Key Differences + Code Examples)**  
 
 | Feature | Spring Framework | Spring Boot |
 |---------|-----------------|-------------|
@@ -428,7 +428,7 @@ public class App {
 
 ---
 
-### **4️⃣ M - Modify (Advanced Customization & Optimization)**  
+### **4️⃣ (Advanced Customization & Optimization)**  
 - **Disable Auto-Configuration (if needed)**  
   ```java
   @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
@@ -451,7 +451,7 @@ public class App {
 
 ---
 
-### **2️⃣ R - Reverse (Why Do We Need It?)**  
+### **2️⃣ (Why Do We Need It?)**  
 
 #### **Problem Without Auto-Configuration (Spring Framework)**  
 ❌ Requires **manual bean definitions** for everything (DataSource, ViewResolvers, etc.).  
@@ -464,7 +464,7 @@ public class App {
 
 ---
 
-### **3️⃣ I - Inspect (How It Works + Code Example)**  
+### **3️⃣ (How It Works + Code Example)**  
 
 #### **1️⃣ How Auto-Configuration Works Internally?**  
 - When `@SpringBootApplication` is used, it enables `@EnableAutoConfiguration`.  
@@ -495,7 +495,7 @@ And Spring Boot **automatically** configures a DataSource! 🚀
 
 ---
 
-### **4️⃣ M - Modify (Customizing Auto-Configuration)**  
+### **4️⃣ (Customizing Auto-Configuration)**  
 
 #### **1️⃣ Exclude Unwanted Auto-Configurations**  
 ```java
@@ -524,14 +524,14 @@ spring.jpa.hibernate.ddl-auto=update
 
 ## **Spring Boot Auto-Configuration - T.R.I.M. Template**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - Spring Boot **auto-configures beans** based on the **classpath dependencies and environment**.  
 - It checks for required **JAR files** (like `spring-boot-starter-data-jpa`) and **auto-registers beans** (e.g., `DataSource`).  
 - Uses **@EnableAutoConfiguration** (via `@SpringBootApplication`) to load necessary configurations.  
 
 ---
 
-### **2️⃣ R - Reverse (How Does Spring Boot Decide Which Beans to Auto-Configure?)**  
+### **2️⃣ (How Does Spring Boot Decide Which Beans to Auto-Configure?)**  
 
 ✅ **Spring Boot Uses These Steps to Auto-Configure Beans**:  
 1. **Scans the classpath** – Checks which dependencies are available.  
@@ -543,7 +543,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 ---
 
-### **3️⃣ I - Inspect (How to Disable Specific Auto-Configuration?)**  
+### **3️⃣ (How to Disable Specific Auto-Configuration?)**  
 
 #### **1️⃣ Disable Specific Auto-Configuration Using `exclude`**  
 - If you **don’t want Spring Boot to configure a specific component**, use:  
@@ -566,7 +566,7 @@ spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSou
 
 ---
 
-### **4️⃣ M - Modify (Advanced: What is `@Conditional` and How Does Spring Detect Databases?)**  
+### **4️⃣ (Advanced: What is `@Conditional` and How Does Spring Detect Databases?)**  
 
 #### **1️⃣ What is `@Conditional`?**  
 - **Controls bean creation dynamically based on conditions.**  
@@ -618,7 +618,7 @@ public DataSource dataSource() {
 
 ## **`@SpringBootApplication` Annotation**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - `@SpringBootApplication` is a **shortcut annotation** in Spring Boot.  
 - It **bundles three core annotations**:  
   - `@SpringBootConfiguration` → Marks the class as a configuration class.  
@@ -628,7 +628,7 @@ public DataSource dataSource() {
 
 ---
 
-### **2️⃣ R - Reverse (Why Do We Need It?)**  
+### **2️⃣ (Why Do We Need It?)**  
 
 #### **Problem Without `@SpringBootApplication`**  
 ❌ You would have to manually write:  
@@ -648,7 +648,7 @@ public class MyAppConfig {
 
 ---
 
-### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+### **3️⃣ (How It Works + Code Examples)**  
 
 ### **1️⃣ Basic Example of `@SpringBootApplication`**
 ```java
@@ -681,7 +681,7 @@ public class MyApp {
 
 ---
 
-### **3️⃣ M - Modify (Advanced Usage & Examples)**  
+### **3️⃣ (Advanced Usage & Examples)**  
 
 #### **1️⃣ Excluding Auto-Configurations**  
 If you **don’t want** certain auto-configurations, you can exclude them:  
@@ -708,14 +708,14 @@ public class MyApp {
 
 ## **Lombok in Spring Boot**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - **Lombok** is a Java library that reduces boilerplate code like getters, setters, constructors, and logging in Spring Boot applications.  
 - It uses **annotations** to automatically generate commonly used methods at compile-time.  
 - Helps in **cleaner, more readable code**.  
 
 ---
 
-### **2️⃣ R - Reverse (Why Do We Need It?)**  
+### **2️⃣ (Why Do We Need It?)**  
 
 #### **Problem Without Lombok (Traditional Java Approach)**  
 ❌ Too much **boilerplate code** for getters, setters, constructors, etc.  
@@ -728,7 +728,7 @@ public class MyApp {
 
 ---
 
-### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+### **3️⃣ (How It Works + Code Examples)**  
 
 ### **1️⃣ Setup Lombok in Spring Boot (Maven/Gradle)**  
 #### **For Maven (`pom.xml`)**  
@@ -768,7 +768,7 @@ dependencies {
 
 ---
 
-### **3️⃣ M - Modify (Advanced Usage & Examples)**  
+### **3️⃣ (Advanced Usage & Examples)**  
 
 #### **1️⃣ Using `@Data` (Most Common Use Case)**
 ```java
@@ -842,14 +842,14 @@ public class UserService {
 
 ## **Spring Boot Starters - T.R.I.M. Template**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - A **Spring Boot Starter** is a **pre-configured dependency** that bundles commonly used libraries and configurations to simplify development.  
 - Instead of manually adding multiple dependencies, a single starter brings everything needed for a specific functionality (e.g., web, JPA, security).  
 - Starters **reduce boilerplate and ensure compatibility** between dependencies.  
 
 ---
 
-### **2️⃣ R - Reverse (Why Do We Need It?)**  
+### **2️⃣ (Why Do We Need It?)**  
 
 #### **Problem Without Starters**  
 ❌ Developers must manually add and manage multiple dependencies.  
@@ -863,7 +863,7 @@ public class UserService {
 
 ---
 
-### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+### **3️⃣ (How It Works + Code Examples)**  
 
 ### **1️⃣ Commonly Used Starters & Their Purpose**  
 
@@ -893,7 +893,7 @@ Instead of adding multiple dependencies, just add this:
 
 ---
 
-### **3️⃣ M - Modify (Advanced Usage & Examples)**  
+### **3️⃣ (Advanced Usage & Examples)**  
 
 #### **1️⃣ Custom Starter Development**  
 You can create your own Spring Boot starter for **reusable components** across projects.  
@@ -906,14 +906,14 @@ Steps:
 ---
 ## **Configuring Properties in Spring Boot - T.R.I.M. Template**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - **Spring Boot properties** are configured in **`application.properties`** or **`application.yml`** files to **externalize configurations** like database settings, server ports, and custom variables.  
 - Properties can also be **set via environment variables, command-line arguments, or external configuration files**.  
 - **Spring Boot automatically loads these properties** and injects them into beans using `@Value` or `@ConfigurationProperties`.  
 
 ---
 
-### **2️⃣ R - Reverse (Why Do We Need It?)**  
+### **2️⃣ (Why Do We Need It?)**  
 
 #### **Problem Without Externalized Properties**  
 ❌ Hardcoding values in Java files makes configuration **inflexible** and **hard to maintain**.  
@@ -926,7 +926,7 @@ Steps:
 
 ---
 
-### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+### **3️⃣ (How It Works + Code Examples)**  
 
 ### **1️⃣ Configuring Properties in `application.properties`**  
 ```properties
@@ -1000,7 +1000,7 @@ public class CustomProperties {
 
 ---
 
-### **4️⃣ M - Modify (Advanced Usage & Examples)**  
+### **4️⃣ (Advanced Usage & Examples)**  
 
 #### **1️⃣ Using Profiles for Environment-Specific Configurations**  
 Create different property files:  
@@ -1038,13 +1038,13 @@ java -jar myapp.jar --server.port=9090 --custom.message="Overridden via CLI"
 
 ## **`@Component` vs `@Service` vs `@Repository` - T.R.I.M. Template**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - All three annotations **`@Component`**, **`@Service`**, and **`@Repository`** are **stereotypes** in Spring, meaning they tell Spring to **automatically detect and register the class as a bean**.  
 - The key difference is **semantic usage** (i.e., where they should be used in a Spring application).  
 
 ---
 
-### **2️⃣ R - Reverse (Why Do We Need Different Annotations?)**  
+### **2️⃣ (Why Do We Need Different Annotations?)**  
 
 #### **Problem Without These Annotations**  
 ❌ Without these annotations, **Spring wouldn’t know which classes to manage** as beans.  
@@ -1058,7 +1058,7 @@ java -jar myapp.jar --server.port=9090 --custom.message="Overridden via CLI"
 
 ---
 
-### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+### **3️⃣ (How It Works + Code Examples)**  
 
 ### **1️⃣ `@Component` (Generic Spring Bean)**
 - Used for **generic components** that don’t fit in `@Service` or `@Repository`.  
@@ -1113,7 +1113,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 ---
 
-### **4️⃣ M - Modify (Advanced Usage & Examples)**  
+### **4️⃣ (Advanced Usage & Examples)**  
 
 #### **1️⃣ What Happens Internally?**  
 All three annotations are **meta-annotated with `@Component`**, meaning they function the same internally but serve **different semantic roles**.  
@@ -1129,14 +1129,14 @@ All three annotations are **meta-annotated with `@Component`**, meaning they fun
 
 ## **Spring Boot Dependency Injection - T.R.I.M. Template**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - **Dependency Injection (DI)** is a design pattern where Spring **automatically injects dependencies (objects) into a class** rather than creating them manually.  
 - Spring Boot manages dependencies using **IoC (Inversion of Control) Container**, allowing automatic wiring of beans.  
 - DI helps in **loosely coupled, maintainable, and testable code**.  
 
 ---
 
-### **2️⃣ R - Reverse (Why Do We Need Dependency Injection?)**  
+### **2️⃣ (Why Do We Need Dependency Injection?)**  
 
 #### **Problem Without DI**  
 ❌ **Manual object creation** using `new` causes **tight coupling**.  
@@ -1150,7 +1150,7 @@ All three annotations are **meta-annotated with `@Component`**, meaning they fun
 
 ---
 
-### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+### **3️⃣ (How It Works + Code Examples)**  
 
 ### **1️⃣ Constructor Injection (Recommended)**
 - Best practice in **Spring Boot** for immutability and testability.  
@@ -1216,7 +1216,7 @@ public class UserService {
 
 ---
 
-### **4️⃣ M - Modify (Advanced Usage & Examples)**  
+### **4️⃣ (Advanced Usage & Examples)**  
 
 #### **1️⃣ Multiple Implementations (Using `@Qualifier`)**  
 If there are multiple beans of the same type, use `@Qualifier` to specify which one to inject.  
@@ -1275,14 +1275,14 @@ public class AppConfig {
 
 ## **Spring Boot Actuator - T.R.I.M. Template**  
 
-### **1️⃣ T - Trim (Basic Concept in Simple Terms)**  
+### **1️⃣ (Basic Concept in Simple Terms)**  
 - **Spring Boot Actuator** provides built-in **monitoring and management endpoints** to check application health, metrics, and logs.  
 - It exposes RESTful **endpoints like `/actuator/health`, `/actuator/metrics`** to monitor and manage a running Spring Boot application.  
 - Useful for **production monitoring, debugging, and performance analysis**.  
 
 ---
 
-### **2️⃣ R - Reverse (Why Do We Need Spring Boot Actuator?)**  
+### **2️⃣ (Why Do We Need Spring Boot Actuator?)**  
 
 #### **Problem Without Actuator**  
 ❌ No built-in way to **check app health, memory, or active threads**.  
@@ -1296,7 +1296,7 @@ public class AppConfig {
 
 ---
 
-### **3️⃣ I - Inspect (How It Works + Code Examples)**  
+### **3️⃣ (How It Works + Code Examples)**  
 
 ### **1️⃣ Add Actuator Dependency**  
 Spring Boot **2.x and 3.x** already include Actuator in `spring-boot-starter-parent`. Just add:  
@@ -1338,7 +1338,7 @@ management.endpoints.web.exposure.include=health,metrics,info
 
 ---
 
-### **4️⃣ M - Modify (Advanced Usage & Customization)**  
+### **4️⃣ (Advanced Usage & Customization)**  
 
 #### **1️⃣ Custom Health Checks**  
 You can **extend Actuator** by adding custom health indicators.  
