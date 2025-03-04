@@ -1,8 +1,8 @@
-# **Spring core**
 
-## **Spring IoC**  
 
-### **What is Spring IoC?**  
+# **Spring Core - Spring IoC**  
+
+## **What is Spring IoC?**  
 📝 **Definition**:  
 - Spring IoC (Inversion of Control) is a design principle where the Spring container manages object 
 creation and dependency injection instead of the programmer.   
@@ -33,7 +33,7 @@ class Car {
 
 ---
 
-### **Spring IoC Container**
+## **Spring IoC Container**
 
 #### **What is the Spring IoC Container?**
 📝 **Definition**:  
@@ -497,7 +497,6 @@ public class MyApp {
     }
 }
 ```
-📢 **Less code, same functionality!**  
 
 ---
 
@@ -946,3 +945,80 @@ private double randomValue; // Injects a random number
 
 ---
 
+## **AutoConfiguration in Spring Boot**
+
+#### **What is AutoConfiguration in Spring Boot?**  
+📝 **Definition**:  
+AutoConfiguration in Spring Boot automatically configures beans based on the classpath and settings, reducing the need for manual configuration.
+
+#### **Why is AutoConfiguration needed?**  
+❓ **Why Needed**:  
+- **Reduces boilerplate configuration**: Automatically configures common setups.  
+- **Enables quick application setup**: Spring Boot provides sensible defaults, making development faster.
+
+#### **How does AutoConfiguration work?**  
+⚙️ **How it works**:  
+- Spring Boot checks the classpath for available libraries.  
+- Based on the presence of certain libraries, Spring Boot automatically configures beans like DataSource, Tomcat, etc.
+
+#### **Example of AutoConfiguration**  
+```java
+@SpringBootApplication
+public class MyApp {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApp.class, args);
+    }
+}
+```
+📢 **Spring Boot will auto-configure the application context based on your environment and libraries.**
+
+## **Tomcat Server in Spring Boot**
+
+#### **What is Tomcat in Spring Boot?**  
+📝 **Definition**:  
+Tomcat is the default embedded web server used by Spring Boot to run web applications.
+ 
+❓ **Why Needed**:  
+- **Embedded server**: No need to deploy a separate web server.  
+- **Simplifies development**: Makes the deployment of web applications easier and faster.
+
+⚙️ **How it works**:  
+- Spring Boot includes Tomcat as a dependency.  
+- When the application is run, Tomcat automatically starts, serving HTTP requests.
+
+#### **Changing Port Number in Tomcat**  
+📌 **How to change the port number in Spring Boot's Tomcat server?**
+
+```properties
+server.port=8081
+```
+📢 **This changes the default port (8080) to 8081 for the embedded Tomcat server.**
+
+#### **Overriding or Replacing the Embedded Server**  
+📌 **How to replace Tomcat with another server like Jetty or Undertow?**
+
+1. Exclude Tomcat from dependencies and add your preferred server:
+```xml
+<!-- Exclude Tomcat -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+<!-- Add Jetty or Undertow -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jetty</artifactId>
+</dependency>
+```
+📢 **Spring Boot auto-configures the new embedded server.**
+
+#### **Disabling the Default Web Server**  
+📌 **How to disable the default embedded server?**
+
+```properties
+spring.main.web-application-type=none
+```
+
+---
