@@ -1,3 +1,5 @@
+
+
 ## **`@Component` in Spring Boot**  
 
 ### **1️⃣ (Basic Concept in Simple Terms)**  

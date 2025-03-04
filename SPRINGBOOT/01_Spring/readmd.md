@@ -76,7 +76,7 @@ Car car = context.getBean(Car.class);  // Retrieves the Car bean
 
 ---
 
-### **Dependency Injection (DI)**  
+## **Dependency Injection (DI)**  
 
 #### **What is Dependency Injection (DI)?**  
 📝 **Definition**:  
@@ -138,7 +138,7 @@ class Car {
 
 ---
 
-### **Spring Beans**  
+## **Spring Beans**  
 
 #### **1: What is a Spring Bean?**  
 📝 **Definition**:  
@@ -185,7 +185,7 @@ class Car {}
 
 ---
 
-### **Spring Bean Life Cycle**  
+## **Spring Bean Life Cycle**  
 
 #### **1: What is the Spring Bean Life Cycle?**  
 📝 **Definition**:  
@@ -263,7 +263,7 @@ class Engine implements InitializingBean, DisposableBean {
 
 #### **1: What is Spring?**  
 📝 **Definition**:  
-Spring is a **lightweight framework** that provides **dependency injection (DI), transaction management, AOP, and MVC** for Java applications.  
+Spring is a **lightweight framework** that provides **dependency injection (DI), transaction management, AOP, and MVC** for Java applications.   
 
 📌 **Key Features**:  
 - **Spring Core** (IoC, DI)  
@@ -272,19 +272,19 @@ Spring is a **lightweight framework** that provides **dependency injection (DI),
 - **Spring Security** (Authentication & Authorization)  
 - **Spring Data** (JPA, JDBC)  
 
----
-
 #### **2: What is Spring Boot?**  
 📝 **Definition**:  
-Spring Boot is a **framework built on top of Spring** that simplifies application development by providing **auto-configuration, embedded servers, and opinionated defaults**.  
+Spring Boot is a **framework built on top of Spring** that simplifies application development by providing **auto-configuration, embedded servers, and opinionated defaults**. 
+
+✅ **Real-World Applications**  
+- **Spring** → Used in **large-scale enterprise applications** where customization is needed.  
+- **Spring Boot** → Used for **microservices, REST APIs, and rapid application development**.  
 
 📌 **Key Features**:  
 - **Auto-Configuration** (No XML, fewer configurations)  
 - **Embedded Servers** (Tomcat, Jetty, Undertow)  
 - **Spring Boot Starters** (Pre-configured dependencies)  
 - **Spring Boot Actuator** (Monitoring & Metrics)  
-
----
 
 #### **3: Key Differences**  
 | Feature          | Spring Framework | Spring Boot |
@@ -295,8 +295,6 @@ Spring Boot is a **framework built on top of Spring** that simplifies applicatio
 | **Configuration** | More boilerplate | **Less code, more defaults** |
 | **Microservices** | Requires extra setup | **Built-in support** |
 | **Production Ready** | Needs additional tools | **Actuator for monitoring** |
-
----
 
 #### **4: Example - Spring vs Spring Boot**  
 📌 **Spring (Traditional setup)**  
@@ -340,13 +338,6 @@ public class MyApp {
 
 ---
 
-#### **5: Where are Spring and Spring Boot used?**  
-✅ **Real-World Applications**  
-- **Spring** → Used in **large-scale enterprise applications** where customization is needed.  
-- **Spring Boot** → Used for **microservices, REST APIs, and rapid application development**.  
-
----
-
 ## **Main Features of Spring Boot**  
 
 ---
@@ -363,8 +354,6 @@ Spring Boot is a **framework built on top of Spring** that simplifies applicatio
         ✅ **Rapid development (DevTools)**  
         ✅ **Microservices support**  
 
----
-
 #### **2: Auto-Configuration**  
 ⚡ **What it does?**  
 - Automatically configures beans based on classpath dependencies.  
@@ -380,8 +369,6 @@ public class MyApp {
 }
 ```
 📢 **No need for explicit `DispatcherServlet` configuration!**  
-
----
 
 #### **3: Spring Boot Starters**  
 📦 **What are they?**  
@@ -403,8 +390,6 @@ public class MyApp {
 ```
 📢 **Handles dependencies automatically!**  
 
----
-
 #### **4: Embedded Servers**  
 🖥️ **What it does?**  
 - Built-in support for **Tomcat, Jetty, and Undertow**.  
@@ -421,8 +406,6 @@ public class MyApp {
 ```
 📢 **Spring Boot includes an embedded server by default!**  
 
----
-
 #### **5: Spring Boot Actuator**  
 📊 **What it does?**  
 - Provides **monitoring and management** endpoints for applications.  
@@ -438,8 +421,6 @@ http://localhost:8080/actuator/health
 ```
 📢 **Ideal for production monitoring!**  
 
----
-
 #### **6: Spring Boot DevTools**  
 ⚡ **What it does?**  
 - **Auto-restart** on code changes.  
@@ -454,8 +435,6 @@ http://localhost:8080/actuator/health
 </dependency>
 ```
 📢 **No need to restart manually!**  
-
----
 
 #### **7: Microservices Support**  
 ☁️ **Why important?**  
@@ -477,7 +456,7 @@ public class MyController {
 
 ---
 
-## **@SpringBootApplication Annotation - Flashcard**  
+## **@SpringBootApplication Annotation**  
 
 ---
 
@@ -488,9 +467,12 @@ public class MyController {
 ✅ `@EnableAutoConfiguration` – Enables **Spring Boot's auto-configuration**.  
 ✅ `@ComponentScan` – Scans the **current package and sub-packages** for Spring components.  
 
-📢 **It is the entry point of any Spring Boot application!** 🚀  
+⚙️ **How does @SpringBootApplication work internally**:  
+- `@Configuration` → Allows **bean definitions** using `@Bean`.  
+- `@EnableAutoConfiguration` → Automatically configures **Spring components** based on dependencies.  
+- `@ComponentScan` → Finds **Spring Beans (@Component, @Service, @Repository, @Controller)** in the same package.  
 
----
+📢 **It is the entry point of any Spring Boot application!** 🚀  
 
 #### **2: Why is @SpringBootApplication needed?**  
 🔥 **Problem it solves**:  
@@ -519,36 +501,7 @@ public class MyApp {
 
 ---
 
-#### **3: How does @SpringBootApplication work internally?**  
-⚙️ **Internal Breakdown**:  
-- `@Configuration` → Allows **bean definitions** using `@Bean`.  
-- `@EnableAutoConfiguration` → Automatically configures **Spring components** based on dependencies.  
-- `@ComponentScan` → Finds **Spring Beans (@Component, @Service, @Repository, @Controller)** in the same package.  
-
-📌 **Example with Auto-Configuration**:  
-```java
-@SpringBootApplication
-public class MyApp {
-    public static void main(String[] args) {
-        SpringApplication.run(MyApp.class, args);
-    }
-}
-```
-📌 If `spring-boot-starter-web` is added, it automatically configures:  
-✅ **DispatcherServlet**  
-✅ **Embedded Tomcat**  
-✅ **Spring MVC setup**  
-
----
-
-#### **4: Where is @SpringBootApplication used?**  
-✅ **Microservices** – Rapid development of REST APIs.  
-✅ **Web Applications** – Auto-configures MVC, security, and databases.  
-✅ **Enterprise Applications** – Reduces configuration overhead.  
-
----
-
-## **How to Create a Spring Boot Application - Flashcard**  
+## **How to Create a Spring Boot Application**  
 
 ---
 
@@ -562,8 +515,6 @@ public class MyApp {
 
 📢 **Spring Boot simplifies setup with auto-configuration!**  
 
----
-
 #### **2: Creating a Spring Boot Project (Using Spring Initializr)**  
 🌐 **Go to**: [https://start.spring.io/](https://start.spring.io/)  
 📌 **Steps**:  
@@ -575,47 +526,7 @@ public class MyApp {
 
 📢 **Spring Initializr sets up the project structure for you!**  
 
----
-
-#### **3: Manually Creating a Spring Boot Application**  
-📌 **1. Add Spring Boot Dependency (Maven Project - `pom.xml`)**  
-```xml
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-</dependencies>
-```
-📢 **`spring-boot-starter-web` adds web functionalities!**  
-
-📌 **2. Create a Main Class**  
-```java
-@SpringBootApplication
-public class MyApp {
-    public static void main(String[] args) {
-        SpringApplication.run(MyApp.class, args);
-    }
-}
-```
-📢 **Entry point of a Spring Boot application!**  
-
-📌 **3. Create a REST Controller**  
-```java
-@RestController
-@RequestMapping("/api")
-public class MyController {
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello, Spring Boot!";
-    }
-}
-```
-📢 **Creates a simple REST API endpoint!**  
-
----
-
-#### **4: Running the Application**  
+#### **3: Running the Application**  
 📌 **Option 1: Using IDE (IntelliJ, Eclipse)**  
 ✔ Right-click `MyApp.java` → **Run MyApp**  
 
@@ -629,9 +540,7 @@ java -jar target/myapp-0.0.1-SNAPSHOT.jar
 ```
 📢 **Runs an embedded server (Tomcat by default)!**  
 
----
-
-#### **5: Testing the Application**  
+#### **4: Testing the Application**  
 ✅ Open a browser or Postman → **Visit the endpoint**  
 ```
 http://localhost:8080/api/hello
@@ -644,7 +553,7 @@ Hello, Spring Boot!
 
 ---
 
-## **`pom.xml` in Spring Boot - Flashcard**  
+## **`pom.xml` in Spring Boot**  
 
 ---
 
@@ -705,20 +614,13 @@ Hello, Spring Boot!
         </plugins>
     </build>
 </project>
-```
-📢 **This file defines dependencies, versioning, and build settings for the project!** 🚀  
-
----
+```  
 
 #### **3: Why is `pom.xml` needed?**  
 🔥 **Problem it solves**:  
 - Eliminates **manual dependency management**.  
 - Ensures **consistent project builds**.  
 - Handles **transitive dependencies** (automatically pulls required libraries).  
-
-📢 **Just add dependencies, and Maven takes care of the rest!**  
-
----
 
 #### **4: Key Elements in `pom.xml`**  
 🔹 **`<parent>`** – Inherits properties from **Spring Boot starter parent**.  
@@ -740,7 +642,7 @@ Hello, Spring Boot!
 
 # **Spring boot configuration**
 
-## **Configuring Spring Boot using `application.properties` - Flashcard**  
+## **Configuring Spring Boot using `application.properties`**  
 
 ---
 
@@ -752,18 +654,12 @@ Hello, Spring Boot!
 ✅ **Logging Levels**  
 ✅ **Spring Profiles**  
 
-📢 **It helps in separating configuration from code!**  
-
----
-
 #### **2: Where is `application.properties` located?**  
 📌 Default Location:  
 ```
 src/main/resources/application.properties
 ```
 📢 **Spring Boot automatically loads it at startup!**  
-
----
 
 #### **3: How to Configure Spring Boot Properties?**  
 📌 **1️⃣ Change Default Server Port**  
@@ -795,10 +691,9 @@ spring.profiles.active=dev
 ```
 📢 **Enables different environments (e.g., `dev`, `prod`)!**  
 
-
 ---
 
-## **Difference between `application.properties` and `application.yml` - Flashcard**  
+## **Difference between `application.properties` and `application.yml`**  
 
 ---
 
@@ -807,8 +702,6 @@ spring.profiles.active=dev
 Both `application.properties` and `application.yml` are **Spring Boot configuration files** used for setting various properties like server configurations, database settings, and logging levels.  
 - **`application.properties`** uses **key-value pairs** (`key=value` format).  
 - **`application.yml`** uses a **hierarchical structure** (`YAML` format).  
-
----
 
 #### **2: Key Differences Between `application.properties` and `application.yml`**  
 
@@ -820,8 +713,6 @@ Both `application.properties` and `application.yml` are **Spring Boot configurat
 | **Syntax Example**               | `server.port=8081`                  | `server: port: 8081`            |
 | **Support for Arrays/Lists**     | Limited to repeating key names      | Supports lists (e.g., `- value`)|
 | **Comments**                     | Can use `#` for comments            | Uses `#` for comments           |
-
----
 
 #### **3: Example of Key-Value Configuration**  
 - **`application.properties`**:  
@@ -850,16 +741,12 @@ spring:
 📝 **Definition**:  
 Externalizing configuration allows you to **keep application settings outside the code**, making it more flexible and environment-specific (e.g., different settings for development, production).  
 
----
-
 #### **2: Why Externalize Configuration?**  
 ❓ **Problem it solves**:  
 - **Environment-specific configurations** (e.g., dev, prod).  
 - **Separation of code and configuration**, allowing easier maintenance.  
 - **Avoid hardcoding sensitive values** (e.g., passwords, API keys).  
 - **Flexible configurations** for various environments without changing the codebase.
-
----
 
 #### **3: How to Externalize Configuration?**  
 📌 **Common methods to externalize configurations**:  
@@ -896,8 +783,6 @@ Externalizing configuration allows you to **keep application settings outside th
    }
    ```
 
----
-
 #### **4: Example - Using `application.properties`**  
 📌 **Define properties in `application.properties`**:  
 ```properties
@@ -916,8 +801,6 @@ private String appName;
 ```
 
 📢 **`application.properties` is the default location for configurations.**  
-
----
 
 #### **5: Profile-Specific Configurations**  
 📌 **Using Profiles for different environments**:  
@@ -938,19 +821,11 @@ server.port=8081
 server.port=8080
 ```
 
-📢 **Spring Boot will automatically load the appropriate profile-based configuration.**  
+📢 **Spring Boot will automatically load the appropriate profile-based configuration.**   
 
 ---
 
-#### **6: Where is Externalized Configuration used?**  
-✅ **Real-World Applications**:  
-- **Multi-environment applications** (e.g., different configurations for dev, prod).  
-- **Cloud-based applications** using environment variables for configuration.  
-- **Microservices** needing centralized configuration via Spring Cloud Config.  
-
----
-
-## **Using `@Profile` in Spring Boot (KISS)**
+## **Using `@Profile` in Spring Boot**
 
 ---
 
@@ -958,14 +833,10 @@ server.port=8080
 📝 **Definition**:  
 `@Profile` is an annotation used to specify that a bean is available only in certain **Spring profiles** (environments).
 
----
-
 #### **2: Why is `@Profile` Needed?**  
 ❓ **Problem it solves**:  
 - **Environment-specific beans**: Define different beans for different environments (e.g., dev, prod).  
 - **Reduce conditional code**: Avoid using conditional statements in code to manage different configurations.
-
----
 
 #### **3: How Does `@Profile` Work?**  
 📌 **Usage of `@Profile`**:  
@@ -989,8 +860,6 @@ public DataSource prodDataSource() {
 
 📢 **Spring only activates beans based on the active profile.**  
 
----
-
 #### **4: Setting Active Profiles**  
 📌 **Set active profile in `application.properties`**:  
 ```properties
@@ -1007,31 +876,20 @@ java -jar app.jar --spring.profiles.active=prod
 
 ---
 
-#### **5: Where is `@Profile` Used?**  
-✅ **Real-World Applications**:  
-- **Microservices**: Different beans for different service environments.  
-- **Cloud deployments**: Switch between dev, staging, and production environments.  
-- **Database configurations**: Use different database beans for dev/prod.
-
----
-
-## **Using `@Value` in Spring Boot (KISS)**
+## **Using `@Value` in Spring Boot**
 
 ---
 
 #### **1: What is `@Value`?**  
 📝 **Definition**:  
-`@Value` is a Spring annotation used to **inject values** from property files or environment variables directly into fields of a Spring bean.  
-
----
+`@Value` is a Spring annotation used to **inject values** from property files or 
+environment variables directly into fields of a Spring bean.  
 
 #### **2: Why is `@Value` Needed?**  
 ❓ **Problem it solves**:  
 - **Injects external configuration values** (e.g., from `application.properties`) into Java beans.  
 - **Simplifies access to application properties** without manual configuration.  
 - **Eliminates hardcoding** values within the application code.  
-
----
 
 #### **3: How Does `@Value` Work?**  
 📌 **Usage of `@Value`**:  
@@ -1049,8 +907,6 @@ private int serverPort;
 ```
 
 📢 **Values are automatically injected from `application.properties`** based on property names.
-
----
 
 #### **4: Example with `application.properties`**  
 📌 **Define properties in `application.properties`**:  
@@ -1076,8 +932,6 @@ public class MyApp {
 }
 ```
 
----
-
 #### **5: Using SpEL (Spring Expression Language)**  
 📌 **Example of SpEL in `@Value`**:  
 ```java
@@ -1091,61 +945,4 @@ private double randomValue; // Injects a random number
 📢 **SpEL allows for more complex calculations or object creation.**  
 
 ---
-
-# **Restful webservices**
-
-## **@RestController in Spring Boot - Flashcard**
-
-#### **1: What is @RestController?**  
-📝 **Definition**:  
-`@RestController` is a specialized version of `@Controller` in Spring that combines `@ResponseBody` and `@Controller`. It is used to handle HTTP requests and automatically converts the returned objects into JSON or XML responses.  
-
----
-
-#### **2: Why is @RestController needed?**  
-❓ **Problem it solves**:  
-- Simplifies RESTful API creation.  
-- Automatically converts Java objects to JSON or XML.  
-- Removes the need for manually annotating methods with `@ResponseBody`.
-
----
-
-#### **3: How does @RestController work?**  
-⚙️ **Functionality**:  
-- When a method is marked with `@RestController`, Spring converts its return type into a response body directly.  
-- It can be used with HTTP methods like **GET**, **POST**, **PUT**, **DELETE**.
-
----
-
-#### **4: @RestController Example**  
-```java
-@RestController
-@RequestMapping("/api")
-public class MyController {
-
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello, World!";
-    }
-}
-```
-📢 **This controller handles GET requests at `/api/hello` and returns "Hello, World!" as a JSON response.**  
-
----
-
-#### **5: Where is @RestController used?**  
-✅ **Real-World Applications**:  
-- **REST APIs** – Exposes endpoints that return JSON responses.  
-- **Microservices** – For service-to-service communication.  
-- **Web Services** – Simplifies backend development by exposing RESTful APIs.
-
----
-
-💡 **Key Takeaway**: `@RestController` is used to create **RESTful web services** that automatically return **JSON/XML responses** without the need for explicit `@ResponseBody` annotations. 🚀
-
-
-
-
-
-
 
