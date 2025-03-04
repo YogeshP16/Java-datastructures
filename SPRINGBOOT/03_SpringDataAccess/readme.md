@@ -175,7 +175,7 @@ CREATE TABLE users (
 
 ---
 
-## **Handling Multiple Databases & Connection Pooling in Spring Boot (HikariCP) - T.R.I.M. Approach**  
+## **Handling Multiple Databases & Connection Pooling in Spring Boot (HikariCP)**  
 
 ---
 
@@ -286,7 +286,7 @@ public class UserRepository {
 ```
 
 ---
-## **Flyway Database Migration in Spring Boot – T.R.I.M. Approach** 🚀  
+## **Flyway Database Migration in Spring Boot** 🚀  
 
 ---
 
