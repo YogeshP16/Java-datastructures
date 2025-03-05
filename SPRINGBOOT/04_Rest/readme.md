@@ -17,19 +17,49 @@ Spring MVC (Model-View-Controller) is a framework in Spring used to build web ap
 3. **View Resolver**: It resolves the view (such as JSP or HTML) to be rendered.  
 4. **Model**: The model (usually an object) is passed to the view for display.
 
-### **Annotations in Spring MVC**  
-📌 **Common Spring MVC Annotations**:
+### **REST Annotations in Spring Boot:**  
+| Annotation                      | Purpose |
+|---------------------------------|---------|
+| `@RestController`               | Marks class as REST API (includes `@ResponseBody`) |
+| `@RequestMapping("/path")`      | Base URL for all methods |
+| `@GetMapping("/{id}")`          | Fetch data |
+| `@PostMapping`                  | Create resource |
+| `@PutMapping("/{id}")`          | Update/replace resource |
+| `@PatchMapping("/{id}")`        | Partial update |
+| `@DeleteMapping("/{id}")`       | Delete resource |
+| `@PathVariable`                 | Extracts `{id}` from URL |
+| `@RequestBody`                  | Maps JSON request to Java object |
+| `@ResponseEntity`               | Custom HTTP status codes |
 
-1. **`@Controller`**: Marks a class as a Spring MVC controller.  
-2. **`@RequestMapping`**: Maps HTTP requests to handler methods of MVC controllers.  
-3. **`@GetMapping`**: Specialized version of `@RequestMapping` for GET requests.  
-4. **`@PostMapping`**: Specialized version of `@RequestMapping` for POST requests.  
-5. **`@PutMapping`**: Specialized version of `@RequestMapping` for PUT requests.  
-6. **`@DeleteMapping`**: Specialized version of `@RequestMapping` for DELETE requests.  
-7. **`@RequestParam`**: Binds request parameters to method parameters.  
-8. **`@PathVariable`**: Binds URI template variables to method parameters.  
-9. **`@ResponseBody`**: Indicates that the return value of a method should be bound to the web response body (usually for REST APIs).
-10. **`@RestController`**: Combines controller and responsebody return json response.
+
+### **`@PathVariable`** extracts the exact **ID or value** from the URL.  
+
+### **Example:**  
+```java
+@GetMapping("/users/{id}")
+public User getUserById(@PathVariable int id) {
+    return userService.findById(id);
+}
+```
+📌 If the request is **`GET /users/10`**, then `id = 10`.  
+
+✅ **Use `@PathVariable` when the value is part of the URL path.**
+
+### **`@RequestParam`** - Extracts Query Parameters from URL  
+
+📌 **Used when passing optional parameters in the URL after `?`**  
+
+### **Example:**  
+```java
+@GetMapping("/users")
+public List<User> getUsers(@RequestParam(required = false) String role) {
+    return userService.findByRole(role);
+}
+```
+📌 **Request:** `GET /users?role=admin`  
+📌 **Extracted Value:** `role = "admin"`  
+
+✅ **Use `@RequestParam` when passing query parameters (filters, pagination, sorting).**
 
 #### **Example of Spring MVC Controller**  
 ```java
@@ -187,20 +217,6 @@ No, **`PUT` does not call `POST`** to create a resource. Instead, **PUT itself**
 #### **✅ How `PUT` Works?**  
 - If the **resource exists**, `PUT` **updates/replaces** it.  
 - If the **resource does not exist**, `PUT` **creates** it **at the specified URL** (unlike `POST`, which does not require a predefined URL).  
-
-### **REST Annotations in Spring Boot:**  
-| Annotation                      | Purpose |
-|---------------------------------|---------|
-| `@RestController`               | Marks class as REST API (includes `@ResponseBody`) |
-| `@RequestMapping("/path")`      | Base URL for all methods |
-| `@GetMapping("/{id}")`          | Fetch data |
-| `@PostMapping`                  | Create resource |
-| `@PutMapping("/{id}")`          | Update/replace resource |
-| `@PatchMapping("/{id}")`        | Partial update |
-| `@DeleteMapping("/{id}")`       | Delete resource |
-| `@PathVariable`                 | Extracts `{id}` from URL |
-| `@RequestBody`                  | Maps JSON request to Java object |
-| `@ResponseEntity`               | Custom HTTP status codes |
 
 #### **What is a REST Resource?**  
 📝 **Definition**:  
