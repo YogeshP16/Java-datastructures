@@ -1102,7 +1102,7 @@ String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 ✔ Validate & sanitize input to prevent **injection attacks**.  
 
 ---
-
+    
 ## **📌 Summary:**
 ✅ **Follow**: Naming conventions, SOLID principles, DRY, exception handling, collections & concurrency best practices.  
 ❌ **Avoid**: Memory leaks, hardcoded passwords, bad exception handling, SQL injection, storing passwords in plain text.  
