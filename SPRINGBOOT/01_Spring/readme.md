@@ -1022,3 +1022,57 @@ spring.main.web-application-type=none
 ```
 
 ---
+
+## **Spring Boot Application Bootstrapping**   
+
+### ✅ **1. Web-based (MVC) Application**  
+- Uses **Spring MVC** with embedded **Tomcat/Jetty**.  
+- Scans for `@Controller`, auto-configures DispatcherServlet.  
+
+```java
+@SpringBootApplication
+public class WebApp {
+    public static void main(String[] args) {
+        SpringApplication.run(WebApp.class, args);
+    }
+}
+```
+
+---
+
+### ✅ **2. Standalone (CLI/Batch) Application**  
+- No web server, runs CLI tasks with `CommandLineRunner`.  
+
+```java
+@SpringBootApplication
+public class StandaloneApp implements CommandLineRunner {
+    public void run(String... args) { System.out.println("Running!"); }
+}
+```
+
+---
+
+### ✅ **3. Reactive Application (WebFlux)**  
+- Uses **Reactor Netty** for non-blocking, event-driven execution.  
+
+```java
+@SpringBootApplication
+public class ReactiveApp { public static void main(String[] args) { SpringApplication.run(ReactiveApp.class, args); } }
+
+@RestController
+public class ReactiveController {
+    @GetMapping("/reactive")
+    public Mono<String> hello() { return Mono.just("Hello, Reactive!"); }
+}
+```
+
+---
+
+💡 **Key Differences:**  
+| Type        | Web (MVC)  | Standalone | Reactive |
+|------------|-----------|------------|----------|
+| Server    | Tomcat    | No server  | Netty    |
+| Execution | Blocking  | CLI Task   | Non-blocking |
+| Key Class | `@Controller` | `CommandLineRunner` | `Mono/Flux` |
+
+🚀 **Spring Boot adapts its bootstrapping process based on the application type!**

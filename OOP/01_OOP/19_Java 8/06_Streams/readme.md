@@ -8,7 +8,7 @@
 
 #### **2. Key Characteristics of Streams:**
 - **Non-Storage**: Streams don’t store data; they process data as it flows.
-- **Lazy Evaluation**: Intermediate operations are evaluated only when a terminal operation is invoked.
+- **Lazy Evaluation**: Intermediate operations are evaluated only when a terminal operation is called.
 - **Immutable**: The source data remains unmodified.
 - **Pipelined Operations**: Stream operations are combined into a single pass for better efficiency.
 

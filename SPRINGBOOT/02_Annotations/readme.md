@@ -1,4 +1,172 @@
 
+## **`@Component` in Spring**  
+
+#### What is `@Component` in Spring Boot?  
+
+##### ✅ **`@Component` Overview**  
+- Generic stereotype annotation for **Spring-managed beans**.  
+- Indicates that a class is a **Spring component** and should be auto-detected.  
+- Automatically registered in the **Spring ApplicationContext**.  
+- Used when a class doesn’t fit into other specific stereotypes (`@Service`, `@Repository`, etc.).  
+
+✅ **Using `@Component` (Bean Registration)**  
+```java
+@Component
+public class MyComponent {
+    public String getMessage() {
+        return "Hello from Component!";
+    }
+}
+```
+
+💡 **Key Point**: `@Component` is the **base annotation** for Spring beans, while `@Service`, `@Repository`, and `@Controller` are specialized forms of it.
+
+---
+
+## **`@Service` vs `@Repository` vs `@Controller` in Spring**  
+
+#### What is the difference between `@Service`, `@Repository`, and `@Controller` in Spring Boot?  
+
+### ✅ **`@Service`**  
+- Used for **business logic and service layer**.  
+- A specialized `@Component` for **service classes**.  
+- Indicates that the class contains **business logic**.  
+
+✅ **Example of `@Service`**  
+```java
+@Service
+public class UserService {
+    public String getUser() {
+        return "User data";
+    }
+}
+```
+
+### ✅ **`@Repository`**  
+- Used for **DAO (Data Access Layer)**.  
+- Specialization of `@Component` for **database-related operations**.  
+- Enables **exception translation** (Spring converts database exceptions to `DataAccessException`).  
+
+✅ **Example of `@Repository`**  
+```java
+@Repository
+public class UserRepository {
+    public String getUserFromDB() {
+        return "Fetching user from DB";
+    }
+}
+```
+
+### ✅ **`@Controller`**  
+- Used for **handling web requests in MVC applications**.  
+- Returns a **view (HTML/JSP)**.  
+- Works with `@RequestMapping` or `@GetMapping` to handle requests.  
+
+✅ **Example of `@Controller`**  
+```java
+@Controller
+public class HomeController {
+    @GetMapping("/home")
+    public String home() {
+        return "home"; // Returns home.html or home.jsp
+    }
+}
+```
+
+💡 **Key Differences**:  
+- `@Service` → Business logic layer (Processing).  
+- `@Repository` → Data access layer (Database operations).  
+- `@Controller` → Web layer (Handles user requests).  
+
+💡 **All three are specialized forms of `@Component`, allowing Spring to auto-detect and manage them.**
+
+---
+
+## **`@Controller` vs `@RestController`**   
+
+#### What is the difference between `@Controller` and `@RestController` in Spring Boot?   
+##### ✅ **`@Controller`**  
+- Used for MVC applications.  
+- Returns a **view (HTML/JSP)** as a response.  
+- Uses `@ResponseBody` explicitly for JSON responses.  
+
+✅ **Using `@Controller` (Returns View)**  
+```java
+@Controller
+public class HomeController {
+    @GetMapping("/home")
+    public String home() {
+        return "home"; // Returns view name (home.html or home.jsp)
+    }
+}
+```
+
+##### ✅ **`@RestController`**  
+- Specialization of `@Controller`.  
+- **Returns JSON/XML directly** (No need for `@ResponseBody`).  
+- Used for **REST APIs**.  
+
+✅ **Using `@RestController` (Returns JSON)**  
+```java
+@RestController
+public class ApiController {
+    @GetMapping("/api/message")
+    public String getMessage() {
+        return "Hello, World!"; // Returns JSON response
+    }
+}
+
+💡 **Key Difference**: `@RestController = @Controller + @ResponseBody` (applied to all methods).
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## **`@Component` in Spring Boot**  
 
@@ -1095,3 +1263,5 @@ public class GlobalExceptionHandler {
 ---
 
  
+
+
