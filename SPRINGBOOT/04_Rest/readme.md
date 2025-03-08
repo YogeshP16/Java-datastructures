@@ -387,21 +387,7 @@ A constraint of REST where the client interacts with the application entirely th
 **CORS** is a security feature implemented by browsers to restrict how resources on a web page can be requested from another domain. REST APIs can enable or restrict CORS by setting the appropriate HTTP headers (`Access-Control-Allow-Origin`).
 
 **Use Case**:  
-If your frontend (e.g., React app) is hosted on a different domain than the backend (REST API), CORS will allow or block requests based on configured rules.
-
-### **REST API Design Best Practices**  
-1. **Use Nouns for Resource Names**:  
-   - **Correct**: `/users`, `/orders`
-   - **Incorrect**: `/getUsers`, `/createOrder`
-2. **Use HTTP Methods Correctly**:  
-   - **GET**: Retrieve data.
-   - **POST**: Create a resource.
-   - **PUT**: Replace or update a resource.
-   - **DELETE**: Remove a resource.
-3. **Return Proper Status Codes**:  
-   Always return the appropriate HTTP status code based on the operation's outcome.
-4. **Use Filters and Pagination**:  
-   For large datasets, provide filtering options (e.g., `/users?age=25`) and pagination (`/users?page=2&size=10`).
+If your frontend (e.g., React app) is hosted on a different domain than the backend (REST API), CORS will allow or block requests based on configured rules.  
 
 ### **What is JSON and XML in REST APIs?**  
 🔹 **JSON**:  
@@ -573,8 +559,6 @@ API versioning ensures that changes to the API do not break existing client impl
 /v2/users  ✅ New version with updates
 ```
 
----
-
 ### **2️⃣ API Documentation**  
 📌 **Why?** Helps developers understand and integrate your API.  
 📌 **How?** Use **Swagger/OpenAPI** for auto-generated docs.  
@@ -587,8 +571,6 @@ API versioning ensures that changes to the API do not break existing client impl
 </dependency>
 ```
 Access at: `http://localhost:8080/swagger-ui.html`
-
----
 
 ### **3️⃣ Use the Right HTTP Status Codes**  
 📌 **Why?** Ensures clients understand the response.  
@@ -609,8 +591,6 @@ Access at: `http://localhost:8080/swagger-ui.html`
 return ResponseEntity.status(HttpStatus.CREATED).body(user);
 ```
 
----
-
 ### **4️⃣ Content Negotiation**  
 📌 **Why?** Allows APIs to serve different response formats (`JSON`, `XML`).  
 📌 **How?** Use `Accept` header to determine the response type.  
@@ -620,8 +600,6 @@ return ResponseEntity.status(HttpStatus.CREATED).body(user);
 public User getUser() { return new User("John", "Doe"); }
 ```
 📌 **Impact?** Improves API flexibility for different clients.
-
----
 
 ### **5️⃣ Error Handling & Structured Error Response**  
 📌 **Why?** Provides meaningful messages for debugging.  
@@ -648,8 +626,6 @@ public class GlobalExceptionHandler {
 }
 ```
 
----
-
 ### **6️⃣ API Should Be Stateless**  
 📌 **Why?** Each request should be **independent**, avoiding session storage on the server.  
 📌 **How?** Use **JWT Tokens** or **OAuth** for authentication instead of session-based logins.  
@@ -660,8 +636,6 @@ Authorization: Bearer <token>
 ```
 
 📌 **Impact?** Ensures **scalability** in distributed systems.
-
----
 
 ### **7️⃣ Secure Your REST Endpoints (SSL, OAuth, JWT)**  
 📌 **Why?** Protects API from attacks like **Man-in-the-Middle (MITM), SQL Injection, and CSRF**.  
@@ -687,8 +661,6 @@ public class SecurityConfig {
 
 📌 **Impact?** Prevents unauthorized access and enhances security.
 
----
-
 ### 🚀 **Final Takeaways**  
 ✅ **Use API versioning** for backward compatibility.  
 ✅ **Document APIs** with **Swagger/OpenAPI**.  
@@ -698,5 +670,4 @@ public class SecurityConfig {
 ✅ **Ensure stateless APIs** for scalability.  
 ✅ **Secure endpoints** using **SSL, OAuth, and JWT**.  
 
-🚀 **Following these best practices ensures robust, scalable, and secure REST APIs!**
 
