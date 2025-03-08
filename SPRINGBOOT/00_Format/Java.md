@@ -1694,3 +1694,205 @@ abstract class A {
 
 ---
 
+Here are **flashcards** for **Interfaces in Java** 🚀:  
+
+---
+
+### **🔹 Interface**
+📌 **Definition:**  
+- Defines a **contract** (what a class must do) **without implementation** (how it’s done).  
+- **Cannot be instantiated.**  
+- **All variables are `public static final` by default.**  
+- **Methods are `public abstract` by default (before Java 8).**  
+
+✅ **Example:**
+```java
+interface Animal {
+    void makeSound(); // Abstract method (no implementation)
+}
+
+class Dog implements Animal {
+    public void makeSound() {  // Must provide implementation
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();
+        myDog.makeSound();  // Output: Dog barks
+    }
+}
+```
+
+---
+
+### **🔹 Key Points About Interfaces**
+✅ **Can Have:**  
+✔ **Abstract methods** (must be implemented by the class)  
+✔ **Static methods** (introduced in Java 8)  
+✔ **Default methods** (introduced in Java 8)  
+✔ **Nested types**  
+
+❌ **Cannot:**  
+❌ Be instantiated  
+❌ Have constructors  
+❌ Contain instance variables (only constants)  
+
+✅ **All variables are `public static final` by default**  
+```java
+interface Test {
+    int VALUE = 100;  // Equivalent to: public static final int VALUE = 100;
+}
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(Test.VALUE);  // Output: 100
+        // Test.VALUE = 200;  // ❌ Error: Cannot modify final variable
+    }
+}
+```
+
+---
+
+### **🔹 Why Use Interfaces?**
+✅ **Multiple Inheritance** (Java does not support multiple class inheritance, but it supports multiple interface implementation).  
+✅ **Abstraction** (Hides implementation details).  
+✅ **Loose Coupling** (Flexible design, reducing dependency between components).  
+
+---
+
+### **🔹 Types of Methods in Interfaces**
+| Type          | Introduced in | Description |
+|--------------|-------------|-------------|
+| **Abstract Method** | Java 7  | Methods without body (must be implemented). |
+| **Static Method** | Java 8 | Can have a body, but cannot be overridden. |
+| **Default Method** | Java 8 | Has a default implementation, can be overridden. |
+
+✅ **Default & Static Methods in Interfaces (Java 8+)**
+```java
+interface MyInterface {
+    default void show() {   // Default method
+        System.out.println("Default method in interface");
+    }
+    static void staticMethod() {  // Static method
+        System.out.println("Static method in interface");
+    }
+}
+public class Demo implements MyInterface {
+    public static void main(String[] args) {
+        Demo obj = new Demo();
+        obj.show();  // Output: Default method in interface
+        MyInterface.staticMethod();  // Output: Static method in interface
+    }
+}
+```
+
+---
+
+### **🔹 Functional Interface**
+📌 **Definition:**  
+- An interface with only **one abstract method** but can have **default or static methods.**  
+- Used for **Lambda Expressions**.  
+
+✅ **Example:**
+```java
+@FunctionalInterface
+interface Calculator {
+    int add(int a, int b);  // Single abstract method
+}
+public class Main {
+    public static void main(String[] args) {
+        Calculator sum = (a, b) -> a + b; // Lambda expression
+        System.out.println(sum.add(5, 10)); // Output: 15
+    }
+}
+```
+
+---
+
+### **🔹 Marker Interface**
+📌 **Definition:**  
+- **An interface without methods.**  
+- Used to indicate a class has special properties.  
+
+✅ **Example:**  
+Java's **Serializable, Cloneable** are marker interfaces.  
+```java
+class Student implements Serializable { }  // Marks class as serializable
+```
+
+---
+
+### **Flashcard: Serializable vs Cloneable + Shallow vs Deep Copy**  
+
+#### **🟢 Serializable (Used for Object Persistence)**  
+✔ **Allows an object to be serialized** (converted into a byte stream).  
+✔ **Used for** saving an object's state to a file, sending over a network, or storing in a database.  
+✔ **Marker interface** (no methods, just a signal to JVM).  
+✔ **Non-static & non-transient fields** are serialized.  
+✔ **Use `transient`** to skip fields during serialization.  
+✅ **Example:**  
+```java
+class Data implements Serializable {
+    private static final long serialVersionUID = 1L;  
+    int id;
+    transient String password; // Won't be serialized
+}
+```
+
+---  
+
+#### **🟡 Cloneable (Used for Object Duplication)**  
+✔ **Marker interface** (no methods).  
+✔ **Enables object cloning using `clone()`** from `Object` class.  
+✔ **Must override `clone()`**, otherwise `CloneNotSupportedException` occurs.  
+✔ **By default, performs a shallow copy**.  
+✔ **For deep copy**, override `clone()` & manually copy mutable fields.  
+✅ **Example:**  
+```java
+class CopyExample implements Cloneable {
+    int id;
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone(); // Shallow Copy
+    }
+}
+```
+
+---
+
+### **Shallow Copy vs Deep Copy**  
+
+#### **🔹 Shallow Copy**  
+✔ **Copies references** of inner objects (not new instances).  
+✔ **Top-level object is duplicated, but inner objects are shared.**  
+✔ **Changes in one affect the other.**  
+✅ **Example:**  
+```java
+class Shallow implements Cloneable {
+    int[] arr = {1, 2, 3}; 
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone(); // Reference of `arr` is copied
+    }
+}
+```
+
+#### **🔹 Deep Copy**  
+✔ **Creates new instances** of inner objects.  
+✔ **Completely independent copy**—modifying one does not affect the other.  
+✅ **Example:**  
+```java
+class Deep implements Cloneable {
+    int[] arr = {1, 2, 3}; 
+    public Object clone() throws CloneNotSupportedException {
+        Deep copy = (Deep) super.clone();
+        copy.arr = arr.clone(); // New instance of `arr`
+        return copy;
+    }
+}
+```
+
+📌 **Key Differences:**  
+✔ **Serializable** → Used for persistence (saving/transferring objects).  
+✔ **Cloneable** → Used for object duplication (`clone()`).  
+✔ **Shallow Copy** → Shared inner objects (change affects both).  
+✔ **Deep Copy** → New inner objects (each copy is independent). 🚀

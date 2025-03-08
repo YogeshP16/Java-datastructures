@@ -34,7 +34,7 @@ Spring MVC (Model-View-Controller) is a framework in Spring used to build web ap
 
 ### **`@PathVariable`** extracts the exact **ID or value** from the URL.  
 
-### **Example:**  
+#### **Example:**  
 ```java
 @GetMapping("/users/{id}")
 public User getUserById(@PathVariable int id) {
@@ -49,7 +49,7 @@ public User getUserById(@PathVariable int id) {
 
 📌 **Used when passing optional parameters in the URL after `?`**  
 
-### **Example:**  
+#### **Example:**  
 ```java
 @GetMapping("/users")
 public List<User> getUsers(@RequestParam(required = false) String role) {
@@ -61,29 +61,43 @@ public List<User> getUsers(@RequestParam(required = false) String role) {
 
 ✅ **Use `@RequestParam` when passing query parameters (filters, pagination, sorting).**
 
-#### **Example of Spring MVC Controller**  
-```java
-@Controller
-public class UserController {
+### **Query vs Path Parameters**
 
-    @GetMapping("/users/{id}")
-    public String getUser(@PathVariable("id") int id, Model model) {
-        User user = userService.getUserById(id);
-        model.addAttribute("user", user);
-        return "userView"; // View name (userView.jsp)
-    }
+#### **Query Parameters in URL**  
+
+✔ **Key-value pairs** in the URL after `?` (e.g., `?name=John&age=25`).  
+✔ **Used in GET requests** to pass data.  
+✔ **Multiple parameters** separated by `&`.  
+✔ **Example**: `GET /products?category=electronics&limit=10`.
+
+✅ **Example:**  
+🔹 **URL:** `/users?name=John&age=25`  
+🔹 **Spring Boot:**  
+```java
+@GetMapping("/users")
+public String getUser(@RequestParam String name, @RequestParam int age) {
+    return name + " is " + age + " years old.";
 }
 ```
-#### **Query vs Path Parameters**
+🔹 **Response:** `"John is 25 years old."`  
 
-##### **Query Parameters**:
-- **Used for**: Filtering, sorting, pagination.
-- **Location**: After `?` in the URL (e.g., `?key=value`).
-- **Example**: `GET /products?category=electronics&limit=10`.
-##### **Path Parameters**:
-- **Used for**: Identifying specific resources.
-- **Location**: In the URL path (e.g., `/resource/{id}`).
-- **Example**: `GET /products/12345`.
+#### **Path Parameters in URL**  
+
+✔ **Part of the URL itself**, not after `?`.  
+✔ **Used to identify resources uniquely** (e.g., `/users/{id}`).
+✔ **Example**: `GET /products/12345`. 
+
+✅ **Example:**  
+🔹 **URL:** `/users/10` (Fetching user with ID `10`)  
+🔹 **Spring Boot:**  
+```java
+@GetMapping("/users/{id}")
+public String getUser(@PathVariable int id) {
+    return "User ID: " + id;
+}
+```
+🔹 **Request:** `GET /users/10`  
+🔹 **Response:** `"User ID: 10"`  
 
 #### **Filtering, Sorting, and Pagination in REST**
 
@@ -218,7 +232,7 @@ No, **`PUT` does not call `POST`** to create a resource. Instead, **PUT itself**
 - If the **resource exists**, `PUT` **updates/replaces** it.  
 - If the **resource does not exist**, `PUT` **creates** it **at the specified URL** (unlike `POST`, which does not require a predefined URL).  
 
-#### **What is a REST Resource?**  
+### **What is a REST Resource?**  
 📝 **Definition**:  
 - A **REST resource** is any object, data, or service that is identified by a URI (Uniform Resource Identifier). 
 - Resources are accessed and manipulated using standard HTTP methods (GET, POST, PUT, DELETE).
@@ -490,20 +504,7 @@ API versioning ensures that changes to the API do not break existing client impl
 ---
  
 
-## **Best Practices in REST API Design**  
-
-### ✅ **What is a REST API?**  
-A **REST API (Representational State Transfer API)** is a web service that follows REST principles, allowing systems to communicate over HTTP using standard methods like `GET`, `POST`, `PUT`, and `DELETE`.  
-
-### ✅ **Why Use REST APIs?**  
-- **Scalability** – Decouples client & server.  
-- **Interoperability** – Works across different platforms.  
-- **Maintainability** – Clear structure and separation of concerns.  
-- **Performance** – Lightweight and efficient data exchange.  
-
----
-
-## **Best Practices**  
+## **Best Practices in REST API Design**   
 
 ### **1️⃣ API Versioning**  
 📌 **Why?** To ensure backward compatibility as APIs evolve.  
