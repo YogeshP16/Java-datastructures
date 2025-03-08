@@ -17,7 +17,9 @@ Spring MVC (Model-View-Controller) is a framework in Spring used to build web ap
 3. **View Resolver**: It resolves the view (such as JSP or HTML) to be rendered.  
 4. **Model**: The model (usually an object) is passed to the view for display.
 
-### **REST Annotations in Spring Boot:**  
+## **REST Annotations in Spring Boot:**  
+
+### **Annotations**
 | Annotation                      | Purpose |
 |---------------------------------|---------|
 | `@RestController`               | Marks class as REST API (includes `@ResponseBody`)& returns JSON response |
@@ -31,6 +33,62 @@ Spring MVC (Model-View-Controller) is a framework in Spring used to build web ap
 | `@RequestBody`                  | Maps JSON request to Java object |
 | `@ResponseEntity`               | Custom HTTP status codes |
 
+### **`@RequestMapping` in Spring Boot**  
+
+✔ **Maps HTTP requests to methods or classes.**  
+✔ Supports **GET, POST, PUT, DELETE, etc.**  
+✔ Can be used at **class-level (base path)** or **method-level (specific endpoints).**  
+
+✅ **Think of it as "Handle this URL request with this method!"**  
+
+### **🔹 Example: `@RequestMapping` Usage**  
+```java
+@RestController
+@RequestMapping("/users")  // Base path for all methods
+public class UserController {
+
+    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    public String getUser() {
+        return "User fetched!";
+    }
+}
+```  
+### **`@RequestBody` vs `@ResponseBody` in Spring Boot**  
+
+✔ **`@RequestBody`** → Binds **incoming JSON (or other formats) to a Java object**.  
+✔ **`@ResponseBody`** → Converts **Java object into JSON (or other formats) for response**.  
+
+✅ **Think of it as:**  
+- `@RequestBody` → **"Convert request JSON → Java object"**  
+- `@ResponseBody` → **"Convert Java object → JSON response"**  
+
+### **🔹 Example: Using `@RequestBody` and `@ResponseBody`**  
+```java
+@RestController
+public class UserController {
+
+    @PostMapping("/user")
+    public User createUser(@RequestBody User user) { // JSON → Java object
+        return user; // Java object → JSON (due to @ResponseBody)
+    }
+}
+```  
+
+### **`ResponseEntity` in Spring Boot**  
+
+✔ Used to **customize HTTP responses** (status, headers, body).  
+✔ Helps in **returning proper HTTP codes** (200 OK, 400 Bad Request, etc.).  
+✔ Supports **custom headers and response bodies**.  
+
+✅ **Think of it as "Send a well-formed HTTP response!"**  
+
+### **🔹 Example: Using `ResponseEntity`**  
+```java
+@GetMapping("/user")
+public ResponseEntity<String> getUser() {
+    return ResponseEntity.ok("User fetched successfully!");  // 200 OK
+}
+```  
 
 ### **`@PathVariable`** extracts the exact **ID or value** from the URL.  
 
