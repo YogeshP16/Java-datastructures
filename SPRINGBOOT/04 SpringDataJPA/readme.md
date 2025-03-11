@@ -2,7 +2,7 @@
 
 ## **Spring data JPA** 
 ---
-### **📌 JDBC**  
+### **JDBC**  
 
 ✅ **What is JDBC?**  
 ✔ **Java Database Connectivity** → Connects Java apps to databases.  
@@ -17,10 +17,9 @@
 4️⃣ Process `ResultSet`.  
 5️⃣ Close resources.  
 
-🚀 **"JDBC = Direct SQL, More Control, More Code!"**
 ---
 
-### **📌 WorkFlow**
+### **WorkFlow**
 
 🟢 **Spring Boot Application**  
 ⬇️ (Uses)  
@@ -59,7 +58,14 @@
 ```
 ---
 
-### **📌What Spring Data JPA**  
+### **What Spring Data JPA**  
+
+✅ **What is JPA?**  
+✔ **Java Persistence API** → Standard for ORM in Java.  
+✔ **Defines API, Hibernate implements it**.  
+✔ **Works with Spring Boot** to handle DB operations.  
+✔ **Uses annotations like `@Entity`, `@Id`, `@Column`**.  
+✔ **Simplifies DB interactions** without writing SQL. 
 
 ✅ **What is Spring Data JPA?**  
 ✔ **Abstraction over JPA** → Reduces boilerplate code.  
@@ -81,29 +87,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 ---
 
-### **📌 JPA**  
-
-✅ **What is JPA?**  
-✔ **Java Persistence API** → Standard for ORM in Java.  
-✔ **Defines API, Hibernate implements it**.  
-✔ **Works with Spring Boot** to handle DB operations.  
-✔ **Uses annotations like `@Entity`, `@Id`, `@Column`**.  
-✔ **Simplifies DB interactions** without writing SQL.  
-
-✅ **Basic Snippet**  
-```java
-@Entity
-public class User {
-    @Id @GeneratedValue
-    private Long id;
-    private String name;
-}
-```
-🚀 **"JPA = ORM Standard, Hibernate = Implementation!"**
-
----
-
-### **📌 Hibernate**  
+### **Hibernate**  
 
 ✅ **What is Hibernate?**  
 ✔ ORM framework → Maps Java objects to DB tables.  
@@ -125,7 +109,7 @@ public class User {
 
 ---
 
-### **📌 What Does Spring Data JPA Solve?**  
+### **What Does Spring Data JPA Solve?**  
 
 ❌ **JPA/Hibernate Issues**  
 - **Boilerplate Code** → Writing `EntityManager` logic manually.  
@@ -142,7 +126,7 @@ public class User {
 
 ---
 
-### **📌 `JpaRepository` Methods & Connection to `EntityManager`**  
+### **`JpaRepository` Methods & Connection to `EntityManager`**  
 
 ✅ **Common Methods in `JpaRepository<T, ID>`**  
 ✔ `save(T entity)` → Insert or update an entity.  
@@ -163,7 +147,7 @@ public class User {
 
 ---
 
-### **📌 Entities in JPA**  
+### **Entities in JPA**  
 
 ✔ **Entities = Java classes that define database tables.**  
 ✔ Each entity maps to **one table**, and its fields map to **columns**.  
@@ -236,24 +220,7 @@ User 2 ---> Orders [Order 3]
 
 ---
 
-### **Spring Boot Starters: `spring-boot-starter-data-jpa` & `spring-boot-starter-mysql`**  
 
-✅ **`spring-boot-starter-data-jpa`**  
-- Provides **Spring Data JPA** support.  
-- Includes **Hibernate** as the default JPA implementation.  
-- Simplifies **repository-based database access**.  
-
-✅ **`spring-boot-starter-mysql`**  
-- Includes **JDBC Driver for MySQL**.  
-- Enables MySQL connectivity in Spring Boot applications.  
-
-📌 **Why Use Them?**  
-- Reduce configuration effort.  
-- Auto-configures **JPA + Hibernate + MySQL** with minimal setup.  
-
-🚀 **"Just add the dependency, configure `application.properties`, and you're ready to go!"**
-
----
 
 ### **HikariCP (Spring Boot Default Connection Pool)**  
 
@@ -356,7 +323,7 @@ public class User {
 
 ---
 
-### **📌 Spring Data JPA Repository Interfaces & Hierarchy**  
+### **Spring Data JPA Repository Interfaces & Hierarchy**  
 
 Spring Data JPA provides multiple repository interfaces, each building on top of the previous one for **more functionality**.  
 
@@ -409,41 +376,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 ---
 
-### **Who Implements JPA Repository Interfaces?**  
-
-✔ **Spring Data JPA** provides the implementation at runtime.  
-✔ The **`SimpleJpaRepository`** class is the default implementation.  
-✔ **Spring Boot auto-configures** the repository beans using `@EnableJpaRepositories`.  
-
-💡 **How?**  
-1. **You define an interface (e.g., `UserRepository`) extending `JpaRepository`**.  
-2. **Spring Data JPA dynamically generates the implementation at runtime**.  
-3. **Behind the scenes, `SimpleJpaRepository` handles all method calls using JPA’s `EntityManager`**.  
-
-✅ **No need to write `@Repository` or `@Transactional`—Spring handles it automatically!**
-
-#### **JPA Repository Implementation Behind the Scenes**  
-
-```java
-@Repository
-public class UserRepositoryImpl extends SimpleJpaRepository<User, Long> {
-    
-    private final EntityManager entityManager;
-
-    public UserRepositoryImpl(EntityManager entityManager) {
-        super(User.class, entityManager);
-        this.entityManager = entityManager;
-    }
-}
-```
-
-✅ **`SimpleJpaRepository` is the default implementation**.  
-✅ **Uses `EntityManager` to perform database operations**.  
-✅ **Spring Boot auto-wires this, so you don’t need to implement it manually!**
-
----
-
-### **📌 Steps to Create & Use Spring Data JPA Repository**  
+### **Steps to Create & Use Spring Data JPA Repository**  
 
 ✅ **1. Add Dependencies** → Include Spring Data JPA and database driver in your project.  
 
@@ -495,8 +428,62 @@ public class UserRepositoryImpl extends SimpleJpaRepository<User, Long> {
 
 ✅ **6. Use Service in Controller** → Expose APIs using `@RestController` to interact with the database through the service.  
 
-🚀 **Spring Boot automatically manages the connection between the repository and the database, eliminating the need for writing queries manually!**
+---
 
+###  **JPA Repository Methods**  
+
+#### **🔹 Basic CRUD Methods**  
+| Method                | Description |
+|-----------------------|-------------|
+| `save(T entity)`      | Saves/updates entity |
+| `findById(id)`        | Finds by ID (Optional) |
+| `findAll()`           | Retrieves all records |
+| `deleteById(id)`      | Deletes by ID |
+| `existsById(id)`      | Checks if exists |
+| `count()`             | Total record count |
+
+---
+
+#### **🔹 Finder Methods (`findBy`...)**  
+| Method                                      | Description |
+|---------------------------------------------|-------------|
+| `findByName(String name)`                   | Exact match |
+| `findByNameContaining(String keyword)`      | Partial match (LIKE) |
+| `findByPriceGreaterThan(Double price)`      | Price > given value |
+| `findByNameIgnoreCase(String name)`         | Case-insensitive search |
+
+---
+
+#### **🔹 Sorting & Pagination**  
+| Method                                                 | Description |
+|--------------------------------------------------------|-------------|
+| `findByNameContainingOrderByPriceAsc(String keyword)`  | Sort by price (ascending) |
+| `findByPriceBetween(min, max, Pageable pageable)`      | Price range with pagination |
+
+---
+
+#### **🔹 Custom Queries (`@Query`)**  
+```java
+@Query("SELECT p FROM Product p WHERE p.name LIKE %:name%")
+List<Product> searchByName(@Param("name") String name);
+```
+🔹 JPQL Query for name search  
+
+```java
+@Query(value = "SELECT * FROM product WHERE price > ?1", nativeQuery = true)
+List<Product> findExpensiveProducts(Double price);
+```
+🔹 Native SQL for expensive products  
+
+---
+
+#### **🔥 Quick Recap**
+✅ **CRUD:** `save()`, `findById()`, `findAll()`, `deleteById()`.  
+✅ **Finder:** `findByName()`, `findByPriceGreaterThan()`.  
+✅ **Sorting/Pagination:** `findByNameContainingOrderByPriceAsc()`.  
+✅ **Custom Queries:** `@Query` for complex cases.  
+
+---
 
 
 

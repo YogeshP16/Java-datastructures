@@ -6,6 +6,7 @@
         "PATTERNS/04_TWO_POINTERS/01_ARRAYS",
         "PATTERNS/03_HASHING/01_ARRAYS",
         "PATTERNS/0",
+        "OOP/01_OOP/19_Java 8/06_Streams/00_StreamWorkflow",
         "JAVA_DSA/12_TREE/02_CODE/01_BFS",
         "JAVA_DSA/11_STACKS_QUEUES/CODE",
         "JAVA_DSA/11_STACKS_QUEUES/02_QUEUE",
@@ -13,7 +14,7 @@
         "JAVA_DSA/05_SEARCHING/02_BINARY_SEARCH",
         "JAVA_DSA/03_ARRAYS/01_BASICS",
         "JAVA_DSA/01_BASICS",
-        "OOP/01_OOP/19_Java 8/06_Streams/00_StreamWorkflow"
+        "JAVA_DSA/07_COLLECTIONS/01_LIST"
     ]
     
 }
