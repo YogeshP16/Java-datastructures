@@ -638,6 +638,25 @@ Hello, Spring Boot!
 
 ---
 
+## **What is Lombok?**  
+
+✅ **Lombok Reduces Boilerplate Code**  
+✔ **Auto-generates** getters, setters, constructors, and more.  
+✔ Reduces the need for **manual method writing**.  
+✔ Works at **compile-time** using annotations, download from lombok maven website and install  it to sts app folder.  
+
+✅ **Common Lombok Annotations**  
+✔ `@Getter` / `@Setter` → Generates getters & setters.  
+✔ `@NoArgsConstructor` → No-arg constructor.  
+✔ `@AllArgsConstructor` → Constructor with all fields.  
+✔ `@RequiredArgsConstructor` → Constructor with final fields.  
+✔ `@ToString` → Generates `toString()` method.  
+✔ `@EqualsAndHashCode` → Generates `equals()` & `hashCode()`.  
+✔ `@Data` → Combines `@Getter`, `@Setter`, `@ToString`, `@EqualsAndHashCode`, and `@RequiredArgsConstructor`.  
+
+🚀 **"Lombok = Less Code, More Productivity!"**
+
+---
 
 # **Spring boot configuration**
 
