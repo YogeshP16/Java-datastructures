@@ -485,6 +485,33 @@ List<Product> findExpensiveProducts(Double price);
 
 ---
 
+### **📌 `@Embedded` & `@Embeddable` – Flashcard**  
 
+✅ **What is `@Embedded` & `@Embeddable`?**  
+✔ **`@Embeddable`** → Marks a class as reusable inside an entity.  
+✔ **`@Embedded`** → Used in an entity to include an embeddable class.  
+✔ **Avoids duplicate fields** in multiple entities.  
+✔ **Helps in grouping related fields** (e.g., Address, Contact Info).  
+
+✅ **Example Usage**  
+```java
+@Embeddable
+public class Address {
+    private String city;
+    private String state;
+}
+
+@Entity
+public class User {
+    @Id @GeneratedValue
+    private Long id;
+    
+    @Embedded
+    private Address address;
+}
+```
+🚀 **"Use `@Embedded` to include, `@Embeddable` to define!"**
+
+---
 
 
