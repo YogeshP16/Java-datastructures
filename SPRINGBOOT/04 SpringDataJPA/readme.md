@@ -485,7 +485,7 @@ List<Product> findExpensiveProducts(Double price);
 
 ---
 
-### **📌 `@Embedded` & `@Embeddable` – Flashcard**  
+### **`@Embedded` & `@Embeddable`**  
 
 ✅ **What is `@Embedded` & `@Embeddable`?**  
 ✔ **`@Embeddable`** → Marks a class as reusable inside an entity.  
@@ -514,4 +514,94 @@ public class User {
 
 ---
 
+### **`@Query` in Spring Data JPA**  
+
+✅ **What is `@Query`?**  
+✔ Used to write **custom JPQL or native SQL queries** in Spring Data JPA.  
+✔ Helps when **method names can't express complex queries**.  
+✔ Supports **both JPQL (`nativeQuery = false`) and SQL (`nativeQuery = true`)**.  
+
+✅ **Example Usage**  
+```java
+// JPQL Query
+@Query("SELECT u FROM User u WHERE u.email = :email")
+User findByEmail(@Param("email") String email);
+
+// Native SQL Query
+@Query(value = "SELECT * FROM users WHERE email = :email", nativeQuery = true)
+User findByEmailNative(@Param("email") String email);
+```
+
+---
+
+### **`@Transactional` & `@Modifying` in Spring Data JPA**   
+
+✅ **What is `@Modifying`?**  
+✔ Used with `@Query` for **update, delete, or insert operations**.  
+✔ Tells Spring **query modifies data**, not just fetching.  
+✔ **Requires `@Transactional`** for database consistency.  
+
+✅ **Example Usage**  
+```java
+@Modifying
+@Transactional
+@Query("UPDATE User u SET u.email = :email WHERE u.id = :id")
+int updateEmail(@Param("id") Long id, @Param("email") String email);
+```
+🚀 **"Use `@Modifying` with `@Query` for custom update/delete queries!"**
+
+✅ **What is `@Transactional`?**  
+✔ Ensures **all database operations** in a method run in a **single transaction**.  
+✔ Ensures atomicity in database operations (update, delete, insert).
+✔ **Rolls back automatically** if an exception occurs.   
+✔ By default, only **runtime exceptions trigger rollback** (`@Transactional(rollbackFor = Exception.class)` for all exceptions).  
+
+✅ **Example Usage**  
+```java
+@Service
+public class UserService {
+    
+    @Transactional
+    public void updateUser(Long id, String email) {
+        User user = userRepository.findById(id).orElseThrow();
+        user.setEmail(email);
+        userRepository.save(user);
+    }
+}
+```
+🚀 **"Use `@Transactional` to ensure atomic, rollback-safe operations!"**
+
+---
+
+### **📌 `cascade` in JPA – Flashcard**  
+
+✔ **Cascading means passing operations from parent to child.**  
+✔ If the parent is saved, updated, or deleted, the same happens to the child automatically.  
+✔ Prevents manual handling of child entities.  
+
+✔ Different cascade types define what actions are passed.
+
+##### **Cascade Types & Behavior:**
+
+ALL → Applies all operations (save, update, delete, etc.).
+PERSIST → Saves child when parent is saved.
+REMOVE → Deletes child when parent is deleted.
+MERGE → Updates child when parent updates.
+DETACH → Removes child from persistence context when parent is detached.
+REFRESH → Reloads child from the database when parent refreshes.
+
+🚀 **"Think of it like inheritance for database actions – the child follows the parent’s operations!"**
+
+##### **Fetch Types in JPA**  
+
+✔ **Controls how related entities are loaded from the database.**  
+✔ Used in `@OneToOne`, `@OneToMany`, `@ManyToOne`, `@ManyToMany`.  
+
+✅ **Types & Behavior:**  
+- **EAGER** → Loads related entities **immediately** (default for `@ManyToOne` & `@OneToOne`).  
+- **LAZY** → Loads related entities **only when accessed** (default for `@OneToMany` & `@ManyToMany`).  
+
+🚀 **"LAZY for performance, EAGER for immediate access – choose wisely!"**
+
+---
 
