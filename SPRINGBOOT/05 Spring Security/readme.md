@@ -36,6 +36,24 @@
 2️⃣ Auto-handles authentication & authorization.  
 3️⃣ Generates a default password for login.  
 
+#### **Default Username & Password**  
+💡 **Q:** What is the default username and password when Spring Security is enabled?  
+✅ **A:**  
+- Default **username**: `user`  
+- Default **password**: Auto-generated (logged in the console).  
+- To change it: Set `spring.security.user.name` and `spring.security.user.password` in `application.properties`.  
+
+#### **Method-Level Security**  
+💡 **Q:** What is method-level security in Spring Security?  
+✅ **A:**  
+- Restricts access to specific methods.  
+- Uses `@PreAuthorize`, `@PostAuthorize`, `@Secured`, and `@RolesAllowed`.  
+- Example:  
+  ```java
+  @PreAuthorize("hasRole('ADMIN')")
+  public void secureMethod() { }
+  ``` 
+
 #### **5: What is OAuth 2.0?**
 **Q: What is OAuth 2.0?**  
 **A:**  
@@ -84,6 +102,16 @@ graph TD;
 **A:**  
 ✔ Secure transmission & granular access control.  
 ✔ Avoids exposing credentials in every request.  
+
+#### **JWT (JSON Web Token) in Spring Boot**  
+ **Q: What is JWT, and how does it work in Spring Boot?** 
+ **A:**  
+- Stateless authentication using tokens.  
+- **How it works:**  
+  1. User logs in → Server generates JWT.  
+  2. JWT sent to client → Stored (e.g., local storage).  
+  3. Client sends JWT in headers → Server verifies & authorizes.  
+  4. No session needed → Scalable & secure.  
 
 #### **11: JWT - Why Use JWT?**
 **Q: Why use JWT?**  
@@ -138,6 +166,15 @@ public class JwtUtil {
     }
 }
 ```
-
+#### **15: CSRF Protection**  
+**Q: What is CSRF (Cross-Site Request Forgery) protection in Spring Security?**  
+**A:**  
+- **Prevents unauthorized requests** from malicious sites.  
+- Default **enabled** in Spring Security.  
+- Disabled for APIs using:  
+  ```java
+  http.csrf().disable();
+  ```  
+- Use CSRF token for forms to prevent attacks.  
 ---
-This set provides **quick, structured** insights into **Spring Security**, OAuth2, and JWT with key concepts and workflows. 🚀
+
