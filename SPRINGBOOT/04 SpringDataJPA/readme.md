@@ -605,5 +605,45 @@ REFRESH → Reloads child from the database when parent refreshes.
 
 ---
 
+### **📌 Unidirectional vs. Bidirectional Relationships in JPA**  
+
+✔ **Defines how entities reference each other in a relationship.**  
+
+✅ **Unidirectional** → One entity knows about the other, but not vice versa.  
+- Example: `Order` has a reference to `Customer`, but `Customer` doesn’t know about `Order`.  
+- Simpler, less coupling, but querying in reverse is harder.  
+
+✅ **Bidirectional** → Both entities are aware of each other.  
+- Example: `Order` references `Customer`, and `Customer` also references `Order`.  
+- Requires `mappedBy` in `@OneToMany` to avoid duplicate joins.  
+- More intuitive but increases complexity.  
+
+🚀 **"Unidirectional for simplicity, bidirectional when reverse access is needed!"**
 
 ---
+
+### **📌 JPA Relationships (Mappings) in Simple Terms**  
+
+✔ Defines how entities relate to each other in a database.  
+
+✅ **One-to-One (`@OneToOne`)**  
+- Each entity has exactly **one** related entity.  
+- Example: A **User** has **one** Passport.  
+- **Foreign Key** is in either table.  
+
+✅ **One-to-Many (`@OneToMany`)**  
+- **One** entity is linked to **many** others.  
+- Example: A **Customer** has **multiple** Orders.  
+- **Foreign Key** is in the **child** (Orders table).  
+
+✅ **Many-to-One (`@ManyToOne`)**  
+- **Multiple** entities reference **one** parent.  
+- Example: Many **Orders** belong to **one** Customer.  
+- **Inverse of One-to-Many** (Foreign Key in Orders).  
+
+✅ **Many-to-Many (`@ManyToMany`)**  
+- **Many** entities related to **many** others.  
+- Example: **Students** enrolled in **multiple** Courses.  
+- Requires a **join table** to link records.  
+
+🚀 **"Think in terms of real-world relationships: One-to-Many (Parent-Child), Many-to-One (Child-Parent), Many-to-Many (Friends)."**
