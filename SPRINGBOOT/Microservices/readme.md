@@ -5,8 +5,6 @@
 ✔ Communicates via **REST APIs** or **messaging systems** (e.g., Kafka, RabbitMQ).  
 ✔ Each service has **its own database** (DB per service).  
 
----
-
 #### ✅ **Key Features**  
 ✔ **Independently deployable** 🛠️  
 ✔ **Scalable & fault-tolerant** 🔄  
@@ -14,16 +12,12 @@
 ✔ **Follows Domain-Driven Design (DDD)** 🏗️  
 ✔ **Can be containerized using Docker & Kubernetes** 🐳  
 
----
-
 #### ✅ **Microservices in Spring Boot**  
 Spring Boot provides tools to build microservices easily:  
 ✔ **Spring Cloud** → For distributed systems.  
 ✔ **Spring Boot REST** → To expose APIs.  
 ✔ **Spring Security** → For authentication & authorization.  
 ✔ **Spring Cloud Netflix (Eureka, Zuul, Ribbon)** → For service discovery, API Gateway, and load balancing.  
-
----
 
 #### ✅ **Example: Simple Microservice (REST API)**  
 ```java
@@ -37,13 +31,13 @@ public class UserController {
 }
 ```
 
----
-
-### **💡 Why Microservices?**  
+#### **💡 Why Microservices?**  
 ✔ **Better scalability & flexibility**  
 ✔ **Faster development & deployment**  
 ✔ **Fault isolation – failure in one service doesn't break the entire system**  
 ✔ **Easy to maintain & upgrade** 🚀  
+
+---
 
 ### **Monolithic vs Microservices**  
 
@@ -62,8 +56,6 @@ E-commerce App (One Codebase)
 - Inventory Management  
 ```
 
----
-
 #### ✅ **Microservices Architecture**  
 ✔ **Multiple independent services** → Each service focuses on **one feature**.  
 ✔ **Loosely coupled** → Each service runs **independently**.  
@@ -79,9 +71,7 @@ E-commerce System (Microservices)
 - Inventory Service (Manages stock)
 ```
 
----
-
-### **💡 Key Differences**  
+#### **💡 Key Differences**  
 
 | Feature           | Monolithic 🏛️ | Microservices 🏗️ |
 |------------------|--------------|----------------|
@@ -95,8 +85,9 @@ E-commerce System (Microservices)
 🔹 **Microservices = Flexibility & Scalability 🚀**  
 🔹 **Monolithic = Simplicity for small apps 🏗️**
 
+---
 
-### **Flashcard: Microservice Communication Methods**  
+### **Microservice Communication Methods**  
 
 #### ✅ **1. Synchronous Communication (Blocking)**  
 ✔ **REST (HTTP APIs) 📡** → Services communicate using `GET`, `POST`, etc.  
@@ -113,8 +104,6 @@ String response = restTemplate.getForObject("http://order-service/orders/123", S
 OrderServiceGrpc.OrderServiceBlockingStub stub = OrderServiceGrpc.newBlockingStub(channel);
 OrderResponse response = stub.getOrder(OrderRequest.newBuilder().setId(123).build());
 ```
-
----
 
 #### ✅ **2. Asynchronous Communication (Non-Blocking)**  
 ✔ **Message Brokers (Event-Driven)** → Kafka, RabbitMQ, ActiveMQ.  
@@ -133,9 +122,7 @@ public void processOrder(OrderEvent event) {
 }
 ```
 
----
-
-### **💡 When to Use What?**  
+#### **💡 When to Use What?**  
 | Communication Type  | Use Case |
 |--------------------|---------|
 | **REST (HTTP APIs)** | Request-Response model, simple microservices |
@@ -146,16 +133,16 @@ public void processOrder(OrderEvent event) {
 🔹 **Use REST/gRPC for direct calls,**  
 🔹 **Use Kafka/RabbitMQ for event-driven microservices.** 🚀
 
-### **Flashcard: Service Discovery in Microservices**  
+---
+
+### **Service Discovery in Microservices**  
 
 #### ✅ **What is Service Discovery?**  
 ✔ **Automatically locates services in a dynamic environment** (e.g., Kubernetes, cloud).  
 ✔ Solves the issue of **changing IP addresses** in microservices.  
 ✔ Services register themselves & discover others dynamically.  
 
----
-
-### **🔹 Types of Service Discovery**  
+#### **🔹 Types of Service Discovery**  
 
 #### **1. Client-Side Service Discovery**  
 ✔ Client queries **Service Registry** → Gets service instance → Calls service directly.  
@@ -172,8 +159,6 @@ public RestTemplate restTemplate() {
 // Calling another microservice dynamically
 String response = restTemplate.getForObject("http://ORDER-SERVICE/orders/123", String.class);
 ```
-
----
 
 #### **2. Server-Side Service Discovery**  
 ✔ Client requests **Load Balancer** → Load Balancer queries Service Registry → Routes request to an instance.  
@@ -195,9 +180,7 @@ spec:
 ```
 Clients access `http://order-service`, and Kubernetes routes to available instances.
 
----
-
-### **💡 Key Differences**  
+#### **💡 Key Differences**  
 
 | Type                 | How It Works | Example Tools |
 |---------------------|-------------|--------------|
@@ -207,16 +190,16 @@ Clients access `http://order-service`, and Kubernetes routes to available instan
 ✅ **Use Client-Side Discovery** for **direct control** over service selection.  
 ✅ **Use Server-Side Discovery** when using **cloud-native solutions (AWS, Kubernetes, Istio).** 🚀
 
-### **Flashcard: Eureka in Microservices**  
+---
+
+### **Eureka in Microservices**  
 
 #### ✅ **What is Eureka?**  
 ✔ Eureka is a **service discovery tool** from Netflix, used in Spring Cloud.  
 ✔ Allows microservices to **register themselves** & **discover** other services dynamically.  
 ✔ Helps with **load balancing** and **fault tolerance** in distributed systems.  
 
----
-
-### **🔹 Eureka Components**  
+#### **🔹 Eureka Components**  
 
 #### **1. Eureka Server**  
 ✔ Acts as a **Service Registry** (stores registered services).  
@@ -242,8 +225,6 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
 ```
-
----
 
 #### **2. Eureka Client**  
 ✔ Registers itself with the Eureka Server.  
@@ -271,9 +252,6 @@ eureka:
   instance:
     preferIpAddress: true
 ```
-
----
-
 #### **3. Service Discovery Using Eureka**  
 ✔ Use **RestTemplate** or **Feign Client** to call another service dynamically.  
 
@@ -302,27 +280,22 @@ public interface OrderClient {
 }
 ```
 
----
-
-### **💡 Key Features of Eureka**  
+#### **💡 Key Features of Eureka**  
 ✔ **Self-Registration**: Microservices register themselves.  
 ✔ **Heartbeat Monitoring**: Ensures services are alive.  
 ✔ **Load Balancing**: Distributes traffic among instances.  
 ✔ **Failover Handling**: Routes requests to available instances.  
 
-🔥 **Eureka is mainly used in Spring Boot microservices for dynamic service discovery and load balancing!** 🚀
 ---
 
-### **Flashcard: Spring Cloud Config Server in Microservices**  
+### **Spring Cloud Config Server in Microservices**  
 
 #### ✅ **What is Spring Cloud Config Server?**  
 ✔ A centralized **configuration management system** for microservices.  
 ✔ Stores external configurations in **Git, database, or local files**.  
 ✔ Helps microservices fetch dynamic configurations **without redeployment**.  
 
----
-
-### **🔹 Components of Spring Cloud Config**  
+#### **🔹 Components of Spring Cloud Config**  
 
 #### **1. Config Server (Centralized Configuration Store)**  
 ✔ Acts as a **centralized storage** for configurations.  
@@ -351,8 +324,6 @@ spring:
         git:
           uri: https://github.com/example/config-repo  # Git repo for storing configs
 ```
-
----
 
 #### **2. Config Client (Microservices Fetching Configs)**  
 ✔ Microservices fetch their configurations from the **Config Server**.  
@@ -389,9 +360,7 @@ public class ConfigController {
 }
 ```
 
----
-
-### **🔹 How Spring Cloud Config Works?**  
+#### **🔹 How Spring Cloud Config Works?**  
 1️⃣ **Config Server** fetches configuration from Git or local storage.  
 2️⃣ **Microservices (Clients)** fetch configurations from the Config Server.  
 3️⃣ **Refresh Configs Dynamically** using `@RefreshScope` and `/actuator/refresh`.  
@@ -401,9 +370,7 @@ public class ConfigController {
 POST http://localhost:8080/actuator/refresh
 ```
 
----
-
-### **💡 Key Benefits of Spring Cloud Config**  
+#### **💡 Key Benefits of Spring Cloud Config**  
 ✔ **Centralized Configuration**: Manage all configs in one place.  
 ✔ **Dynamic Updates**: No need to restart microservices.  
 ✔ **Version Control**: Store configs in Git for rollback.  
@@ -411,11 +378,9 @@ POST http://localhost:8080/actuator/refresh
 
 🔥 **Spring Cloud Config Server simplifies configuration management for microservices!** 🚀
 
-### **Flashcard: API Gateway & Spring Cloud Gateway**  
+### **API Gateway & Spring Cloud Gateway**  
 
----
-
-### **✅ What is an API Gateway?**  
+#### **✅ What is an API Gateway?**  
 ✔ A single entry point for **all client requests** in a microservices architecture.  
 ✔ Handles **routing, authentication, rate limiting, logging, and security**.  
 ✔ Helps in **hiding internal microservice structure** from clients.  
@@ -426,9 +391,7 @@ POST http://localhost:8080/actuator/refresh
 - **Netflix Zuul**  
 - **AWS API Gateway**  
 
----
-
-### **🔹 Spring Cloud Gateway (SCG)**  
+#### **🔹 Spring Cloud Gateway (SCG)**  
 ✔ Built on **Spring WebFlux (Reactive Programming)**.  
 ✔ Replaces **Netflix Zuul** for modern microservices.  
 ✔ Uses **filters & predicates** for routing requests dynamically.  
@@ -454,7 +417,7 @@ spring:
 
 ---
 
-### **💡 Key Features of Spring Cloud Gateway**  
+#### **💡 Key Features of Spring Cloud Gateway**  
 
 | Feature            | Description |
 |-------------------|-------------|
@@ -466,7 +429,7 @@ spring:
 
 ---
 
-### **✅ API Gateway vs. Spring Cloud Gateway**  
+#### **✅ API Gateway vs. Spring Cloud Gateway**  
 
 | Feature              | API Gateway (General) | Spring Cloud Gateway |
 |----------------------|----------------------|----------------------|
@@ -478,7 +441,7 @@ spring:
 
 ---
 
-### **💡 When to Use Spring Cloud Gateway?**  
+#### **💡 When to Use Spring Cloud Gateway?**  
 ✔ If using **Spring Boot + Microservices** (Best Fit 🚀).  
 ✔ Need **fine-grained control** over request handling.  
 ✔ Require **integrations with Eureka, Circuit Breakers, Security**.  
@@ -486,11 +449,11 @@ spring:
 ✅ **Spring Cloud Gateway is the go-to solution** for Spring-based microservices architectures! 🚀
 
 
-### **Flashcard: Circuit Breaker & Resilience in Microservices**  
+### **Circuit Breaker & Resilience in Microservices**  
 
 ---
 
-### **✅ What is a Circuit Breaker?**  
+#### **✅ What is a Circuit Breaker?**  
 ✔ A **fault tolerance mechanism** that prevents a system from repeatedly calling a failing service.  
 ✔ **Stops cascading failures** and **improves system stability**.  
 ✔ Works like an **electrical circuit breaker**:  
@@ -500,7 +463,7 @@ spring:
 
 ---
 
-### **🔹 Circuit Breaker States**  
+#### **🔹 Circuit Breaker States**  
 
 | State         | Description |
 |--------------|-------------|
@@ -510,7 +473,7 @@ spring:
 
 ---
 
-### **✅ Resilience4j (Circuit Breaker Library)**  
+#### **✅ Resilience4j (Circuit Breaker Library)**  
 ✔ A **lightweight Java library** for resilience in microservices.  
 ✔ Provides **Circuit Breaker, Rate Limiter, Bulkhead, Retry mechanisms**.  
 
@@ -535,7 +498,7 @@ public String fallbackResponse(Exception e) {
 
 ---
 
-### **✅ Bulkhead Pattern** (Another Resilience Mechanism)  
+#### **✅ Bulkhead Pattern** (Another Resilience Mechanism)  
 ✔ **Isolates failures** by limiting concurrent requests to a service.  
 ✔ Prevents **one slow service from affecting others**.  
 
@@ -552,7 +515,7 @@ public String getUserData() {
 
 ---
 
-### **✅ Circuit Breaker vs. Bulkhead**  
+#### **✅ Circuit Breaker vs. Bulkhead**  
 
 | Feature         | Circuit Breaker | Bulkhead |
 |---------------|---------------|-----------|
@@ -562,7 +525,7 @@ public String getUserData() {
 
 ---
 
-### **💡 Why Use Resilience4j?**  
+#### **💡 Why Use Resilience4j?**  
 ✔ Lightweight & **Spring Boot-friendly**.  
 ✔ Works with **Spring Cloud Gateway** & **Feign Clients**.  
 ✔ Provides **advanced resilience patterns** (Retry, Rate Limiter, etc.).  
@@ -572,21 +535,17 @@ public String getUserData() {
 - **Use Bulkhead** to **limit resource usage**.  
 - **Use Retry** to **retry transient failures**.  
 
-🚀 **Resilience4j makes microservices fault-tolerant & stable!**
 ---
 
-### **Flashcard: Securing Microservices**  
 
----
+### **Securing Microservices**  
 
-### **✅ Why Secure Microservices?**  
+#### **✅ Why Secure Microservices?**  
 ✔ Prevents **unauthorized access** and **data breaches**.  
 ✔ Ensures **secure communication** between services.  
 ✔ Protects **sensitive information** (API keys, tokens, user data).  
 
----
-
-### **🔹 Key Security Mechanisms**  
+#### **🔹 Key Security Mechanisms**  
 
 #### **1️⃣ Authentication & Authorization**  
 ✔ **Authentication** → Verifies **who** the user is (e.g., JWT, OAuth2).  
@@ -607,7 +566,6 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
 - Secures `/admin/**` endpoints for **only ADMIN users**.  
 - Uses **JWT (JSON Web Token)** for authentication.  
 
----
 
 #### **2️⃣ API Gateway Security**  
 ✔ **Acts as a centralized security layer** for microservices.  
@@ -630,7 +588,6 @@ spring:
 - Filters **unauthenticated requests** before reaching microservices.  
 - Validates **JWT tokens** centrally in API Gateway.  
 
----
 
 #### **3️⃣ Secure Service-to-Service Communication**  
 ✔ Use **OAuth2 or API Keys** for internal microservice calls.  
@@ -648,7 +605,6 @@ public interface UserServiceClient {
 - Every request to `user-service` includes an **OAuth2 token**.  
 - Only authenticated services can communicate.  
 
----
 
 #### **4️⃣ Data Encryption & Secure Storage**  
 ✔ Use **HTTPS (SSL/TLS)** for data in transit.  
@@ -663,7 +619,6 @@ spring.datasource.password=ENC(UHh0pJ9H3sdU1J0a)
 - **Database passwords** are encrypted.  
 - Only **authorized services** can decrypt them.  
 
----
 
 #### **5️⃣ Rate Limiting & Throttling**  
 ✔ Prevents **DDoS attacks** and **abuse**.  
@@ -680,29 +635,24 @@ public String getUserData() {
 - Limits the **number of requests** per second.  
 - Calls `fallback()` if the limit is exceeded.  
 
----
 
-### **💡 Key Takeaways**  
+#### **💡 Key Takeaways**  
 ✅ **Use OAuth2 + JWT** for authentication.  
 ✅ **Secure API Gateway** to protect microservices.  
 ✅ **Encrypt data & secrets** using secure storage.  
 ✅ **Limit requests** to prevent abuse.  
 ✅ **Enable HTTPS & mTLS** for secure communication.  
 
-🚀 **Security is crucial for scalable, reliable microservices!** 🔐
-
-### **Flashcard: Saga Pattern in Distributed Transactions**  
-
 ---
 
-### **✅ What is the Saga Pattern?**  
+### **Saga Pattern in Distributed Transactions**  
+
+#### **✅ What is the Saga Pattern?**  
 ✔ Used for **managing distributed transactions** across multiple microservices.  
 ✔ Ensures **data consistency** in the absence of a global transaction manager.  
 ✔ Uses **a series of local transactions** instead of a single global transaction.  
 
----
-
-### **🔹 How Saga Works?**  
+#### **🔹 How Saga Works?**  
 
 There are **two types** of Saga patterns:  
 
@@ -718,8 +668,6 @@ There are **two types** of Saga patterns:
 
 💡 **Key Point:** If any step fails, compensating actions are triggered (e.g., **refund payment** if stock is unavailable).  
 
----
-
 #### **2️⃣ Orchestration-Based Saga** (Central Coordinator)  
 ✔ Uses a **Saga Orchestrator** to control transaction flow.  
 ✔ Services **don’t communicate directly**; instead, they get commands from the orchestrator.  
@@ -734,9 +682,7 @@ There are **two types** of Saga patterns:
 
 💡 **Key Point:** The orchestrator handles **rollback (compensating transactions)** if a failure occurs.  
 
----
-
-### **🔹 Compensating Transactions (Rollback Mechanism)**  
+#### **🔹 Compensating Transactions (Rollback Mechanism)**  
 ✔ If one service fails, previous actions **must be undone**.  
 ✔ Compensation ensures **eventual consistency**.  
 
@@ -744,36 +690,28 @@ There are **two types** of Saga patterns:
 - **Payment was deducted**, but stock is unavailable.  
 - Orchestrator triggers **compensating transaction** → **Refund payment**.  
 
----
-
-### **🔹 When to Use Saga?**  
+#### **🔹 When to Use Saga?**  
 ✔ When **transactions span multiple microservices**.  
 ✔ When a **global transaction manager (2PC) is not feasible**.  
 ✔ When **eventual consistency is acceptable**.  
 
----
-
-### **💡 Key Takeaways**  
+#### **💡 Key Takeaways**  
 ✅ **Saga replaces global transactions** in microservices.  
 ✅ **Choreography (Event-Based)** → Best for **simple workflows**.  
 ✅ **Orchestration (Central Coordinator)** → Best for **complex workflows**.  
 ✅ **Compensating transactions** ensure rollback in case of failure.  
 ✅ **Eventual consistency** instead of strict ACID guarantees.  
 
-🚀 **Saga helps maintain data integrity in distributed systems!** 🔄
-
-### **Flashcard: Logging & Tracing in Microservices (Sleuth & Zipkin)**  
-
 ---
 
-### **✅ Why Logging & Tracing in Microservices?**  
+### **Logging & Tracing in Microservices (Sleuth & Zipkin)**  
+
+#### **✅ Why Logging & Tracing in Microservices?**  
 ✔ Microservices are distributed → Hard to debug issues.  
 ✔ Need to **track requests** as they pass through multiple services.  
 ✔ Helps in **monitoring performance & troubleshooting errors**.  
 
----
-
-### **🔹 What is Spring Cloud Sleuth?**  
+#### **🔹 What is Spring Cloud Sleuth?**  
 ✔ Adds **unique trace IDs** and **span IDs** to requests.  
 ✔ Automatically propagates trace information across services.  
 ✔ Integrates with logging frameworks (e.g., SLF4J, Logback).  
@@ -794,10 +732,7 @@ There are **two types** of Saga patterns:
     <artifactId>spring-cloud-starter-sleuth</artifactId>
 </dependency>
 ```
-
----
-
-### **🔹 What is Zipkin?**  
+#### **🔹 What is Zipkin?**  
 ✔ Distributed tracing system for **visualizing request flow**.  
 ✔ Collects and stores tracing data from services.  
 ✔ Helps analyze **latency & performance bottlenecks**.  
@@ -816,16 +751,13 @@ spring.zipkin.base-url=http://localhost:9411
 spring.sleuth.sampler.probability=1.0  # 100% sampling
 ```
 
----
-
-### **🔹 How Sleuth & Zipkin Work Together?**  
+#### **🔹 How Sleuth & Zipkin Work Together?**  
 1️⃣ **Sleuth** adds trace/span IDs to logs.  
 2️⃣ **Services propagate** trace info via HTTP headers (`X-B3-TraceId`, `X-B3-SpanId`).  
 3️⃣ **Zipkin collects traces** from all services and visualizes them.  
 
----
 
-### **🔹 Benefits of Logging & Tracing in Microservices**  
+#### **🔹 Benefits of Logging & Tracing in Microservices**  
 ✅ **Request tracking** across multiple services.  
 ✅ **Detect latency issues** and bottlenecks.  
 ✅ **Debugging made easier** with structured trace logs.  
