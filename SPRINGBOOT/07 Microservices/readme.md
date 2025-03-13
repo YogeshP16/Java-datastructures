@@ -764,3 +764,79 @@ spring.sleuth.sampler.probability=1.0  # 100% sampling
 
 🚀 **Sleuth + Zipkin = Easy Distributed Tracing!** 🔍
 
+---
+
+### **How M2 Communicates with M1 If M1 Crashes?**  
+
+When Microservice **M1** crashes, **M2** can handle it using **fault-tolerant mechanisms** to ensure system reliability.
+
+#### ✅ **1. Retry Mechanism**  
+- If M1 is temporarily down, M2 can **retry** the request.  
+- Implemented using **Spring Retry** or client-side retries (e.g., Feign Retry).  
+
+✅ **Example (Spring Retry)**  
+```java
+@Retryable(value = Exception.class, maxAttempts = 3, backoff = @Backoff(delay = 2000))
+public String callM1() {
+    return restTemplate.getForObject("http://M1/service", String.class);
+}
+```
+
+#### ✅ **2. Circuit Breaker (Resilience4j / Hystrix)**  
+- Prevents M2 from repeatedly calling a failing M1.  
+- If M1 is **unavailable**, return a **fallback response**.  
+
+✅ **Example (Resilience4j Circuit Breaker)**  
+```java
+@CircuitBreaker(name = "m1Service", fallbackMethod = "fallbackResponse")
+public String callM1() {
+    return restTemplate.getForObject("http://M1/service", String.class);
+}
+
+public String fallbackResponse(Exception e) {
+    return "M1 is down, returning fallback response!";
+}
+```
+
+#### ✅ **3. Service Discovery & Load Balancing (Eureka / Consul)**  
+- If M1 has multiple instances, **Service Discovery** can redirect M2 to a healthy instance.  
+- **Ribbon / Load Balancer** can distribute traffic among available instances.  
+
+✅ **Example (Eureka Client)**  
+```java
+@LoadBalanced
+@Bean
+public RestTemplate restTemplate() {
+    return new RestTemplate();
+}
+```
+
+✅ **Calling M1 via Service Name**  
+```java
+restTemplate.getForObject("http://M1/service", String.class);
+```
+
+#### ✅ **4. Message Queue (Asynchronous Communication - Kafka/RabbitMQ)**  
+- Instead of direct calls, M2 **publishes** a message to a queue.  
+- When M1 **recovers**, it processes the message asynchronously.  
+
+✅ **Example (Kafka Producer - M2)**  
+```java
+kafkaTemplate.send("m1-topic", "Request to M1");
+```
+
+✅ **Example (Kafka Consumer - M1)**  
+```java
+@KafkaListener(topics = "m1-topic", groupId = "m1-group")
+public void processMessage(String message) {
+    System.out.println("Processing: " + message);
+}
+```
+
+#### **🚀 Best Approach?**  
+🔹 If M1 is **temporarily down** → Use **Retry Mechanism**.  
+🔹 If M1 is **frequently failing** → Use **Circuit Breaker**.  
+🔹 If M1 has **multiple instances** → Use **Service Discovery & Load Balancing**.  
+🔹 If M2 needs to continue **without waiting** → Use **Message Queue**.  
+
+🔹 **Hybrid Approach** (Circuit Breaker + Retry + Asynchronous Messaging) ensures the best reliability! 🚀
