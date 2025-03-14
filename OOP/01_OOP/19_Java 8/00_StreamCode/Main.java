@@ -8,6 +8,7 @@ class Main {
     public static void main(String[] args) {
         System.out.println("Hello there !");
 
+
         /*prin list using stream
         List<String>  list = Arrays.asList("Hello", "there");
         list.stream().forEach(names -> System.out.println(names));
@@ -117,6 +118,14 @@ class Main {
         List<String> words = Arrays.asList("Hello", "hello", "Hi", "Hi", "Hi", "there");
         String longestWord = words.stream().max(Comparator.comparing(String::length)).orElse(null);
         System.out.println(longestWord); */
+
+        // find common elements between two  list
+        List<Integer> list1 = Arrays.asList(1,2,3,4);
+        List<Integer> list2 = Arrays.asList(2,3,5,6);
+        List<Integer> findCommon = list1.stream().filter(list2::contains).collect(Collectors.toList());
+        System.out.println(findCommon);
+
+
         
 
 
