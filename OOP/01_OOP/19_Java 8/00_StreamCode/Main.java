@@ -175,15 +175,19 @@ class Main {
         // skip -> 1 means  second max, 2 -> means third max
         List<Integer> list5 = Arrays.asList(1,2,3,4,89,67,100);
         Integer nthMax = list5.stream().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
-        System.out.println(nthMax);  */
+        System.out.println(nthMax);  
 
         // find smallest value
         List<Integer> list = Arrays.asList(1,2,3,4,89,67,100);
         Integer nthMin = list.stream().sorted(Comparator.naturalOrder()).skip(1).findFirst().get();
         System.out.println(nthMin);
 
-        // top 3 heihestpaid employee
-        List<Employee>
+        // top 3 highest paid employee
+        List<Employee> top3Employees = employees.stream()
+                .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
+                .limit(3)
+                .collect(Collectors.toList()); */
+        
 
 
 
