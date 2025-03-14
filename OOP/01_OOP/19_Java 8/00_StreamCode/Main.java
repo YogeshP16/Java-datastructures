@@ -170,7 +170,7 @@ class Main {
         List<String> words2 = Arrays.asList("hello","Hi", "fi");
         Map<Integer, List<String>> grouingBy = Stream.concat(words1.stream(), words2.stream()).distinct().collect(Collectors.groupingBy(String::length));
         System.out.println(grouingBy);
-
+  
         // find second max value or salary
         // skip -> 1 means  second max, 2 -> means third max
         List<Integer> list5 = Arrays.asList(1,2,3,4,89,67,100);
