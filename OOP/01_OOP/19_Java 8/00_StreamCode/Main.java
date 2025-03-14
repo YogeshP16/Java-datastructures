@@ -139,6 +139,11 @@ class Main {
         List<String> startWithA  = names.stream().filter(n -> n.startsWith("A")).collect(Collectors.toList());
         System.out.println(startWithA);
 
+        // find last String in list
+        List<String> words = Arrays.asList("Hello", "Hi", "there");
+        String res = words.stream().skip(words.size()-1).findFirst().get();
+        System.out.println(res);
+
         // flatten  the list
         List<List<Integer>> nestedList = Arrays.asList(
             Arrays.asList(1,2,3),
@@ -173,7 +178,7 @@ class Main {
 
             // find fiff in list4
         List<Integer> findDiffL4 = list4.stream().filter(e -> !list3.contains(e)).collect(Collectors.toList());
-        
+
             // merge both
         List<Integer> unique = new ArrayList<>();
         unique.addAll(findDiffL3);
@@ -205,13 +210,14 @@ class Main {
         Map<Integer, List<String>> grouingBy = Stream.concat(words1.stream(), words2.stream()).distinct().collect(Collectors.groupingBy(String::length));
         System.out.println(grouingBy);
   
- 
 
-
-        
-        
 
         */
+
+      
+
+
+
 
         
         
