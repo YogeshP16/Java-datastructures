@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class Main {
     public static void main(String[] args) {
@@ -117,13 +119,86 @@ class Main {
         // Find longest word in List
         List<String> words = Arrays.asList("Hello", "hello", "Hi", "Hi", "Hi", "there");
         String longestWord = words.stream().max(Comparator.comparing(String::length)).orElse(null);
-        System.out.println(longestWord); */
+        System.out.println(longestWord); 
 
         // find common elements between two  list
         List<Integer> list1 = Arrays.asList(1,2,3,4);
         List<Integer> list2 = Arrays.asList(2,3,5,6);
         List<Integer> findCommon = list1.stream().filter(list2::contains).collect(Collectors.toList());
         System.out.println(findCommon);
+
+        List<String> words1 = Arrays.asList("Hello", "Hi", "there");
+        List<String> words2 = Arrays.asList("Hello","Hi", "Hi");
+        List<String> findCommonStrings = words1.stream().filter(words2::contains).collect(Collectors.toList());
+        System.out.println(findCommonStrings);
+
+        // find difference (unique) between two list
+        // element present in one list but not in others
+        List<Integer> list3 = Arrays.asList(1,2,3,4);
+        List<Integer> list4 = Arrays.asList(2,3,5,6);
+            // find diif in list 3
+        List<Integer> findDiffL3 = list3.stream().filter(e -> !list4.contains(e)).collect(Collectors.toList());
+            // find fiff in list4
+        List<Integer> findDiffL4 = list4.stream().filter(e -> !list3.contains(e)).collect(Collectors.toList());
+            // merge both
+        List<Integer> unique = new ArrayList<>();
+        unique.addAll(findDiffL3);
+        unique.addAll(findDiffL4);
+        System.out.println(unique);  
+
+        // merge two list without duplicates
+        List<Integer> list1 = Arrays.asList(1,2,2,3,4);
+        List<Integer> list2 = Arrays.asList(8,2,3,5,6);
+        List<Integer> merge = Stream.concat(list1.stream(), list2.stream()).distinct().collect(Collectors.toList());
+        System.out.println(merge); 
+
+        // merger two list sorted order
+        List<Integer> list1 = Arrays.asList(1,2,2,3,4);
+        List<Integer> list2 = Arrays.asList(8,2,3,5,6);
+        List<Integer> mergerIntegerSortedOrder = Stream.concat(list1.stream(),list2.stream()).distinct().sorted().collect(Collectors.toList());
+        System.out.println(mergerIntegerSortedOrder);   
+
+        // Convert to Uppercase
+        List<String> words1 = Arrays.asList("Hello", "Hi", "there");
+        List<String> words2 = Arrays.asList("Hello","Hi", "Hi");
+        List<String> toUppeStrings = Stream.concat(words1.stream(), words2.stream()).map(String::toUpperCase).distinct().collect(Collectors.toList());
+        System.out.println(toUppeStrings
+        ); 
+
+        // Group words by length  from both list
+        List<String> words1 = Arrays.asList("Hello", "Hi", "there");
+        List<String> words2 = Arrays.asList("hello","Hi", "fi");
+        Map<Integer, List<String>> grouingBy = Stream.concat(words1.stream(), words2.stream()).distinct().collect(Collectors.groupingBy(String::length));
+        System.out.println(grouingBy);
+
+        // find second max value or salary
+        // skip -> 1 means  second max, 2 -> means third max
+        List<Integer> list5 = Arrays.asList(1,2,3,4,89,67,100);
+        Integer nthMax = list5.stream().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+        System.out.println(nthMax);  */
+
+        // find smallest value
+        List<Integer> list = Arrays.asList(1,2,3,4,89,67,100);
+        Integer nthMin = list.stream().sorted(Comparator.naturalOrder()).skip(1).findFirst().get();
+        System.out.println(nthMin);
+
+        // top 3 heihestpaid employee
+        List<Employee>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
         
