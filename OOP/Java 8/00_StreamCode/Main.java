@@ -84,6 +84,11 @@ class Main {
         Map<Character, Long> charOccurrence = str2.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(c -> c, Collectors.counting()));
         System.out.println(charOccurrence);
 
+        // find firsy non repeating charaters
+        String str = "aaabccd";
+        Character result = str.chars().mapToObj(c -> (char) c).filter(ch -> str.indexOf(ch) == str.lastIndexOf(ch)).findFirst().orElse(null);
+        System.out.println(result);
+
         // joining he sentence
         List<String> words = Arrays.asList("Hello", "hello", "Hi", "Hi", "Hi", "there");
         String sentence = words.stream().collect(Collectors.joining(" "));
@@ -92,12 +97,7 @@ class Main {
         // Find longest word in List
         List<String> words = Arrays.asList("Hello", "hello", "Hi", "Hi", "Hi", "there");
         String longestWord = words.stream().max(Comparator.comparing(String::length)).orElse(null);
-        System.out.println(longestWord);
-
-        // find firsy non repeating charaters
-        String str = "aaabccd";
-        Character result = str.stream().mapToObj(c -> (char) c).filter(ch -> input.indexOf(ch) == input.lastIndexOf(ch)).findFirst().orElse(null);
-        System.out.println(result); 
+        System.out.println(longestWord); 
 
         // sort employee by salary
         List<Employee> sorted = employees.stream().sorted(Comparator<T>.comparingInt(e -> e.salary)).collect(Collectors.toList());
@@ -211,8 +211,11 @@ class Main {
         System.out.println(grouingBy);
   
 
-
         */
+
+
+
+        
 
       
 
