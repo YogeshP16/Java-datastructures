@@ -3,9 +3,8 @@
 
     
     "java.project.sourcePaths": [
-        "OOP/01_OOP/19_Java 8/00_StreamCode",
-        "LLD/01 Basics",
-        "OOP/Java 8/00_StreamCode"
+        "OOP/Java 8/00_StreamCode",
+        "PATTERNS/01 HASHING/01_ARRAYS"
     ]
     
 }
