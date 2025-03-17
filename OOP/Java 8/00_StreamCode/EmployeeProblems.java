@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 class Employee {
@@ -10,6 +11,14 @@ class Employee {
     private String city;
     private int age;
     private String gender;
+
+ 
+
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", name=" + name + ", role=" + role + ", department=" + department + ", salary="
+                + salary + ", city=" + city + ", age=" + age + ", gender=" + gender + "]";
+    }
 
     public Employee(int id, String name, String role, String department, double salary, String city, int age, String gender) {
         this.id = id;
@@ -25,11 +34,24 @@ class Employee {
     public int getAge() { return age; }
     public String getName() { return name; }
     public double getSalary() { return salary; }
-
-    @Override
-    public String toString() {
-        return "Employee{name='" + name + "', salary=" + salary + "}";
+    public String getDepartment() { return department; }
+    public int getId() {
+        return id;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+   
 }
 
 public class EmployeeProblems {
@@ -44,7 +66,7 @@ public class EmployeeProblems {
             new Employee(7, "Zoya", "Developer", "IT", 70000, "Boston", 45, "female")
         );
 
-        // Get the highest salary employee (1st highest)
+        /*  Get the highest salary employee (1st highest)
         Optional<Employee> highest = employees.stream()
             .max(Comparator.comparing(Employee::getSalary));
         highest.ifPresent(emp -> System.out.println("Highest Salary Employee: " + emp));
@@ -66,7 +88,7 @@ public class EmployeeProblems {
             .sorted(Comparator.comparing(Employee::getSalary))
             .skip(1)
             .findFirst();
-        secondLowest.ifPresent(emp -> System.out.println("Second Lowest Salary Employee: " + emp));
+        secondLowest.ifPresent(emp -> System.out.println("Second Lowest Salary Employee: " + emp)); 
 
         // Group employee by age and return total sum of salaries
         Map<Integer, Double> salaryByAge = employees.stream()
@@ -75,7 +97,18 @@ public class EmployeeProblems {
                 Collectors.summingDouble(Employee::getSalary)));
 
         salaryByAge.forEach((age, totalSalary) -> 
-            System.out.println("Age: " + age + ", Total Salary: " + totalSalary));
+            System.out.println("Age: " + age + ", Total Salary: " + totalSalary)); */
+
+        // Group employee by department and return name and city
+        Map<String, List<Map<String, String>>> res = employees.stream()
+            .collect(Collectors.groupingBy(
+                Employee::getDepartment,
+                Collectors.mapping(emp -> Map.of("name", emp.getName(), "city", emp.getCity()),Collectors.toList())));
+        System.out.println(res);
+
+        
+
+
 
     }
 }
