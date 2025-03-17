@@ -6,6 +6,8 @@ https://leetcode.com/problems/reverse-string/
 
 https://leetcode.com/problems/rotate-array/description/
 
+https://www.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1?utm_source=chatgpt.com
+
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 
 https://leetcode.com/problems/find-the-duplicate-number/description/
