@@ -3,8 +3,9 @@
 
     
     "java.project.sourcePaths": [
+        "PATTERNS/01 HASHING/01_ARRAYS",
         "OOP/Java 8/00_StreamCode",
-        "PATTERNS/01 HASHING/01_ARRAYS"
+        "PATTERNS/0"
     ]
     
 }

@@ -26,6 +26,12 @@ public class O01_CountFrequency {
         // Optimized approach
         Map<Integer, Integer> result1 = countFreq(arr);
         printFrequency(result1);
+
+        // most frequent elements
+        int[] arr2 = {1,1,1,22,2,2,2,4,4,5,6,6,6,6,7};
+        Integer result2 = countMostFrequent(arr2);
+        System.out.println("Most frequent element: " + result2);
+
     }
 
     // Brute force --> tc- O(n^2) sc- O(n)
@@ -50,6 +56,25 @@ public class O01_CountFrequency {
             count.put(i, count.getOrDefault(i, 0)+1);
         }
         return count;
+    }
+
+    // find most frequent number
+    static int countMostFrequent(int[] arr2){
+        int maxFreq = 0;
+        int maxElement = -1;
+
+        Map <Integer, Integer> count = new HashMap<>();
+        for(Integer i : arr2){
+            count.put(i, count.getOrDefault(i, 0)+1);
+        }
+
+        for (Map.Entry<Integer, Integer> entry : count.entrySet()){
+            if(entry.getValue() > maxFreq){
+                maxFreq = entry.getValue();
+                maxElement = entry.getKey();
+            }
+        }
+        return maxElement;
     }
 
     // Print frequency of elements

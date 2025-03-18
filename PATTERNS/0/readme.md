@@ -38,6 +38,7 @@ https://leetcode.com/problems/intersection-of-two-arrays/ArrayList
 
 HashMap
 https://leetcode.com/problems/most-common-word/
+https://www.geeksforgeeks.org/problems/most-frequent-element-in-an-array/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
 
 
 Linked List
