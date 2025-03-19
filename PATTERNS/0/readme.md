@@ -1,4 +1,7 @@
-https://leetcode.com/problems/rearrange-array-elements-by-sign/description/
+
+
+
+
 
 https://www.geeksforgeeks.org/problems/first-and-last-occurrences-of-x3116/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
 
@@ -32,14 +35,25 @@ https://leetcode.com/problems/happy-number/
 
 two pointer
 https://leetcode.com/problems/sort-colors/
-
 https://leetcode.com/problems/intersection-of-two-arrays/ArrayList
+https://www.geeksforgeeks.org/reverse-an-array-in-groups-of-given-size/
 
 
 HashMap
 https://leetcode.com/problems/most-common-word/
 https://www.geeksforgeeks.org/problems/most-frequent-element-in-an-array/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
 
+
+Cyclic sort
+
+https://leetcode.com/problems/find-the-duplicate-number/description/?utm_source=chatgpt.com
+https://leetcode.com/problems/find-all-duplicates-in-an-array/submissions/1577764294/?utm_source=chatgpt.com
+https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+https://leetcode.com/problems/missing-number/description/
+https://leetcode.com/problems/first-missing-positive/description/
+
+Math
+https://leetcode.com/problems/single-number/
 
 Linked List
 https://leetcode.com/problems/remove-duplicates-from-sorted-list/submissions/1539231324/
@@ -91,6 +105,11 @@ https://www.geeksforgeeks.org/problems/search-a-node-in-bst/1
 
 
 
+
+Here are the LeetCode problems for the **intersection of two arrays**:  
+
+1. **[Intersection of Two Arrays (LeetCode 349)](https://leetcode.com/problems/intersection-of-two-arrays/)** – Find the unique common elements between two arrays.  
+2. **[Intersection of Two Arrays II (LeetCode 350)](https://leetcode.com/problems/intersection-of-two-arrays-ii/)** – Find all common elements, including duplicates.  
 
 
 
