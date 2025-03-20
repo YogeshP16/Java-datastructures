@@ -1,1898 +1,969 @@
-### **Flashcards: Java Basics**  
+##  **Java Class & Object**
 
----
+### **What is a Class?**
+- **Definition**: A class is a blueprint or template for creating objects.
+- **Why It’s Used**: Defines what an object will look like and what it can do. It promotes code reusability and organization.
+- **What It Does**: A class defines **properties** (fields) and **methods** (behaviors).
 
-### **🔹 What is Java?**  
-✔ **Platform-independent** object-oriented programming language.  
-✔ **"Write Once, Run Anywhere"** – Java programs run on any OS with a JVM.  
-✔ Java code is both **compiled** (to bytecode) and **interpreted** (by JVM).  
+#### **How It Works?**
+1. **Fields (Properties)**: Variables that define the state of the object (e.g., `color`, `speed`).
+2. **Methods (Behaviors)**: Functions that define what actions the object can perform (e.g., `startEngine()`, `accelerate()`).
 
----
-
-### **🔹 Java Development Components**  
-
-| Component | Contains | Purpose |
-|-----------|----------|---------|
-| **JDK (Java Development Kit)** | JRE + Compiler + Debugger | For **development** (compiling & running Java apps) |
-| **JRE (Java Runtime Environment)** | JVM + Libraries | For **running** Java applications |
-| **JVM (Java Virtual Machine)** | Class Loader + Runtime Memory + Execution Engine | Converts **bytecode** to machine code |
-
----
-
-### **🔹 JVM Key Components**  
-
-✔ **Class Loader** → Loads `.class` files into memory.  
-✔ **Runtime Memory** → Manages **Stack, Heap, Method Area**.  
-✔ **Execution Engine** → Interprets bytecode & runs it.  
-
-✅ **How Java Runs Code?**  
-1️⃣ **Java Source Code (`.java`)** → **Compiled to Bytecode (`.class`)**  
-2️⃣ **JVM loads Bytecode** → Converts to **Machine Code** → Executes 🚀  
-
----
-
-### **🔹 JIT (Just-In-Time) Compiler**  
-✔ Converts **bytecode** to **native machine code** **at runtime**.  
-✔ **Improves Performance** by reducing repeated interpretation.  
-
----
-
-### **🔹 Why Java is NOT 100% Object-Oriented?**  
-✔ **Primitive types** (`int, double, boolean`) are not objects.  
-✔ **Wrapper classes** (`Integer`, `Double`, `Boolean`) provide an object alternative.  
-
-✅ **Example:**  
-```java
-int num = 10;  // Primitive type
-Integer obj = Integer.valueOf(num); // Wrapper class
-```
-
-### **Flashcards: Java Basics**  
-
----
-
-### **🔹 Data Types in Java**  
-✔ **Primitive Types** → `byte`, `short`, `int`, `long`, `float`, `double`, `char`, `boolean`.  
-✔ **Reference Types** → `String`, `Array`, `Class` (Require memory allocation).  
-
----
-
-### **🔹 Reserved Keywords**  
-✔ **Modifiers** → `abstract`, `final`.  
-✔ **Inheritance** → `interface`, `super`.  
-
----
-
-### **🔹 Identifiers & Literals**  
-✔ **Identifier** → Name for **class, variable, or method**.  
-✔ **Literals** → Constant values assigned to variables (`10`, `3.14`, `'A'`, `true`).  
-
----
-
-### **🔹 Type Casting in Java**  
-✔ **Automatic Type Conversion (Widening)** → **Small → Large** (`int` → `long`).  
-✔ **Explicit Type Casting (Narrowing)** → **Large → Small** (`double` → `int`).  
-
-✅ **Example:**  
-```java
-int num = 10;
-double d = num;  // Automatic (Widening)
-double x = 5.5;
-int y = (int) x; // Explicit (Narrowing)
-```
-
----
-
-### **🔹 Boolean Logical Operators**  
-| Operator | Meaning | Example |
-|----------|---------|----------|
-| `&&` (AND) | True if **both** conditions are true | `if (a > 5 && b < 10)` |
-| `||` (OR) | True if **at least one** condition is true | `if (x == 5 || y == 3)` |
-| `!` (NOT) | **Inverts** the condition | `if (!isTrue)` |
-
----
-
-### **🔹 Short-Circuit Logical Operators**  
-✔ `&&` → **Stops if the first condition is false**.  
-✔ `||` → **Stops if the first condition is true**.  
-
-✅ **Example:**  
-```java
-if (x != 0 && 10 / x > 1) {  // Stops if x == 0
-    System.out.println("Valid");
-}
-```
-
----
-
-### **🔹 Conditional (Ternary) Operator**  
-✔ **Syntax:**  
-```java
-condition ? true-expression : false-expression;
-```
-✔ **Example:**  
-```java
-int min = (a < b) ? a : b;  // If a < b, min = a; else, min = b
-```
-
----
-
-### **🔹 Control Flow Statements**  
-✔ **Selection** → `if`, `switch`.  
-✔ **Looping** → `for`, `while`, `do-while`.  
-
-✅ **Example:**  
-```java
-if (num > 10) {
-    System.out.println("Greater");
-} else {
-    System.out.println("Smaller");
-}
-```
-
----
-
-### **🔹 while vs do-while**  
-✔ **while** → Checks condition **before execution**.  
-✔ **do-while** → Executes **at least once**, then checks condition.  
-
-✅ **Example:**  
-```java
-int i = 5;
-while (i < 5) {   // Won't execute
-    System.out.println(i);
-}
-
-do {   // Executes at least once
-    System.out.println(i);
-} while (i < 5);
-```
-
----
-
-### **🔹 Loop Control Statements**  
-
-✔ **Break** → **Exits** the loop immediately.  
-```java
-for (int j = 0; j < 3; j++) {
-    if (j == 1) break;
-    System.out.println("j=" + j);  // Prints 0, then exits
-}
-```
-
-✔ **Continue** → **Skips** current iteration & moves to the next.  
-```java
-for (int i = 0; i < 10; i++) {
-    if (i % 2 == 0) continue;
-    System.out.println(i);  // Prints odd numbers
-}
-```
-
----
-
-### **🔹 Compilation & Execution in Java**  
-✔ **Compile** → `javac MyClass.java`  
-✔ **Run** → `java MyClass`  
-
-### **Flashcards: Java Memory Management**  
-
----
-
-### **🔹 Stack Memory**  
-✔ **Purpose** → Stores **local variables** & **method calls**.  
-✔ **Characteristics** →  
-   - LIFO (**Last-In-First-Out**).  
-   - **Thread-specific** (each thread has its own stack).  
-   - **Fast** memory access.  
-
-✅ **Example:**  
-```java
-void methodA() {
-    int x = 10;  // Stored in Stack
-    methodB();
-}
-```
-
----
-
-### **🔹 Heap Memory**  
-✔ **Purpose** → Stores **objects & class instances**.  
-✔ **Characteristics** →  
-   - Managed by **Garbage Collector (GC)**.  
-   - **Shared among threads** (common memory space).  
-   - Slower than stack but used for dynamic memory allocation.  
-
-✅ **Example:**  
+#### **Example**:
 ```java
 class Car {
-    String brand = "Toyota";  // Stored in Heap
-}
-Car c1 = new Car();  // Object created in Heap
-```
-
----
-
-### **🔹 Method Area (MetaSpace in Java 8+)**  
-✔ **Purpose** → Stores **class metadata** (names, methods, fields).  
-✔ **Characteristics** →  
-   - **JVM-wide** (shared among all threads).  
-   - **Dynamically grows** (no fixed size in Java 8+).  
-
-✅ **Example:**  
-```java
-class A { 
-    int num = 5;  
-} // Class A's metadata is stored in the Method Area
-```
-
----
-
-### **🔹 Runtime Constant Pool**  
-✔ **Purpose** → Stores **literals & symbolic references**.  
-✔ **Characteristics** →  
-   - **Part of Method Area**.  
-   - **Class-specific** and optimized for reuse.  
-
-✅ **Example:**  
-```java
-String s1 = "Hello";  // Stored in Runtime Constant Pool
-String s2 = "Hello";  // Reuses same reference
-```
-
----
-
-### **🔹 Native Method Stack**  
-✔ **Purpose** → Stores **data for native (non-Java) methods**.  
-✔ **Characteristics** →  
-   - **Thread-specific**.  
-   - Supports **JNI (Java Native Interface)** for calling C/C++ code.  
-
-✅ **Example:**  
-```java
-public class Test {
-    native void nativeMethod(); // Calls a C function
-}
-```
-
----
-
-### **🔹 Garbage Collection (GC)**  
-✔ **Purpose** → **Reclaims memory** by removing unused objects.  
-✔ **Characteristics** →  
-   - **Automatic memory management**.  
-   - **Optimizes Heap Memory usage**.  
-   - Uses different **GC algorithms**:  
-     - **Mark-Sweep** → Finds & removes unused objects.  
-     - **G1 GC (Java 9+)** → Prioritizes important objects.  
-     - **ZGC (Java 11+)** → Low-latency, high-performance GC.  
-
-✅ **Example:**  
-```java
-Car c1 = new Car();
-c1 = null;  // Eligible for Garbage Collection
-System.gc();  // Suggests GC to run
-```
-
-### **Flashcards: Java Strings**  
-
----
-
-### **🔹 What is a String?**  
-✔ **Definition** → A **sequence of characters** used to store text.  
-✔ **Created using:**  
-   - **String Literal** → Stored in **String Pool**.  
-   - **Using `new` keyword** → Stored in **Heap Memory**.  
-
-✅ **Example:**  
-```java
-String str1 = "Hello";  // String literal (String Pool)
-String str2 = new String("Hello");  // Heap memory
-```
-
----
-
-### **🔹 Why is String Immutable?**  
-
-✔ **1. Security** → Prevents modifications in passwords, URLs, etc.  
-✔ **2. Thread-Safety** → Multiple threads can safely share a string.  
-✔ **3. Memory Efficiency** → Reuses string literals using the **String Intern Pool**.  
-✔ **4. Heap Memory** →  
-   - **String Pool** → Stores literals (saves memory).  
-   - **Heap** → Stores dynamically created strings.  
-
-✅ **Example:**  
-```java
-String s1 = "Hello";
-String s2 = "Hello";  // Both point to the same memory in the String Pool
-
-String s3 = new String("Hello");  // Creates a new object in Heap
-```
-
----
-
-### **🔹 String Pool & Memory Management**  
-
-✔ **String Pool** → Stores string literals to avoid duplication.  
-✔ **`intern()` Method** → Moves a string to the pool if not already present.  
-
-✅ **Example:**  
-```java
-String s1 = new String("Java");
-String s2 = s1.intern();  // Moves to String Pool
-String s3 = "Java";
-
-System.out.println(s2 == s3);  // true (same reference)
-```
-
-### **Flashcards: String Immutability & Comparison**  
-
----
-
-### **🔹 How is String Immutable?**  
-
-✔ **1. Private Final Fields** → Stores characters in an **unchangeable array**.  
-   ```java
-   private final char value[];
-   ```  
-✔ **2. No Setters** → No method to modify the original string.  
-✔ **3. Final Class** → Prevents inheritance & modification.  
-   ```java
-   public final class String { ... }
-   ```  
-✔ **4. Unmodifiable Methods** → Every method returns a **new string** instead of modifying the existing one.  
-
-✅ **Example:**  
-```java
-String s = "Hello";
-s.concat(" World");  // Creates a new object, doesn't modify 's'
-System.out.println(s);  // Output: Hello (unchanged)
-```
-
----
-
-### **🔹 How to Create an Immutable Class (Like String)?**  
-✅ **Steps to Implement:**  
-1️⃣ Declare the class as `final` (prevents inheritance).  
-2️⃣ Make fields `private final` (cannot be modified).  
-3️⃣ No setters (prevent modification).  
-4️⃣ Use defensive copying for mutable objects.  
-
-✅ **Example:**  
-```java
-public final class ImmutableString {
-    private final String value;
+    String color;
+    int speed;
     
-    public ImmutableString(String value) {
-        this.value = value;
+    void startEngine() {
+        System.out.println("Engine started!");
     }
 
-    public String getValue() {
-        return value;
+    void accelerate() {
+        System.out.println("Car is speeding up!");
     }
 }
 ```
 
----
+### **What is an Object?**
+- **Definition**: An object is a specific instance of a class, containing data (fields) and behavior (methods).
+- **Why It's Used**: Models real-world entities, enabling reusability and modularity.
+- **What It Does**: Encapsulates data and methods specific to that instance.
 
-### **🔹 String vs StringBuffer vs StringBuilder**  
-
-| Type         | Mutability | Thread-Safe | Best For |
-|-------------|-----------|------------|----------|
-| **String**       | Immutable  | ✅ Yes | Fixed text |
-| **StringBuffer** | Mutable    | ✅ Yes | Multi-threaded changes |
-| **StringBuilder** | Mutable    | ❌ No | Fast single-threaded operations |
-
-✅ **Example:**  
-```java
-StringBuilder sb = new StringBuilder("Hello");
-sb.append(" World");
-System.out.println(sb);  // Output: Hello World
-```
-
-### **Flashcards: Java String Concepts**  
-
----
-
-### **🔹 Why Use `char[]` for Passwords?**  
-✔ **String** → Immutable, stays in memory longer → **Security Risk**.  
-✔ **char[]** → Can be manually **cleared after use**, removing sensitive data.  
-
-✅ **Example:**  
-```java
-char[] password = {'s', 'e', 'c', 'r', 'e', 't'};
-Arrays.fill(password, '*'); // Clears password from memory
-```
-
----
-
-### **🔹 `==` vs `.equals()`**  
-
-| **Operator** | **Purpose** | **Checks** |
-|-------------|------------|-----------|
-| `==`        | Reference equality | Memory address |
-| `.equals()` | Logical equality | Content |
-
-✅ **Example:**  
-```java
-String s1 = new String("Hello");
-String s2 = new String("Hello");
-
-System.out.println(s1 == s2);      // false (different objects)
-System.out.println(s1.equals(s2)); // true (same content)
-```
-
----
-
-### **🔹 When to Use?**  
-✔ **Use `==`** → To check if two references point to the **same object**.  
-✔ **Use `.equals()`** → To compare **string content**.  
-
----
-
-### **🔹 `StringTokenizer`**  
-✔ Splits a string into tokens using **delimiters**.  
-✔ Efficient for **parsing large strings**.  
-
-✅ **Example:**  
-```java
-StringTokenizer st = new StringTokenizer("Java,Python,C", ",");
-while (st.hasMoreTokens()) {
-    System.out.println(st.nextToken()); // Java, Python, C
-}
-```
-
----
-
-### **🔹 String Constant Pool**  
-✔ **Stores unique string literals** in a **special memory area**.  
-✔ Prevents **duplicate objects**, saving memory.  
-
-✅ **Example:**  
-```java
-String s1 = "Hello"; 
-String s2 = "Hello";  // Reuses existing "Hello" from the pool
-
-System.out.println(s1 == s2);  // true (same reference)
-```
-
----
-
-### **🔹 Ways to Create a String**  
-
-1️⃣ **Using String Literal** (Stored in **String Pool**)  
+#### **How to Create Objects?**
+1. **Using `new` Keyword**:
    ```java
-   String s = "Hello"; 
-   ```
-2️⃣ **Using `new` Keyword** (Stored in **Heap**)  
-   ```java
-   String s = new String("Hello"); 
+   Car myCar = new Car();  // Creates an object of Car class
    ```
 
-### **Flashcards: Class and Objects in Java**  
+2. **Using Factory Methods**:
+   ```java
+   List<String> list = new ArrayList<>();  // Uses a factory method to create a List object
+   ```
+
+#### **Class vs Object**
+| **Class**                              | **Object**                           |
+|----------------------------------------|---------------------------------------|
+| A blueprint for objects.               | A specific instance of a class.      |
+| Defines structure and behavior.        | Holds actual data and performs actions. |
+| Example: `Car` class.                  | Example: `Car myCar = new Car();`    |
+
+#### **Properties of an Object**
+1. **State**: Data stored in fields (e.g., color of the car).
+2. **Behavior**: Methods define actions (e.g., `drive()` for a car).
+3. **Identity**: Each object has a unique reference in memory.
+
+#### **Accessing Instance Variables**
+- Use the dot (`.`) operator to access or modify fields:
+   ```java
+   Car myCar = new Car();
+   myCar.color = "Red";  // Access instance variable
+   ```
+
+#### **Dynamic Memory Allocation**
+- Objects are stored in the **heap memory** during runtime.
+- **Why Important?**: Memory is dynamically allocated and freed as needed.
+   ```java
+   Car myCar = new Car();  // Object stored in heap, reference in stack
+   ```
+
+#### **Manipulating Objects**
+1. **Modify Fields**:
+   ```java
+   myCar.color = "Blue";  // Change the state of the object
+   ```
+2. **Call Methods**:
+   ```java
+   myCar.drive();  // Call method to perform an action
+   ```
+3. **Object References**: Assign references between objects.
+   ```java
+   Car anotherCar = myCar;  // Share data between objects
+   ```
+
+--- 
+
+###  **Java Constructor**
+
+#### **What is a Constructor?**
+- A special method used to initialize objects during creation. 
+- Same name as class name and has no return type.
+- **Private Constructor**: Used for singleton patterns or restricting object creation from other classes.
+- **Parameterized Constructor**: Constructor with arguments to initialize objects with custom values.
+
+
+#### **How it Works?**
+1. **Default Constructor**:  
+   - If no constructor is defined, Java provides a default constructor.
+   - default constructor String -> null, primitive -> 0;
+   ```java
+   public class Example {
+       Example() { 
+           System.out.println("Default Constructor Called");
+       }
+   }
+   Example obj = new Example();
+   ```
+2. **Manual Constructor**:  
+   - Define constructors with arguments for specific initialization.
+   ```java
+   public class Example {
+       int value;
+       Example(int v) { 
+           value = v;
+       }
+   }
+   Example obj = new Example(10);
+   ```
+3. **Using `this` Keyword**:  
+   - Refers to the current object and instance variables. 
+   - Resolves conflicts between parameters and fields.
+   ```java
+   public Example(int value) {
+       this.value = value; 
+   }
+   ```
+
+#### **Constructor Overloading**
+- Constructor Overloading means having multiple constructors in a class with different parameter lists.
+   ```java
+   public class Example {
+       Example() { }
+       Example(int value) { }
+       Example(String name, int value) { }
+   }
+   ```
+
+#### **Calling a Constructor from Another Constructor**
+- Use `this()` to call another constructor in the same class. known as constructor chaining.
+   ```java
+   public class Example {
+       Example() { 
+           this(10); 
+       }
+       Example(int value) { 
+           System.out.println("Value: " + value);
+       }
+   }
+   ```
+
+#### **Why Default Constructor**
+1. **Automatic Object Creation**: If no constructor is defined, Java provides one automatically.
+2. **Initialization**: Sets default values (e.g., `null`, `0`, `false`) for instance variables.
+
+#### **Why Not Use `new` Keyword for Primitives?**
+- Primitives (`int`, `float`, etc.) are not objects and are stored directly in memory. Using `new` is inefficient for them.
+
+#### **Memory Allocation of `new` Keyword**
+- Objects created with `new` are allocated in the **heap**.
+- Primitives are stored in the **stack** or within objects/arrays.
+
+###  **Wrapper Classes, `final` Keyword, Garbage Collection, and `finalize` Keyword in Java**
 
 ---
 
-### **🔹 What is a Class?**  
-✔ **Blueprint** for creating objects.  
-✔ Defines **attributes** (variables) and **behaviors** (methods).  
-✔ **Does not occupy memory** until an object is created.  
+#### **Wrapper Classes in Java**
+- **What**: Converts primitive types into objects.  
+- **Why**: Needed for collections (e.g., `ArrayList`) and object-based APIs.  
+- **Examples**:  
+  - `int` → `Integer`  
+  - `char` → `Character`  
+  - `boolean` → `Boolean`  
+  - `double` → `Double`  
+- **Utility**: Provides methods for conversion and manipulation (e.g., converting strings to numbers).
 
-✅ **Example:**  
+---
+
+#### **`final` Keyword in Java**
+- **What**: Prevents modification of variables, methods, and classes.  
+- **Why**: Ensures immutability and restricts inheritance or method overriding.  
+- **How**:  
+  - **Variables**: Value cannot be changed once initialized.  
+  - **Methods**: Cannot be overridden.  
+  - **Classes**: Cannot be subclassed.
+
+---
+
+#### **Garbage Collection in Java**
+- **What**: JVM automatically deletes unused objects to free memory.  
+- **Why**: Prevents memory leaks and manages memory efficiently.  
+- **How**:  
+  1. **Mark Phase**: Identifies reachable objects.  
+  2. **Sweep Phase**: Removes unreachable objects.  
+  3. **Generational Collection**: Targets young objects for collection first for efficiency.  
+- **JVM** handles GC automatically, but settings can be tuned.
+
+---
+
+#### **`finalize` Keyword in Java**
+- **What**: Used for cleanup before garbage collection.  
+- **Why**: Releases non-Java resources (e.g., file streams, network connections).  
+- **How**:  
+  - The `finalize` method is called before the object is discarded by the GC.  
+  - It can be overridden to release resources, but its use is discouraged in favor of `try-with-resources` or explicit resource management (e.g., `close()`).
+
+--- 
+
+###  **Java Packages**  
+
+#### **Definition**  
+- **Package**: A container that organizes classes, preventing naming conflicts and controlling visibility.
+
+#### **Key Points**  
+1. **Namespace**: Prevents class name collisions (e.g., `List` in different packages).
+2. **Visibility**: Only **public** classes/members are accessible outside the package.
+3. **Hierarchy**: Package structure mirrors directory structure (e.g., `java.awt.image` → `java/awt/image`).
+
+#### **How It Works**  
+1. **Defining a Package**:  
+   ```java
+   package MyPackage;
+   ```
+2. **Folder Structure**: Class files are stored in corresponding directories (e.g., `MyPackage`).
+3. **Importing Packages**:  
+   ```java
+   import MyPackage.MyClass;
+   ```
+
+4. **Classpath**:  
+   - Found via the current directory or **CLASSPATH** variable.
+   - Use `-classpath` option for `javac` or `java`.
+
+#### **Example**  
 ```java
-class Car {  
-    String brand;  
-    void drive() {  
-        System.out.println("Car is moving");  
-    }  
-}
-```
-
----
-
-### **🔹 What is an Object?**  
-✔ **Real-world entity** that is an **instance of a class**.  
-✔ **Occupies memory** and has **state** (data) & **behavior** (methods).  
-
-✅ **Example (Creating an Object):**  
-```java
-Car myCar = new Car();  // Object creation  
-myCar.brand = "Toyota";  
-myCar.drive();  
-```
-
----
-
-### **🔹 Why Do We Need Classes and Objects?**  
-✔ **Code Organization** → Structured, reusable, and maintainable.  
-✔ **Encapsulation** → Hides implementation details.  
-✔ **Reusability** → Define once, create multiple objects.  
-
----
-
-### **🔹 Class vs. Object**  
-
-| **Concept** | **Description** |
-|------------|---------------|
-| **Class** | A **template** defining attributes & methods |
-| **Object** | A **real instance** of a class |
-
----
-
-### **🔹 Object Creation Methods**  
-
-✔ **Using `new` keyword** → `Car myCar = new Car();`  
-✔ **Using `Class.forName()`** → Reflection API  
-✔ **Using `clone()`** → Object Cloning  
-✔ **Using Deserialization** → Restoring from a serialized state  
-
----
-
-### **🔹 Instance vs. Static vs. Local Members**  
-
-| **Type**    | **Scope**        | **Memory**      | **Lifecycle** | **Access via** |
-|------------|----------------|--------------|------------|--------------|
-| **Instance** | Object-level     | **Heap**      | Exists with object | `obj.instanceVar` |
-| **Static**   | Class-level      | **Method Area** | Exists for class lifetime | `ClassName.staticVar` |
-| **Local**    | Method-level     | **Stack**     | Created & destroyed with method | Direct access |
-
-✅ **Example:**  
-```java
-class Example {
-    int instanceVar = 10;  // Instance variable
-    static int staticVar = 20; // Static variable
-    
-    void show() {
-        int localVar = 30; // Local variable
-        System.out.println(localVar);
+// File: MyClass.java inside MyPackage
+package MyPackage;
+public class MyClass {
+    public void display() {
+        System.out.println("Hello from MyClass!");
     }
 }
 ```
-
-### **Flashcards: Constructor in Java**  
-
----
-
-### **🔹 What is a Constructor?**  
-✔ A **special method** that initializes objects.  
-✔ **Same name as the class** and **no return type**.  
-✔ **Runs automatically** when an object is created.  
-
-✅ **Example:**  
 ```java
-class Person {
-    String name;
-    
-    // Constructor
-    Person(String name) {
-        this.name = name;
-    }
-}
-Person p = new Person("Alice");  // Constructor runs automatically
-```
-
----
-
-### **🔹 Why Do We Need Constructors?**  
-✔ **Automatic Initialization** → Objects get initialized automatically.  
-✔ **Avoids Uninitialized Objects** → Prevents errors from missing values.  
-✔ **Immutable Objects** → Helps initialize final fields.  
-
-✅ **Example Without Constructor (Manual Initialization Required)**  
-```java
-class Person {
-    String name;
-    int age;
-}
-Person p = new Person();
-p.name = "Alice";  // Manual setup required
-p.age = 25;
-```
-
-✅ **Example With Constructor (Automatic Initialization)**  
-```java
-class Person {
-    String name;
-    int age;
-    
-    // Constructor ensures automatic initialization
-    Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-}
-Person p = new Person("Alice", 25);  // No manual setup needed ✅
-```
-
----
-
-### **🔹 Types of Constructors**  
-
-| **Type**         | **Description** |
-|----------------|----------------|
-| **Default Constructor** | No parameters, initializes default values. |
-| **Parameterized Constructor** | Takes arguments to initialize fields with specific values. |
-| **Copy Constructor** | Copies values from another object of the same class. |
-
-✅ **Example:**  
-```java
-class Person {
-    String name;
-    
-    // Default Constructor
-    Person() {
-        name = "Unknown";
-    }
-
-    // Parameterized Constructor
-    Person(String name) {
-        this.name = name;
-    }
-
-    // Copy Constructor
-    Person(Person p) {
-        this.name = p.name;
-    }
-}
-```
-
----
-
-### **🔹 Constructor vs. Method**  
-
-| **Feature**       | **Constructor** | **Method** |
-|----------------|---------------|---------|
-| **Return Type** | No return type | Must have a return type |
-| **Execution**   | Runs **automatically** | Called **explicitly** |
-| **Purpose**     | Initializes objects | Performs actions |
-
-✅ **Example:**  
-```java
-class Example {
-    Example() {  // Constructor
-        System.out.println("Constructor called");
-    }
-    
-    void display() {  // Method
-        System.out.println("Method called");
-    }
-}
-```
-
----
-
-### **🔹 Constructor Overloading**  
-✔ Multiple constructors with **different parameters**.  
-✔ **No return type** (unlike method overloading).  
-
-✅ **Example:**  
-```java
-class Car {
-    String brand;
-    
-    // Constructor 1
-    Car() {
-        brand = "Unknown";
-    }
-    
-    // Constructor 2 (Overloaded)
-    Car(String brand) {
-        this.brand = brand;
-    }
-}
-```
-
----
-
-### **🔹 Private Constructor**  
-✔ Used in **Singleton Pattern** to restrict instantiation.  
-
-✅ **Example:**  
-```java
-class Singleton {
-    private static Singleton instance;
-    
-    private Singleton() {}  // Private Constructor
-    
-    public static Singleton getInstance() {
-        if (instance == null) {
-            instance = new Singleton();
-        }
-        return instance;
+// File: Main.java
+import MyPackage.MyClass;
+public class Main {
+    public static void main(String[] args) {
+        MyClass myClass = new MyClass();
+        myClass.display();
     }
 }
 ```
 
----
-
-### **🔹 Static Block vs. Constructor**  
-
-| **Feature**        | **Static Block** | **Constructor** |
-|-------------------|---------------|--------------|
-| **Execution**    | Runs **once** when class loads | Runs **each time** an object is created |
-| **Usage**        | Initializes **static variables** | Initializes **object variables** |
-
-✅ **Example:**  
-```java
-class Example {
-    static {
-        System.out.println("Static Block");  // Runs once
-    }
-    
-    Example() {
-        System.out.println("Constructor Called");  // Runs every time
-    }
-}
-```
+#### **In-built Java Packages**  
+1. **`lang`**: Essential classes, default package, we dont need to import (`String`, `Object`, `Math`, etc.)  
+2. **`io`**: For file I/O and data streams (`File`, `BufferedReader`)  
+3. **`util`**: For collections and utilities (`ArrayList`, `HashMap`)  
+4. **`applet`**: For applet development (`Applet`, `AudioClip`)  
+5. **`awt`**: For GUI development (`Frame`, `Button`)  
+6. **`net`**: For network communication (`Socket`, `ServerSocket`)
 
 ---
 
-### **🔹 Constructor Chaining**  
-✔ **Calling one constructor from another** within the same class.  
-✔ **Uses `this()`** to refer to another constructor.  
+###  **Static in Java**
 
-✅ **Example:**  
-```java
-class Car {
-    String brand;
-    
-    Car() {
-        this("Unknown");  // Calls the parameterized constructor
-    }
-    
-    Car(String brand) {
-        this.brand = brand;
-    }
-}
-```
+#### **What is it?**
+- **Static**: A keyword used to define class-level members (variables, methods, blocks). These belong to the class, not instances. No need to create an object to access them.
 
 ---
 
-### **🔹 `super()` Keyword**  
-✔ Calls the **parent class** constructor.  
+### **Static Variables**
+- Class-level variable → Common value shared by all objects.
+- Initialized once; same value across instances.
+- **Access**: Via class name or instance.
+- **Overriding**: Cannot be overridden but can be hidden in subclasses.
 
-✅ **Example:**  
-```java
-class Vehicle {
-    Vehicle() {
-        System.out.println("Vehicle Constructor");
-    }
-}
-
-class Car extends Vehicle {
-    Car() {
-        super();  // Calls Vehicle constructor
-        System.out.println("Car Constructor");
-    }
-}
-```
+### **Instance vs static**
+- **Insance**: Object-level variable → Separate value for each object. Tied to an object.
+- **Static**: Class-level variable → Common value shared by all objects. Tied to the class.
+- **How it Works**: Instance members require objects; static members are accessed via class name.
 
 ---
 
-### **🔹 Destructor in Java?**  
-✔ Java **does not have destructors** like C++.  
-✔ **Garbage Collector (GC)** automatically destroys unused objects.  
-✔ `finalize()` method can be overridden but **not reliable**.  
-
-✅ **Example:**  
-```java
-class Example {
-    protected void finalize() {
-        System.out.println("Object destroyed");
-    }
-}
-```
+### **Static Methods**
+- Can be called without creating an instance of the class. Class-level operations not dependent on instance data.
+- Can access only static variables/methods.
+- **Access**: Via class name.
+- **Overriding**: Cannot be overridden; can be hidden in subclasses.
 
 ---
 
-### **🔹 Call by Value vs. Call by Reference**  
-
-| **Type**       | **Effect** |
-|--------------|---------|
-| **Call by Value** | Passes a copy of the value, original remains unchanged. |
-| **Call by Reference** | Passes the reference, original object **can be modified**. |
-
-✅ **Example:**  
-```java
-class Example {
-    void modify(int num) {  // Call by Value
-        num = 10;
-    }
-    
-    void modifyArray(int[] arr) {  // Call by Reference
-        arr[0] = 10;
-    }
-}
-```
-
-### **Flashcards: `final` Keyword in Java**  
+### **Static Block**
+- Used to initialize static variables when the class is loaded.
+- Runs once when the class is loaded, initializing static variables.
 
 ---
 
-### **🔹 What is the `final` Keyword?**  
-✔ Declares **constants**  
-✔ Prevents **method overriding**  
-✔ Restricts **inheritance**  
-
-✅ **Example:**  
-```java
-final int VAR = 10;  // Constant variable
-```
+### **Why `psvm` is Static?**
+- **Reason**: JVM calls the `main` method before any objects are created, so it must be static.
+- **How it Works**: Static allows the JVM to invoke it directly.
 
 ---
 
-### **🔹 `final` Keyword Usage**  
-
-| **Where Used?**  | **Effect** |
-|----------------|-------------|
-| **Final Variable**  | Value cannot be changed after initialization. |
-| **Final Method**  | Cannot be overridden in subclasses. |
-| **Final Class**  | Cannot be extended (subclassed). |
+### **Non-static Member in Static Method**
+- **Reason**: Static methods can't directly access non-static members.
+- **How it Works**: Create an object to access non-static members.
 
 ---
 
-### **🔹 `final` with Variables**  
-✔ Once assigned, the value **cannot be changed**.  
-
-✅ **Example:**  
-```java
-class Example {
-    final int VAR = 10;  // Cannot be changed
-}
-```
+### **Static Member in Non-static Method**
+- **Reason**: Static members belong to the class and can be accessed directly in non-static methods.
 
 ---
 
-### **🔹 `final` with Methods**  
-✔ **Prevents method overriding** in subclasses.  
+### **`this` Inside Static Methods**
+- **Reason**: Static methods don't belong to an instance, so `this` can't be used.
 
-✅ **Example:**  
+---
+
+### **Inner Classes**
+- **Reason**: Group classes logically; improve encapsulation.
+- **How it Works**:
+  - **Non-static inner classes**: Access both static and non-static members of the outer class.
+  - **Static nested classes**: Access only static members.
+
+---
+
+### **Singleton Pattern**
+- **What is it?**: Ensures a class has only one instance and provides a global point of access.
+- **Why Use?**: Controls access to shared resources, ensures consistent behavior, reduces memory usage.
+- **How It Works?**
+    - **Private Constructor**: To prevent the class from creating multiple instances
+    - **Static Instance**: A static instance variable holds the single object, and it’s initialized when required.
+    - **Public Method**: A public static method (usually named getInstance()) is used to access the instance. 
+                        It checks whether the instance already exists or not. If not, it creates one.
+
+###  **Inheritance in Java**
+
+#### **What is it?**
+- **Inheritance**: A mechanism where a subclass acquires properties and behavior (fields and methods) of a parent class.
+
+#### **Why is it Used?**
+- **Code Reusability**: Avoids code duplication by using existing functionality.
+- **Extensibility**: Extends functionality without rewriting code.
+- **Polymorphism**: Enables method overriding for runtime flexibility.
+
+#### **What Does It Do?**
+- **IS-A relationship**: Child class inherits fields and methods of the parent class.
+- Can **override** parent methods.
+
+#### **How It Works?**
+- **Syntax**: `class Child extends Parent`
+- Access **public** and **protected** members of the parent.
+- **Private** members of the parent are **not inherited**.
+
+---
+
+### **Keywords in Inheritance**
+
+1. **`private` Keyword**: 
+   - Restricts access to class members and prevents inheritance of private fields/methods.
+  
+2. **`super` Keyword**:
+   - Refers to the parent class. 
+   - Used to call parent class methods or constructors: `super()`.
+
+---
+
+### **Types of Inheritance**
+
+1. **Single Inheritance**: One child inherits from one parent.
+   ```java
+   class A {}
+   class B extends A {}
+   ```
+
+2. **Multiple Inheritance (Not supported with classes)**: A child inherits from multiple parents using **interfaces** only.
+
+3. **Hierarchical Inheritance**: Multiple child classes inherit from the same parent.
+   ```java
+   class A {}
+   class B extends A {}
+   class C extends A {}
+   ```
+
+4. **Hybrid Inheritance**: A combination of different inheritance types (avoided directly in Java, achievable with interfaces).
+
+---
+
+### **Can We Access Child Class Data from the Base Class?**
+
+- **Short Answer**: No, a **parent class** cannot directly access **child class** data or methods.
+  
+- **Why Not?**: 
+   - Java's inheritance works **downward** from parent to child.
+   - The parent class only knows its own fields and methods; it does not have access to child-specific properties.
+
+- **How It Works**: The child class can add its own fields and methods, but the parent cannot reference or access them.
+
+- **Example**:  
 ```java
 class Parent {
-    final void show() {
-        System.out.println("Final method");
+    void display() {
+        System.out.println("Parent class.");
     }
 }
 
 class Child extends Parent {
-    // Cannot override show() method
-}
-```
+    int childData = 10;
 
----
-
-### **🔹 `final` with Classes**  
-✔ **Prevents inheritance** (no subclasses allowed).  
-
-✅ **Example:**  
-```java
-final class Parent {
-}
-
-// class Child extends Parent {}  // ❌ Error: Cannot extend a final class
-```
-
----
-
-### **🔹 Can a `final` class be extended?**  
-❌ **No** → The `final` keyword **prevents subclassing**.
-
-### **Flashcards: Java Packages**  
-
----
-
-### **🔹 What is a Package?**  
-✔ A **container** for related classes and interfaces.  
-✔ Helps **organize** code and **prevent naming conflicts**.  
-✔ Provides **access control** and better **code modularity**.  
-
-✅ **Example:**  
-```java
-package MyPackage;  // Defines a package
-public class MyClass {
-    public void display() {
-        System.out.println("Inside MyPackage");
+    void show() {
+        System.out.println("Child data: " + childData);
     }
 }
-```
-
----
-
-### **🔹 Why Use Packages?**  
-
-| **Feature**       | **Benefit** |
-|------------------|------------|
-| **Namespace**   | Avoids class name conflicts. |
-| **Encapsulation**  | Controls access to classes. |
-| **Code Organization** | Groups related classes together. |
-
----
-
-### **🔹 Built-in Java Packages**  
-
-| **Package** | **Usage** |
-|------------|----------|
-| `java.lang` | Core classes (`String`, `Math`, `Object`) – auto-imported. |
-| `java.io` | Input/Output (`File`, `BufferedReader`). |
-| `java.util` | Utility classes (`ArrayList`, `HashMap`). |
-| `java.applet` | Applet programming (`Applet`, `Graphics`). |
-| `java.awt` | GUI components (`Button`, `Frame`). |
-| `java.net` | Networking (`Socket`, `URL`). |
-
----
-
-### **🔹 How Packages Work?**  
-
-1️⃣ **Declaring a Package**  
-```java
-package mypackage;  // Must be the first line
-```
-
-2️⃣ **Importing a Package**  
-```java
-import mypackage.MyClass;  // Imports a specific class
-import java.util.*;  // Imports all classes from java.util
-```
-
-3️⃣ **Accessing Class from Another Package**  
-```java
-package mypackage;
-public class MyClass {
-    public void show() {
-        System.out.println("Hello from MyClass");
-    }
-}
-```
-```java
-package anotherpackage;
-import mypackage.MyClass;  // Importing MyClass
 
 public class Test {
     public static void main(String[] args) {
-        MyClass obj = new MyClass();
-        obj.show();
+        Parent p = new Child();
+        p.display();  // Works
+        // p.childData; // Compilation error: childData is inaccessible
+        // p.show();    // Compilation error: show() is not known to Parent
     }
 }
 ```
 
 ---
 
-### **🔹 `classpath` & Package Structure**  
-✔ Java searches for packages using:  
-1️⃣ **Current Directory**  
-2️⃣ **`CLASSPATH` Environment Variable**  
-3️⃣ **`-classpath` Command Option**  
+### **Why Multiple Inheritance Is Not Supported in Java**
 
-✅ **Running Java with Classpath**  
-```sh
-javac -d . MyClass.java  // Stores compiled class in correct package folder
-java mypackage.MyClass   // Runs the class
-```
+#### **What is Multiple Inheritance?**
+- A scenario where a class inherits from more than one parent class.
 
-### **Flashcards: Java Garbage Collection**  
+#### **Why Not in Java?**
+1. **Diamond Problem**: Ambiguity arises when two parent classes have the same method signature, causing confusion for the compiler on which method to inherit.
+2. **Alternative Solutions**:
+   - **Interfaces** provide multiple inheritance of **types** without method conflict.
 
----
-
-### **🔹 What is Garbage Collection?**  
-✔ **Automatic** process that frees up memory by removing unused objects.  
-✔ Prevents **memory leaks** by deleting objects **no longer referenced**.  
-✔ Managed by the **JVM**.  
-
-✅ **Example:**  
+#### **Using Interfaces for Multiple Inheritance**:
+- Interfaces do not have method implementations (pre-Java 8), so there's no conflict. Child classes implement the interfaces and provide their own method implementations.
+  
+**Example**:
 ```java
-MyClass obj = new MyClass();  // Object created in heap
-obj = null;  // Object now eligible for garbage collection
-```
-
----
-
-### **🔹 Why Use Garbage Collection?**  
-
-| **Feature**         | **Benefit** |
-|--------------------|------------|
-| **Automatic Memory Management** | No need for manual deallocation. |
-| **Prevents Memory Leaks** | Removes unused objects. |
-| **Optimizes Performance** | Reclaims unused heap space. |
-
----
-
-### **🔹 JVM Memory Areas & Object Storage**  
-
-| **Memory**        | **Purpose** |
-|------------------|------------|
-| **Heap Memory**  | Stores objects, managed by GC. |
-| **Stack Memory** | Stores local variables & method calls. |
-| **Method Area (Metaspace)** | Stores class metadata. |
-| **Young Generation** | For short-lived objects. |
-| **Old Generation** | For long-lived objects. |
-| **String Pool** | Stores unique string literals. |
-
-✅ **Where are Objects Stored?**  
-✔ Objects → **Heap**  
-✔ References → **Stack**  
-
----
-
-### **🔹 How Does Java Perform Garbage Collection?**  
-
-1️⃣ **Mark & Sweep Algorithm:**  
-✔ **Mark** → Identifies unreachable objects.  
-✔ **Sweep** → Removes them from memory.  
-
-2️⃣ **Generational GC:**  
-✔ **Young Generation** → For short-lived objects.  
-✔ **Old Generation** → For long-lived objects.  
-
----
-
-### **🔹 Key Methods & Concepts**  
-
-✔ **`System.gc()`** → Requests GC (not guaranteed).  
-✔ **`finalize()`** → Called before an object is GC’d (deprecated).  
-✔ **JVM decides when to run GC** (usually when memory is low).  
-
-✅ **Example of GC Request (Not Guaranteed):**  
-```java
-System.gc();  // Requests garbage collection
-```
-
----
-
-### **🔹 Heap vs. Stack Memory**  
-
-| **Aspect**      | **Heap Memory** | **Stack Memory** |
-|---------------|--------------|-------------|
-| **Stores** | Objects | Local variables, method calls |
-| **Shared?** | Yes, shared by all threads | No, each thread has its own stack |
-| **Size** | Larger | Smaller |
-| **Managed By** | GC (automatic) | Scope-based (LIFO order) |
-
-✅ **Example:**  
-```java
-class Test {
-    int x = 10;  // Stored in heap
-    void method() {
-        int y = 5;  // Stored in stack
-    }
-}
-```
-
----
-
-### **🔹 Important Questions**  
-
-✔ **Q: Where is a new object stored?**  
-**A:** In the heap memory.  
-
-✔ **Q: What does `System.gc()` do?**  
-**A:** Requests garbage collection, but execution is **not guaranteed**.  
-
-✔ **Q: What happens if an object has no reference?**  
-**A:** It becomes **eligible for garbage collection**.  
-
-✔ **Q: Can you force garbage collection?**  
-**A:** No, you can only request it using `System.gc()`.  
-
-✔ **Q: What is the purpose of the `finalize()` method?**  
-**A:** Used for cleanup before an object is GC’d (deprecated in Java 9+).  
-
----
-
-Here are flashcards for **Variables, Keywords, and Methods in Java** for quick revision:  
-
----
-
-### **🔹 Instance Variable (Non-Static)**
-**Definition:**  
-- Belongs to an object (instance).  
-- Each object has its own copy.  
-- Stored in **heap memory**.  
-
-**Example:**  
-```java
-class Example {
-    int instanceVar = 10;  // Instance Variable
-
-    public static void main(String[] args) {
-        Example obj = new Example();
-        System.out.println(obj.instanceVar);  // Output: 10
-    }
-}
-```
-📌 **Cannot be accessed directly in a static method!**  
-
----
-
-### **🔹 Local Variable (Method Level)**
-**Definition:**  
-- Defined inside a method.  
-- Stored in **stack memory**.  
-- Cannot have access modifiers.  
-
-**Example:**  
-```java
-void show() {
-    int localVar = 5;  // Local variable
-}
-```
-📌 **Exists only during method execution!**  
-
----
-
-### **🔹 Static Variable (Class Variable)**
-**Definition:**  
-- Shared among all instances of a class.  
-- Stored in the **method area** of JVM.  
-
-**Example:**  
-```java
-class Example {
-    static int staticVar = 20;
-
-    public static void main(String[] args) {
-        System.out.println(Example.staticVar);  // Output: 20
-    }
-}
-```
-📌 **Access via `ClassName.staticVar`**  
-
----
-
-### **🔹 Final Keyword**
-**Definition:**  
-- Prevents modification.  
-- Used for variables, methods, and classes.  
-
-**Example:**  
-```java
-final int x = 10;  // Cannot be changed
-```
-📌 **Final methods cannot be overridden. Final classes cannot be extended!**  
-
----
-
-### **🔹 Nested Class**
-**Definition:**  
-- A class inside another class.  
-- Can be **static** (static nested class) or **non-static** (inner class).  
-
----
-
-### **🔹 Static Keyword**
-**Definition:**  
-- Used for memory management.  
-- Can be applied to **variables, methods, blocks, and nested classes**.  
-
----
-
-### **🔹 Static Method**
-**Definition:**  
-- Belongs to the class, not an instance.  
-- Can access **static variables** directly.  
-- Cannot call non-static members directly.  
-
-**Example:**  
-```java
-class Example {
-    static void show() {
-        System.out.println("Static method");
-    }
-
-    public static void main(String[] args) {
-        Example.show();  // No object needed!
-    }
-}
-```
-📌 **Cannot be overridden but can be hidden by another static method!**  
-
----
-
-### **🔹 Can Static Methods Be Overloaded?**
-✅ **Yes** – Same method name with different parameters.  
-
-**Example:**  
-```java
-class Example {
-    static void show(int a) {}
-    static void show(double b) {}  // Overloading
-}
-```
-
----
-
-### **🔹 Can We Override Private Variables?**
-❌ **No** – Private variables are not inherited!  
-
----
-
-### **🔹 Blank Final Variable**
-**Definition:**  
-- Declared as `final` but **not initialized immediately**.  
-- Must be assigned in the **constructor**.  
-
-**Example:**  
-```java
-class Example {
-    final int x;  // Blank final variable
-    Example() { x = 10; }  // Must be initialized in constructor
-}
-```
-
----
-
-### **🔹 Can a Non-Static Variable Be Accessed in a Static Context?**
-❌ **No** – Needs an object.  
-✅ **But static members can be accessed in a non-static method!**  
-
-**Example:**  
-```java
-class Example {
-    int a = 10;  // Instance variable
-    static int b = 20;  // Static variable
-
-    void show() { System.out.println(b); }  // ✅ Allowed
-    static void display() { System.out.println(a); }  // ❌ Error!
-}
-```
-
----
-
-### **🔹 How to Access Variables Outside `main()`?**
-**Instance Variables:**  
-```java
-Example obj = new Example();
-System.out.println(obj.instanceVar);
-```
-**Static Variables:**  
-```java
-System.out.println(Example.staticVar);
-```
-📌 **Use ClassName.staticVar for static, and obj.instanceVar for non-static!**  
-
----
-
-### **🔹 Can Static Variables Be Serialized?**
-❌ **No** – They belong to the **class**, not the instance.  
-
----
-
-### **🔹 Static Initializer Block**
-**Definition:**  
-- Executes **once** when the class is loaded.  
-- Used to initialize **static variables**.  
-
-**Example:**  
-```java
-class Example {
-    static { System.out.println("Static block executed!"); }
-}
-```
-
----
-
-### **🔹 Where Do Static Blocks Get Stored?**
-📌 **Method Area (Class Metadata in JVM).**  
-
----
-
-### **🔹 Static vs Non-Static Methods**
-| Feature | Static Method | Non-Static Method |
-|---------|--------------|-------------------|
-| Belongs To | Class | Object |
-| Access | Called without an object | Needs an object |
-| Can Access | Only static variables/methods | Both static & instance variables |
-| Overriding | ❌ Cannot be overridden (can be hidden) | ✅ Can be overridden |
-
----
-
-Here are flashcards for **Encapsulation and Abstraction** in Java:
-
----
-
-### **🔹 Encapsulation**
-**Definition:**  
-- Wrapping **data (variables)** and **methods** into a single unit (class).  
-- **Hides** data from direct access using `private` fields.  
-
-**Key Points:**  
-✅ **Blueprint analogy** – A complete overview of a task.  
-✅ **Data hiding** – Private fields prevent direct modification.  
-✅ **Controlled access** – Use **getters and setters** to modify data.  
-
-**Example:**  
-```java
-class BankAccount {
-    private double balance;  // Hidden from direct access
-
-    public double getBalance() {  // Getter
-        return balance;
-    }
-
-    public void setBalance(double balance) {  // Setter
-        if (balance >= 0) this.balance = balance;
-    }
-}
-```
-📌 **Encapsulation protects integrity by restricting direct modification.**
-
----
-
-### **🔹 Abstraction**
-**Definition:**  
-- **Hides implementation details**, showing only relevant functionality.  
-- Achieved using **abstract classes** and **interfaces**.  
-
-**Key Points:**  
-✅ **What vs How** – Focuses on **what** an object does, not **how** it does it.  
-✅ **Abstraction vs Encapsulation** –  
-   - **Encapsulation** hides **data** (control access).  
-   - **Abstraction** hides **logic** (simplifies usage).  
-
-**Example Using Abstract Class:**  
-```java
-abstract class Vehicle {
-    abstract void start();  // Abstract method (no implementation)
+interface A {
+    void show();
 }
 
-class Car extends Vehicle {
-    void start() {  // Concrete implementation
-        System.out.println("Car starts with a key.");
-    }
+interface B {
+    void display();
 }
-```
-
-**Example Using Interface:**  
-```java
-interface Payment {
-    void pay();  // Abstract method
-}
-
-class CreditCard implements Payment {
-    public void pay() { 
-        System.out.println("Paying via Credit Card.");
-    }
-}
-```
-📌 **Abstraction ensures only essential details are exposed!**  
-
----
-
-Here are **flashcards** for **Inheritance in Java** 🚀:
-
----
-
-### **🔹 Inheritance**
-**Definition:**  
-- A mechanism where a **child class** acquires the properties & behavior of a **parent class**.
-
-**Key Points:**  
-✅ **Reusability** – Avoids code duplication.  
-✅ **Method Overriding** – Child class can redefine parent methods.  
-✅ **"IS-A" Relationship** – A subclass is a specialized version of a superclass.  
-
----
-
-### **🔹 How Inheritance Works**
-✅ **`extends` keyword** – To inherit from a class.  
-✅ **Access Specifiers**:  
-   - ✅ `public` & `protected` → **accessible in child class**  
-   - ❌ `private` → **not inherited**  
-✅ **`super()` keyword** – Calls **parent class constructor** or methods.  
-
-📌 **Example:**
-```java
-class Animal {
-    void eat() { System.out.println("Animal is eating"); }
-}
-
-class Dog extends Animal {
-    void bark() { System.out.println("Dog barks"); }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Dog d = new Dog();
-        d.eat(); // Inherited from Animal
-        d.bark();
-    }
-}
-```
-📝 **Output:**  
-```
-Animal is eating  
-Dog barks  
-```
-
----
-
-### **🔹 Types of Inheritance**
-1️⃣ **Single Inheritance** – One child, one parent.  
-```java
-class A {}  
-class B extends A {}
-```
-✅ **Common use case:** Method reuse.
-
-2️⃣ **Multiple Inheritance (via Interface)** – A class implements multiple interfaces.  
-```java
-interface A {}  
-interface B {}  
-class C implements A, B {}
-```
-✅ **Avoids Diamond Problem** in Java.
-
-3️⃣ **Hierarchical Inheritance** – Multiple child classes from the same parent.  
-```java
-class A {}  
-class B extends A {}  
-class C extends A {}
-```
-✅ **Common use case:** Same behavior shared among child classes.
-
-4️⃣ **Hybrid Inheritance** – Combination of different inheritance types, achieved via interfaces.  
-```java
-interface A {}  
-class B {}  
-class C extends B implements A {}
-```
-✅ **Combines class & interface inheritance.
-
----
-
-### **🔹 Why Multiple Inheritance is Not Supported in Java?**
-❌ **Diamond Problem**:  
-If two parent classes have a method with the same name, ambiguity arises.  
-
-✅ **Solution:** Use **interfaces** instead.  
-```java
-interface A { void show(); }  
-interface B { void show(); }  
 
 class C implements A, B {
-    public void show() { System.out.println("Resolved ambiguity!"); }
-}
-```
-
----
-
-### **🔹 Can Parent Class Access Child’s Data?**
-❌ **No**, because inheritance is **one-way (top-down)** from parent to child.
-
----
-
-Here are **flashcards** for **Polymorphism & Related OOP Concepts** 🚀:  
-
----
-
-### **🔹 Polymorphism**
-**Definition:**  
-- A single interface representing multiple behaviors (e.g., **smartphones** performing different actions).  
-
-**Types:**  
-✅ **Compile-time Polymorphism (Method Overloading)**  
-✅ **Runtime Polymorphism (Method Overriding)**  
-
----
-
-### **🔹 Method Overloading (Compile-time Polymorphism)**
-📌 **Definition:**  
-- Defining multiple methods with the same name but **different parameters** (number, type, or order).  
-
-📌 **Example:**
-```java
-class MathUtil {
-    int add(int a, int b) { return a + b; }
-    double add(double a, double b) { return a + b; }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        MathUtil m = new MathUtil();
-        System.out.println(m.add(5, 3));       // Calls int version
-        System.out.println(m.add(5.5, 2.2));   // Calls double version
+    @Override
+    public void show() {
+        System.out.println("Show from A");
     }
-}
-```
-📝 **Output:**  
-```
-8  
-7.7  
-```
 
----
-
-### **🔹 Method Overriding (Runtime Polymorphism)**
-📌 **Definition:**  
-- A **subclass provides a specific implementation** of a method that is already defined in the **superclass**.  
-
-📌 **Example:**
-```java
-class Animal {
-    void makeSound() { System.out.println("Animal makes sound"); }
-}
-
-class Dog extends Animal {
-    void makeSound() { System.out.println("Dog barks"); }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Animal a = new Dog(); // Reference of superclass, object of subclass
-        a.makeSound();  // Calls Dog's overridden method
-    }
-}
-```
-📝 **Output:**  
-```
-Dog barks  
-```
-
-✅ **Key Rule:** Method signature (name + parameters) **must match exactly**.  
-✅ **Achieves:** **Runtime polymorphism** (decided at runtime).  
-
----
-
-### **🔹 Dynamic Method Dispatch (Runtime Polymorphism)**
-📌 **Definition:**  
-- A superclass reference variable can refer to a subclass object, allowing method calls to be resolved at **runtime**.  
-
-✅ **Example:** `Animal a = new Dog();`  
-
----
-
-### **🔹 Virtual Function**
-📌 **Definition:**  
-- A **method in the base class marked as "virtual"** (in languages like C++) to allow dynamic polymorphism via **runtime method binding**.  
-- In Java, **all non-static methods are virtual functions by default**.  
-
----
-
-### **🔹 Why Does Java Not Support Operator Overloading?**
-📌 **Definition:**  
-- Operator Overloading: Using operators like `+`, `-`, `*` with **user-defined** types.  
-❌ **Not supported in Java** to **keep the language simple and avoid confusion**.  
-
----
-
-### **🔹 Composition ("HAS-A" Relationship)**
-📌 **Definition:**  
-- One class **owns** another class, forming a **strong** relationship.  
-✅ **Example:** A **Car has an Engine**.  
-
-📌 **Example:**
-```java
-class Engine {
-    void start() { System.out.println("Engine started"); }
-}
-
-class Car {
-    Engine engine = new Engine();
-    
-    void startCar() {
-        engine.start(); // Delegating behavior to Engine
-    }
-}
-```
-✅ **If Car is destroyed, Engine is also destroyed.**  
-
----
-
-### **🔹 Association ("USES-A" Relationship)**
-📌 **Definition:**  
-- **A relationship between two objects** where one **uses** the other **without ownership**.  
-
-✅ **Example:** A **student is associated with a teacher** but does not own them.  
-✅ **Types:**  
-1️⃣ **One-to-One**  
-2️⃣ **One-to-Many**  
-3️⃣ **Many-to-Many**  
-
----
-
-### **🔹 Aggregation (Weak "Whole-Part" Relationship)**
-📌 **Definition:**  
-- A **weaker** version of composition where objects **can exist independently**.  
-
-✅ **Example:**  
-- A **University has Departments**, but a **Department can exist without the University**.  
-
-📌 **Example:**
-```java
-class Department {
-    String name;
-    Department(String name) { this.name = name; }
-}
-
-class University {
-    Department dept;  // Has-a relationship (Aggregation)
-    
-    University(Department dept) {
-        this.dept = dept;
+    @Override
+    public void display() {
+        System.out.println("Display from B");
     }
 }
 ```
 
+#### **Why Not Just Use Classes?**
+- Inheriting from multiple classes could cause **ambiguous behavior** (e.g., diamond problem).
+- **Interfaces** define behavior without inheriting state, which provides a cleaner, more modular design.
+
 ---
 
-### **🔹 Constructor Overloading**
-📌 **Definition:**  
-- Defining multiple constructors **with different parameters**.  
-✅ **Used for object initialization in different ways**.  
+### **Polymorphism **
 
-📌 **Example:**
+- **Definition**: "Many forms" — allows objects to take different forms depending on context.
+---
+
+### Types of Polymorphism:
+
+1. **Compile-time Polymorphism (Static Polymorphism)**:
+   - **Occurs**: At compile-time.
+   - **Example**: Method Overloading (same method name, different parameters).
+   - **Code**:
+     ```java
+     void draw(int x) { }
+     void draw(double x) { }
+     ```
+
+2. **Runtime Polymorphism (Dynamic Polymorphism)**:
+   - **Occurs**: At runtime.
+   - **Example**: Method Overriding (subclass overrides superclass method).
+   - **Code**:
+     ```java
+     class Shape { void draw() { } }
+     class Circle extends Shape { void draw() { } }
+     Shape s = new Circle(); s.draw();  // "Drawing Circle"
+     ```
+
+---
+
+### Key Concepts:
+
+- **Overloading (Static)**: Same method name, different parameter types.
+- **Overriding (Dynamic)**: Subclass provides own method implementation.
+
+### Dynamic Method Dispatch:
+- **What**: JVM calls method based on actual object type (not reference type).
+- **Example**: At runtime, Java calls overridden method of `Circle`, even if reference is `Shape`.
+
+---
+
+### Additional Notes:
+
+- **final Keyword**:
+  - **Method**: Cannot be overridden.
+  - **Class**: Cannot be subclassed.
+  - **Variable**: Cannot be reassigned.
+
+- **Static Methods**: Cannot be overridden (can be hidden).
+
+---
+
+### **Encapsulation vs Abstraction Flashcard**
+
+#### **Encapsulation**
+- **What**: Bundles data (variables) and methods (functions) into a class.
+- **Why**: Protects data and restricts access to it.
+- **How**: Uses **private** fields and **public** getter/setter methods to control access.
+
+#### **Abstraction**
+- **What**: Hides implementation details and exposes only essential features.
+- **Why**: Simplifies interaction and hides complexity.
+- **How**: Achieved using **abstract classes** or **interfaces** to define contracts without implementations.
+
+#### **Key Differences**:
+- **Encapsulation**: Focuses on **how data is hidden** (internal state control).
+- **Abstraction**: Focuses on **what details are hidden** (simplified interface).
+
+#### **Example**:
+- **Encapsulation** (Data hiding with getter/setter):
+  ```java
+  class Car {
+      private int speed;
+      
+      public int getSpeed() {
+          return speed;
+      }
+      
+      public void setSpeed(int speed) {
+          this.speed = speed;
+      }
+  }
+  ```
+- **Abstraction** (Using interface to define behavior):
+  ```java
+  interface Vehicle {
+      void start();
+  }
+  
+  class Car implements Vehicle {
+      public void start() {
+          System.out.println("Car started");
+      }
+  }
+  ```
+
+#### **Data Hiding**
+- **What**: Hides internal data via `private` access.
+- **Why**: Protects data integrity and prevents unauthorized changes.
+- **How**: Achieved through access modifiers, limiting external access to fields.
+
+#### **Data Hiding vs Encapsulation**
+- **Data Hiding**: Hides data (uses `private` modifiers).
+- **Encapsulation**: Combines data and methods, uses data hiding for protection.
+
+---
+
+###  **Access Control in Java**
+
+---
+
+**What it is**:  
+Access control in Java defines how class members (fields, methods) are accessed from other classes.
+
+---
+
+**Why it's used**:  
+To enforce encapsulation, security, and proper design by restricting or allowing access to class members.
+
+---
+
+**Access Modifiers & Visibility**:
+
+| Modifier     | Class | Package | Subclass (same pkg) | Subclass (diff pkg) | World |
+|--------------|-------|---------|---------------------|---------------------|-------|
+| **public**   |   +   |    +    |          +          |          +          |   +   |
+| **protected**|   +   |    +    |          +          |          +          |       |
+| **default**  |   +   |    +    |          +          |                     |       |
+| **private**  |   +   |         |                     |                     |       |
+
+- **public**: Accessible everywhere.
+- **protected**: Accessible in same package & subclasses.
+- **default**: Accessible in same package.
+- **private**: Accessible only within the same class.
+
+---
+
+**Key Example**:  
 ```java
-class Person {
-    String name;
-    int age;
-    
-    Person(String name) { this.name = name; }
-    Person(String name, int age) { this.name = name; this.age = age; }
-}
-```
-
----
-
-Here are **flashcards** for **Abstract Classes in Java** 🚀:  
-
----
-
-### **🔹 Abstract Class**
-📌 **Definition:**  
-- A class that **cannot be instantiated** and is meant to be extended by subclasses.  
-- Can have **abstract methods (without implementation)** and **concrete methods (with implementation).**  
-
----
-
-### **🔹 Key Points About Abstract Classes**
-✅ **Can Have:**  
-✔ Abstract methods (**without** body)  
-✔ Concrete methods (**with** body)  
-✔ Constructors  
-✔ Private methods  
-✔ Final methods  
-
-❌ **Cannot:**  
-❌ Be instantiated (`new AbstractClass()` is not allowed)  
-❌ Be marked **final** (`final abstract class A {}` gives compilation error)  
-
----
-
-### **🔹 Can an Abstract Class Have a Constructor?**
-✅ **Yes!**  
-- Used to **initialize common properties** for subclasses.  
-
-📌 **Example:**
-```java
-abstract class Animal {
-    String name;
-    
-    Animal(String name) {  // Constructor in abstract class
-        this.name = name;
+package packageOne;
+public class Base {
+    protected void display() {
+        System.out.println("in Base");
     }
 }
 
-class Dog extends Animal {
-    Dog(String name) { super(name); }
-}
-```
-
----
-
-### **🔹 Can We Use `final` in an Abstract Class?**
-❌ **No, an abstract class cannot be final**  
-❌ **`final abstract class A {}` → Compilation error**  
-📌 **Reason:**  
-- **`final` prevents extension**, but **`abstract` requires extension**.  
-
-✅ **However, a final method inside an abstract class is allowed**:  
-```java
-abstract class A {
-    final void display() {
-        System.out.println("Final method in abstract class");
+package packageTwo;
+public class Derived extends packageOne.Base {
+    public void show() {
+        new Base().display();  // not working
+        new Derived().display(); // works
+        display();              // works
     }
 }
 ```
 
+- `Base().display()` → Not allowed (different package, `protected`).
+- `Derived().display()` → Allowed (same package subclass).
+- `display()` → Allowed (same class).
+
 ---
 
-Here are **flashcards** for **Interfaces in Java** 🚀:  
+**Key Points**:
+
+- **`protected`**: Accessible by subclasses, even across packages.
+- **Access is allowed through subclass instances**, not superclass instances.
+- **Not accessible via superclass reference**, unless it points to a subclass object.
 
 ---
 
-### **🔹 Interface**
-📌 **Definition:**  
-- Defines a **contract** (what a class must do) **without implementation** (how it’s done).  
-- **Cannot be instantiated.**  
-- **All variables are `public static final` by default.**  
-- **Methods are `public abstract` by default (before Java 8).**  
+**Simplified Rule**:  
+- **`protected`** members can be accessed from subclasses or within the same package, but not from other classes in different packages unless it's via a subclass.
 
-✅ **Example:**
+---
+
+### **Abstract Classes in Java**
+
+**1. What is an Abstract Class?**
+- Blueprint tells what class to do via abstract method but not how (in subclass we implement abastract method part)
+- Cannot be instantiated directly.
+- Declared with `abstract` keyword.
+- can have constructor called by using super keyword, can have final and static methods
+- Can contain both **abstract methods** (no implementation) and **concrete methods** (with implementation).
+
+**2. Multiple Inheritance Issue:**
+- Java avoids **multiple inheritance** in classes to prevent **Diamond Problem** (method ambiguity).
+
+**3. Abstract Class Rules:**
+- A subclass **must** implement all abstract methods or be declared abstract itself.
+
+**4. Example:**
 ```java
-interface Animal {
-    void makeSound(); // Abstract method (no implementation)
+abstract class Shape {
+    abstract void draw(); 
+    void display() { System.out.println("This is a shape"); }
 }
+
+class Circle extends Shape {
+    void draw() { System.out.println("Drawing Circle"); }
+}
+```
+
+**5. Constructor in Abstract Classes:**
+- **No abstract constructors**.
+- Can define constructors for initialization, called by subclasses using `super`.
+
+**6. Object Creation:**
+- Cannot instantiate an **abstract class**.
+- Can create objects of **concrete subclasses**.
+
+**7. Abstract Static Methods:**
+- Not allowed (conflict with static method behavior).
+
+**8. Static Methods in Abstract Classes:**
+- Allowed and behave like normal static methods (not overridden).
+
+**9. `final` Keyword:**
+- **Cannot** be used with abstract classes (prevents inheritance).
+
+**11. Key Concept:**
+- **Abstract class = Leader:** Defines tasks (abstract methods) but doesn't implement them.
+- **Subclass = Employee:** Implements tasks (abstract methods).
+- **You cannot instantiate abstract class**; only create objects of concrete subclasses.
+
+**12. Example:**
+```java
+abstract class Leader {
+    abstract void assignTask();
+    void greet() { System.out.println("Welcome to the team!"); }
+}
+
+class Employee extends Leader {
+    void assignTask() { System.out.println("Completing the task!"); }
+}
+```
+
+---
+
+### ** Interfaces in Java**
+
+---
+
+#### **What are Interfaces?**
+- A contract defining what a class must do, but not how it’s done.  
+- Methods are **public** and **abstract** by default. Variables are **static**, **final**, and **public**.
+- cannot be instantiated, class can have n no of interface
+- contains method without body
+- we use **Implements** keyword
+- in java 8 we have default method 
+
+---
+
+#### **Why Use Interfaces?**
+- Achieve **multiple inheritance** and **abstraction**.  
+- Allow unrelated classes to share common behavior.  
+- Promote **loose coupling**.
+
+---
+
+#### **Key Features:**
+1. **Default Methods** (Java 8+):  
+   - Can have methods with implementations, maintaining backward compatibility.  
+   ```java
+   default void show() { System.out.println("Default Method"); }
+   ```
+
+2. **Static Methods** (Java 8+):  
+   - Belong to the interface, not inherited.  
+   ```java
+   static void print() { System.out.println("Static Method"); }
+   ```
+
+3. **Nested Interfaces**:  
+   - Interfaces can be declared inside other classes or interfaces.  
+   ```java
+   class Outer { public interface Nested { void display(); } }
+   ```
+
+4. **Extending Interfaces**:  
+   - Interfaces can extend other interfaces. Classes implementing an extended interface must implement all inherited methods.
+
+---
+
+#### **Example:**
+```java
+interface Animal { void sound(); }
 
 class Dog implements Animal {
-    public void makeSound() {  // Must provide implementation
-        System.out.println("Dog barks");
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Animal myDog = new Dog();
-        myDog.makeSound();  // Output: Dog barks
-    }
+    public void sound() { System.out.println("Woof"); }
 }
 ```
 
 ---
 
-### **🔹 Key Points About Interfaces**
-✅ **Can Have:**  
-✔ **Abstract methods** (must be implemented by the class)  
-✔ **Static methods** (introduced in Java 8)  
-✔ **Default methods** (introduced in Java 8)  
-✔ **Nested types**  
-
-❌ **Cannot:**  
-❌ Be instantiated  
-❌ Have constructors  
-❌ Contain instance variables (only constants)  
-
-✅ **All variables are `public static final` by default**  
-```java
-interface Test {
-    int VALUE = 100;  // Equivalent to: public static final int VALUE = 100;
-}
-public class Main {
-    public static void main(String[] args) {
-        System.out.println(Test.VALUE);  // Output: 100
-        // Test.VALUE = 200;  // ❌ Error: Cannot modify final variable
-    }
-}
-```
+#### **Interface vs Abstract Class:**
+- **Multiple Inheritance**:  
+  - Interfaces allow multiple inheritance; abstract classes don’t.  
+- **State**:  
+  - Abstract classes can have instance variables; interfaces can only have static final variables.
+- **Constructors**:  
+  - Abstract classes can have constructors; interfaces can’t.
 
 ---
 
-### **🔹 Why Use Interfaces?**
-✅ **Multiple Inheritance** (Java does not support multiple class inheritance, but it supports multiple interface implementation).  
-✅ **Abstraction** (Hides implementation details).  
-✅ **Loose Coupling** (Flexible design, reducing dependency between components).  
+#### **Important Notes:**
+1. **Dynamic Method Resolution**:  
+   - Method resolution happens at runtime, enabling flexibility.
+2. **Access Modifiers**:  
+   - Methods in interfaces must be **public**.
+3. **Performance**:  
+   - Using interfaces may introduce runtime lookup overhead.
+
 
 ---
 
-### **🔹 Types of Methods in Interfaces**
-| Type          | Introduced in | Description |
-|--------------|-------------|-------------|
-| **Abstract Method** | Java 7  | Methods without body (must be implemented). |
-| **Static Method** | Java 8 | Can have a body, but cannot be overridden. |
-| **Default Method** | Java 8 | Has a default implementation, can be overridden. |
+### **Custom ArrayList with Generics**
 
-✅ **Default & Static Methods in Interfaces (Java 8+)**
-```java
-interface MyInterface {
-    default void show() {   // Default method
-        System.out.println("Default method in interface");
-    }
-    static void staticMethod() {  // Static method
-        System.out.println("Static method in interface");
-    }
-}
-public class Demo implements MyInterface {
-    public static void main(String[] args) {
-        Demo obj = new Demo();
-        obj.show();  // Output: Default method in interface
-        MyInterface.staticMethod();  // Output: Static method in interface
-    }
-}
-```
+**What it is**:  
+A user-defined dynamic list implementation that stores elements of any type using Java Generics.
+
+**Key Points**:
+1. **Type Safety**: Eliminates casting and `ClassCastException`.
+2. **Flexible**: Can work with any object type without duplicating code.
+3. **How it works**:  
+   - Declare class as `<T>`.
+   - Use `T` for array and method types.
+   - Type `T` is determined during object creation (e.g., `CustomArrayList<Integer>`).
+
+**Wildcards in Generics**:
+- **Unbounded Wildcard (`?`)**: Allows any type.
+- **Upper Bounded Wildcard (`? extends T`)**: Restricts to types extending `T`.
+- **Lower Bounded Wildcard (`? super T`)**: Allows types that are `T` or a superclass of `T`.
 
 ---
 
-### **🔹 Functional Interface**
-📌 **Definition:**  
-- An interface with only **one abstract method** but can have **default or static methods.**  
-- Used for **Lambda Expressions**.  
+###  **Comparison Objects & Cloning in Java**
 
-✅ **Example:**
-```java
-@FunctionalInterface
-interface Calculator {
-    int add(int a, int b);  // Single abstract method
-}
-public class Main {
-    public static void main(String[] args) {
-        Calculator sum = (a, b) -> a + b; // Lambda expression
-        System.out.println(sum.add(5, 10)); // Output: 15
+#### **Comparison Objects**
+- **What It Is**: Used to compare two objects for sorting or ordering. Implemented via `Comparable` or `Comparator`.
+- **Key Interfaces**:  
+  - **Comparable**: Internal comparison (e.g., `compareTo`). Used for natural sorting.
+  - **Comparator**: External comparison (e.g., `compare`). Used for custom sorting.
+  
+- **Examples**:
+  - **Comparable**:  
+    ```java
+    class Person implements Comparable<Person> {  
+        @Override  
+        public int compareTo(Person other) {  
+            return this.age - other.age;  
+        }  
     }
-}
-```
+    ```
+  - **Comparator**:  
+    ```java
+    class PersonComparator implements Comparator<Person> {  
+        @Override  
+        public int compare(Person p1, Person p2) {  
+            return p1.name.compareTo(p2.name);  
+        }  
+    }
+    ```
+
+#### **`compareTo` Methods**
+- **Numeric Comparison**: Compares numeric values (`compareTo` for integers/floats).
+  - **Result**: Negative, 0, or positive.
+- **Alphabetical Comparison**: Compares strings lexicographically (like dictionary order).
+  - **Result**: Negative, 0, or positive.
+
+#### **Object Cloning**
+- **What It Is**: Creates an exact copy of an object.
+- **Key Concept**: `Cloneable` interface & `clone()` method.
+
+#### **Shallow Copy**  
+- **Definition**: Copies the object, but shares references to internal objects (e.g., `ArrayList`).
+- **Effect**: Changes in inner objects affect both original and copied objects.
+
+#### **Deep Copy**  
+- **Definition**: Creates an independent object, duplicating the internal objects as well.
+- **Effect**: Changes in the original do not affect the deep-copied object.
 
 ---
 
-### **🔹 Marker Interface**
-📌 **Definition:**  
-- **An interface without methods.**  
-- Used to indicate a class has special properties.  
-
-✅ **Example:**  
-Java's **Serializable, Cloneable** are marker interfaces.  
-```java
-class Student implements Serializable { }  // Marks class as serializable
-```
+### ** Exception Handling in Java**
 
 ---
 
-### **Flashcard: Serializable vs Cloneable + Shallow vs Deep Copy**  
-
-#### **🟢 Serializable (Used for Object Persistence)**  
-✔ **Allows an object to be serialized** (converted into a byte stream).  
-✔ **Used for** saving an object's state to a file, sending over a network, or storing in a database.  
-✔ **Marker interface** (no methods, just a signal to JVM).  
-✔ **Non-static & non-transient fields** are serialized.  
-✔ **Use `transient`** to skip fields during serialization.  
-✅ **Example:**  
-```java
-class Data implements Serializable {
-    private static final long serialVersionUID = 1L;  
-    int id;
-    transient String password; // Won't be serialized
-}
-```
-
----  
-
-#### **🟡 Cloneable (Used for Object Duplication)**  
-✔ **Marker interface** (no methods).  
-✔ **Enables object cloning using `clone()`** from `Object` class.  
-✔ **Must override `clone()`**, otherwise `CloneNotSupportedException` occurs.  
-✔ **By default, performs a shallow copy**.  
-✔ **For deep copy**, override `clone()` & manually copy mutable fields.  
-✅ **Example:**  
-```java
-class CopyExample implements Cloneable {
-    int id;
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone(); // Shallow Copy
-    }
-}
-```
+#### **What It Is**
+- Mechanism to handle runtime errors and maintain normal program flow.  
 
 ---
 
-### **Shallow Copy vs Deep Copy**  
+#### **Why It's Used**
+- Prevents program crashes and handles errors gracefully.  
+- Separates error-handling from regular code.  
 
-#### **🔹 Shallow Copy**  
-✔ **Copies references** of inner objects (not new instances).  
-✔ **Top-level object is duplicated, but inner objects are shared.**  
-✔ **Changes in one affect the other.**  
-✅ **Example:**  
-```java
-class Shallow implements Cloneable {
-    int[] arr = {1, 2, 3}; 
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone(); // Reference of `arr` is copied
-    }
-}
-```
+---
 
-#### **🔹 Deep Copy**  
-✔ **Creates new instances** of inner objects.  
-✔ **Completely independent copy**—modifying one does not affect the other.  
-✅ **Example:**  
-```java
-class Deep implements Cloneable {
-    int[] arr = {1, 2, 3}; 
-    public Object clone() throws CloneNotSupportedException {
-        Deep copy = (Deep) super.clone();
-        copy.arr = arr.clone(); // New instance of `arr`
-        return copy;
-    }
-}
-```
+#### **Core Concepts**
+- **try**: Test code for exceptions.  
+- **catch**: Handle exceptions.  
+- **finally**: Always executes, used for cleanup.  
+- **throw**: Explicitly throw an exception.  
+- **throws**: Declare exceptions a method can throw.
 
-📌 **Key Differences:**  
-✔ **Serializable** → Used for persistence (saving/transferring objects).  
-✔ **Cloneable** → Used for object duplication (`clone()`).  
-✔ **Shallow Copy** → Shared inner objects (change affects both).  
-✔ **Deep Copy** → New inner objects (each copy is independent). 🚀
+---
+
+#### **Error vs Exception**
+| **Aspect**     | **Error**              | **Exception**           |
+|----------------|------------------------|-------------------------|
+| **Severity**   | Serious, unrecoverable | Less severe, recoverable |
+| **Examples**   | `OutOfMemoryError`     | `IOException`, `SQLException` |
+
+---
+
+#### **Types of Exceptions**
+- **Checked**: Must be handled or declared (`IOException`, `SQLException`).
+- **Unchecked**: Runtime errors (`NullPointerException`, `ArithmeticException`).
+- **Error**: Critical system issues (`StackOverflowError`).
+
+---
+
+#### **Creating Custom Exceptions**
+- Extend `Exception` or `RuntimeException`.  
+- Example:
+  ```java
+  class CustomException extends Exception {
+      public CustomException(String message) {
+          super(message);
+      }
+  }
+  ```
+
+---
+
+#### **Common Checked Exceptions**
+- **IOException**: Issues with I/O operations (e.g., file reading/writing).
+- **SQLException**: Database access or SQL query issues.
+
+---
+
+#### **Common Unchecked Exceptions**
+- **NullPointerException**: Using a null reference.
+- **ArithmeticException**: Illegal arithmetic operations (e.g., division by zero).
+- **ArrayIndexOutOfBoundsException**: Invalid array index access.
+
+--- 
+### **JVM Memory Types**
+#### **Two Types of Memory JVM Manages**
+
+- **Heap**
+- **Stack**
+
+---
+
+#### **Stack Memory in Java**
+
+- **Purpose**: Stores method variables and execution context for each thread.
+- **How it Works**: 
+  - Each thread has its own stack.
+  - Stores **primitive types** and **object references** (pointers to objects in heap).
+  - New stack frames are created for each method call, removed when the method completes (LIFO).
+- **Key Points**:
+  - **Scope-based**: Exists only within the method's scope.
+  - **Automatic cleanup**: Automatically cleared when method ends.
+  - **Fixed size**: Too deep recursion causes **StackOverflowError**.
+
+---
+
+#### **Heap Memory in Java**
+
+- **Purpose**: Stores **objects** (instances of classes).
+- **How it Works**:
+  - Shared by all threads, objects are not tied to specific thread’s stack.
+  - **Dynamic memory management** at runtime.
+  - **Garbage Collection (GC)**: Reclaims memory from unreferenced objects.
+- **Key Characteristics**:
+  - Managed by **Garbage Collector**.
+  - **Mark & Sweep** algorithm marks referenced objects and removes unreferenced ones.
+  - Divided into:
+    - **Young Generation**: New objects.
+    - **Old Generation**: Surviving objects.
+    - **Metaspace** (Java 8+): Stores class metadata.
+  
+---
+
+### **Garbage Collection** in Detail
+- automatic memory management-> process of deallocating memory from unused objects duing program execution
+- jvm controls the garbage collections
+- it looking at heap memory and identify which objects are used andd unused by using mark and sweep algorithm.
+ 
+- **Mark & Sweep**: 
+  - **Mark**: Identifies referenced objects.
+  - **Sweep**: Removes unreferenced objects.
+  
+- **GC Types**:
+  - **Serial GC**: Single-threaded, slow.
+  - **Parallel GC**: Multi-threaded, faster.
+  - **CMS**: Minimizes pause times by running GC concurrently with app threads.
+  - **G1 GC**: Balances high throughput and low pause times by dividing the heap into regions.
+
+---
+
