@@ -1095,3 +1095,87 @@ public class ReactiveController {
 | Key Class | `@Controller` | `CommandLineRunner` | `Mono/Flux` |
 
 🚀 **Spring Boot adapts its bootstrapping process based on the application type!**
+
+---
+
+### **SLF4J Logging**  
+
+#### **What is SLF4J?**  
+SLF4J (Simple Logging Facade for Java) is a **common logging interface** in Java. It allows developers to log messages **without locking into a specific logging framework** like Log4j or Logback.  
+
+#### **Before SLF4J – What Problem Did We Have?**  
+❌ Too many logging frameworks (Log4j, JUL, Logback).  
+❌ Hard to switch logging frameworks.  
+❌ Messy, inconsistent logging across projects.  
+
+#### **What Does SLF4J Solve?**  
+✅ **One API, Many Backends** – Works with Log4j, Logback, JUL.  
+✅ **Easier Debugging** – Logs errors, warnings, and info messages.  
+✅ **Performance Optimization** – Avoids unnecessary log processing.  
+
+📌 **Example Use Cases**:  
+- Logging errors in a banking app.  
+- Tracking API requests in a web service.  
+- Debugging a slow function in a Java program.  
+
+#### **What Do Java Developers Do with SLF4J?**  
+
+1️⃣ **Add SLF4J Dependency (Maven)**  
+```xml
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>2.0.7</version>
+</dependency>
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.4.11</version>
+</dependency>
+```
+
+2️⃣ **Use SLF4J in Code**  
+```java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class App {
+    private static final Logger logger = LoggerFactory.getLogger(App.class);
+
+    public static void main(String[] args) {
+        logger.info("App started!");
+        logger.warn("Something looks odd.");
+        logger.error("Something went wrong!");
+    }
+}
+```
+
+3️⃣ **Log Output Example**  
+```
+INFO  App - App started!
+WARN  App - Something looks odd.
+ERROR App - Something went wrong!
+```
+#### **Why Do Java Developers Use SLF4J?**  
+✅ Works with **multiple logging frameworks**.  
+✅ Reduces **string concatenation overhead**.  
+✅ Supports **log levels** (INFO, DEBUG, WARN, ERROR).  
+✅ Integrates easily with **Spring Boot**.  
+
+#### **Key Features**  
+Log Levels (Features in SB Logging)
+🔹 TRACE – Too much detail (for deep debugging).
+🔹 DEBUG – Useful for development.
+🔹 INFO – Normal application flow.
+🔹 WARN – Something might be wrong.
+🔹 ERROR – Something is wrong.
+
+#### Change Log Level in application.properties
+- properties files
+
+```
+logging.level.root=INFO
+logging.level.com.myapp=DEBUG
+```
+🔹 root=INFO → Logs only INFO, WARN, ERROR (hides DEBUG & TRACE).
+🔹 com.myapp=DEBUG → Logs everything for com.myapp package.
