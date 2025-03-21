@@ -91,7 +91,6 @@ class Car {
 - **Private Constructor**: Used for singleton patterns or restricting object creation from other classes.
 - **Parameterized Constructor**: Constructor with arguments to initialize objects with custom values.
 
-
 #### **How it Works?**
 1. **Default Constructor**:  
    - If no constructor is defined, Java provides a default constructor.
@@ -99,10 +98,10 @@ class Car {
    ```java
    public class Example {
        Example() { 
-           System.out.println("Default Constructor Called");
+           System.out.println("Default Constructor Called"); // if this is not exist 
        }
    }
-   Example obj = new Example();
+   Example obj = new Example(); // then this act as default constructor Example();
    ```
 2. **Manual Constructor**:  
    - Define constructors with arguments for specific initialization.
@@ -125,7 +124,7 @@ class Car {
    ```
 
 #### **Constructor Overloading**
-- Constructor Overloading means having multiple constructors in a class with different parameter lists.
+- Means having multiple constructors in a class with same name and different parameter lists.
    ```java
    public class Example {
        Example() { }
@@ -158,9 +157,11 @@ class Car {
 - Objects created with `new` are allocated in the **heap**.
 - Primitives are stored in the **stack** or within objects/arrays.
 
-###  **Wrapper Classes, `final` Keyword, Garbage Collection, and `finalize` Keyword in Java**
+
 
 ---
+
+###  **Wrapper Classes, `final` Keyword, Garbage Collection, and `finalize` Keyword in Java**
 
 #### **Wrapper Classes in Java**
 - **What**: Converts primitive types into objects.  
@@ -172,8 +173,6 @@ class Car {
   - `double` → `Double`  
 - **Utility**: Provides methods for conversion and manipulation (e.g., converting strings to numbers).
 
----
-
 #### **`final` Keyword in Java**
 - **What**: Prevents modification of variables, methods, and classes.  
 - **Why**: Ensures immutability and restricts inheritance or method overriding.  
@@ -181,8 +180,6 @@ class Car {
   - **Variables**: Value cannot be changed once initialized.  
   - **Methods**: Cannot be overridden.  
   - **Classes**: Cannot be subclassed.
-
----
 
 #### **Garbage Collection in Java**
 - **What**: JVM automatically deletes unused objects to free memory.  
@@ -265,20 +262,16 @@ public class Main {
 #### **What is it?**
 - **Static**: A keyword used to define class-level members (variables, methods, blocks). These belong to the class, not instances. No need to create an object to access them.
 
----
-
-### **Static Variables**
+#### **Static Variables**
 - Class-level variable → Common value shared by all objects.
 - Initialized once; same value across instances.
 - **Access**: Via class name or instance.
 - **Overriding**: Cannot be overridden but can be hidden in subclasses.
 
-### **Instance vs static**
+#### **Instance vs static**
 - **Insance**: Object-level variable → Separate value for each object. Tied to an object.
 - **Static**: Class-level variable → Common value shared by all objects. Tied to the class.
 - **How it Works**: Instance members require objects; static members are accessed via class name.
-
----
 
 ### **Static Methods**
 - Can be called without creating an instance of the class. Class-level operations not dependent on instance data.
@@ -286,35 +279,23 @@ public class Main {
 - **Access**: Via class name.
 - **Overriding**: Cannot be overridden; can be hidden in subclasses.
 
----
-
 ### **Static Block**
 - Used to initialize static variables when the class is loaded.
 - Runs once when the class is loaded, initializing static variables.
-
----
 
 ### **Why `psvm` is Static?**
 - **Reason**: JVM calls the `main` method before any objects are created, so it must be static.
 - **How it Works**: Static allows the JVM to invoke it directly.
 
----
-
 ### **Non-static Member in Static Method**
 - **Reason**: Static methods can't directly access non-static members.
 - **How it Works**: Create an object to access non-static members.
 
----
-
 ### **Static Member in Non-static Method**
 - **Reason**: Static members belong to the class and can be accessed directly in non-static methods.
 
----
-
 ### **`this` Inside Static Methods**
 - **Reason**: Static methods don't belong to an instance, so `this` can't be used.
-
----
 
 ### **Inner Classes**
 - **Reason**: Group classes logically; improve encapsulation.
@@ -322,16 +303,16 @@ public class Main {
   - **Non-static inner classes**: Access both static and non-static members of the outer class.
   - **Static nested classes**: Access only static members.
 
----
-
 ### **Singleton Pattern**
 - **What is it?**: Ensures a class has only one instance and provides a global point of access.
 - **Why Use?**: Controls access to shared resources, ensures consistent behavior, reduces memory usage.
 - **How It Works?**
     - **Private Constructor**: To prevent the class from creating multiple instances
-    - **Static Instance**: A static instance variable holds the single object, and it’s initialized when required.
-    - **Public Method**: A public static method (usually named getInstance()) is used to access the instance. 
-                        It checks whether the instance already exists or not. If not, it creates one.
+    - **Static Instance**: holds the single object, and it’s initialized when required.
+    - **Public Method**: is used to access the instance, It checks whether the instance already exists or not. If not, it creates one.
+
+
+---
 
 ###  **Inheritance in Java**
 
