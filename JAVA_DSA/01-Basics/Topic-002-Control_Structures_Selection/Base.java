@@ -1,4 +1,4 @@
-public class Q1_Base {
+public class Base {
     public static void main(String[] args) {
 /* Conditional
         - if

@@ -3,8 +3,7 @@
 
     
     "java.project.sourcePaths": [
-        "JAVA_DSA/01-Basics/Topic-002-Control_Structures_IfElse_Switch_Ternary",
-        "JAVA_DSA/01-Basics/Topic-003-Control_Structures_Loops"
+        "JAVA_DSA/01-Basics/Topic-005-Functions"
     ]
     
 }
