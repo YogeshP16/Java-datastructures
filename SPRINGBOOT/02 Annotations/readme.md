@@ -1,3 +1,16 @@
+## Index
+
+- [@Component in Spring Boot](#component-in-spring-boot)
+- [@Service vs @Repository vs @Controller in Spring Boot](#service-vs-repository-vs-controller-in-spring-boot)
+- [@Controller vs @RestController in Spring Boot](#controller-vs-restcontroller-in-spring-boot)
+- [@Configuration in Spring Boot](#configuration-in-spring-boot)
+- [@Component vs @Bean in Spring Boot](#component-vs-bean-in-spring-boot)
+- [@Autowired in Spring Boot](#autowired-in-spring-boot)
+- [@Qualifier vs @Primary in Spring Boot](#qualifier-vs-primary-in-spring-boot)
+- [@Profile in Spring Boot](#profile-in-spring-boot)
+- [@SpringBootApplication in Spring Boot](#springbootapplication-in-spring-boot)
+
+
 
 ---
 

@@ -1,3 +1,31 @@
+## Index
+
+1. [Messaging Support in Spring Boot](#messaging-support-in-spring-boot)
+2. [Configuring a Message Broker](#configuring-a-message-broker)
+3. [Sending & Receiving Messages with RabbitMQ](#sending--receiving-messages-with-rabbitmq)
+4. [Spring Kafka in Spring Boot](#spring-kafka-in-spring-boot)
+5. [Kafka Producer & Consumer](#kafka-producer--consumer)
+6. [Kafka Topics](#kafka-topics)
+7. [Kafka Producer Configuration](#kafka-producer-configuration)
+8. [Kafka Consumer Configuration](#kafka-consumer-configuration)
+9. [Kafka Topic Partitions](#kafka-topic-partitions)
+10. [Configuring Kafka Producer & Consumer](#configuring-kafka-producer--consumer)
+11. [Advantages of Messaging Systems](#advantages-of-messaging-systems)
+12. [Difference Between RabbitMQ and Kafka](#difference-between-rabbitmq-and-kafka)
+13. [Error Handling in Messaging](#error-handling-in-messaging)
+14. [Kafka Stream Topologies](#kafka-stream-topologies)
+15. [Reading Data from Kafka in Spring Boot](#reading-data-from-kafka-in-spring-boot)
+16. [Kafka Consumer in Spring](#kafka-consumer-in-spring)
+17. [Default Kafka Message Size](#default-kafka-message-size)
+18. [Configuring Kafka for 15MB Messages](#configuring-kafka-for-15mb-messages)
+19. [Kafka Message Size Exceeds Limit](#kafka-message-size-exceeds-limit)
+20. [Kafka Replication Factor](#kafka-replication-factor)
+21. [Why Replication Factor?](#why-replication-factor)
+22. [Fault Tolerance in Kafka](#fault-tolerance-in-kafka)
+23. [Fault Tolerance & Replication](#fault-tolerance--replication)
+
+
+
 ### **Spring Boot Messaging**  
 
 ---

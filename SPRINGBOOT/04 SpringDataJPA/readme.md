@@ -1,4 +1,29 @@
+## Index
 
+- [Spring data JPA](#spring-data-jpa)
+    - [JDBC](#jdbc)
+    - [WorkFlow](#workflow)
+    - [What Spring Data JPA](#what-spring-data-jpa)
+    - [Hibernate](#hibernate)
+    - [What Does Spring Data JPA Solve?](#what-does-spring-data-jpa-solve)
+    - [`JpaRepository` Methods & Connection to `EntityManager`](#jparepository-methods--connection-to-entitymanager)
+    - [Entities in JPA](#entities-in-jpa)
+    - [JPA Entity vs. Database Table](#jpa-entity-vs-database-table)
+    - [Spring Data JPA Flow (Simplified)](#spring-data-jpa-flow-simplified)
+    - [HikariCP (Spring Boot Default Connection Pool)](#hikaricp-spring-boot-default-connection-pool)
+    - [Basic JPA Annotations for Entity Mapping](#basic-jpa-annotations-for-entity-mapping)
+    - [Primary Key & Generation Strategies in JPA](#primary-key--generation-strategies-in-jpa)
+    - [Spring Data JPA Repository Interfaces & Hierarchy](#spring-data-jpa-repository-interfaces--hierarchy)
+    - [Steps to Create & Use Spring Data JPA Repository](#steps-to-create--use-spring-data-jpa-repository)
+    - [JPA Repository Methods](#jpa-repository-methods)
+    - [`@Embedded` & `@Embeddable`](#embedded--embeddable)
+    - [`@Query` in Spring Data JPA](#query-in-spring-data-jpa)
+    - [`@Transactional` & `@Modifying` in Spring Data JPA](#transactional--modifying-in-spring-data-jpa)
+    - [`cascade` in JPA](#cascade-in-jpa)
+    - [Fetch Types in JPA](#fetch-types-in-jpa)
+    - [Unidirectional vs. Bidirectional Relationships in JPA](#unidirectional-vs-bidirectional-relationships-in-jpa)
+    - [JPA Relationships (Mappings) in Simple Terms](#jpa-relationships-mappings-in-simple-terms)
+    - [Differences: MySQL vs. MongoDB vs. Redis vs. Spring Data JPA](#differences-mysql-vs-mongodb-vs-redis-vs-spring-data-jpa)
 
 ## **Spring data JPA** 
 ---

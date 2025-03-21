@@ -1,3 +1,81 @@
+## Index
+
+- [Microservices in Spring Boot](#microservices-in-spring-boot)
+  - [What is a Microservice?](#what-is-a-microservice)
+  - [Key Features](#key-features)
+  - [Microservices in Spring Boot](#microservices-in-spring-boot-1)
+  - [Example: Simple Microservice (REST API)](#example-simple-microservice-rest-api)
+  - [Why Microservices?](#why-microservices)
+- [Monolithic vs Microservices](#monolithic-vs-microservices)
+  - [Monolithic Architecture](#monolithic-architecture)
+  - [Microservices Architecture](#microservices-architecture)
+  - [Key Differences](#key-differences)
+- [Microservice Communication Methods](#microservice-communication-methods)
+  - [Synchronous Communication (Blocking)](#synchronous-communication-blocking)
+  - [Asynchronous Communication (Non-Blocking)](#asynchronous-communication-non-blocking)
+  - [When to Use What?](#when-to-use-what)
+- [Service Discovery in Microservices](#service-discovery-in-microservices)
+  - [What is Service Discovery?](#what-is-service-discovery)
+  - [Types of Service Discovery](#types-of-service-discovery)
+  - [Client-Side Service Discovery](#client-side-service-discovery)
+  - [Server-Side Service Discovery](#server-side-service-discovery)
+  - [Key Differences](#key-differences-1)
+- [Eureka in Microservices](#eureka-in-microservices)
+  - [What is Eureka?](#what-is-eureka)
+  - [Eureka Components](#eureka-components)
+  - [Eureka Server](#eureka-server)
+  - [Eureka Client](#eureka-client)
+  - [Service Discovery Using Eureka](#service-discovery-using-eureka)
+  - [Key Features of Eureka](#key-features-of-eureka)
+- [Spring Cloud Config Server in Microservices](#spring-cloud-config-server-in-microservices)
+  - [What is Spring Cloud Config Server?](#what-is-spring-cloud-config-server)
+  - [Components of Spring Cloud Config](#components-of-spring-cloud-config)
+  - [Config Server](#config-server)
+  - [Config Client](#config-client)
+  - [How Spring Cloud Config Works?](#how-spring-cloud-config-works)
+  - [Key Benefits of Spring Cloud Config](#key-benefits-of-spring-cloud-config)
+- [API Gateway & Spring Cloud Gateway](#api-gateway--spring-cloud-gateway)
+  - [What is an API Gateway?](#what-is-an-api-gateway)
+  - [Spring Cloud Gateway (SCG)](#spring-cloud-gateway-scg)
+  - [Key Features of Spring Cloud Gateway](#key-features-of-spring-cloud-gateway)
+  - [API Gateway vs. Spring Cloud Gateway](#api-gateway-vs-spring-cloud-gateway)
+  - [When to Use Spring Cloud Gateway?](#when-to-use-spring-cloud-gateway)
+- [Circuit Breaker & Resilience in Microservices](#circuit-breaker--resilience-in-microservices)
+  - [What is a Circuit Breaker?](#what-is-a-circuit-breaker)
+  - [Circuit Breaker States](#circuit-breaker-states)
+  - [Resilience4j (Circuit Breaker Library)](#resilience4j-circuit-breaker-library)
+  - [Bulkhead Pattern](#bulkhead-pattern)
+  - [Circuit Breaker vs. Bulkhead](#circuit-breaker-vs-bulkhead)
+  - [Why Use Resilience4j?](#why-use-resilience4j)
+- [Securing Microservices](#securing-microservices)
+  - [Why Secure Microservices?](#why-secure-microservices)
+  - [Key Security Mechanisms](#key-security-mechanisms)
+  - [Authentication & Authorization](#authentication--authorization)
+  - [API Gateway Security](#api-gateway-security)
+  - [Secure Service-to-Service Communication](#secure-service-to-service-communication)
+  - [Data Encryption & Secure Storage](#data-encryption--secure-storage)
+  - [Rate Limiting & Throttling](#rate-limiting--throttling)
+  - [Key Takeaways](#key-takeaways)
+- [Saga Pattern in Distributed Transactions](#saga-pattern-in-distributed-transactions)
+  - [What is the Saga Pattern?](#what-is-the-saga-pattern)
+  - [How Saga Works?](#how-saga-works)
+  - [Choreography-Based Saga](#choreography-based-saga)
+  - [Orchestration-Based Saga](#orchestration-based-saga)
+  - [When to Use Saga?](#when-to-use-saga)
+- [Logging & Tracing in Microservices (Sleuth & Zipkin)](#logging--tracing-in-microservices-sleuth--zipkin)
+  - [Why Logging & Tracing in Microservices?](#why-logging--tracing-in-microservices)
+  - [What is Spring Cloud Sleuth?](#what-is-spring-cloud-sleuth)
+  - [What is Zipkin?](#what-is-zipkin)
+  - [How Sleuth & Zipkin Work Together?](#how-sleuth--zipkin-work-together)
+  - [Benefits of Logging & Tracing in Microservices](#benefits-of-logging--tracing-in-microservices)
+- [How M2 Communicates with M1 If M1 Crashes?](#how-m2-communicates-with-m1-if-m1-crashes)
+  - [Retry Mechanism](#retry-mechanism)
+  - [Circuit Breaker](#circuit-breaker)
+  - [Service Discovery & Load Balancing](#service-discovery--load-balancing)
+  - [Message Queue](#message-queue)
+  - [Best Approach?](#best-approach)
+
+
 ### **Microservices in Spring Boot**  
 
 #### ✅ **What is a Microservice?**  
@@ -645,62 +723,48 @@ public String getUserData() {
 
 ---
 
-### **Saga Pattern in Distributed Transactions**  
+### **Saga Pattern – Handling Distributed Transactions**  
 
-#### **✅ What is the Saga Pattern?**  
-✔ Used for **managing distributed transactions** across multiple microservices.  
-✔ Ensures **data consistency** in the absence of a global transaction manager.  
-✔ Uses **a series of local transactions** instead of a single global transaction.  
+🛠 **Problem:** Microservices don’t have a global database, so **rolling back changes** when a failure happens is tricky.  
+✅ **Solution:** Use **Saga**, which breaks a big transaction into **small local transactions** with rollback steps.  
 
-#### **🔹 How Saga Works?**  
+#### **Two Ways to Use Saga:**  
+##### **1️⃣ Choreography (Event-Driven) 🎭**  
+✔ **Each service listens & reacts** to events—no central controller.  
+✔ Good for **simple workflows** with fewer dependencies.  
 
-There are **two types** of Saga patterns:  
+💡 **Example: Order Processing**  
+- 🛒 **Order Service** → Creates order → Sends `OrderCreated` event.  
+- 💳 **Payment Service** → Deducts payment → Sends `PaymentCompleted` event.  
+- 📦 **Inventory Service** → Reserves stock → Sends `StockReserved` event.  
 
-#### **1️⃣ Choreography-Based Saga** (Event-Driven)  
-✔ Each service **listens** for events and **performs actions** accordingly.  
-✔ Services communicate **directly via events** (without a central coordinator).  
-✔ Best for **simple workflows** with minimal dependencies.  
+🚨 **What if stock is unavailable?**  
+→ **Rollback:** Inventory cancels order → Payment refunds money.  
 
-✅ **Example: Order Processing**  
-1. **Order Service** → Creates an order → Publishes `OrderCreated` event.  
-2. **Payment Service** → Listens → Deducts payment → Publishes `PaymentCompleted` event.  
-3. **Inventory Service** → Listens → Reserves stock → Publishes `StockReserved` event.  
+##### **2️⃣ Orchestration (Central Controller) 🎯**  
+✔ **One service (Orchestrator) controls** the whole process.  
+✔ Good for **complex workflows** needing strict control.  
 
-💡 **Key Point:** If any step fails, compensating actions are triggered (e.g., **refund payment** if stock is unavailable).  
+💡 **Example: Order Processing with Orchestrator**  
+- 🤖 **Orchestrator** → Orders Service: “Create Order”  
+- 🛒 **Order Service** → Order created → Notifies Orchestrator  
+- 🤖 **Orchestrator** → Payment Service: “Deduct Payment”  
+- 💳 **Payment Service** → Payment deducted → Notifies Orchestrator  
+- 🤖 **Orchestrator** → Inventory Service: “Reserve Stock”  
 
-#### **2️⃣ Orchestration-Based Saga** (Central Coordinator)  
-✔ Uses a **Saga Orchestrator** to control transaction flow.  
-✔ Services **don’t communicate directly**; instead, they get commands from the orchestrator.  
-✔ Best for **complex workflows** where steps must happen in a controlled sequence.  
+🚨 **What if payment fails?**  
+→ **Rollback:** Orchestrator tells Order Service to cancel the order.  
 
-✅ **Example: Order Processing with Orchestrator**  
-1. **Orchestrator** → Sends `CreateOrder` to Order Service.  
-2. **Order Service** → Creates order → Sends `OrderCreated` event.  
-3. **Orchestrator** → Sends `DeductPayment` to Payment Service.  
-4. **Payment Service** → Deducts payment → Sends `PaymentCompleted` event.  
-5. **Orchestrator** → Sends `ReserveStock` to Inventory Service.  
+#### **Choreography vs. Orchestration – When to Use?**  
+- **Choreography** → Simple workflows, less coupling.  
+- **Orchestration** → Complex workflows, strict control.  
 
-💡 **Key Point:** The orchestrator handles **rollback (compensating transactions)** if a failure occurs.  
-
-#### **🔹 Compensating Transactions (Rollback Mechanism)**  
-✔ If one service fails, previous actions **must be undone**.  
-✔ Compensation ensures **eventual consistency**.  
-
-✅ **Example: Failure in Stock Reservation**  
-- **Payment was deducted**, but stock is unavailable.  
-- Orchestrator triggers **compensating transaction** → **Refund payment**.  
+**Saga = Smart way to handle microservices failures!** 🚀
 
 #### **🔹 When to Use Saga?**  
 ✔ When **transactions span multiple microservices**.  
 ✔ When a **global transaction manager (2PC) is not feasible**.  
 ✔ When **eventual consistency is acceptable**.  
-
-#### **💡 Key Takeaways**  
-✅ **Saga replaces global transactions** in microservices.  
-✅ **Choreography (Event-Based)** → Best for **simple workflows**.  
-✅ **Orchestration (Central Coordinator)** → Best for **complex workflows**.  
-✅ **Compensating transactions** ensure rollback in case of failure.  
-✅ **Eventual consistency** instead of strict ACID guarantees.  
 
 ---
 
