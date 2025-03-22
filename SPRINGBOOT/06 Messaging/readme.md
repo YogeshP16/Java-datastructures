@@ -1,9 +1,6 @@
 
 ## **Index**
 
-- [Spring Data JPA](#spring-data-jpa)
-   - [JDBC](#jdbc)
-   - [WorkFlow](#workflow)
 - [Basics – What is Kafka?](#basics--what-is-kafka)
    - [Why?](#why)
 - [How Kafka Works? (Core Concepts)](#how-kafka-works-core-concepts)
@@ -27,7 +24,7 @@
 - [Kafka Fault Tolerance – How It Prevents Data Loss?](#kafka-fault-tolerance--how-it-prevents-data-loss)
 - [RabbitMQ vs Kafka – Key Difference in Async Communication](#rabbitmq-vs-kafka--key-difference-in-async-communication)
 
-## **Basics – What is Kafka?**  
+## **Basics – What is Kafka?**
 ✅ **Kafka helps different systems talk to each other in real-time by passing messages efficiently.**  
 ✅ **It handles large amounts of data without slowing down.**  
 ✅ **If a part of Kafka fails, the data remains safe because it makes copies (replication).**  
