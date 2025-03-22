@@ -3,7 +3,8 @@
 
     
     "java.project.sourcePaths": [
-        "JAVA_DSA/01-Basics/Topic-005-Functions"
+        "JAVA_DSA/01-Basics/Topic-005-Functions",
+        "JAVA_DSA/01-Basics/Topic-005-Strings"
     ]
     
 }
