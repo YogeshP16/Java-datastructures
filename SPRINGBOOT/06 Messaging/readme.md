@@ -1,5 +1,31 @@
 
+## **Index**
 
+- [Spring Data JPA](#spring-data-jpa)
+   - [JDBC](#jdbc)
+   - [WorkFlow](#workflow)
+- [Basics – What is Kafka?](#basics--what-is-kafka)
+   - [Why?](#why)
+- [How Kafka Works? (Core Concepts)](#how-kafka-works-core-concepts)
+   - [Flow: Data moves in this order](#flow-data-moves-in-this-order)
+   - [How Each Part Works?](#how-each-part-works)
+- [Kafka in Spring Boot (Template & Listener)](#kafka-in-spring-boot-template--listener)
+   - [How It Works?](#how-it-works)
+   - [Producer (Sending Messages)](#producer-sending-messages--uses-kafkatemplate)
+   - [Consumer (Receiving Messages)](#consumer-receiving-messages--uses-kafkalistener)
+- [Why Do We Need Kafka? (Problems It Solves)](#why-do-we-need-kafka-problems-it-solves)
+   - [Before Kafka – Issues in Traditional Messaging Systems](#before-kafka--issues-in-traditional-messaging-systems)
+   - [How Kafka Fixes These Problems](#how-kafka-fixes-these-problems)
+   - [What Happens When Kafka Fails?](#what-happens-when-kafka-fails)
+- [Kafka Brokers (Servers) – How They Work?](#kafka-brokers-servers--how-they-work)
+- [Kafka Topics – How Data is Organized?](#kafka-topics--how-data-is-organized)
+   - [Kafka topic - Partitions](#kafka-topic---partitions)
+- [Kafka Producers – How Data is Sent?](#kafka-producers--how-data-is-sent)
+- [Kafka Consumers – How Data is Read?](#kafka-consumers--how-data-is-read)
+- [How Developers Work with Kafka?](#how-developers-work-with-kafka)
+- [Kafka Scalability – How It Handles Large Data?](#kafka-scalability--how-it-handles-large-data)
+- [Kafka Fault Tolerance – How It Prevents Data Loss?](#kafka-fault-tolerance--how-it-prevents-data-loss)
+- [RabbitMQ vs Kafka – Key Difference in Async Communication](#rabbitmq-vs-kafka--key-difference-in-async-communication)
 
 ## **Basics – What is Kafka?**  
 ✅ **Kafka helps different systems talk to each other in real-time by passing messages efficiently.**  

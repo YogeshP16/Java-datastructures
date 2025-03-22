@@ -1,3 +1,30 @@
+### **Index**
+
+- [Spring Data JPA](#spring-data-jpa)
+  - [JDBC](#jdbc)
+  - [WorkFlow](#workflow)
+- [Spring Security](#spring-security)
+  - [Purpose & Usage](#1-purpose--usage)
+  - [Authentication Types](#2-authentication-types)
+  - [Core Concepts](#3-core-concepts)
+  - [Implementing Spring Security in Spring Boot](#4-implementing-spring-security-in-spring-boot)
+  - [Default Username & Password](#default-username--password)
+  - [Method-Level Security](#method-level-security)
+  - [OAuth 2.0](#5-what-is-oauth-20)
+  - [OAuth 2.0 - Key Concepts](#6-oauth-20---key-concepts)
+  - [OAuth 2.0 - Workflow](#7-oauth-20---workflow)
+  - [OAuth 2.0 - Scopes & Tokens](#8-oauth-20---scopes--tokens)
+  - [OAuth 2.0 - Grant Types](#9-oauth-20---grant-types)
+  - [Why OAuth 2.0 Uses Tokens](#10-why-oauth-20-uses-tokens)
+  - [JWT (JSON Web Token) in Spring Boot](#jwt-json-web-token-in-spring-boot)
+  - [JWT - Why Use JWT?](#11-jwt---why-use-jwt)
+  - [JWT - Structure](#12-jwt---structure)
+  - [JWT - Claims](#13-jwt---claims)
+  - [JWT - Validating JWT](#14-jwt---validating-jwt)
+  - [CSRF Protection](#15-csrf-protection)
+
+### **SPRING SECURITY**
+
 ### **SPRING SECURITY**
 
 #### **1: Purpose & Usage**

@@ -190,7 +190,8 @@ class Car {
 
 #### **1: What is a Spring Bean?**  
 📝 **Definition**:  
-A **Spring Bean** is an object that is managed by the **Spring IoC container**. It is created, configured, and controlled by Spring throughout its lifecycle.  
+- A **Spring Bean** is an object that is managed by the **Spring IoC container**. 
+- It is created, configured, and controlled by Spring throughout its lifecycle.  
 
 #### **2: Why are Spring Beans needed?**  
 ❓ **Problem they solve**:  
@@ -236,23 +237,17 @@ class Car {}
 ## **Spring Bean Life Cycle**  
 
 #### **1: What is the Spring Bean Life Cycle?**  
-📝 **Definition**:  
-The **Spring Bean Life Cycle** refers to the stages a bean goes through from **creation** to **destruction**, managed by the **Spring IoC container**.  
+**Spring Bean Lifecycle**: Controls the creation and destruction of beans in Spring.  
 
-#### **2: Why is the Bean Life Cycle important?**  
-❓ **Problem it solves**:  
-- Ensures **proper initialization and cleanup** of resources.  
-- Allows **custom behavior** before and after a bean is ready to use.  
-- Prevents **memory leaks** by handling cleanup automatically.  
+**Why?** Manages initialization, dependency injection, and cleanup efficiently.  
 
-#### **3: Stages of the Spring Bean Life Cycle**  
-📌 **Key stages**:  
-1️⃣ **Instantiation** – The container creates the bean.  
-2️⃣ **Dependency Injection** – Dependencies are injected.  
-3️⃣ **Post-initialization (`@PostConstruct`)** – Custom logic after initialization.  
-4️⃣ **Ready to Use** – Bean is available for use.  
-5️⃣ **Pre-destruction (`@PreDestroy`)** – Cleanup logic before bean is removed.  
-6️⃣ **Destruction** – The bean is destroyed.  
+**Flow:**  
+1. **Instantiate** – Spring creates the bean.  
+2. **Populate Properties** – Injects dependencies.  
+3. **Post-Initialization** – Runs `@PostConstruct` and `BeanPostProcessor`.  
+4. **Ready to Use** – Bean is available in the container.  
+5. **Pre-Destruction** – Runs `@PreDestroy` and `DisposableBean`.  
+6. **Destroy** – Removes the bean from memory.
 
 #### **4: Custom Initialization and Destruction Methods**  
 📌 **Using `@PostConstruct` and `@PreDestroy` (Recommended)**  
