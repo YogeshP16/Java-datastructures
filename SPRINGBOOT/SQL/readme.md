@@ -1,6 +1,7 @@
 
 ## **🔹 Index**  
 - [Indexing – Speed Up Queries](#indexing--speed-up-queries-)
+- [Functions] (#functions-)
 - [Stored Procedure – Reusable SQL Code](#stored-procedure--reusable-sql-code-)
 - [Normalization – Remove Data Redundancy](#normalization--remove-data-redundancy-)
 - [Aggregation – Group & Summarize Data](#aggregation--group--summarize-data-)
@@ -13,7 +14,7 @@
 - [SQL Language Categories – 4 Types](#sql-language-categories--4-types-)
 ---  
 
-## **🔹 Indexing – Speed Up Queries 🚀**  
+## **Indexing – Speed Up Queries**  
 ✅ **What?** A **data structure** (B-Tree, Hash) that helps in **faster search**.  
 ✅ **Why?** Instead of scanning the entire table, it **jumps directly** to relevant rows.  
 ✅ **Example:** `CREATE INDEX idx_name ON employees(name);`  
@@ -21,9 +22,26 @@
 
 ---
 
+## **Functions**
+✅ **What?** Takes input, processes it, and returns a single value. 
+✅ **How it diff from stored procedure?** 
+- Function: Returns only one value, can be used inside SQL queries.
+- Stored Procedure: Can return multiple results and execute multiple queries.
+✅ **Example:** 
+```sql 
+CREATE FUNCTION getUserCount()  
+RETURNS INT  
+BEGIN  
+    DECLARE count INT;  
+    SELECT COUNT(*) INTO count FROM users;  
+    RETURN count;  
+END;
+```
+---
+
 ## **🔹 Stored Procedure – Reusable SQL Code ⚙️**  
-✅ **What?** A **predefined SQL block** stored in the database.  
-✅ **Why?** **Faster execution** (precompiled) and **reduces redundancy**.  
+✅ **What?**  Saves SQL queries inside the database so you can reuse them without rewriting.  
+✅ **Why?** **Faster execution** (precompiled) and **reduces redundancy(avoid duplicates)**.  
 ✅ **Example:**  
 ```sql
 CREATE PROCEDURE GetUsers()
@@ -39,9 +57,9 @@ END;
 ✅ **What?** **Organizing tables** to avoid duplicate data.  
 ✅ **Why?** **Saves space, avoids anomalies**, and improves consistency.  
 ✅ **Levels:**  
-1️⃣ **1NF** → Atomic values (no lists inside cells).  
-2️⃣ **2NF** → No partial dependency (non-key columns depend only on the primary key).  
-3️⃣ **3NF** → No transitive dependency (no indirect dependency on the primary key).  
+1️⃣ **1NF** → Move repeated columns into a separate table (e.g., multiple phone numbers into a new table). 
+2️⃣ **2NF** →  Ensure every column depends on the whole primary key, not just part of it. (Fix: Separate product details from an order table.).  
+3️⃣ **3NF** →  Avoid storing extra info in the wrong table (e.g., storing DeptName inside an employees table instead of a departments table).  
 
 ✅ **Downside?** **More joins** can slow down queries.  
 

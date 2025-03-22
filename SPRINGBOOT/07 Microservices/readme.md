@@ -459,9 +459,10 @@ POST http://localhost:8080/actuator/refresh
 ### **API Gateway & Spring Cloud Gateway**  
 
 #### **✅ What is an API Gateway?**  
-✔ A single entry point for **all client requests** in a microservices architecture.  
+✔ A single entry point for **all client requests** in a microservices architecture. this is first layer it just solves teh sitting between client and backend services. 
 ✔ Handles **routing, authentication, rate limiting, logging, and security**.  
-✔ Helps in **hiding internal microservice structure** from clients.  
+✔ Helps in **hiding internal microservice structure** from clients. 
+if client send request that need data from multiple services api gateway responsible for all service and sent the single response back to client
 
 ✅ **Common API Gateway Tools:**  
 - **Spring Cloud Gateway**  
@@ -724,9 +725,11 @@ public String getUserData() {
 ---
 
 ### **Saga Pattern – Handling Distributed Transactions**  
-
-🛠 **Problem:** Microservices don’t have a global database, so **rolling back changes** when a failure happens is tricky.  
-✅ **Solution:** Use **Saga**, which breaks a big transaction into **small local transactions** with rollback steps.  
+**Transaction** Example in Banking system we just transfer money from myAccount to others
+so the system ensure either both the debit and credit operations sucess or either both fails so this is part  of one transaction. so if sucess means commit else rollback.
+**Problem:** Microservices don’t have a global database, so **rolling back changes** when a failure happens is tricky.  
+**Solution:** Use **Saga**, which breaks a big transaction into **small local transactions** with rollback steps. so each service performs its part and then publishes an event to notify the services.
+some kind of chain system if somthing goes wrong it just undo the previous transations 
 
 #### **Two Ways to Use Saga:**  
 ##### **1️⃣ Choreography (Event-Driven) 🎭**  

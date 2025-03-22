@@ -25,3 +25,24 @@ https://www.geeksforgeeks.org/problems/inverted-right-angletriangle-1605691171--
 https://www.geeksforgeeks.org/problems/factorial-1598335080--125944/1&selectedLang=python3
 https://www.geeksforgeeks.org/problems/divisor--125050/1&selectedLang=python3
 https://www.geeksforgeeks.org/problems/triangle-pattern/1&selectedLang=python3?page=6&difficulty=Basic&sortBy=submissions
+https://www.geeksforgeeks.org/problems/factorial5739/1&selectedLang=python3?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+
+
+
+
+
+
+
+
+
+Problem Type	Formula/Logic
+Count Digits	count++
+Sum of Digits	sum += n % 10
+Reverse Number	rev = rev * 10 + n % 10
+Palindrome Check	n == reverse(n)
+Count Even/Odd Digits	if (n%10) % 2 == 0
+Armstrong Number	sum += Math.pow(n % 10, numDigits)
+Product of Digits	product *= n % 10
+Remove Specific Digit	Skip that digit when reconstructing
+Check All Same Digits	Compare all digits with first digit
+Count Specific Digit	if (n%10 == target) count++

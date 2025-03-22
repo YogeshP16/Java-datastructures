@@ -301,15 +301,7 @@ public class GlobalExceptionHandler {
 📝 **Definition**:  
 - **REST (Representational State Transfer)** is an architectural style for designing networked applications. 
 - It uses a stateless, client-server communication model, typically over HTTP, where resources are identified by URIs.
-
-#### **What are the Key Principles of REST?**  
-🔑 **Key Principles**:  
-1. **Stateless**: Each request from client to server must contain all necessary information (i.e., no session state).
-2. **Client-Server Architecture**: Separation of concerns; client is responsible for the user interface, server for data management.
-3. **Uniform Interface**: A consistent way of interacting with resources (e.g., HTTP methods like GET, POST).
-4. **Cacheable**: Responses should define themselves as cacheable or not, to improve performance.
-5. **Layered System**: The client cannot ordinarily tell whether it is connected directly to the end server or to an intermediary.
-6. **Code on Demand (optional)**: Servers can temporarily extend or customize functionality by transferring executable code.
+- **RestFull webservices** Follow rest architecture concepts(stateless, client server)
 
 
 #### **Key HTTP Methods & Usage:**  
@@ -335,10 +327,12 @@ No, **`PUT` does not call `POST`** to create a resource. Instead, **PUT itself**
 - If the **resource exists**, `PUT` **updates/replaces** it.  
 - If the **resource does not exist**, `PUT` **creates** it **at the specified URL** (unlike `POST`, which does not require a predefined URL).  
 
-### **What is a REST Resource?**  
-📝 **Definition**:  
+### **What is a REST Resource?**   
 - A **REST resource** is any object, data, or service that is identified by a URI (Uniform Resource Identifier). 
 - Resources are accessed and manipulated using standard HTTP methods (GET, POST, PUT, DELETE).
+
+### **URI**
+-  (Uniform Resource Identifier) used to indentify each resources in REST
 
 ### **What are HTTP Status Codes in REST?**  
 🔹 **2xx Success**:  
@@ -380,11 +374,17 @@ No, **`PUT` does not call `POST`** to create a resource. Instead, **PUT itself**
 
 ### **What is an Idempotent HTTP Method?**  
 📝 **Definition**:  
-- An HTTP method is **idempotent** if making multiple identical requests has the same effect as making a single request.  
-🔹 **Examples**:  
-   - **GET**: No side effects (retrieves data).
-   - **PUT**: Updating a resource multiple times doesn’t change the result after the first update.  
-   - **DELETE**: Deleting a resource multiple times has the same effect (resource is deleted).
+- An HTTP method is **idempotent** if making multiple identical requests has the same effect as making a single request.
+
+| **Method**  | **Purpose**                            | **Idempotent?** |
+|------------|-----------------------------------------|---------------|
+| **OPTIONS** | Fetch allowed HTTP methods for a URL   | ✅ Yes |
+| **HEAD**    | Fetch headers without response body    | ✅ Yes |
+| **GET**    | Retrieve a resource                     | ✅ Yes |
+| **POST**   | Create a new resource                   | ❌ No |
+| **PUT**    | Update/Replace a resource               | ✅ Yes |
+| **PATCH**  | Partially update a resource             | ❌ No |
+| **DELETE** | Remove a resource                       | ✅ Yes (if deleting the same resource) |
 
 ### **What is the Purpose of HTTP Headers in REST APIs?**  
 🔹 **Definition**:  
@@ -455,6 +455,17 @@ If your frontend (e.g., React app) is hosted on a different domain than the back
      </person>
      ```
 
+### **How you convert the JSON response to XML in Springboot**
+- **Answer**: Use produces = {"application/json", "application/xml"} in @GetMapping:
+
+```java
+@GetMapping(value = "/employee", produces = {"application/json", "application/xml"})
+public Employee getEmployee() {
+    return new Employee("John", 30);
+}
+Spring Boot automatically converts it based on the Accept header.
+```
+
 ### **Versioning in REST APIs**  
 🔹 **Definition**:  
 API versioning ensures that changes to the API do not break existing client implementations.
@@ -465,134 +476,7 @@ API versioning ensures that changes to the API do not break existing client impl
    - **Header Versioning**: `X-API-Version: 1`
 
 ---
-
-## **REST HTTP Methods & Idempotency**  
-
-| **Method**  | **Purpose**                            | **Idempotent?** |
-|------------|-----------------------------------------|---------------|
-| **OPTIONS** | Fetch allowed HTTP methods for a URL   | ✅ Yes |
-| **HEAD**    | Fetch headers without response body    | ✅ Yes |
-| **GET**    | Retrieve a resource                     | ✅ Yes |
-| **POST**   | Create a new resource                   | ❌ No |
-| **PUT**    | Update/Replace a resource               | ✅ Yes |
-| **PATCH**  | Partially update a resource             | ❌ No |
-| **DELETE** | Remove a resource                       | ✅ Yes (if deleting the same resource) |
-
----
-
-### **1️⃣ OPTIONS Method**  
-- Used to check **what HTTP methods** are supported by the server for a resource.  
-- Helps in **CORS (Cross-Origin Resource Sharing)**.  
-- **Example:**  
-  ```http
-  OPTIONS /users HTTP/1.1
-  ```
-  **Response:**
-  ```http
-  Allow: GET, POST, PUT, DELETE
-  ```
-
----
-
-### **2️⃣ HEAD Method**  
-- Similar to **GET** but **without the response body**.  
-- Used for **checking metadata** (e.g., content type, size).  
-- **Example:**  
-  ```http
-  HEAD /users HTTP/1.1
-  ```
-  **Response Headers Only:**
-  ```http
-  Content-Type: application/json
-  Content-Length: 240
-  ```
-
----
-
-### **3️⃣ GET Method**  
-- **Retrieves** a resource from the server.  
-- **Safe & Idempotent** (repeated requests return the same response).  
-- **Example:**  
-  ```http
-  GET /users/1 HTTP/1.1
-  ```
-  **Response:**  
-  ```json
-  { "id": 1, "name": "Alice" }
-  ```
-
----
-
-### **4️⃣ POST Method**  
-- **Creates** a new resource.  
-- **Not idempotent** (multiple requests create duplicate resources).  
-- **Example:**  
-  ```http
-  POST /users HTTP/1.1
-  Content-Type: application/json
-  ```
-  ```json
-  { "name": "Alice" }
-  ```
-  **Response:**
-  ```http
-  201 Created
-  ```
-
----
-
-### **5️⃣ PUT Method**  
-- **Replaces an entire resource** (if it exists) or **creates** it if not.  
-- **Idempotent** (calling it multiple times results in the same state).  
-- **Example:**  
-  ```http
-  PUT /users/1 HTTP/1.1
-  Content-Type: application/json
-  ```
-  ```json
-  { "id": 1, "name": "Alice Updated" }
-  ```
-  **Response:**  
-  ```http
-  200 OK (if updated)  
-  201 Created (if new)
-  ```
-
----
-
-### **6️⃣ PATCH Method**  
-- **Partially updates** a resource.  
-- **Not idempotent** (repeated requests may change different parts).  
-- **Example:**  
-  ```http
-  PATCH /users/1 HTTP/1.1
-  Content-Type: application/json
-  ```
-  ```json
-  { "name": "Alice Updated" }
-  ```
-  **Response:**
-  ```http
-  200 OK
-  ```
-
----
-
-### **7️⃣ DELETE Method**  
-- **Removes** a resource.  
-- **Idempotent** (deleting the same resource again has no effect).  
-- **Example:**  
-  ```http
-  DELETE /users/1 HTTP/1.1
-  ```
-  **Response:**  
-  ```http
-  204 No Content
-  ```
-
----
  
-
 ## **Best Practices in REST API Design**   
 
 ### **1️⃣ API Versioning**  
@@ -625,6 +509,7 @@ Access at: `http://localhost:8080/swagger-ui.html`
 | **200 OK**   | Success                     |
 | **201 Created** | Resource successfully created |
 | **204 No Content** | Request successful, no response body |
+| **300 Redirect** | redirect |
 | **400 Bad Request** | Client-side error (Invalid input) |
 | **401 Unauthorized** | Authentication required |
 | **403 Forbidden** | No permission to access |
@@ -639,7 +524,12 @@ return ResponseEntity.status(HttpStatus.CREATED).body(user);
 ### **4️⃣ Content Negotiation**  
 📌 **Why?** Allows APIs to serve different response formats (`JSON`, `XML`).  
 📌 **How?** Use `Accept` header to determine the response type.  
-✅ **Example:**  
+✅ **Example:**
+
+GET /users HTTP/1.1
+Host: example.com
+Accept: application/json
+
 ```java
 @GetMapping(value = "/users", produces = {"application/json", "application/xml"})
 public User getUser() { return new User("John", "Doe"); }
